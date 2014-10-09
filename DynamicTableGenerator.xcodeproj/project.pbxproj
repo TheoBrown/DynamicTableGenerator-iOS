@@ -1,703 +1,591 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>09905CECAE2A4884925F3AE1</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>DAEAA8757C8B446F8D10E45F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1655C8E7531645AAB0DA452B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-DynamicTableGenerator-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>5923702A754745FEB1F27B3E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DAEAA8757C8B446F8D10E45F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6C7B9CB319E7256400C86637</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>6C7B9CBE19E7256400C86637</string>
-				<string>6C7B9CC819E7256400C86637</string>
-				<string>6C7B9CBD19E7256400C86637</string>
-				<string>BFB8596C4D114A4FB8E43025</string>
-				<string>09905CECAE2A4884925F3AE1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6C7B9CB419E7256400C86637</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0600</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Theodore Brown</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>6C7B9CBB19E7256400C86637</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>6.0.1</string>
-					</dict>
-					<key>6C7B9CC619E7256400C86637</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>6.0.1</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>6C7B9CB719E7256400C86637</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>6C7B9CB319E7256400C86637</string>
-			<key>productRefGroup</key>
-			<string>6C7B9CBD19E7256400C86637</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>6C7B9CBB19E7256400C86637</string>
-				<string>6C7B9CC619E7256400C86637</string>
-			</array>
-		</dict>
-		<key>6C7B9CB719E7256400C86637</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>6C7B9CCB19E7256400C86637</string>
-				<string>6C7B9CCC19E7256400C86637</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>6C7B9CB819E7256400C86637</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>6C7B9CC219E7256400C86637</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>6C7B9CB919E7256400C86637</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>5923702A754745FEB1F27B3E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>6C7B9CBA19E7256400C86637</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>dstPath</key>
-			<string>include/$(PRODUCT_NAME)</string>
-			<key>dstSubfolderSpec</key>
-			<string>16</string>
-			<key>files</key>
-			<array>
-				<string>6C7B9CC019E7256400C86637</string>
-			</array>
-			<key>isa</key>
-			<string>PBXCopyFilesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>6C7B9CBB19E7256400C86637</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>6C7B9CCD19E7256400C86637</string>
-			<key>buildPhases</key>
-			<array>
-				<string>F31CCC19F5824FE09FDD57C5</string>
-				<string>6C7B9CB819E7256400C86637</string>
-				<string>6C7B9CB919E7256400C86637</string>
-				<string>6C7B9CBA19E7256400C86637</string>
-				<string>1655C8E7531645AAB0DA452B</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>DynamicTableGenerator</string>
-			<key>productName</key>
-			<string>DynamicTableGenerator</string>
-			<key>productReference</key>
-			<string>6C7B9CBC19E7256400C86637</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>6C7B9CBC19E7256400C86637</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libDynamicTableGenerator.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>6C7B9CBD19E7256400C86637</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>6C7B9CBC19E7256400C86637</string>
-				<string>6C7B9CC719E7256400C86637</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6C7B9CBE19E7256400C86637</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>6C7B9CBF19E7256400C86637</string>
-				<string>6C7B9CC119E7256400C86637</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>DynamicTableGenerator</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6C7B9CBF19E7256400C86637</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>DynamicTableGenerator.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6C7B9CC019E7256400C86637</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6C7B9CBF19E7256400C86637</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6C7B9CC119E7256400C86637</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>DynamicTableGenerator.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6C7B9CC219E7256400C86637</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6C7B9CC119E7256400C86637</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6C7B9CC319E7256400C86637</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>6C7B9CC419E7256400C86637</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>6C7B9CC519E7256400C86637</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>6C7B9CC619E7256400C86637</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>6C7B9CD019E7256400C86637</string>
-			<key>buildPhases</key>
-			<array>
-				<string>6C7B9CC319E7256400C86637</string>
-				<string>6C7B9CC419E7256400C86637</string>
-				<string>6C7B9CC519E7256400C86637</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>DynamicTableGeneratorTests</string>
-			<key>productName</key>
-			<string>DynamicTableGeneratorTests</string>
-			<key>productReference</key>
-			<string>6C7B9CC719E7256400C86637</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>6C7B9CC719E7256400C86637</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>DynamicTableGeneratorTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>6C7B9CC819E7256400C86637</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>6C7B9CC919E7256400C86637</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>DynamicTableGeneratorTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6C7B9CC919E7256400C86637</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>6C7B9CCA19E7256400C86637</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6C7B9CCA19E7256400C86637</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6C7B9CCB19E7256400C86637</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>6C7B9CCC19E7256400C86637</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>6C7B9CCD19E7256400C86637</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>6C7B9CCE19E7256400C86637</string>
-				<string>6C7B9CCF19E7256400C86637</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>6C7B9CCE19E7256400C86637</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>BFB8596C4D114A4FB8E43025</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>OTHER_LDFLAGS</key>
-				<string>-ObjC</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>6C7B9CCF19E7256400C86637</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>BFB8596C4D114A4FB8E43025</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>OTHER_LDFLAGS</key>
-				<string>-ObjC</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>6C7B9CD019E7256400C86637</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>6C7B9CD119E7256400C86637</string>
-				<string>6C7B9CD219E7256400C86637</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>6C7B9CD119E7256400C86637</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>DynamicTableGeneratorTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>6C7B9CD219E7256400C86637</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>DynamicTableGeneratorTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>BFB8596C4D114A4FB8E43025</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-DynamicTableGenerator.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods-DynamicTableGenerator.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DAEAA8757C8B446F8D10E45F</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-DynamicTableGenerator.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>F31CCC19F5824FE09FDD57C5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>6C7B9CB419E7256400C86637</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5923702A754745FEB1F27B3E /* libPods-DynamicTableGenerator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEAA8757C8B446F8D10E45F /* libPods-DynamicTableGenerator.a */; };
+		6C7B9CC019E7256400C86637 /* DynamicTableGenerator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C7B9CBF19E7256400C86637 /* DynamicTableGenerator.h */; };
+		6C7B9CC219E7256400C86637 /* DynamicTableGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CC119E7256400C86637 /* DynamicTableGenerator.m */; };
+		6C7B9CF019E72D1300C86637 /* XIBBasedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CD519E72D1200C86637 /* XIBBasedTableCell.m */; };
+		6C7B9CF119E72D1300C86637 /* CellWithSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CD719E72D1200C86637 /* CellWithSegment.m */; };
+		6C7B9CF219E72D1300C86637 /* CellWithAbstractActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CDA19E72D1200C86637 /* CellWithAbstractActionSheet.m */; };
+		6C7B9CF319E72D1300C86637 /* CellWithDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CDD19E72D1200C86637 /* CellWithDate.m */; };
+		6C7B9CF419E72D1300C86637 /* CellWithSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE019E72D1200C86637 /* CellWithSwitch.m */; };
+		6C7B9CF519E72D1300C86637 /* CellWithText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE319E72D1200C86637 /* CellWithText.m */; };
+		6C7B9CF619E72D1300C86637 /* TableCellWithNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE619E72D1300C86637 /* TableCellWithNumber.m */; };
+		6C7B9CF719E72D1300C86637 /* CustomButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE919E72D1300C86637 /* CustomButtonCell.m */; };
+		6C7B9CF819E72D1300C86637 /* CellWithButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CEB19E72D1300C86637 /* CellWithButton.m */; };
+		6C7B9CF919E72D1300C86637 /* CellWithSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CEE19E72D1300C86637 /* CellWithSlider.m */; };
+		6C7B9CFE19E72D4600C86637 /* DummyTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CFD19E72D4600C86637 /* DummyTestView.m */; };
+		6C7B9D1019E72D9E00C86637 /* BaseOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0119E72D9E00C86637 /* BaseOptionCellInput.m */; };
+		6C7B9D1119E72D9E00C86637 /* SegmentOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0319E72D9E00C86637 /* SegmentOptionCellInput.m */; };
+		6C7B9D1219E72D9E00C86637 /* SliderOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0519E72D9E00C86637 /* SliderOptionCellInput.m */; };
+		6C7B9D1319E72D9E00C86637 /* DateOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0719E72D9E00C86637 /* DateOptionCellInput.m */; };
+		6C7B9D1419E72D9E00C86637 /* TextOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0919E72D9E00C86637 /* TextOptionCellInput.m */; };
+		6C7B9D1519E72D9E00C86637 /* NumberOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0B19E72D9E00C86637 /* NumberOptionCellInput.m */; };
+		6C7B9D1619E72D9E00C86637 /* ButtonOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0D19E72D9E00C86637 /* ButtonOptionCellInput.m */; };
+		6C7B9D1719E72D9E00C86637 /* ActionSheetOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0F19E72D9E00C86637 /* ActionSheetOptionCellInput.m */; };
+		6C7B9D2119E72DC700C86637 /* PropertyUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D1A19E72DC700C86637 /* PropertyUtil.m */; };
+		6C7B9D2219E72DC700C86637 /* FetchedResultsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D1C19E72DC700C86637 /* FetchedResultsHelper.m */; };
+		6C7B9D2319E72DC700C86637 /* MutableTableViewObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D1E19E72DC700C86637 /* MutableTableViewObjects.m */; };
+		6C7B9D2419E72DC700C86637 /* SharedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D2019E72DC700C86637 /* SharedData.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6C7B9CBA19E7256400C86637 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				6C7B9CC019E7256400C86637 /* DynamicTableGenerator.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6C7B9CBC19E7256400C86637 /* libDynamicTableGenerator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDynamicTableGenerator.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C7B9CBF19E7256400C86637 /* DynamicTableGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicTableGenerator.h; sourceTree = "<group>"; };
+		6C7B9CC119E7256400C86637 /* DynamicTableGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicTableGenerator.m; sourceTree = "<group>"; };
+		6C7B9CC719E7256400C86637 /* DynamicTableGeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicTableGeneratorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C7B9CCA19E7256400C86637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C7B9CD419E72D1200C86637 /* XIBBasedTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XIBBasedTableCell.h; sourceTree = "<group>"; };
+		6C7B9CD519E72D1200C86637 /* XIBBasedTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XIBBasedTableCell.m; sourceTree = "<group>"; };
+		6C7B9CD619E72D1200C86637 /* CellWithSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithSegment.h; sourceTree = "<group>"; };
+		6C7B9CD719E72D1200C86637 /* CellWithSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithSegment.m; sourceTree = "<group>"; };
+		6C7B9CD819E72D1200C86637 /* CellWithSegment.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithSegment.xib; sourceTree = "<group>"; };
+		6C7B9CD919E72D1200C86637 /* CellWithAbstractActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithAbstractActionSheet.h; sourceTree = "<group>"; };
+		6C7B9CDA19E72D1200C86637 /* CellWithAbstractActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithAbstractActionSheet.m; sourceTree = "<group>"; };
+		6C7B9CDB19E72D1200C86637 /* CellWithAbstractActionSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithAbstractActionSheet.xib; sourceTree = "<group>"; };
+		6C7B9CDC19E72D1200C86637 /* CellWithDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithDate.h; sourceTree = "<group>"; };
+		6C7B9CDD19E72D1200C86637 /* CellWithDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithDate.m; sourceTree = "<group>"; };
+		6C7B9CDE19E72D1200C86637 /* CellWithDate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithDate.xib; sourceTree = "<group>"; };
+		6C7B9CDF19E72D1200C86637 /* CellWithSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithSwitch.h; sourceTree = "<group>"; };
+		6C7B9CE019E72D1200C86637 /* CellWithSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithSwitch.m; sourceTree = "<group>"; };
+		6C7B9CE119E72D1200C86637 /* CellWithSwitch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithSwitch.xib; sourceTree = "<group>"; };
+		6C7B9CE219E72D1200C86637 /* CellWithText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithText.h; sourceTree = "<group>"; };
+		6C7B9CE319E72D1200C86637 /* CellWithText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithText.m; sourceTree = "<group>"; };
+		6C7B9CE419E72D1300C86637 /* CellWithText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithText.xib; sourceTree = "<group>"; };
+		6C7B9CE519E72D1300C86637 /* TableCellWithNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCellWithNumber.h; sourceTree = "<group>"; };
+		6C7B9CE619E72D1300C86637 /* TableCellWithNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCellWithNumber.m; sourceTree = "<group>"; };
+		6C7B9CE719E72D1300C86637 /* TableCellWithNumber.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCellWithNumber.xib; sourceTree = "<group>"; };
+		6C7B9CE819E72D1300C86637 /* CustomButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButtonCell.h; sourceTree = "<group>"; };
+		6C7B9CE919E72D1300C86637 /* CustomButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButtonCell.m; sourceTree = "<group>"; };
+		6C7B9CEA19E72D1300C86637 /* CellWithButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithButton.h; sourceTree = "<group>"; };
+		6C7B9CEB19E72D1300C86637 /* CellWithButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithButton.m; sourceTree = "<group>"; };
+		6C7B9CEC19E72D1300C86637 /* CellWithButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithButton.xib; sourceTree = "<group>"; };
+		6C7B9CED19E72D1300C86637 /* CellWithSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithSlider.h; sourceTree = "<group>"; };
+		6C7B9CEE19E72D1300C86637 /* CellWithSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithSlider.m; sourceTree = "<group>"; };
+		6C7B9CEF19E72D1300C86637 /* CellWithSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithSlider.xib; sourceTree = "<group>"; };
+		6C7B9CFB19E72D3A00C86637 /* TableCellEditableProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableCellEditableProtocol.h; sourceTree = "<group>"; };
+		6C7B9CFC19E72D4600C86637 /* DummyTestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyTestView.h; sourceTree = "<group>"; };
+		6C7B9CFD19E72D4600C86637 /* DummyTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyTestView.m; sourceTree = "<group>"; };
+		6C7B9D0019E72D9E00C86637 /* BaseOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseOptionCellInput.h; sourceTree = "<group>"; };
+		6C7B9D0119E72D9E00C86637 /* BaseOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseOptionCellInput.m; sourceTree = "<group>"; };
+		6C7B9D0219E72D9E00C86637 /* SegmentOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentOptionCellInput.h; sourceTree = "<group>"; };
+		6C7B9D0319E72D9E00C86637 /* SegmentOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentOptionCellInput.m; sourceTree = "<group>"; };
+		6C7B9D0419E72D9E00C86637 /* SliderOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderOptionCellInput.h; sourceTree = "<group>"; };
+		6C7B9D0519E72D9E00C86637 /* SliderOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderOptionCellInput.m; sourceTree = "<group>"; };
+		6C7B9D0619E72D9E00C86637 /* DateOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateOptionCellInput.h; sourceTree = "<group>"; };
+		6C7B9D0719E72D9E00C86637 /* DateOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateOptionCellInput.m; sourceTree = "<group>"; };
+		6C7B9D0819E72D9E00C86637 /* TextOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextOptionCellInput.h; sourceTree = "<group>"; };
+		6C7B9D0919E72D9E00C86637 /* TextOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextOptionCellInput.m; sourceTree = "<group>"; };
+		6C7B9D0A19E72D9E00C86637 /* NumberOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberOptionCellInput.h; sourceTree = "<group>"; };
+		6C7B9D0B19E72D9E00C86637 /* NumberOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberOptionCellInput.m; sourceTree = "<group>"; };
+		6C7B9D0C19E72D9E00C86637 /* ButtonOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonOptionCellInput.h; sourceTree = "<group>"; };
+		6C7B9D0D19E72D9E00C86637 /* ButtonOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonOptionCellInput.m; sourceTree = "<group>"; };
+		6C7B9D0E19E72D9E00C86637 /* ActionSheetOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetOptionCellInput.h; sourceTree = "<group>"; };
+		6C7B9D0F19E72D9E00C86637 /* ActionSheetOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetOptionCellInput.m; sourceTree = "<group>"; };
+		6C7B9D1919E72DC700C86637 /* PropertyUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyUtil.h; sourceTree = "<group>"; };
+		6C7B9D1A19E72DC700C86637 /* PropertyUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyUtil.m; sourceTree = "<group>"; };
+		6C7B9D1B19E72DC700C86637 /* FetchedResultsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchedResultsHelper.h; sourceTree = "<group>"; };
+		6C7B9D1C19E72DC700C86637 /* FetchedResultsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchedResultsHelper.m; sourceTree = "<group>"; };
+		6C7B9D1D19E72DC700C86637 /* MutableTableViewObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableTableViewObjects.h; sourceTree = "<group>"; };
+		6C7B9D1E19E72DC700C86637 /* MutableTableViewObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableTableViewObjects.m; sourceTree = "<group>"; };
+		6C7B9D1F19E72DC700C86637 /* SharedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedData.h; sourceTree = "<group>"; };
+		6C7B9D2019E72DC700C86637 /* SharedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedData.m; sourceTree = "<group>"; };
+		BFB8596C4D114A4FB8E43025 /* Pods-DynamicTableGenerator.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicTableGenerator.xcconfig"; path = "Pods/Pods-DynamicTableGenerator.xcconfig"; sourceTree = "<group>"; };
+		DAEAA8757C8B446F8D10E45F /* libPods-DynamicTableGenerator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DynamicTableGenerator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6C7B9CB919E7256400C86637 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5923702A754745FEB1F27B3E /* libPods-DynamicTableGenerator.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C7B9CC419E7256400C86637 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		09905CECAE2A4884925F3AE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DAEAA8757C8B446F8D10E45F /* libPods-DynamicTableGenerator.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C7B9CB319E7256400C86637 = {
+			isa = PBXGroup;
+			children = (
+				6C7B9CBE19E7256400C86637 /* DynamicTableGenerator */,
+				6C7B9CC819E7256400C86637 /* DynamicTableGeneratorTests */,
+				6C7B9CBD19E7256400C86637 /* Products */,
+				BFB8596C4D114A4FB8E43025 /* Pods-DynamicTableGenerator.xcconfig */,
+				09905CECAE2A4884925F3AE1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6C7B9CBD19E7256400C86637 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6C7B9CBC19E7256400C86637 /* libDynamicTableGenerator.a */,
+				6C7B9CC719E7256400C86637 /* DynamicTableGeneratorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6C7B9CBE19E7256400C86637 /* DynamicTableGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				6C7B9D1819E72DBC00C86637 /* Helper Protocols */,
+				6C7B9CFA19E72D2500C86637 /* TableViewCells */,
+				6C7B9CBF19E7256400C86637 /* DynamicTableGenerator.h */,
+				6C7B9CC119E7256400C86637 /* DynamicTableGenerator.m */,
+			);
+			path = DynamicTableGenerator;
+			sourceTree = "<group>";
+		};
+		6C7B9CC819E7256400C86637 /* DynamicTableGeneratorTests */ = {
+			isa = PBXGroup;
+			children = (
+				6C7B9CC919E7256400C86637 /* Supporting Files */,
+			);
+			path = DynamicTableGeneratorTests;
+			sourceTree = "<group>";
+		};
+		6C7B9CC919E7256400C86637 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6C7B9CCA19E7256400C86637 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6C7B9CD319E72CF000C86637 /* CellNIBS */ = {
+			isa = PBXGroup;
+			children = (
+				6C7B9CD419E72D1200C86637 /* XIBBasedTableCell.h */,
+				6C7B9CD519E72D1200C86637 /* XIBBasedTableCell.m */,
+				6C7B9CD619E72D1200C86637 /* CellWithSegment.h */,
+				6C7B9CD719E72D1200C86637 /* CellWithSegment.m */,
+				6C7B9CD819E72D1200C86637 /* CellWithSegment.xib */,
+				6C7B9CD919E72D1200C86637 /* CellWithAbstractActionSheet.h */,
+				6C7B9CDA19E72D1200C86637 /* CellWithAbstractActionSheet.m */,
+				6C7B9CDB19E72D1200C86637 /* CellWithAbstractActionSheet.xib */,
+				6C7B9CDC19E72D1200C86637 /* CellWithDate.h */,
+				6C7B9CDD19E72D1200C86637 /* CellWithDate.m */,
+				6C7B9CDE19E72D1200C86637 /* CellWithDate.xib */,
+				6C7B9CDF19E72D1200C86637 /* CellWithSwitch.h */,
+				6C7B9CE019E72D1200C86637 /* CellWithSwitch.m */,
+				6C7B9CE119E72D1200C86637 /* CellWithSwitch.xib */,
+				6C7B9CE219E72D1200C86637 /* CellWithText.h */,
+				6C7B9CE319E72D1200C86637 /* CellWithText.m */,
+				6C7B9CE419E72D1300C86637 /* CellWithText.xib */,
+				6C7B9CE519E72D1300C86637 /* TableCellWithNumber.h */,
+				6C7B9CE619E72D1300C86637 /* TableCellWithNumber.m */,
+				6C7B9CE719E72D1300C86637 /* TableCellWithNumber.xib */,
+				6C7B9CE819E72D1300C86637 /* CustomButtonCell.h */,
+				6C7B9CE919E72D1300C86637 /* CustomButtonCell.m */,
+				6C7B9CEA19E72D1300C86637 /* CellWithButton.h */,
+				6C7B9CEB19E72D1300C86637 /* CellWithButton.m */,
+				6C7B9CEC19E72D1300C86637 /* CellWithButton.xib */,
+				6C7B9CED19E72D1300C86637 /* CellWithSlider.h */,
+				6C7B9CEE19E72D1300C86637 /* CellWithSlider.m */,
+				6C7B9CEF19E72D1300C86637 /* CellWithSlider.xib */,
+			);
+			name = CellNIBS;
+			sourceTree = "<group>";
+		};
+		6C7B9CFA19E72D2500C86637 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				6C7B9CFF19E72D7500C86637 /* Option Cell Input Types */,
+				6C7B9CFB19E72D3A00C86637 /* TableCellEditableProtocol.h */,
+				6C7B9CFC19E72D4600C86637 /* DummyTestView.h */,
+				6C7B9CFD19E72D4600C86637 /* DummyTestView.m */,
+				6C7B9CD319E72CF000C86637 /* CellNIBS */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		6C7B9CFF19E72D7500C86637 /* Option Cell Input Types */ = {
+			isa = PBXGroup;
+			children = (
+				6C7B9D0019E72D9E00C86637 /* BaseOptionCellInput.h */,
+				6C7B9D0119E72D9E00C86637 /* BaseOptionCellInput.m */,
+				6C7B9D0219E72D9E00C86637 /* SegmentOptionCellInput.h */,
+				6C7B9D0319E72D9E00C86637 /* SegmentOptionCellInput.m */,
+				6C7B9D0419E72D9E00C86637 /* SliderOptionCellInput.h */,
+				6C7B9D0519E72D9E00C86637 /* SliderOptionCellInput.m */,
+				6C7B9D0619E72D9E00C86637 /* DateOptionCellInput.h */,
+				6C7B9D0719E72D9E00C86637 /* DateOptionCellInput.m */,
+				6C7B9D0819E72D9E00C86637 /* TextOptionCellInput.h */,
+				6C7B9D0919E72D9E00C86637 /* TextOptionCellInput.m */,
+				6C7B9D0A19E72D9E00C86637 /* NumberOptionCellInput.h */,
+				6C7B9D0B19E72D9E00C86637 /* NumberOptionCellInput.m */,
+				6C7B9D0C19E72D9E00C86637 /* ButtonOptionCellInput.h */,
+				6C7B9D0D19E72D9E00C86637 /* ButtonOptionCellInput.m */,
+				6C7B9D0E19E72D9E00C86637 /* ActionSheetOptionCellInput.h */,
+				6C7B9D0F19E72D9E00C86637 /* ActionSheetOptionCellInput.m */,
+			);
+			name = "Option Cell Input Types";
+			sourceTree = "<group>";
+		};
+		6C7B9D1819E72DBC00C86637 /* Helper Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6C7B9D1919E72DC700C86637 /* PropertyUtil.h */,
+				6C7B9D1A19E72DC700C86637 /* PropertyUtil.m */,
+				6C7B9D1B19E72DC700C86637 /* FetchedResultsHelper.h */,
+				6C7B9D1C19E72DC700C86637 /* FetchedResultsHelper.m */,
+				6C7B9D1D19E72DC700C86637 /* MutableTableViewObjects.h */,
+				6C7B9D1E19E72DC700C86637 /* MutableTableViewObjects.m */,
+				6C7B9D1F19E72DC700C86637 /* SharedData.h */,
+				6C7B9D2019E72DC700C86637 /* SharedData.m */,
+			);
+			name = "Helper Protocols";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6C7B9CBB19E7256400C86637 /* DynamicTableGenerator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C7B9CCD19E7256400C86637 /* Build configuration list for PBXNativeTarget "DynamicTableGenerator" */;
+			buildPhases = (
+				F31CCC19F5824FE09FDD57C5 /* Check Pods Manifest.lock */,
+				6C7B9CB819E7256400C86637 /* Sources */,
+				6C7B9CB919E7256400C86637 /* Frameworks */,
+				6C7B9CBA19E7256400C86637 /* CopyFiles */,
+				1655C8E7531645AAB0DA452B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DynamicTableGenerator;
+			productName = DynamicTableGenerator;
+			productReference = 6C7B9CBC19E7256400C86637 /* libDynamicTableGenerator.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		6C7B9CC619E7256400C86637 /* DynamicTableGeneratorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C7B9CD019E7256400C86637 /* Build configuration list for PBXNativeTarget "DynamicTableGeneratorTests" */;
+			buildPhases = (
+				6C7B9CC319E7256400C86637 /* Sources */,
+				6C7B9CC419E7256400C86637 /* Frameworks */,
+				6C7B9CC519E7256400C86637 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DynamicTableGeneratorTests;
+			productName = DynamicTableGeneratorTests;
+			productReference = 6C7B9CC719E7256400C86637 /* DynamicTableGeneratorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6C7B9CB419E7256400C86637 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Theodore Brown";
+				TargetAttributes = {
+					6C7B9CBB19E7256400C86637 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					6C7B9CC619E7256400C86637 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 6C7B9CB719E7256400C86637 /* Build configuration list for PBXProject "DynamicTableGenerator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6C7B9CB319E7256400C86637;
+			productRefGroup = 6C7B9CBD19E7256400C86637 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6C7B9CBB19E7256400C86637 /* DynamicTableGenerator */,
+				6C7B9CC619E7256400C86637 /* DynamicTableGeneratorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6C7B9CC519E7256400C86637 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1655C8E7531645AAB0DA452B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-DynamicTableGenerator-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F31CCC19F5824FE09FDD57C5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6C7B9CB819E7256400C86637 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C7B9CF519E72D1300C86637 /* CellWithText.m in Sources */,
+				6C7B9CFE19E72D4600C86637 /* DummyTestView.m in Sources */,
+				6C7B9D2219E72DC700C86637 /* FetchedResultsHelper.m in Sources */,
+				6C7B9CF119E72D1300C86637 /* CellWithSegment.m in Sources */,
+				6C7B9CF419E72D1300C86637 /* CellWithSwitch.m in Sources */,
+				6C7B9CF819E72D1300C86637 /* CellWithButton.m in Sources */,
+				6C7B9CF019E72D1300C86637 /* XIBBasedTableCell.m in Sources */,
+				6C7B9CF719E72D1300C86637 /* CustomButtonCell.m in Sources */,
+				6C7B9D1319E72D9E00C86637 /* DateOptionCellInput.m in Sources */,
+				6C7B9CC219E7256400C86637 /* DynamicTableGenerator.m in Sources */,
+				6C7B9D1419E72D9E00C86637 /* TextOptionCellInput.m in Sources */,
+				6C7B9CF619E72D1300C86637 /* TableCellWithNumber.m in Sources */,
+				6C7B9D2319E72DC700C86637 /* MutableTableViewObjects.m in Sources */,
+				6C7B9D2119E72DC700C86637 /* PropertyUtil.m in Sources */,
+				6C7B9D1719E72D9E00C86637 /* ActionSheetOptionCellInput.m in Sources */,
+				6C7B9CF319E72D1300C86637 /* CellWithDate.m in Sources */,
+				6C7B9D2419E72DC700C86637 /* SharedData.m in Sources */,
+				6C7B9D1019E72D9E00C86637 /* BaseOptionCellInput.m in Sources */,
+				6C7B9D1219E72D9E00C86637 /* SliderOptionCellInput.m in Sources */,
+				6C7B9D1619E72D9E00C86637 /* ButtonOptionCellInput.m in Sources */,
+				6C7B9D1119E72D9E00C86637 /* SegmentOptionCellInput.m in Sources */,
+				6C7B9CF919E72D1300C86637 /* CellWithSlider.m in Sources */,
+				6C7B9D1519E72D9E00C86637 /* NumberOptionCellInput.m in Sources */,
+				6C7B9CF219E72D1300C86637 /* CellWithAbstractActionSheet.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C7B9CC319E7256400C86637 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6C7B9CCB19E7256400C86637 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6C7B9CCC19E7256400C86637 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6C7B9CCE19E7256400C86637 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFB8596C4D114A4FB8E43025 /* Pods-DynamicTableGenerator.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		6C7B9CCF19E7256400C86637 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFB8596C4D114A4FB8E43025 /* Pods-DynamicTableGenerator.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		6C7B9CD119E7256400C86637 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DynamicTableGeneratorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6C7B9CD219E7256400C86637 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DynamicTableGeneratorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6C7B9CB719E7256400C86637 /* Build configuration list for PBXProject "DynamicTableGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C7B9CCB19E7256400C86637 /* Debug */,
+				6C7B9CCC19E7256400C86637 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6C7B9CCD19E7256400C86637 /* Build configuration list for PBXNativeTarget "DynamicTableGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C7B9CCE19E7256400C86637 /* Debug */,
+				6C7B9CCF19E7256400C86637 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6C7B9CD019E7256400C86637 /* Build configuration list for PBXNativeTarget "DynamicTableGeneratorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C7B9CD119E7256400C86637 /* Debug */,
+				6C7B9CD219E7256400C86637 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6C7B9CB419E7256400C86637 /* Project object */;
+}

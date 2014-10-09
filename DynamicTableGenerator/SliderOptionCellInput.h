@@ -1,0 +1,21 @@
+//
+//  SliderOptionCellInput.h
+//  TableViewDataCells
+//
+//  Created by Theodore Brown on 8/9/14.
+//  Copyright (c) 2014 Theodore Brown. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "BaseOptionCellInput.h"
+
+#import "CellWithSlider.h"
+
+
+@interface SliderOptionCellInput : BaseOptionCellInput <TableCellEditable>
+@property (strong, nonatomic) NSNumber *minSliderValue;
+@property (strong, nonatomic) NSNumber *maxSliderValue;
+
+-(id) initFloatSliderInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
+-(id) initFloatSliderInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withDefault:(NSNumber*) defaultFloat withMaxValue:(NSNumber*) maxValue andMinValue:(NSNumber*) minValue inSection:(NSString*) newSectionHeader;
+@end
