@@ -33,6 +33,7 @@
 		6C7B9D2219E72DC700C86637 /* FetchedResultsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D1C19E72DC700C86637 /* FetchedResultsHelper.m */; };
 		6C7B9D2319E72DC700C86637 /* MutableTableViewObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D1E19E72DC700C86637 /* MutableTableViewObjects.m */; };
 		6C7B9D2419E72DC700C86637 /* SharedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D2019E72DC700C86637 /* SharedData.m */; };
+		6C7B9D2819E7304400C86637 /* MutableTableViewSetupHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D2719E7304400C86637 /* MutableTableViewSetupHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -109,6 +110,8 @@
 		6C7B9D1E19E72DC700C86637 /* MutableTableViewObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableTableViewObjects.m; sourceTree = "<group>"; };
 		6C7B9D1F19E72DC700C86637 /* SharedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedData.h; sourceTree = "<group>"; };
 		6C7B9D2019E72DC700C86637 /* SharedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedData.m; sourceTree = "<group>"; };
+		6C7B9D2619E7304400C86637 /* MutableTableViewSetupHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableTableViewSetupHelper.h; sourceTree = "<group>"; };
+		6C7B9D2719E7304400C86637 /* MutableTableViewSetupHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableTableViewSetupHelper.m; sourceTree = "<group>"; };
 		BFB8596C4D114A4FB8E43025 /* Pods-DynamicTableGenerator.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicTableGenerator.xcconfig"; path = "Pods/Pods-DynamicTableGenerator.xcconfig"; sourceTree = "<group>"; };
 		DAEAA8757C8B446F8D10E45F /* libPods-DynamicTableGenerator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DynamicTableGenerator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -163,6 +166,7 @@
 		6C7B9CBE19E7256400C86637 /* DynamicTableGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				6C7B9D2519E7303300C86637 /* MainControllers */,
 				6C7B9D1819E72DBC00C86637 /* Helper Protocols */,
 				6C7B9CFA19E72D2500C86637 /* TableViewCells */,
 				6C7B9CBF19E7256400C86637 /* DynamicTableGenerator.h */,
@@ -270,6 +274,15 @@
 				6C7B9D2019E72DC700C86637 /* SharedData.m */,
 			);
 			name = "Helper Protocols";
+			sourceTree = "<group>";
+		};
+		6C7B9D2519E7303300C86637 /* MainControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6C7B9D2619E7304400C86637 /* MutableTableViewSetupHelper.h */,
+				6C7B9D2719E7304400C86637 /* MutableTableViewSetupHelper.m */,
+			);
+			name = MainControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +419,7 @@
 				6C7B9CC219E7256400C86637 /* DynamicTableGenerator.m in Sources */,
 				6C7B9D1419E72D9E00C86637 /* TextOptionCellInput.m in Sources */,
 				6C7B9CF619E72D1300C86637 /* TableCellWithNumber.m in Sources */,
+				6C7B9D2819E7304400C86637 /* MutableTableViewSetupHelper.m in Sources */,
 				6C7B9D2319E72DC700C86637 /* MutableTableViewObjects.m in Sources */,
 				6C7B9D2119E72DC700C86637 /* PropertyUtil.m in Sources */,
 				6C7B9D1719E72D9E00C86637 /* ActionSheetOptionCellInput.m in Sources */,
