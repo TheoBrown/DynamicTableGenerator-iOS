@@ -40,8 +40,14 @@
 		6C7B9D3519E7369A00C86637 /* ResultSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D3219E7369A00C86637 /* ResultSelectionController.m */; };
 		6C7B9D3619E7369A00C86637 /* MainTableViewControler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D3419E7369A00C86637 /* MainTableViewControler.m */; };
 		6C7B9D3C19E7386D00C86637 /* MutableTableViewCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D3B19E7386D00C86637 /* MutableTableViewCellManager.m */; };
-		6CBA46EF19E74A2F00EF8861 /* PropertyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBA46EE19E74A2F00EF8861 /* PropertyTest.m */; };
-		6CBA46F419E74C7600EF8861 /* TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBA46F319E74C7600EF8861 /* TestObject.m */; };
+		6CBA470719E756DF00EF8861 /* CellWithSegment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CD819E72D1200C86637 /* CellWithSegment.xib */; };
+		6CBA470819E756DF00EF8861 /* CellWithAbstractActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CDB19E72D1200C86637 /* CellWithAbstractActionSheet.xib */; };
+		6CBA470919E756DF00EF8861 /* CellWithDate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CDE19E72D1200C86637 /* CellWithDate.xib */; };
+		6CBA470A19E756DF00EF8861 /* CellWithSwitch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE119E72D1200C86637 /* CellWithSwitch.xib */; };
+		6CBA470B19E756DF00EF8861 /* CellWithText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE419E72D1300C86637 /* CellWithText.xib */; };
+		6CBA470C19E756DF00EF8861 /* TableCellWithNumber.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE719E72D1300C86637 /* TableCellWithNumber.xib */; };
+		6CBA470D19E756DF00EF8861 /* CellWithButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CEC19E72D1300C86637 /* CellWithButton.xib */; };
+		6CBA470E19E756DF00EF8861 /* CellWithSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CEF19E72D1300C86637 /* CellWithSlider.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +58,15 @@
 			dstSubfolderSpec = 16;
 			files = (
 				6C7B9CC019E7256400C86637 /* DynamicTableGenerator.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CBA46FB19E755C100EF8861 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = include;
+			dstSubfolderSpec = 16;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,9 +145,8 @@
 		6C7B9D3419E7369A00C86637 /* MainTableViewControler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewControler.m; sourceTree = "<group>"; };
 		6C7B9D3A19E7386D00C86637 /* MutableTableViewCellManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableTableViewCellManager.h; sourceTree = "<group>"; };
 		6C7B9D3B19E7386D00C86637 /* MutableTableViewCellManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableTableViewCellManager.m; sourceTree = "<group>"; };
-		6CBA46EE19E74A2F00EF8861 /* PropertyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyTest.m; sourceTree = "<group>"; };
-		6CBA46F219E74C7600EF8861 /* TestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestObject.h; path = ../DynamicTableGenerator/TestObject.h; sourceTree = "<group>"; };
-		6CBA46F319E74C7600EF8861 /* TestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestObject.m; path = ../DynamicTableGenerator/TestObject.m; sourceTree = "<group>"; };
+		6CBA470019E7566100EF8861 /* DynamicTableXibs.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicTableXibs.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CBA470319E7566100EF8861 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFB8596C4D114A4FB8E43025 /* Pods-DynamicTableGenerator.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicTableGenerator.xcconfig"; path = "Pods/Pods-DynamicTableGenerator.xcconfig"; sourceTree = "<group>"; };
 		DAEAA8757C8B446F8D10E45F /* libPods-DynamicTableGenerator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DynamicTableGenerator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -149,6 +163,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6C7B9CC419E7256400C86637 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CBA46FD19E7566100EF8861 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -173,6 +194,7 @@
 			children = (
 				6C7B9CBE19E7256400C86637 /* DynamicTableGenerator */,
 				6C7B9CC819E7256400C86637 /* DynamicTableGeneratorTests */,
+				6CBA470119E7566100EF8861 /* DynamicTableXibs */,
 				6C7B9CBD19E7256400C86637 /* Products */,
 				BFB8596C4D114A4FB8E43025 /* Pods-DynamicTableGenerator.xcconfig */,
 				09905CECAE2A4884925F3AE1 /* Frameworks */,
@@ -184,6 +206,7 @@
 			children = (
 				6C7B9CBC19E7256400C86637 /* libDynamicTableGenerator.a */,
 				6C7B9CC719E7256400C86637 /* DynamicTableGeneratorTests.xctest */,
+				6CBA470019E7566100EF8861 /* DynamicTableXibs.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,9 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				6C7B9CC919E7256400C86637 /* Supporting Files */,
-				6CBA46EE19E74A2F00EF8861 /* PropertyTest.m */,
-				6CBA46F219E74C7600EF8861 /* TestObject.h */,
-				6CBA46F319E74C7600EF8861 /* TestObject.m */,
 			);
 			path = DynamicTableGeneratorTests;
 			sourceTree = "<group>";
@@ -329,6 +349,22 @@
 			name = "Test Files";
 			sourceTree = "<group>";
 		};
+		6CBA470119E7566100EF8861 /* DynamicTableXibs */ = {
+			isa = PBXGroup;
+			children = (
+				6CBA470219E7566100EF8861 /* Supporting Files */,
+			);
+			path = DynamicTableXibs;
+			sourceTree = "<group>";
+		};
+		6CBA470219E7566100EF8861 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6CBA470319E7566100EF8861 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -341,6 +377,7 @@
 				6C7B9CB919E7256400C86637 /* Frameworks */,
 				6C7B9CBA19E7256400C86637 /* CopyFiles */,
 				1655C8E7531645AAB0DA452B /* Copy Pods Resources */,
+				6CBA46FB19E755C100EF8861 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -368,6 +405,23 @@
 			productReference = 6C7B9CC719E7256400C86637 /* DynamicTableGeneratorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		6CBA46FF19E7566100EF8861 /* DynamicTableXibs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CBA470419E7566100EF8861 /* Build configuration list for PBXNativeTarget "DynamicTableXibs" */;
+			buildPhases = (
+				6CBA46FC19E7566100EF8861 /* Sources */,
+				6CBA46FD19E7566100EF8861 /* Frameworks */,
+				6CBA46FE19E7566100EF8861 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DynamicTableXibs;
+			productName = DynamicTableXibs;
+			productReference = 6CBA470019E7566100EF8861 /* DynamicTableXibs.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -381,6 +435,9 @@
 						CreatedOnToolsVersion = 6.0.1;
 					};
 					6C7B9CC619E7256400C86637 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					6CBA46FF19E7566100EF8861 = {
 						CreatedOnToolsVersion = 6.0.1;
 					};
 				};
@@ -399,6 +456,7 @@
 			targets = (
 				6C7B9CBB19E7256400C86637 /* DynamicTableGenerator */,
 				6C7B9CC619E7256400C86637 /* DynamicTableGeneratorTests */,
+				6CBA46FF19E7566100EF8861 /* DynamicTableXibs */,
 			);
 		};
 /* End PBXProject section */
@@ -408,6 +466,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CBA46FE19E7566100EF8861 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CBA470719E756DF00EF8861 /* CellWithSegment.xib in Resources */,
+				6CBA470819E756DF00EF8861 /* CellWithAbstractActionSheet.xib in Resources */,
+				6CBA470919E756DF00EF8861 /* CellWithDate.xib in Resources */,
+				6CBA470A19E756DF00EF8861 /* CellWithSwitch.xib in Resources */,
+				6CBA470B19E756DF00EF8861 /* CellWithText.xib in Resources */,
+				6CBA470C19E756DF00EF8861 /* TableCellWithNumber.xib in Resources */,
+				6CBA470D19E756DF00EF8861 /* CellWithButton.xib in Resources */,
+				6CBA470E19E756DF00EF8861 /* CellWithSlider.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,7 +546,6 @@
 				6C7B9D2B19E732AD00C86637 /* MutableDataCellViewControllerTableViewController.m in Sources */,
 				6C7B9D2419E72DC700C86637 /* SharedData.m in Sources */,
 				6C7B9D1019E72D9E00C86637 /* BaseOptionCellInput.m in Sources */,
-				6CBA46F419E74C7600EF8861 /* TestObject.m in Sources */,
 				6C7B9D3519E7369A00C86637 /* ResultSelectionController.m in Sources */,
 				6C7B9D1219E72D9E00C86637 /* SliderOptionCellInput.m in Sources */,
 				6C7B9D1619E72D9E00C86637 /* ButtonOptionCellInput.m in Sources */,
@@ -488,7 +560,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CBA46EF19E74A2F00EF8861 /* PropertyTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CBA46FC19E7566100EF8861 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +699,39 @@
 			};
 			name = Release;
 		};
+		6CBA470519E7566100EF8861 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DynamicTableXibs/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		6CBA470619E7566100EF8861 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = DynamicTableXibs/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -650,6 +761,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		6CBA470419E7566100EF8861 /* Build configuration list for PBXNativeTarget "DynamicTableXibs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CBA470519E7566100EF8861 /* Debug */,
+				6CBA470619E7566100EF8861 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>DynamicTableXibs.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -23,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>6C7B9CC619E7256400C86637</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6CBA46FF19E7566100EF8861</key>
 		<dict>
 			<key>primary</key>
 			<true/>
