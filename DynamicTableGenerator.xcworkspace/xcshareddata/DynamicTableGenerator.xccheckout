@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E01BB6CE-DB3E-42C0-8046-DBBA3F7116FD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DynamicTableGenerator</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E0C67B84B9DAC91747C1F12BADEF43A2774C1E34</key>
+		<string>138.91.117.190:utilities/dynamictablegenerator.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>DynamicTableGenerator.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E0C67B84B9DAC91747C1F12BADEF43A2774C1E34</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>138.91.117.190:utilities/dynamictablegenerator.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E0C67B84B9DAC91747C1F12BADEF43A2774C1E34</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E0C67B84B9DAC91747C1F12BADEF43A2774C1E34</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DynamicTableGenerator</string>
+		</dict>
+	</array>
+</dict>
+</plist>
