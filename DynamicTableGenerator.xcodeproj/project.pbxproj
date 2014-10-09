@@ -34,6 +34,7 @@
 		6C7B9D2319E72DC700C86637 /* MutableTableViewObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D1E19E72DC700C86637 /* MutableTableViewObjects.m */; };
 		6C7B9D2419E72DC700C86637 /* SharedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D2019E72DC700C86637 /* SharedData.m */; };
 		6C7B9D2819E7304400C86637 /* MutableTableViewSetupHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D2719E7304400C86637 /* MutableTableViewSetupHelper.m */; };
+		6C7B9D2B19E732AD00C86637 /* MutableDataCellViewControllerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D2A19E732AD00C86637 /* MutableDataCellViewControllerTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -112,6 +113,8 @@
 		6C7B9D2019E72DC700C86637 /* SharedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedData.m; sourceTree = "<group>"; };
 		6C7B9D2619E7304400C86637 /* MutableTableViewSetupHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableTableViewSetupHelper.h; sourceTree = "<group>"; };
 		6C7B9D2719E7304400C86637 /* MutableTableViewSetupHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableTableViewSetupHelper.m; sourceTree = "<group>"; };
+		6C7B9D2919E732AD00C86637 /* MutableDataCellViewControllerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableDataCellViewControllerTableViewController.h; sourceTree = "<group>"; };
+		6C7B9D2A19E732AD00C86637 /* MutableDataCellViewControllerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableDataCellViewControllerTableViewController.m; sourceTree = "<group>"; };
 		BFB8596C4D114A4FB8E43025 /* Pods-DynamicTableGenerator.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicTableGenerator.xcconfig"; path = "Pods/Pods-DynamicTableGenerator.xcconfig"; sourceTree = "<group>"; };
 		DAEAA8757C8B446F8D10E45F /* libPods-DynamicTableGenerator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DynamicTableGenerator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -279,6 +282,8 @@
 		6C7B9D2519E7303300C86637 /* MainControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6C7B9D2919E732AD00C86637 /* MutableDataCellViewControllerTableViewController.h */,
+				6C7B9D2A19E732AD00C86637 /* MutableDataCellViewControllerTableViewController.m */,
 				6C7B9D2619E7304400C86637 /* MutableTableViewSetupHelper.h */,
 				6C7B9D2719E7304400C86637 /* MutableTableViewSetupHelper.m */,
 			);
@@ -424,6 +429,7 @@
 				6C7B9D2119E72DC700C86637 /* PropertyUtil.m in Sources */,
 				6C7B9D1719E72D9E00C86637 /* ActionSheetOptionCellInput.m in Sources */,
 				6C7B9CF319E72D1300C86637 /* CellWithDate.m in Sources */,
+				6C7B9D2B19E732AD00C86637 /* MutableDataCellViewControllerTableViewController.m in Sources */,
 				6C7B9D2419E72DC700C86637 /* SharedData.m in Sources */,
 				6C7B9D1019E72D9E00C86637 /* BaseOptionCellInput.m in Sources */,
 				6C7B9D1219E72D9E00C86637 /* SliderOptionCellInput.m in Sources */,

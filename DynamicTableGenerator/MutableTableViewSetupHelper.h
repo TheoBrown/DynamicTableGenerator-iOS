@@ -38,10 +38,14 @@
 @property (nonatomic, strong) UIBarButtonItem* btnDone;
 @property (nonatomic, strong) UIBarButtonItem* btnNext;
 @property (nonatomic, strong) UIBarButtonItem* btnPrev;
+
 @property (nonatomic, strong) NSIndexPath *currentSelection;
 @property  NSInteger titletag;
 
 - (id) initWithObject:(id)newFormObject;
+- (id) initWithManagedObject:(id)newFormObject;
+- (id) initWithDict:(id)newFormObject;
+
 //-(IBAction)saveUser:(id)sender;
 //- (void)setFormClass:(id)newFormClass;
 //

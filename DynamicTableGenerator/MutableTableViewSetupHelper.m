@@ -30,6 +30,10 @@
     }
     return self;
 }
+- (id) initWithManagedObject:(id)newFormObject;
+- (id) initWithDict:(id)newFormObject;
+
+
 - (void)setFormClass:(id)newFormClass
 {
 	NSLog(@"form class set to %@" , [newFormClass debugDescription]);
