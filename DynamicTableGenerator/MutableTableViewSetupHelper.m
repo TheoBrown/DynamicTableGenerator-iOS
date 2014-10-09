@@ -30,8 +30,24 @@
     }
     return self;
 }
-- (id) initWithManagedObject:(id)newFormObject;
-- (id) initWithDict:(id)newFormObject;
+- (id) initWithManagedObject:(id)newFormObject {
+    if (self = [super init]) {
+        if (self.mutableFormObject != newFormObject) {
+            self.mutableFormObject = newFormObject;
+            [self setupFormPropertiesFromObject:self.mutableFormObject];
+        }
+    }
+    return self;
+}
+- (id) initWithDict:(id)newFormObject {
+    if (self = [super init]) {
+        if (self.mutableFormObject != newFormObject) {
+            self.mutableFormObject = newFormObject;
+            [self setupFormPropertiesFromObject:self.mutableFormObject];
+        }
+    }
+    return self;
+}
 
 
 - (void)setFormClass:(id)newFormClass

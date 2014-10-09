@@ -7,7 +7,6 @@
 //
 
 #import "FetchedResultsHelper.h"
-#import "AppDelegate.h"
 #import "SharedData.h"
 
 @interface FetchedResultsHelper()
@@ -20,13 +19,28 @@
 
 
 @implementation FetchedResultsHelper
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
 static FetchedResultsHelper *instance =nil;
 
 #pragma mark - Singleton methods
 /**
  * Singleton methods
  */
--(FetchedResultsHelper*)init {
+//-(FetchedResultsHelper*)init {
+//    NSLog(@"FetchedResultsHelper init");
+//    
+//    //call super init
+//    self = [super init];
+//    if (self != nil) {
+//        //initialize the object
+//        NSLog(@"This should only happen once: init");
+//            self.managedObjectContext = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
+//        
+//    }
+//    return self;
+//}
+-(FetchedResultsHelper*)initWithManagedObjectContext:(NSManagedObjectContext*) context {
     NSLog(@"FetchedResultsHelper init");
     
     //call super init
@@ -34,12 +48,11 @@ static FetchedResultsHelper *instance =nil;
     if (self != nil) {
         //initialize the object
         NSLog(@"This should only happen once: init");
-            self.managedObjectContext = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
+        self.managedObjectContext = context;
         
     }
     return self;
 }
-
 +(FetchedResultsHelper *)getInstance
 {
     @synchronized(self)
@@ -57,7 +70,8 @@ static FetchedResultsHelper *instance =nil;
 
 -(NSObject *) getObjectFromID:(NSURL*) objectID {
     //    NSURL *moIDURL =  [[[SharedData getInstance] settings] URLForKey:@"defaultUserID"];
-    NSManagedObjectID *moID = [[(AppDelegate*)[[UIApplication sharedApplication] delegate] persistentStoreCoordinator] managedObjectIDForURIRepresentation:objectID];
+//    NSManagedObjectID *moID = [[(AppDelegate*)[[UIApplication sharedApplication] delegate] persistentStoreCoordinator] managedObjectIDForURIRepresentation:objectID];
+    NSManagedObjectID *moID = [_persistentStoreCoordinator managedObjectIDForURIRepresentation:objectID];
     if (moID != nil){
         NSObject * newObject = (NSObject *)[self.managedObjectContext existingObjectWithID:moID error:nil];
         return newObject;
