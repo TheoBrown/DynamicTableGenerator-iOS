@@ -63,7 +63,7 @@
 
 - (void) setupFormPropertiesFromObject:(id) formObject {
     NSDictionary *properties = [PropertyUtil classPropsFor:[formObject class]];
-    NSLog(@"Properties for class: %@",properties);
+    NSLog(@"Properties for class %@: %@",[[formObject class] debugDescription], properties);
     [self populateTableInfo:properties];
 }
 
