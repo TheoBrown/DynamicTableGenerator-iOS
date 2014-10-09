@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 #import "ActionSheetOptionCellInput.h"
 
 #import "SliderOptionCellInput.h"
@@ -30,7 +31,7 @@
 //@property (nonatomic, retain) UserInfo *NewUserInfo;
 //@property (nonatomic, retain) FishTank *NewFishTank;
 
-@property (nonatomic, retain) NSManagedObjectModel *NewFormClass;
+@property (nonatomic, retain) NSManagedObject *NewFormClass;
 @property (strong, nonatomic) id mutableFormObject; // this is the object that is managed and updated
 
 @property (nonatomic, strong) UITextField* txtActiveField;
