@@ -17,6 +17,7 @@
 @synthesize cellButton = _cellButton;
 @synthesize selectedTestType, resultsViewController;
 @synthesize titleObject;
+
 -(NSString *) reuseIdentifier {
     return @"ButtonCellID";
 }

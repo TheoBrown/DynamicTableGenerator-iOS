@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface XIBBasedTableCell : UITableViewCell
+
 @property (nonatomic, retain) NSIndexPath * indexPath;
+
 +(UITableViewCell *) cellFromNibNamed:(NSString *)nibName;
 
 @end

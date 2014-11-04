@@ -8,7 +8,9 @@
 #import "XIBBasedTableCell.h"
 
 @implementation XIBBasedTableCell
+
 @synthesize indexPath;
+
 + (XIBBasedTableCell *)cellFromNibNamed:(NSString *)nibName {
     
     NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:NULL];
