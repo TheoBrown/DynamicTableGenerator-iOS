@@ -64,6 +64,7 @@
     [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
     //        [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
     [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
+    
 }
 - (void)updateConstraints
 {

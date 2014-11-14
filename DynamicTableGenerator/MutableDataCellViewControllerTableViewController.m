@@ -85,19 +85,24 @@
     [super viewWillAppear:animated];
 }
 
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(contentSizeCategoryChanged:)
+                                                 name:UIContentSizeCategoryDidChangeNotification
+                                               object:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIContentSizeCategoryDidChangeNotification
+                                                  object:nil];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -137,7 +142,10 @@
 
 
 #pragma mark - Table view delegate
-
+- (void)contentSizeCategoryChanged:(NSNotification *)notification
+{
+    [self.tableView reloadData];
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.

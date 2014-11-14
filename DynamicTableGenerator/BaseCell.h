@@ -22,6 +22,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *title;
 @property (nonatomic, strong) IBOutlet UILabel *subTitle;
 @property (nonatomic, assign) BOOL didSetupConstraints;
+@property (nonatomic, assign) BOOL didSetupAcessoryConstraints;
 
 
 - (void)updateFonts;
