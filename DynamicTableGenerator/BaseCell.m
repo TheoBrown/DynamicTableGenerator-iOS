@@ -40,12 +40,31 @@
         [self.contentView addSubview:self.title];
         [self.contentView addSubview:self.subTitle];
         
-        [self updateFonts];
+//        [self updateFonts];
     }
     
     return self;
 }
-
+-(void) setBaseConstraints {
+    self.contentView.bounds = CGRectMake(0.0f, 0.0f, 99999.0f, 99999.0f);
+    
+    [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
+        [self.title autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
+    }];
+    [self.title autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
+    [self.title autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
+    //        [self.title autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
+    
+    
+    [self.subTitle autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.title withOffset:kLabelVerticalInsets];
+    
+    [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
+        [self.subTitle autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
+    }];
+    [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
+    //        [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
+    [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
+}
 - (void)updateConstraints
 {
     if (!self.didSetupConstraints) {

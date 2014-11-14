@@ -47,8 +47,8 @@
 {
     NSLog(@"%@ date set to %@", self.title, [newValue description]);
     
-    NSInteger sec = [cellIndexPath section];
-    NSInteger row = [cellIndexPath row];
+//    NSInteger sec = [cellIndexPath section];
+//    NSInteger row = [cellIndexPath row];
     [self updateValue:newValue];
     NSLog(@"%@ date set object is  %@", self.title, [self.observedObject description]);
 

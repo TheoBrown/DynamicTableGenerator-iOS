@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TableCellEditableProtocol.h"
+#import "BaseCell.h"
 
 extern NSString * const dateCell;
 extern NSString * const sliderCell;

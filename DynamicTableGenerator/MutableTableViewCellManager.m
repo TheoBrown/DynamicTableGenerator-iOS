@@ -316,8 +316,8 @@
 //        cell.actionButon.tag = tag;
 //        cell.delegate = delegateToAssign;
 //                [cell setNeedsUpdateConstraints];
-        [cell updateConstraintsIfNeeded];
-        return cell;
+//        [cell updateConstraintsIfNeeded];
+//        return cell;
 //    }
 //    else if ([CellIdentifier  isEqual: @"ButtonCellID"]){
 //        NSLog(@"Creating CellwithID %@ at Row %d, Sec %d", CellIdentifier, [indexPath row], [indexPath section]);
@@ -350,8 +350,8 @@
 //        cell.indexPath = indexPath;
 //        cell.delegate = delegateToAssign;
 //                [cell setNeedsUpdateConstraints];
-        [cell updateConstraintsIfNeeded];
-        return cell;
+//        [cell updateConstraintsIfNeeded];
+//        return cell;
 //    }
     return nil;
 }
@@ -384,8 +384,8 @@
 //    [self configureCell:cell atIndexPath:indexPath];
 //    cell.selectionStyle = UITableViewCellSelectionStyleGray;
 //            [cell setNeedsUpdateConstraints];
-        [cell updateConstraintsIfNeeded];
-        return cell;
+//        [cell updateConstraintsIfNeeded];
+//        return cell;
 //}
 //
 //- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
