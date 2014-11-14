@@ -122,10 +122,11 @@
     else if ([CellIdentifier  isEqual: @"TableCellWithTextCellIdentifier"]){
         TextOptionCellInput* textCellInput = (TextOptionCellInput*) baseCellInput;
 
-        CellWithText *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        TextCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
         if (cell == nil) {
 //            cell = (CellWithText *)[CellWithText cellFromNibNamed:@"CellWithText"];
-            [self.tableView registerClass:[CellWithText class] forCellReuseIdentifier:CellIdentifier];
+            [self.tableView registerClass:[TextCell class] forCellReuseIdentifier:CellIdentifier];
              cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
         }
@@ -142,7 +143,7 @@
         
         
         
-        [cell.contentView addSubview:cell.cellTextField];
+//        [cell.contentView addSubview:cell.cellTextField];
 //        [self configureCell:cell atIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
         cell.delegate = textCellInput;
