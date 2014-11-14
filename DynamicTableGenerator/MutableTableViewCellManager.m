@@ -113,8 +113,7 @@
         cell.numericTextField.text = [NSString stringWithFormat:@"%.2f",  [baseCellInput.value floatValue]];
         
         // Make sure the constraints have been added to this cell, since it may have just been created from scratch
-        [cell setNeedsUpdateConstraints];
-        [cell updateConstraintsIfNeeded];
+ 
         
         return cell;
         
@@ -127,7 +126,7 @@
         if (cell == nil) {
 //            cell = (CellWithText *)[CellWithText cellFromNibNamed:@"CellWithText"];
             [self.tableView registerClass:[TextCell class] forCellReuseIdentifier:CellIdentifier];
-             cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+             cell = [TextCell alloc] initWithStyle:<#(UITableViewCellStyle)#> reuseIdentifier:<#(NSString *)#>
 
         }
         
@@ -150,8 +149,7 @@
         cell.indexPath = indexPath;
 
         // Make sure the constraints have been added to this cell, since it may have just been created from scratch
-        [cell setNeedsUpdateConstraints];
-        [cell updateConstraintsIfNeeded];
+ 
         return cell;
         
     }
@@ -170,8 +168,7 @@
         cell.delegate = baseCellInput;
         cell.indexPath = indexPath;
         // Make sure the constraints have been added to this cell, since it may have just been created from scratch
-        [cell setNeedsUpdateConstraints];
-        [cell updateConstraintsIfNeeded];
+ 
         return cell;
     }
     else if ([CellIdentifier  isEqual: @"DateCellID"]){
@@ -198,8 +195,7 @@
         cell.selectedDate = dateCellInput.value;
         cell.delegate = dateCellInput;
         
-        [cell setNeedsUpdateConstraints];
-        [cell updateConstraintsIfNeeded];
+ 
         return cell;
     }
     else if ([CellIdentifier  isEqual: @"SliderCellID"]){
@@ -227,8 +223,7 @@
         cell.indexPath = indexPath;
         [cell.cellSlider setValue:[sliderCellInput.value floatValue]];
         cell.delegate = sliderCellInput;
-        [cell setNeedsUpdateConstraints];
-        [cell updateConstraintsIfNeeded];
+ 
         return cell;
     }
     else if ([CellIdentifier  isEqual: @"SegmentCellID"]){
@@ -264,8 +259,7 @@
         cell.indexPath = indexPath;
 
         cell.delegate = segmentCellInput;
-                [cell setNeedsUpdateConstraints];
-        [cell updateConstraintsIfNeeded];
+         
         return cell;
     }
 //    else if ([CellIdentifier  isEqual: @"ActionSheetCellID"]){

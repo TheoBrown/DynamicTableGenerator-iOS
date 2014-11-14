@@ -15,9 +15,9 @@
     return @"TableCellWithSwitchCellIdentifier";
 }
 
-- (id)initWithStyle:(UITableViewCellStyle)style
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    NSString* reuseIdentifier = [self reuseIdentifier];
+    reuseIdentifier = [self reuseIdentifier];
     
     self = [self initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {

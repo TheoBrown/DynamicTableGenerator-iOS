@@ -135,6 +135,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell * cell = [self.cellManager getCellatIndexPath:indexPath andDelegate:self];
+    [cell setNeedsUpdateConstraints];
+    [cell updateConstraintsIfNeeded];
     return cell;
 }
 
