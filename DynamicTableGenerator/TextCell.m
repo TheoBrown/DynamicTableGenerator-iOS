@@ -18,6 +18,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.cellTextField = [UITextField newAutoLayoutView];
+        [self.cellTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:<#(UIControlEvents)#>];
         [self.contentView addSubview:self.cellTextField];
     }
     
