@@ -16,8 +16,8 @@
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.cellSwitch = [UISwitch newAutoLayoutView];
-        [self.contentView addSubview:self.cellSwitch];
+        self.cellSegment = [UISegmentedControl newAutoLayoutView];
+        [self.contentView addSubview:self.cellSegment];
     }
     
     return self;
@@ -34,15 +34,32 @@
         
         
         [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
-            [self.cellSwitch autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
+            [self.cellSegment autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
         }];
-        [self.cellSwitch autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
-        [self.cellSwitch autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
+        [self.cellSegment autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
+        [self.cellSegment autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
         
         self.didSetupConstraints = YES;
     }
     
     [super updateConstraints];
+}
+
+-(NSString *) reuseIdentifier {
+    return @"SegmentCellID";
+}
+
+-(IBAction)segmentedControlChanged:(UISegmentedControl*)sender {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit ) fromDate:[NSDate date]];
+    NSDate * startDate = [calendar dateFromComponents:components];
+    NSLog(@"Segment COntrol did change StartDate Components: %@", [startDate description]);
+    
+    
+    NSDate * endDate = [calendar dateByAddingComponents:[self.segmentResults objectAtIndex:sender.selectedSegmentIndex] toDate:startDate options:0];
+    NSLog(@"EndDate Components: %@", [endDate description]);
+    
+    [self.delegate cellDateSegmentDidChange:self.indexPath startDate:startDate endDate:endDate];
 }
 
 @end

@@ -8,7 +8,6 @@
 
 #import "BaseOptionCellInput.h"
 
-#import "CellWithSegment.h"
 
 
 @interface SegmentOptionCellInput : BaseOptionCellInput <TableCellEditable>

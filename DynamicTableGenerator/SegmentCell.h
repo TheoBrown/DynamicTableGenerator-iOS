@@ -13,4 +13,10 @@
     id <TableCellEditable> _delegate;
 }
 
+
+@property (nonatomic, strong) IBOutlet UISegmentedControl *cellSegment;
+@property (nonatomic, strong) NSArray * segmentResults;
+
+-(IBAction)segmentedControlChanged:(id)sender;
+
 @end

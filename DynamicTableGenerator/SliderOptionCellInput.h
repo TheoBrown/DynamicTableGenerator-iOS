@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "BaseOptionCellInput.h"
 
-#import "CellWithSlider.h"
+//#import "CellWithSlider.h"
 
 
 @interface SliderOptionCellInput : BaseOptionCellInput <TableCellEditable>

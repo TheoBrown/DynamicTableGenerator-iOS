@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "BaseOptionCellInput.h"
 
-#import "CellWithDate.h"
+//#import "CellWithDate.h"
+
 @interface DateOptionCellInput : BaseOptionCellInput <TableCellEditable>
 
 -(id) initDateInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;

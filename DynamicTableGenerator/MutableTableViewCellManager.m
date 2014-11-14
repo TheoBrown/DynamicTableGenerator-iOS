@@ -16,6 +16,11 @@
 #import "TextOptionCellInput.h"
 
 #import "SwitchCell.h"
+#import "DateCell.h"
+#import "TextCell.h"
+#import "NumberCell.h"
+#import "SliderCell.h"
+#import "SegmentCell.h"
 
 @implementation MutableTableViewCellManager
 @synthesize tagCode, tagOffset;
@@ -90,9 +95,12 @@
     NSString * CellIdentifier = baseCellInput.identifier;
 
     if ([CellIdentifier  isEqual: @"TableCellWithNumberCellIdentifier"]){
-        TableCellWithNumber *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        NumberCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
-            cell = (TableCellWithNumber *)[TableCellWithNumber cellFromNibNamed:@"TableCellWithNumber"];
+            [self.tableView registerClass:[NumberCell class] forCellReuseIdentifier:CellIdentifier];
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
+//            cell = (TableCellWithNumber *)[TableCellWithNumber cellFromNibNamed:@"TableCellWithNumber"];
         }
         
         // Configure the cell...
@@ -116,8 +124,9 @@
 
         CellWithText *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
-            cell = (CellWithText *)[CellWithText cellFromNibNamed:@"CellWithText"];
+//            cell = (CellWithText *)[CellWithText cellFromNibNamed:@"CellWithText"];
             [self.tableView registerClass:[CellWithText class] forCellReuseIdentifier:CellIdentifier];
+             cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
         }
         
@@ -147,11 +156,11 @@
     }
     
     else if ([CellIdentifier  isEqual: @"TableCellWithSwitchCellIdentifier"]){        
-        CellWithSwitch *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        SwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
 //            cell = (CellWithSwitch *)[CellWithSwitch cellFromNibNamed:@"CellWithSwitch"];
-            [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            [self.tableView registerClass:[CellWithText class] forCellReuseIdentifier:CellIdentifier];
+            [self.tableView registerClass:[SwitchCell class] forCellReuseIdentifier:CellIdentifier];
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         }
         
         // Configure the cell...
@@ -166,10 +175,14 @@
     }
     else if ([CellIdentifier  isEqual: @"DateCellID"]){
         DateOptionCellInput* dateCellInput = (DateOptionCellInput*) baseCellInput;
-        CellWithDate *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        DateCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         if (cell == nil) {
-            cell = (CellWithDate *)[CellWithDate cellFromNibNamed:@"CellWithDate"];
+//            cell = (CellWithDate *)[CellWithDate cellFromNibNamed:@"CellWithDate"];
+            
+            
+            [self.tableView registerClass:[DateCell class] forCellReuseIdentifier:CellIdentifier];
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 //            [cell.dateButon setTitle:[cell stringFromDate:optionsArray[indexPath.section][1][indexPath.row][@"settings"][@"defaultValue"]] forState:UIControlStateNormal];
             [cell.dateButon setTitle:[cell stringFromDate:dateCellInput.value] forState:UIControlStateNormal];
             
@@ -192,9 +205,12 @@
 //        NSLog(@"Creating CellwithID %@ at Row %d, Sec %d", CellIdentifier, [indexPath row], [indexPath section]);
         SliderOptionCellInput* sliderCellInput = (SliderOptionCellInput*) baseCellInput;
 
-        CellWithSlider *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        SliderCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
-            cell = (CellWithSlider *)[CellWithSlider cellFromNibNamed:@"CellWithSlider"];
+//            cell = (CellWithSlider *)[CellWithSlider cellFromNibNamed:@"CellWithSlider"];
+            [self.tableView registerClass:[SliderCell class] forCellReuseIdentifier:CellIdentifier];
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            
             cell.cellSlider.value = [sliderCellInput.value floatValue];
             cell.sliderLable.text = [NSString stringWithFormat:@"%f", [sliderCellInput.value floatValue]];
             [cell sizeToFit];
@@ -218,9 +234,11 @@
         NSLog(@"Creating CellwithID %@ at Row %d, Sec %d", CellIdentifier, [indexPath row], [indexPath section]);
         SegmentOptionCellInput* segmentCellInput = (SegmentOptionCellInput*) baseCellInput;
 
-        CellWithSegment *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        SegmentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
-            cell = (CellWithSegment *)[CellWithSegment cellFromNibNamed:@"CellWithSegment"];
+            [self.tableView registerClass:[SegmentCell class] forCellReuseIdentifier:CellIdentifier];
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//            cell = (CellWithSegment *)[CellWithSegment cellFromNibNamed:@"CellWithSegment"];
         }
         
         // Configure the cell...
