@@ -7,15 +7,11 @@
 //
 
 #import "BaseCell.h"
-#import "PureLayout.h"
 
-#define kLabelHorizontalInsets      15.0f
-#define kLabelVerticalInsets        10.0f
 
 
 @interface BaseCell ()
 
-@property (nonatomic, assign) BOOL didSetupConstraints;
 
 @end
 
@@ -72,7 +68,7 @@
             [self.subTitle autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
         }];
         [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
-        [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
+//        [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
         [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
         
         self.didSetupConstraints = YES;

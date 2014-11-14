@@ -14,6 +14,9 @@
 #import "ActionSheetOptionCellInput.h"
 #import "ButtonOptionCellInput.h"
 #import "TextOptionCellInput.h"
+
+#import "SwitchCell.h"
+
 @implementation MutableTableViewCellManager
 @synthesize tagCode, tagOffset;
 @synthesize tableView;
@@ -100,6 +103,11 @@
         cell.indexPath = indexPath;
         NSLog(@"created text cell with value %@", [baseCellInput.value description]);
         cell.numericTextField.text = [NSString stringWithFormat:@"%.2f",  [baseCellInput.value floatValue]];
+        
+        // Make sure the constraints have been added to this cell, since it may have just been created from scratch
+        [cell setNeedsUpdateConstraints];
+        [cell updateConstraintsIfNeeded];
+        
         return cell;
         
     }
@@ -109,6 +117,8 @@
         CellWithText *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
             cell = (CellWithText *)[CellWithText cellFromNibNamed:@"CellWithText"];
+            [self.tableView registerClass:[CellWithText class] forCellReuseIdentifier:CellIdentifier];
+
         }
         
         // Configure the cell...
@@ -129,6 +139,9 @@
         cell.delegate = textCellInput;
         cell.indexPath = indexPath;
 
+        // Make sure the constraints have been added to this cell, since it may have just been created from scratch
+        [cell setNeedsUpdateConstraints];
+        [cell updateConstraintsIfNeeded];
         return cell;
         
     }
@@ -136,7 +149,9 @@
     else if ([CellIdentifier  isEqual: @"TableCellWithSwitchCellIdentifier"]){        
         CellWithSwitch *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
-            cell = (CellWithSwitch *)[CellWithSwitch cellFromNibNamed:@"CellWithSwitch"];
+//            cell = (CellWithSwitch *)[CellWithSwitch cellFromNibNamed:@"CellWithSwitch"];
+            [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            [self.tableView registerClass:[CellWithText class] forCellReuseIdentifier:CellIdentifier];
         }
         
         // Configure the cell...
@@ -144,6 +159,9 @@
         cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
         cell.delegate = baseCellInput;
         cell.indexPath = indexPath;
+        // Make sure the constraints have been added to this cell, since it may have just been created from scratch
+        [cell setNeedsUpdateConstraints];
+        [cell updateConstraintsIfNeeded];
         return cell;
     }
     else if ([CellIdentifier  isEqual: @"DateCellID"]){
@@ -165,6 +183,9 @@
         cell.indexPath = indexPath;
         cell.selectedDate = dateCellInput.value;
         cell.delegate = dateCellInput;
+        
+        [cell setNeedsUpdateConstraints];
+        [cell updateConstraintsIfNeeded];
         return cell;
     }
     else if ([CellIdentifier  isEqual: @"SliderCellID"]){
@@ -189,6 +210,8 @@
         cell.indexPath = indexPath;
         [cell.cellSlider setValue:[sliderCellInput.value floatValue]];
         cell.delegate = sliderCellInput;
+        [cell setNeedsUpdateConstraints];
+        [cell updateConstraintsIfNeeded];
         return cell;
     }
     else if ([CellIdentifier  isEqual: @"SegmentCellID"]){
@@ -222,6 +245,8 @@
         cell.indexPath = indexPath;
 
         cell.delegate = segmentCellInput;
+                [cell setNeedsUpdateConstraints];
+        [cell updateConstraintsIfNeeded];
         return cell;
     }
 //    else if ([CellIdentifier  isEqual: @"ActionSheetCellID"]){
@@ -272,7 +297,9 @@
 //        cell.indexPath = indexPath;
 //        cell.actionButon.tag = tag;
 //        cell.delegate = delegateToAssign;
-//        return cell;
+//                [cell setNeedsUpdateConstraints];
+        [cell updateConstraintsIfNeeded];
+        return cell;
 //    }
 //    else if ([CellIdentifier  isEqual: @"ButtonCellID"]){
 //        NSLog(@"Creating CellwithID %@ at Row %d, Sec %d", CellIdentifier, [indexPath row], [indexPath section]);
@@ -304,7 +331,9 @@
 //        cell.cellButton.tag = tag;
 //        cell.indexPath = indexPath;
 //        cell.delegate = delegateToAssign;
-//        return cell;
+//                [cell setNeedsUpdateConstraints];
+        [cell updateConstraintsIfNeeded];
+        return cell;
 //    }
     return nil;
 }
@@ -336,7 +365,9 @@
 //    [cell.contentView addSubview:textentry];
 //    [self configureCell:cell atIndexPath:indexPath];
 //    cell.selectionStyle = UITableViewCellSelectionStyleGray;
-//    return cell;
+//            [cell setNeedsUpdateConstraints];
+        [cell updateConstraintsIfNeeded];
+        return cell;
 //}
 //
 //- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
