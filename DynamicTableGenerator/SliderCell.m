@@ -14,7 +14,7 @@
 {
     reuseIdentifier = [self reuseIdentifier];
     
-    self = [self initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.cellSlider = [UISlider newAutoLayoutView];
         self.sliderLable = [UILabel newAutoLayoutView];

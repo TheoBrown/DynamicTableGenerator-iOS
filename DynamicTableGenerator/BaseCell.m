@@ -19,6 +19,8 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
+    NSLog(@"BAse cell init called");
+
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.title = [UILabel newAutoLayoutView];

@@ -12,9 +12,10 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
+    NSLog(@"Text cell init called");
     reuseIdentifier = [self reuseIdentifier];
     
-    self = [self initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.cellTextField = [UITextField newAutoLayoutView];
         [self.contentView addSubview:self.cellTextField];

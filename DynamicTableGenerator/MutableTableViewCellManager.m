@@ -99,6 +99,7 @@
         if (cell == nil) {
             [self.tableView registerClass:[NumberCell class] forCellReuseIdentifier:CellIdentifier];
             cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            cell = [[NumberCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 
 //            cell = (TableCellWithNumber *)[TableCellWithNumber cellFromNibNamed:@"TableCellWithNumber"];
         }
@@ -126,7 +127,7 @@
         if (cell == nil) {
 //            cell = (CellWithText *)[CellWithText cellFromNibNamed:@"CellWithText"];
             [self.tableView registerClass:[TextCell class] forCellReuseIdentifier:CellIdentifier];
-             cell = [TextCell alloc] initWithStyle:<#(UITableViewCellStyle)#> reuseIdentifier:<#(NSString *)#>
+            cell = [[TextCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 
         }
         
@@ -159,7 +160,7 @@
         if (cell == nil) {
 //            cell = (CellWithSwitch *)[CellWithSwitch cellFromNibNamed:@"CellWithSwitch"];
             [self.tableView registerClass:[SwitchCell class] forCellReuseIdentifier:CellIdentifier];
-            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            cell = [[SwitchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         
         // Configure the cell...
@@ -180,7 +181,7 @@
             
             
             [self.tableView registerClass:[DateCell class] forCellReuseIdentifier:CellIdentifier];
-            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            cell = [[DateCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 //            [cell.dateButon setTitle:[cell stringFromDate:optionsArray[indexPath.section][1][indexPath.row][@"settings"][@"defaultValue"]] forState:UIControlStateNormal];
             [cell.dateButon setTitle:[cell stringFromDate:dateCellInput.value] forState:UIControlStateNormal];
             
@@ -206,7 +207,7 @@
         if (cell == nil) {
 //            cell = (CellWithSlider *)[CellWithSlider cellFromNibNamed:@"CellWithSlider"];
             [self.tableView registerClass:[SliderCell class] forCellReuseIdentifier:CellIdentifier];
-            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            cell = [[SliderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             
             cell.cellSlider.value = [sliderCellInput.value floatValue];
             cell.sliderLable.text = [NSString stringWithFormat:@"%f", [sliderCellInput.value floatValue]];
@@ -233,7 +234,7 @@
         SegmentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
             [self.tableView registerClass:[SegmentCell class] forCellReuseIdentifier:CellIdentifier];
-            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            cell = [[SegmentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 //            cell = (CellWithSegment *)[CellWithSegment cellFromNibNamed:@"CellWithSegment"];
         }
         

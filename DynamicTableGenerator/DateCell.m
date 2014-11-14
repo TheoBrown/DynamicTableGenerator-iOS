@@ -17,7 +17,7 @@
 {
     reuseIdentifier = [self reuseIdentifier];
     
-    self = [self initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.dateButon = [UIButton newAutoLayoutView];
         self.dateButon.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5]; // light blue
@@ -46,7 +46,7 @@
         }];
         [self.dateButon autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
         [self.dateButon autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
-        
+        [self.dateButon addTarget:self action:@selector(selectADate:) forControlEvents:UIControlEventTouchDown];
         self.didSetupAcessoryConstraints = YES;
     }
     

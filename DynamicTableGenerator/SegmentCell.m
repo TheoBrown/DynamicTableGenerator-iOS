@@ -14,7 +14,7 @@
 {
     reuseIdentifier = [self reuseIdentifier];
     
-    self = [self initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.cellSegment = [UISegmentedControl newAutoLayoutView];
         [self.contentView addSubview:self.cellSegment];
