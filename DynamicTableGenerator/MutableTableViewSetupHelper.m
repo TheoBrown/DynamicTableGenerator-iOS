@@ -133,7 +133,9 @@
             
         }
         else if ([value isEqual:@"f"]) { // value is float
-            
+            [displaynames setObject:[self displayStringForKey:key] forKey:key];
+            SliderOptionCellInput *newCell = [[SliderOptionCellInput alloc] initFloatSliderInputForObject:self.mutableFormObject forReturnKey:key withTitle:[self displayStringForKey:key] withDefault:[NSNumber numberWithFloat:0.5] withMaxValue:[NSNumber numberWithFloat:1] andMinValue:[NSNumber numberWithFloat:0] inSection:@"number section"];
+            [tempCellsArray addObject:self];
         }
         else if ([value isEqual:@"d"]) { //CGFloat
             
@@ -143,6 +145,11 @@
         }
         else if ([value isEqual:@"NSDecimalNumber"]) { // NSDecimalNumber
             
+        }
+        else if ([value isEqual:@"B"]) { // bool
+            [displaynames setObject:[self displayStringForKey:key] forKey:key];
+            SwitchOptionCellInput *newCell = [[SwitchOptionCellInput alloc] initSwitchInputForObject:self.mutableFormObject forReturnKey:key withTitle:[self displayStringForKey:key] inSection:@"dates section"];
+            [tempCellsArray addObject:newCell];
         }
     }
     UserInfoDict = [[NSDictionary alloc] initWithDictionary:displaynames];

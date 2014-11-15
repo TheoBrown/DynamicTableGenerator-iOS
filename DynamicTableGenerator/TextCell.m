@@ -18,7 +18,12 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.cellTextField = [UITextField newAutoLayoutView];
-        [self.cellTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:<#(UIControlEvents)#>];
+        self.cellTextField.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5]; // light blue
+        self.cellTextField.placeholder = @"Enter Text";
+        [self.cellTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEnd];
+        [self.cellTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEndOnExit];
+        [self.cellTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventValueChanged];
+
         [self.contentView addSubview:self.cellTextField];
     }
     

@@ -55,6 +55,7 @@
 		F67496401A169DB10060ECA3 /* NumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F674963F1A169DB10060ECA3 /* NumberCell.m */; };
 		F67496431A169DBA0060ECA3 /* SliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496421A169DBA0060ECA3 /* SliderCell.m */; };
 		F67496461A169DEE0060ECA3 /* SegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496451A169DEE0060ECA3 /* SegmentCell.m */; };
+		F6C099321A16D39F004BBEAE /* SwitchOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C099311A16D39F004BBEAE /* SwitchOptionCellInput.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -171,6 +172,8 @@
 		F67496421A169DBA0060ECA3 /* SliderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderCell.m; sourceTree = "<group>"; };
 		F67496441A169DEE0060ECA3 /* SegmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentCell.h; sourceTree = "<group>"; };
 		F67496451A169DEE0060ECA3 /* SegmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentCell.m; sourceTree = "<group>"; };
+		F6C099301A16D39F004BBEAE /* SwitchOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchOptionCellInput.h; sourceTree = "<group>"; };
+		F6C099311A16D39F004BBEAE /* SwitchOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchOptionCellInput.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +316,8 @@
 			children = (
 				6C7B9D0019E72D9E00C86637 /* BaseOptionCellInput.h */,
 				6C7B9D0119E72D9E00C86637 /* BaseOptionCellInput.m */,
+				F6C099301A16D39F004BBEAE /* SwitchOptionCellInput.h */,
+				F6C099311A16D39F004BBEAE /* SwitchOptionCellInput.m */,
 				6C7B9D0219E72D9E00C86637 /* SegmentOptionCellInput.h */,
 				6C7B9D0319E72D9E00C86637 /* SegmentOptionCellInput.m */,
 				6C7B9D0419E72D9E00C86637 /* SliderOptionCellInput.h */,
@@ -605,6 +610,7 @@
 				6C7B9D2419E72DC700C86637 /* SharedData.m in Sources */,
 				6C7B9D1019E72D9E00C86637 /* BaseOptionCellInput.m in Sources */,
 				6C7B9D3519E7369A00C86637 /* ResultSelectionController.m in Sources */,
+				F6C099321A16D39F004BBEAE /* SwitchOptionCellInput.m in Sources */,
 				6C7B9D1219E72D9E00C86637 /* SliderOptionCellInput.m in Sources */,
 				6C7B9D1619E72D9E00C86637 /* ButtonOptionCellInput.m in Sources */,
 				6C7B9D1119E72D9E00C86637 /* SegmentOptionCellInput.m in Sources */,

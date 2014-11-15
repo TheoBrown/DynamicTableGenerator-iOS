@@ -18,6 +18,8 @@
     if (self) {
         self.cellSlider = [UISlider newAutoLayoutView];
         self.sliderLable = [UILabel newAutoLayoutView];
+        [self.cellSlider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+
         [self.contentView addSubview:self.cellSlider];
         [self.contentView addSubview:self.sliderLable];
 

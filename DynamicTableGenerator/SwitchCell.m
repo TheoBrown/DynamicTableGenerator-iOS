@@ -22,6 +22,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.cellSwitch = [UISwitch newAutoLayoutView];
+        [self.cellSwitch addTarget:self action:@selector(switchDidChange:) forControlEvents:UIControlEventValueChanged];
+
         [self.contentView addSubview:self.cellSwitch];
     }
     

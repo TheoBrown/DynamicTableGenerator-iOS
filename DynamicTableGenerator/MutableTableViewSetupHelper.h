@@ -11,6 +11,7 @@
 #import <CoreData/CoreData.h>
 #import "ActionSheetOptionCellInput.h"
 
+#import "SwitchOptionCellInput.h"
 #import "SliderOptionCellInput.h"
 #import "DateOptionCellInput.h"
 #import "TextOptionCellInput.h"
