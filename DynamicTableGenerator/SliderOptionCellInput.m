@@ -46,10 +46,11 @@
 }
 
 #pragma mark - editable table cell delegate methods 
--(void) cellSliderDidChange:(NSIndexPath *) cellIndexPath :(float)value{
+-(void) cellSliderDidChange:(NSIndexPath *) cellIndexPath :(float)value {
     NSInteger sec = [cellIndexPath section];
     NSInteger row = [cellIndexPath row];
-    
+    NSLog(@"%@ float slider set new value %f", self.title ,value);
+
     NSNumber * floatNumber = (NSNumber*) self.observedObject;
     NSLog(@"%@ float slider set observed value %f to new value %f", self.title, [floatNumber floatValue] ,value);
 

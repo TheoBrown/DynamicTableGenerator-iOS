@@ -44,6 +44,8 @@
         [self.sliderLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
         [self.sliderLable autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
         
+        [self.cellSlider autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.title withOffset:kLabelHorizontalSpace];
+
         [self.cellSlider autoPinEdge:ALEdgeRight toEdge:ALEdgeLeft ofView:self.sliderLable withOffset:kLabelHorizontalSpace];
         [self.cellSlider autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
 
