@@ -14,6 +14,7 @@
 #import "ActionSheetOptionCellInput.h"
 #import "ButtonOptionCellInput.h"
 #import "TextOptionCellInput.h"
+#import "SwitchOptionCellInput.h"
 
 #import "SwitchCell.h"
 #import "DateCell.h"
@@ -155,7 +156,9 @@
         
     }
     
-    else if ([CellIdentifier  isEqual: @"TableCellWithSwitchCellIdentifier"]){        
+    else if ([CellIdentifier  isEqual: @"TableCellWithSwitchCellIdentifier"]){
+        SwitchOptionCellInput* switchCellInput = (SwitchOptionCellInput*) baseCellInput;
+
         SwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
 //            cell = (CellWithSwitch *)[CellWithSwitch cellFromNibNamed:@"CellWithSwitch"];
@@ -164,10 +167,11 @@
         }
         
         // Configure the cell...
-        cell.title.text = baseCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
+        cell.title.text = switchCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
         cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
-        cell.delegate = baseCellInput;
+        cell.delegate = switchCellInput;
         cell.indexPath = indexPath;
+        cell.cellSwitch.on = [switchCellInput getDisplayValue];
         // Make sure the constraints have been added to this cell, since it may have just been created from scratch
  
         return cell;
@@ -182,11 +186,15 @@
             
             [self.tableView registerClass:[DateCell class] forCellReuseIdentifier:CellIdentifier];
             cell = [[DateCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            [cell setDateFormat:[dateCellInput dateCellTypeString]];
+            
 //            [cell.dateButon setTitle:[cell stringFromDate:optionsArray[indexPath.section][1][indexPath.row][@"settings"][@"defaultValue"]] forState:UIControlStateNormal];
             [cell.dateButon setTitle:[cell stringFromDate:dateCellInput.value] forState:UIControlStateNormal];
             
 
         }
+        [cell setDateFormat:[dateCellInput dateCellTypeString]];
+
         [cell.dateButon setTitle:[cell stringFromDate:dateCellInput.value] forState:UIControlStateNormal];
 
         // Configure the cell...

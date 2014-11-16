@@ -10,6 +10,16 @@
 
 @implementation DateCell
 
+@synthesize datePickerMode, dateFormatDict;
+
+/* date modes
+ 
+ UIDatePickerModeTime,           // Displays hour, minute, and optionally AM/PM designation depending on the locale setting (e.g. 6 | 53 | PM)
+ UIDatePickerModeDate,           // Displays month, day, and year depending on the locale setting (e.g. November | 15 | 2007)
+ UIDatePickerModeDateAndTime,    // Displays date, hour, minute, and optionally AM/PM designation depending on the locale setting (e.g. Wed Nov 15 | 6 | 53 | PM)
+ 
+ */
+
 -(NSString *) reuseIdentifier {
     return @"DateCellID";
 }
@@ -19,6 +29,11 @@
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
+        self.dateFormatDict = @{@"date":@"MM-dd-YYYY",
+                                @"datetime":@"MM-dd-YYYY hh:mm a",
+                                @"time":@"hh:mm:ss a"};
+        
         self.dateButon = [UIButton newAutoLayoutView];
         self.dateButon.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5]; // light blue
 
@@ -28,6 +43,21 @@
     return self;
 }
 
+-(void) setDateFormat:(NSString *)formatString {
+    
+    if ([formatString isEqualToString:@"date"]){
+        self.dateFormatString = [self.dateFormatDict valueForKey:formatString];
+        self.datePickerMode = UIDatePickerModeDate;
+    }
+    else if ([formatString isEqualToString:@"datetime"]){
+        self.dateFormatString = [self.dateFormatDict valueForKey:formatString];
+        self.datePickerMode = UIDatePickerModeDateAndTime;
+    }
+    else if ([formatString isEqualToString:@"time"]){
+        self.dateFormatString = [self.dateFormatDict valueForKey:formatString];
+        self.datePickerMode = UIDatePickerModeTime;
+    }
+}
 - (void)updateConstraints
 {
     NSLog(@"call to updating constraints in date cell");
@@ -59,11 +89,13 @@
     {
         self.selectedDate = [NSDate date];
     }
+
+    
     //    NSLog(@"Select a Date called in custom cell");
     
     //    [self.delegate selectADate:sender];
-    _actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Please Select A Date" datePickerMode:UIDatePickerModeDate selectedDate:self.selectedDate target:self action:@selector(dateWasSelected:element:) origin:sender];
-    //    [self.actionSheetPicker addCustomButtonWithTitle:@"Today" value:[NSDate date]];
+    _actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Please Select A Date" datePickerMode:self.datePickerMode selectedDate:self.selectedDate target:self action:@selector(dateWasSelected:element:) origin:sender];
+        [self.actionSheetPicker addCustomButtonWithTitle:@"Today" value:[NSDate date]];
     //    [self.actionSheetPicker addCustomButtonWithTitle:@"Yesterday" value:[[NSDate date] TC_dateByAddingCalendarUnits:NSDayCalendarUnit amount:-1]];
     self.actionSheetPicker.hideCancel = NO;
     [self.actionSheetPicker  setPickerView:self.actionSheetView];
@@ -82,7 +114,7 @@
 }
 -(NSString*)stringFromDate:(NSDate*)date{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MM-dd-YYYY"];
+    [formatter setDateFormat:self.dateFormatString];
     
     //Optionally for time zone converstions
     [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];

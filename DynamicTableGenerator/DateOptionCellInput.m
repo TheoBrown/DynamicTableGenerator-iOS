@@ -10,11 +10,14 @@
 
 @implementation DateOptionCellInput
 
+@synthesize dateCellTypeString;
+
 -(id) initDateInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader {
     self = [super init];
 
     if (self) {
         self = [self initType:dateCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
+        
         [self setManagedObject:managedObject];
     }
     return self;
@@ -36,6 +39,10 @@
     return self;
 }
 
+- (void) setDateCellType:(NSString*) dateTypeString {
+    self.dateCellTypeString = dateTypeString;
+}
+
 - (void) createDefaultValueForObject:(id) managedObject orValue:(NSObject*) backupValue {
     NSObject* newDefault = [managedObject valueForKey:self.returnKey] ?:backupValue;
     [self setManagedObject:managedObject withDefaultValue:newDefault];
@@ -50,6 +57,8 @@
 //    NSInteger sec = [cellIndexPath section];
 //    NSInteger row = [cellIndexPath row];
     [self updateValue:newValue];
+    [self updateContextWithValue:newValue];
+
     NSLog(@"%@ date set object is  %@", self.title, [self.observedObject description]);
 
     //    [self.resultDict setObject:value forKey:[self.optionsArray[sec][1][row] valueForKey:@"return"]];

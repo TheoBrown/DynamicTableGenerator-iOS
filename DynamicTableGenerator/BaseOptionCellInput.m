@@ -63,11 +63,15 @@ NSString * const segmentCell = @"SegmentCellID";
     self.value = newValue;
 }
 
+-(NSObject*) getDisplayValue{
+    return self.value;
+}
 - (void) saveObjectContext {
     [self.observedObject setValue:self.value forKey:self.returnKey];
 }
 
 - (void) updateContextWithValue:(NSObject*) newValue {
+    NSLog(@"%@ asked to update value to %@",self.title,newValue);
     if ([self.observedObject class] == [newValue class]) {
         NSLog(@"value is updated with context");
         

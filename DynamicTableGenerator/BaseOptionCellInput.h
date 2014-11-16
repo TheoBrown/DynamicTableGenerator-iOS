@@ -44,4 +44,6 @@ extern NSString * const segmentCell;
 - (void) updateValue:(id) newValue;
 - (void) saveObjectContext;
 
+-(NSObject*) getDisplayValue;
+
 @end

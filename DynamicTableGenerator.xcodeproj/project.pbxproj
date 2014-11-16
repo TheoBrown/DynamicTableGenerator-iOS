@@ -14,13 +14,10 @@
 		6C7B9CF119E72D1300C86637 /* CellWithSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CD719E72D1200C86637 /* CellWithSegment.m */; };
 		6C7B9CF219E72D1300C86637 /* CellWithAbstractActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CDA19E72D1200C86637 /* CellWithAbstractActionSheet.m */; };
 		6C7B9CF319E72D1300C86637 /* CellWithDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CDD19E72D1200C86637 /* CellWithDate.m */; };
-		6C7B9CF419E72D1300C86637 /* CellWithSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE019E72D1200C86637 /* CellWithSwitch.m */; };
 		6C7B9CF519E72D1300C86637 /* CellWithText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE319E72D1200C86637 /* CellWithText.m */; };
 		6C7B9CF619E72D1300C86637 /* TableCellWithNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE619E72D1300C86637 /* TableCellWithNumber.m */; };
 		6C7B9CF719E72D1300C86637 /* CustomButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE919E72D1300C86637 /* CustomButtonCell.m */; };
 		6C7B9CF819E72D1300C86637 /* CellWithButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CEB19E72D1300C86637 /* CellWithButton.m */; };
-		6C7B9CF919E72D1300C86637 /* CellWithSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CEE19E72D1300C86637 /* CellWithSlider.m */; };
-		6C7B9CFE19E72D4600C86637 /* DummyTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CFD19E72D4600C86637 /* DummyTestView.m */; };
 		6C7B9D1019E72D9E00C86637 /* BaseOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0119E72D9E00C86637 /* BaseOptionCellInput.m */; };
 		6C7B9D1119E72D9E00C86637 /* SegmentOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0319E72D9E00C86637 /* SegmentOptionCellInput.m */; };
 		6C7B9D1219E72D9E00C86637 /* SliderOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0519E72D9E00C86637 /* SliderOptionCellInput.m */; };
@@ -38,16 +35,13 @@
 		6C7B9D2D19E7352100C86637 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7B9D2C19E7352100C86637 /* UIKit.framework */; };
 		6C7B9D2F19E735D600C86637 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7B9D2E19E735D600C86637 /* CoreData.framework */; };
 		6C7B9D3519E7369A00C86637 /* ResultSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D3219E7369A00C86637 /* ResultSelectionController.m */; };
-		6C7B9D3619E7369A00C86637 /* MainTableViewControler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D3419E7369A00C86637 /* MainTableViewControler.m */; };
 		6C7B9D3C19E7386D00C86637 /* MutableTableViewCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D3B19E7386D00C86637 /* MutableTableViewCellManager.m */; };
 		6CBA470719E756DF00EF8861 /* CellWithSegment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CD819E72D1200C86637 /* CellWithSegment.xib */; };
 		6CBA470819E756DF00EF8861 /* CellWithAbstractActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CDB19E72D1200C86637 /* CellWithAbstractActionSheet.xib */; };
 		6CBA470919E756DF00EF8861 /* CellWithDate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CDE19E72D1200C86637 /* CellWithDate.xib */; };
-		6CBA470A19E756DF00EF8861 /* CellWithSwitch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE119E72D1200C86637 /* CellWithSwitch.xib */; };
 		6CBA470B19E756DF00EF8861 /* CellWithText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE419E72D1300C86637 /* CellWithText.xib */; };
 		6CBA470C19E756DF00EF8861 /* TableCellWithNumber.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE719E72D1300C86637 /* TableCellWithNumber.xib */; };
 		6CBA470D19E756DF00EF8861 /* CellWithButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CEC19E72D1300C86637 /* CellWithButton.xib */; };
-		6CBA470E19E756DF00EF8861 /* CellWithSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CEF19E72D1300C86637 /* CellWithSlider.xib */; };
 		F67496341A1696800060ECA3 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496331A1696800060ECA3 /* BaseCell.m */; };
 		F67496371A16989D0060ECA3 /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496361A16989D0060ECA3 /* SwitchCell.m */; };
 		F674963A1A169D570060ECA3 /* DateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496391A169D570060ECA3 /* DateCell.m */; };
@@ -97,9 +91,6 @@
 		6C7B9CDC19E72D1200C86637 /* CellWithDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithDate.h; sourceTree = "<group>"; };
 		6C7B9CDD19E72D1200C86637 /* CellWithDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithDate.m; sourceTree = "<group>"; };
 		6C7B9CDE19E72D1200C86637 /* CellWithDate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithDate.xib; sourceTree = "<group>"; };
-		6C7B9CDF19E72D1200C86637 /* CellWithSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithSwitch.h; sourceTree = "<group>"; };
-		6C7B9CE019E72D1200C86637 /* CellWithSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithSwitch.m; sourceTree = "<group>"; };
-		6C7B9CE119E72D1200C86637 /* CellWithSwitch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithSwitch.xib; sourceTree = "<group>"; };
 		6C7B9CE219E72D1200C86637 /* CellWithText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithText.h; sourceTree = "<group>"; };
 		6C7B9CE319E72D1200C86637 /* CellWithText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithText.m; sourceTree = "<group>"; };
 		6C7B9CE419E72D1300C86637 /* CellWithText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithText.xib; sourceTree = "<group>"; };
@@ -111,12 +102,7 @@
 		6C7B9CEA19E72D1300C86637 /* CellWithButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithButton.h; sourceTree = "<group>"; };
 		6C7B9CEB19E72D1300C86637 /* CellWithButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithButton.m; sourceTree = "<group>"; };
 		6C7B9CEC19E72D1300C86637 /* CellWithButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithButton.xib; sourceTree = "<group>"; };
-		6C7B9CED19E72D1300C86637 /* CellWithSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithSlider.h; sourceTree = "<group>"; };
-		6C7B9CEE19E72D1300C86637 /* CellWithSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithSlider.m; sourceTree = "<group>"; };
-		6C7B9CEF19E72D1300C86637 /* CellWithSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithSlider.xib; sourceTree = "<group>"; };
 		6C7B9CFB19E72D3A00C86637 /* TableCellEditableProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableCellEditableProtocol.h; sourceTree = "<group>"; };
-		6C7B9CFC19E72D4600C86637 /* DummyTestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyTestView.h; sourceTree = "<group>"; };
-		6C7B9CFD19E72D4600C86637 /* DummyTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyTestView.m; sourceTree = "<group>"; };
 		6C7B9D0019E72D9E00C86637 /* BaseOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseOptionCellInput.h; sourceTree = "<group>"; };
 		6C7B9D0119E72D9E00C86637 /* BaseOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseOptionCellInput.m; sourceTree = "<group>"; };
 		6C7B9D0219E72D9E00C86637 /* SegmentOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentOptionCellInput.h; sourceTree = "<group>"; };
@@ -149,8 +135,6 @@
 		6C7B9D2E19E735D600C86637 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6C7B9D3119E7369A00C86637 /* ResultSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSelectionController.h; sourceTree = "<group>"; };
 		6C7B9D3219E7369A00C86637 /* ResultSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultSelectionController.m; sourceTree = "<group>"; };
-		6C7B9D3319E7369A00C86637 /* MainTableViewControler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewControler.h; sourceTree = "<group>"; };
-		6C7B9D3419E7369A00C86637 /* MainTableViewControler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewControler.m; sourceTree = "<group>"; };
 		6C7B9D3A19E7386D00C86637 /* MutableTableViewCellManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableTableViewCellManager.h; sourceTree = "<group>"; };
 		6C7B9D3B19E7386D00C86637 /* MutableTableViewCellManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableTableViewCellManager.m; sourceTree = "<group>"; };
 		6CBA470019E7566100EF8861 /* DynamicTableXibs.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicTableXibs.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,9 +263,6 @@
 				6C7B9CDC19E72D1200C86637 /* CellWithDate.h */,
 				6C7B9CDD19E72D1200C86637 /* CellWithDate.m */,
 				6C7B9CDE19E72D1200C86637 /* CellWithDate.xib */,
-				6C7B9CDF19E72D1200C86637 /* CellWithSwitch.h */,
-				6C7B9CE019E72D1200C86637 /* CellWithSwitch.m */,
-				6C7B9CE119E72D1200C86637 /* CellWithSwitch.xib */,
 				6C7B9CE219E72D1200C86637 /* CellWithText.h */,
 				6C7B9CE319E72D1200C86637 /* CellWithText.m */,
 				6C7B9CE419E72D1300C86637 /* CellWithText.xib */,
@@ -293,9 +274,6 @@
 				6C7B9CEA19E72D1300C86637 /* CellWithButton.h */,
 				6C7B9CEB19E72D1300C86637 /* CellWithButton.m */,
 				6C7B9CEC19E72D1300C86637 /* CellWithButton.xib */,
-				6C7B9CED19E72D1300C86637 /* CellWithSlider.h */,
-				6C7B9CEE19E72D1300C86637 /* CellWithSlider.m */,
-				6C7B9CEF19E72D1300C86637 /* CellWithSlider.xib */,
 			);
 			name = CellNIBS;
 			sourceTree = "<group>";
@@ -369,10 +347,6 @@
 			children = (
 				6C7B9D3119E7369A00C86637 /* ResultSelectionController.h */,
 				6C7B9D3219E7369A00C86637 /* ResultSelectionController.m */,
-				6C7B9D3319E7369A00C86637 /* MainTableViewControler.h */,
-				6C7B9D3419E7369A00C86637 /* MainTableViewControler.m */,
-				6C7B9CFC19E72D4600C86637 /* DummyTestView.h */,
-				6C7B9CFD19E72D4600C86637 /* DummyTestView.m */,
 			);
 			name = "Test Files";
 			sourceTree = "<group>";
@@ -534,11 +508,9 @@
 				6CBA470719E756DF00EF8861 /* CellWithSegment.xib in Resources */,
 				6CBA470819E756DF00EF8861 /* CellWithAbstractActionSheet.xib in Resources */,
 				6CBA470919E756DF00EF8861 /* CellWithDate.xib in Resources */,
-				6CBA470A19E756DF00EF8861 /* CellWithSwitch.xib in Resources */,
 				6CBA470B19E756DF00EF8861 /* CellWithText.xib in Resources */,
 				6CBA470C19E756DF00EF8861 /* TableCellWithNumber.xib in Resources */,
 				6CBA470D19E756DF00EF8861 /* CellWithButton.xib in Resources */,
-				6CBA470E19E756DF00EF8861 /* CellWithSlider.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,12 +555,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C7B9CF519E72D1300C86637 /* CellWithText.m in Sources */,
-				6C7B9CFE19E72D4600C86637 /* DummyTestView.m in Sources */,
 				F67496341A1696800060ECA3 /* BaseCell.m in Sources */,
 				F674963A1A169D570060ECA3 /* DateCell.m in Sources */,
 				6C7B9D2219E72DC700C86637 /* FetchedResultsHelper.m in Sources */,
 				6C7B9CF119E72D1300C86637 /* CellWithSegment.m in Sources */,
-				6C7B9CF419E72D1300C86637 /* CellWithSwitch.m in Sources */,
 				6C7B9CF819E72D1300C86637 /* CellWithButton.m in Sources */,
 				F67496401A169DB10060ECA3 /* NumberCell.m in Sources */,
 				6C7B9CF019E72D1300C86637 /* XIBBasedTableCell.m in Sources */,
@@ -602,7 +572,6 @@
 				6C7B9D2319E72DC700C86637 /* MutableTableViewObjects.m in Sources */,
 				6C7B9D2119E72DC700C86637 /* PropertyUtil.m in Sources */,
 				6C7B9D3C19E7386D00C86637 /* MutableTableViewCellManager.m in Sources */,
-				6C7B9D3619E7369A00C86637 /* MainTableViewControler.m in Sources */,
 				6C7B9D1719E72D9E00C86637 /* ActionSheetOptionCellInput.m in Sources */,
 				6C7B9CF319E72D1300C86637 /* CellWithDate.m in Sources */,
 				6C7B9D2B19E732AD00C86637 /* MutableDataCellViewControllerTableViewController.m in Sources */,
@@ -615,7 +584,6 @@
 				6C7B9D1619E72D9E00C86637 /* ButtonOptionCellInput.m in Sources */,
 				6C7B9D1119E72D9E00C86637 /* SegmentOptionCellInput.m in Sources */,
 				F67496461A169DEE0060ECA3 /* SegmentCell.m in Sources */,
-				6C7B9CF919E72D1300C86637 /* CellWithSlider.m in Sources */,
 				F674963D1A169DA20060ECA3 /* TextCell.m in Sources */,
 				6C7B9D1519E72D9E00C86637 /* NumberOptionCellInput.m in Sources */,
 				6C7B9CF219E72D1300C86637 /* CellWithAbstractActionSheet.m in Sources */,

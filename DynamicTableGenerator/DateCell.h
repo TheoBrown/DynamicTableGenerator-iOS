@@ -22,7 +22,12 @@
 
 @property (strong, nonatomic) NSDate *selectedDate;
 
+@property (strong, nonatomic) NSDictionary *dateFormatDict;
+@property (strong, nonatomic) NSString *dateFormatString;
+@property (nonatomic) NSInteger datePickerMode;
+
 - (IBAction)selectADate:(UIControl *)sender;
 -(NSString*)stringFromDate:(NSDate*)date;
+-(void) setDateFormat:(NSString *)formatString;
 
 @end

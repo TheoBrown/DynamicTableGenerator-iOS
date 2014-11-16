@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BaseCell.h"
 
 #import "MutableTableViewCellManager.h"
 

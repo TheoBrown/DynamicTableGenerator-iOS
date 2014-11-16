@@ -19,7 +19,7 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    NSLog(@"BAse cell init called");
+//    NSLog(@"BAse cell init called");
 
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {

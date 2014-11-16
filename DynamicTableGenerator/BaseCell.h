@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PureLayout.h"
+#import "TableCellEditableProtocol.h"
 
 @interface BaseCell : UITableViewCell
 

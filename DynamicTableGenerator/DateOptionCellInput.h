@@ -16,4 +16,8 @@
 -(id) initDateInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
 -(id) initDateInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withDefault:(NSDate*) defaultDate withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
 
+- (void) setDateCellType:(NSString*) dateTypeString;
+
+@property (strong, nonatomic) NSString *dateCellTypeString;
+
 @end

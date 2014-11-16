@@ -104,6 +104,41 @@
  }
  */
 
+-(NSArray*) parseTypeFromStringFormat:(NSString*)keyString {
+    if ([keyString rangeOfString:@"__"].location != NSNotFound) {
+
+        NSArray *listItems = [keyString componentsSeparatedByString:@"__"];
+        NSLog(@"list items in parseTypeFromStringFormat %@",listItems);
+        NSString *typeString = listItems[1];
+        NSString *displayString = [NSString stringWithFormat:@"%@",listItems[0]];
+        
+        NSString *propertyString = [[NSString alloc] init];
+        
+        if ([typeString isEqualToString:@"b"]) {
+            propertyString = @"B";
+        }
+        else if ([typeString isEqualToString:@"f"]) {
+            propertyString = @"f";
+        }
+        else if ([typeString isEqualToString:@"d"]) { //descimal
+            propertyString = @"d";
+        }
+        else if ([typeString isEqualToString:@"dtd"]) {
+            propertyString = @"date";
+        }
+        else if ([typeString isEqualToString:@"dtdt"]) {
+            propertyString = @"datetime";
+        }
+        else if ([typeString isEqualToString:@"dtt"]) {
+            propertyString = @"time";
+        }
+        
+        return @[displayString,propertyString];
+    }
+    
+    return @[keyString,@""];
+
+}
 -(NSString*) displayStringForKey:(NSString*)keyString {
     NSString *displayString = [[NSString alloc] init];
     if ([keyString rangeOfString:@"_"].location != NSNotFound){
@@ -119,53 +154,65 @@
 -(void) populateTableInfo: (NSDictionary *) info{
     NSMutableArray *tempCellsArray = [[NSMutableArray alloc] init];
     NSMutableDictionary *displaynames = [[NSMutableDictionary alloc] init];
+    
     for (NSString* key in info){
-        NSString* value = [info objectForKey:key];
+        NSString* propertyTypeString = [info objectForKey:key];
+        NSLog(@" key = %@, propStr = %@",key,propertyTypeString);
+
+        NSArray * parsedPropertys = [self parseTypeFromStringFormat:key];
+        NSLog(@"parsed propertys are %@",parsedPropertys);
         
-        if ([value  isEqual: @"NSString"]){
-            [displaynames setObject:[self displayStringForKey:key] forKey:key];
-            TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initTextInputForObject:self.mutableFormObject forReturnKey:key withTitle:[self displayStringForKey:key] inSection:@"text section"];
+        NSString* cleanPropertyName = parsedPropertys[0];
+        NSString* parsedPropertyType = parsedPropertys[1];
+
+        
+        
+        NSString *displayName =[self displayStringForKey:cleanPropertyName];
+        
+        [displaynames setObject:displayName forKey:key];
+
+        if ([propertyTypeString  isEqual: @"NSString"]){
+            TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initTextInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
             [tempCellsArray addObject:newTextCell];
         }
         
-        else if ([value isEqual:@"NSDate"]) {
-            [displaynames setObject:[self displayStringForKey:key] forKey:key];
-            DateOptionCellInput *newDateCell = [[DateOptionCellInput alloc] initDateInputForObject:self.mutableFormObject forReturnKey:key withTitle:[self displayStringForKey:key] inSection:@"dates section"];
+        else if ([propertyTypeString isEqual:@"NSDate"]) {
+            DateOptionCellInput *newDateCell = [[DateOptionCellInput alloc] initDateInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"dates section"];
+            
+            [newDateCell setDateCellType:parsedPropertyType];
+            
             [tempCellsArray addObject:newDateCell];
 
         }
-        else if ([value isEqual:@"NSNumber"]) {
-            [displaynames setObject:[self displayStringForKey:key] forKey:key];
-            NumberOptionCellInput* newNumberCell = [[NumberOptionCellInput alloc] initNumberInputForObject:self.mutableFormObject forReturnKey:key withTitle:[self displayStringForKey:key] inSection:@"number section"];
+        else if ([propertyTypeString isEqual:@"NSNumber"]) {
+            NumberOptionCellInput* newNumberCell = [[NumberOptionCellInput alloc] initNumberInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"number section"];
             [tempCellsArray addObject:newNumberCell];
 
         }
-        else if ([value isEqual:@"NSObject"]) {
+        else if ([propertyTypeString isEqual:@"NSObject"]) {
             
         }
-        else if ([value isEqual:@"NSArray"]) {
+        else if ([propertyTypeString isEqual:@"NSArray"]) {
             
         }
-        else if ([value isEqual:@"NSSet"]) {
+        else if ([propertyTypeString isEqual:@"NSSet"]) {
             
         }
-        else if ([value isEqual:@"f"]) { // value is float
-            [displaynames setObject:[self displayStringForKey:key] forKey:key];
-            SliderOptionCellInput *newCell = [[SliderOptionCellInput alloc] initFloatSliderInputForObject:self.mutableFormObject forReturnKey:key withTitle:[self displayStringForKey:key] withDefault:[NSNumber numberWithFloat:0.5] withMaxValue:[NSNumber numberWithFloat:1] andMinValue:[NSNumber numberWithFloat:0] inSection:@"number section"];
+        else if ([propertyTypeString isEqual:@"f"]) { // value is float
+            SliderOptionCellInput *newCell = [[SliderOptionCellInput alloc] initFloatSliderInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName withDefault:[NSNumber numberWithFloat:0.5] withMaxValue:[NSNumber numberWithFloat:1] andMinValue:[NSNumber numberWithFloat:0] inSection:@"number section"];
             [tempCellsArray addObject:newCell];
         }
-        else if ([value isEqual:@"d"]) { //CGFloat
+        else if ([propertyTypeString isEqual:@"d"]) { //CGFloat
             
         }
-        else if ([value isEqual:@"q"]) { // NSInteger
+        else if ([propertyTypeString isEqual:@"q"]) { // NSInteger
             
         }
-        else if ([value isEqual:@"NSDecimalNumber"]) { // NSDecimalNumber
+        else if ([propertyTypeString isEqual:@"NSDecimalNumber"]) { // NSDecimalNumber
             
         }
-        else if ([value isEqual:@"B"]) { // bool
-            [displaynames setObject:[self displayStringForKey:key] forKey:key];
-            SwitchOptionCellInput *newCell = [[SwitchOptionCellInput alloc] initSwitchInputForObject:self.mutableFormObject forReturnKey:key withTitle:[self displayStringForKey:key] inSection:@"number section"];
+        else if ([propertyTypeString isEqual:@"B"]) { // bool
+            SwitchOptionCellInput *newCell = [[SwitchOptionCellInput alloc] initSwitchInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"number section"];
             [tempCellsArray addObject:newCell];
         }
     }

@@ -49,7 +49,10 @@
     [self updateContextWithValue:value];
 }
 
-
+-(BOOL) getDisplayValue{
+    NSNumber* numberValue = (NSNumber*)self.value;
+    return [numberValue boolValue];
+}
 //- (void) cellSwitchDidChange: (NSIndexPath *) cellIndexPath :(BOOL) newValue {
 //    NSInteger sec = [cellIndexPath section];
 //    NSInteger row = [cellIndexPath row];
