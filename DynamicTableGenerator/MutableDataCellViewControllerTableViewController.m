@@ -212,22 +212,22 @@
 //        *stop = [myFloat1 isEqualToNumber:userIdentity];
 //        return (*stop); }];
 //}
-#pragma mark - options cell return delegates
-- (void) cellNumericValueDidChange:(NSIndexPath *) cellIndexPath :(NSNumber *)value {
-    NSInteger sec = [cellIndexPath section];
-    NSInteger row = [cellIndexPath row];
-    
-}
-
-- (void) cellSwitchDidChange:(NSIndexPath *) cellIndexPath :(BOOL)value{
-    NSInteger sec = [cellIndexPath section];
-    NSInteger row = [cellIndexPath row];
-    NSNumber *boolNumber = [NSNumber numberWithBool:value];
-    
-    //    [self.resultDict setObject:boolNumber forKey:[self.optionsArray[sec][1][row] valueForKey:@"return"]];
-    
-}
-
+//#pragma mark - options cell return delegates
+//- (void) cellNumericValueDidChange:(NSIndexPath *) cellIndexPath :(NSNumber *)value {
+//    NSInteger sec = [cellIndexPath section];
+//    NSInteger row = [cellIndexPath row];
+//    
+//}
+//
+//- (void) cellSwitchDidChange:(NSIndexPath *) cellIndexPath :(BOOL)value{
+//    NSInteger sec = [cellIndexPath section];
+//    NSInteger row = [cellIndexPath row];
+//    NSNumber *boolNumber = [NSNumber numberWithBool:value];
+//    
+//    //    [self.resultDict setObject:boolNumber forKey:[self.optionsArray[sec][1][row] valueForKey:@"return"]];
+//    
+//}
+//
 
 
 

@@ -53,9 +53,9 @@
 }
 
 -(IBAction)switchDidChange:(id)sender {
-    BOOL *value;
-    value = self.cellSwitch.on;
-    [self.delegate cellSwitchDidChange:self.indexPath:value];
+    BOOL value = self.cellSwitch.on;
+    NSNumber * switchValue = [NSNumber numberWithBool:value];
+    [self.delegate cellSwitchDidChange:self.indexPath:switchValue];
 }
 
 @end

@@ -12,11 +12,19 @@
 @optional
 - (void) cellNumericValueDidChange: (NSIndexPath *) cellIndexPath :(NSNumber *) value;
 - (void) cellTextValueDidChange: (NSIndexPath *) cellIndexPath :(NSString *) value;
-- (void) cellSwitchDidChange: (NSIndexPath *) cellIndexPath :(BOOL) value;
+
+//- (void) cellSwitchDidChange: (NSIndexPath *) cellIndexPath :(BOOL) value;
+- (void) cellSwitchDidChange: (NSIndexPath *) cellIndexPath :(NSNumber*) value;
+
 - (void) cellDateDidChange: (NSIndexPath *) cellIndexPath :(NSDate*) value;
+
 - (void) cellDateSegmentDidChange: (NSIndexPath *) cellIndexPath startDate:(NSDate*) startDate endDate:(NSDate*)endDate;
--(void) cellSliderDidChange:(NSIndexPath *) cellIndexPath :(float) value;
+
+//-(void) cellSliderDidChange:(NSIndexPath *) cellIndexPath :(float) value;
+-(void) cellSliderDidChange:(NSIndexPath *) cellIndexPath :(NSNumber*) value;
+
 -(void) cellAbstractActionSheetPickerDidChange:(NSIndexPath *) cellIndexPath withPredicateArray:(NSArray *)predicateArray :(NSObject *)value;
 -(void) cellAbstractActionSheetPickerDidChange:(NSIndexPath *) cellIndexPath withPredicateArray:(NSArray *)predicateArray withURL:(NSURL *)value;
 -(void) cellButtonresultsUpdated:(NSIndexPath *) cellIndexPath withResults:(NSArray *)resultArray;
+
 @end
