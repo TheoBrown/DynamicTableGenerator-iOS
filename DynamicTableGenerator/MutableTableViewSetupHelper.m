@@ -85,6 +85,23 @@
  yNumber = NSNumber;
  yValue = f;
  }
+ 
+ 
+ from core data:
+ 2014-11-16 13:29:32.615 StaticLibTest[2295:32614] Properties for class EventCatagory: {
+ "catagory_name" = NSString;
+ "catagory_type" = NSString;
+ "decimal__d" = NSDecimalNumber;
+ "end_time" = NSDate;
+ int16 = NSNumber;
+ int32 = NSNumber;
+ int64 = NSNumber;
+ occurances = NSSet;
+ "public__b" = NSNumber;
+ "rating__f" = NSNumber;
+ "start_time" = NSDate;
+ timeStamp = NSDate;
+ }
  */
 
 -(NSString*) displayStringForKey:(NSString*)keyString {

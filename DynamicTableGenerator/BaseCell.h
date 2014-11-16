@@ -4,7 +4,7 @@
 //
 //  Created by tpb on 11/14/14.
 //  Copyright (c) 2014 Theodore Brown. All rights reserved.
-//
+// These cells are for controlling the view, the paired Input is the controller/model access
 
 #import <UIKit/UIKit.h>
 #import "PureLayout.h"

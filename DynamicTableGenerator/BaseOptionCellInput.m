@@ -48,10 +48,10 @@ NSString * const segmentCell = @"SegmentCellID";
     self.defaultValue = [managedObject valueForKey:self.returnKey];
     if (self.defaultValue != NULL) {
         self.value = self.defaultValue;
-
     }
     NSLog(@"%@ set object with default %@ and value  %@",self.title,[self.defaultValue description], [self.value description]);
 }
+
 - (void) setManagedObject:(id) managedObject withDefaultValue:(NSObject*) defaultvalue {
     self.observedObject = managedObject;
 //    NSLog(@"observed object is %@", [self.observedObject description]);
