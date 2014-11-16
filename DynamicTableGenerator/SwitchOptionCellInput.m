@@ -44,9 +44,15 @@
 }
 
 #pragma mark - editable table cell delegate methods
-- (void) cellSwitchDidChange: (NSIndexPath *) cellIndexPath :(BOOL) newValue {
-    NSInteger sec = [cellIndexPath section];
-    NSInteger row = [cellIndexPath row];
-    [self updateValue:[NSNumber numberWithBool:newValue]];
+- (void) cellSwitchDidChange: (NSIndexPath *) cellIndexPath :(NSNumber*) value{
+    [self updateValue:value];
+    [self updateContextWithValue:value];
 }
+
+
+//- (void) cellSwitchDidChange: (NSIndexPath *) cellIndexPath :(BOOL) newValue {
+//    NSInteger sec = [cellIndexPath section];
+//    NSInteger row = [cellIndexPath row];
+//    [self updateValue:[NSNumber numberWithBool:newValue]];
+//}
 @end

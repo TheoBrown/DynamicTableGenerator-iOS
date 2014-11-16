@@ -23,7 +23,7 @@
 }
 
 -(IBAction)switchDidChange:(id)sender {
-    BOOL *value;
+    BOOL value;
     value = self.cellSwitch.on;
     [self.delegate cellSwitchDidChange:self.indexPath:value];
 }

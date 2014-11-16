@@ -46,20 +46,27 @@
 }
 
 #pragma mark - editable table cell delegate methods 
--(void) cellSliderDidChange:(NSIndexPath *) cellIndexPath :(float)value {
-    NSInteger sec = [cellIndexPath section];
-    NSInteger row = [cellIndexPath row];
-    NSLog(@"%@ float slider set new value %f", self.title ,value);
 
-//    NSNumber * floatNumber = (NSNumber*) self.observedObject;
-//    NSLog(@"%@ float slider set observed value %f to new value %f", self.title, [floatNumber floatValue] ,value);
 
-    NSLog(@"%@ float slider set to %f", self.title, value);
-    [self updateContextWithValue:[NSNumber numberWithFloat:value]];
-    
-    [self debugClassTypes];
-    //    [self.resultDict setObject:[NSString stringWithFormat:@"%.2f",value] forKey:[self.optionsArray[sec][1][row] valueForKey:@"return"]];
-    //    [[[SharedData getInstance] settings] setFloat:value forKey:[self.optionsArray[sec][1][row] valueForKey:@"return"]];
+-(void) cellSliderDidChange:(NSIndexPath *) cellIndexPath :(NSNumber*) value{
+    [self updateValue:value];
+    [self updateContextWithValue:value];
 }
+
+//-(void) cellSliderDidChange:(NSIndexPath *) cellIndexPath :(float)value {
+//    NSInteger sec = [cellIndexPath section];
+//    NSInteger row = [cellIndexPath row];
+//    NSLog(@"%@ float slider set new value %f", self.title ,value);
+//
+////    NSNumber * floatNumber = (NSNumber*) self.observedObject;
+////    NSLog(@"%@ float slider set observed value %f to new value %f", self.title, [floatNumber floatValue] ,value);
+//
+//    NSLog(@"%@ float slider set to %f", self.title, value);
+//    [self updateContextWithValue:[NSNumber numberWithFloat:value]];
+//    
+//    [self debugClassTypes];
+//    //    [self.resultDict setObject:[NSString stringWithFormat:@"%.2f",value] forKey:[self.optionsArray[sec][1][row] valueForKey:@"return"]];
+//    //    [[[SharedData getInstance] settings] setFloat:value forKey:[self.optionsArray[sec][1][row] valueForKey:@"return"]];
+//}
 
 @end
