@@ -37,6 +37,8 @@
 //        self.tagCode = [NSString stringWithFormat:@"06760"];
 //        self.tagOffset = newtagOffset;
         self.tableView = newTableView;
+        
+        
         self.keyboardToolbar = acessoryKeyBoard;
 //        self.keyboardToolbar = [self createInputAccessoryView];
 //        NSLog(@"cell manager init with array %@" ,[cellInputArray description]);
@@ -103,7 +105,7 @@
         }
         
         [cell setCellFormat:[numberCellInput cellTypeString]];
-        [cell.numericTextField setInputAccessoryView:self.keyboardToolbar];
+//        [cell.numericTextField setInputAccessoryView:self.keyboardToolbar];
         cell.numericTextField.delegate = cell;
         
         cell.title.text = baseCellInput.title;
@@ -132,7 +134,7 @@
         cell.cellTextField.clearsOnBeginEditing = YES;
         cell.cellTextField.autocorrectionType = UITextAutocorrectionTypeNo;
         
-        [cell.cellTextField setInputAccessoryView:self.keyboardToolbar];
+//        [cell.cellTextField setInputAccessoryView:self.keyboardToolbar];
         cell.cellTextField.delegate = cell;
 
         cell.selectionStyle = UITableViewCellSelectionStyleGray;

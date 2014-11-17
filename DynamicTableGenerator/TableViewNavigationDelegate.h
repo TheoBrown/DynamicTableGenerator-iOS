@@ -12,4 +12,7 @@
 
 @optional
 - (void) contentOfCellWasSelected: (NSIndexPath *) cellIndexPath;
+- (void) gotoPrevTextfield: (id) sender;
+- (void) gotoNextTextfield: (id) sender;
+-(void)doneTyping: (id) sender;
 @end

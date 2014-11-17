@@ -10,7 +10,7 @@
 #import "SharedData.h"
 #import "FetchedResultsHelper.h"
 
-
+#import "TableViewNavigationBar.h"
 
 @implementation MutableDataCellViewControllerTableViewController
 
@@ -20,34 +20,20 @@
 @synthesize resultDict;
 
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (id) initWithCellInputArray:(NSArray*) cellInputArray {
-    self = [super init];
-    if (self) {
-        self.tagCode = [NSString stringWithFormat:@"06760"];
-        self.tagOffset = 5;
-        self.keyboardToolbar = [self createInputAccessoryView];
-        
-        self.cellManager = [[MutableTableViewCellManager alloc] initWithTagCode:self.tagCode andOffset:self.tagOffset andtableView:self.tableView withAcessoryKeys:self.keyboardToolbar andCellInputs:cellInputArray];
-
-    }
-    return self;
-}
 
 - (void) setupWithInputArray:(NSArray*) cellInputArray {
+
+
         self.tagCode = [NSString stringWithFormat:@"06760"];
         self.tagOffset = 5;
     self.keyboardToolbar = [self createInputAccessoryView];
-
+//    [self.view addSubview:self.keyboardToolbar];
+//    UIView *keyView = [[UIView alloc] init];
+//    [keyView addSubview:self.keyboardToolbar];
+//    [keyView sizeToFit];
+//    self.tableView.tableFooterView = keyView;
     self.cellManager = [[MutableTableViewCellManager alloc] initWithTagCode:self.tagCode andOffset:self.tagOffset andtableView:self.tableView withAcessoryKeys:self.keyboardToolbar andCellInputs:cellInputArray];
+    [self.view bringSubviewToFront:self.keyboardToolbar];
 
     
     NSLog(@"cell mutables setu[ with array %@" , [cellInputArray description]);
@@ -65,7 +51,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.tableView = [UITableView newAutoLayoutView];
+//    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 200.0, 0.0);
+    self.view.userInteractionEnabled = YES;
+    [self.view addSubview:self.tableView];
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveSettings:)];
 	self.navigationItem.rightBarButtonItem = addButton;
     
@@ -77,8 +69,39 @@
     // Setting the estimated row height prevents the table view from calling tableView:heightForRowAtIndexPath: for every row in the table on first load;
     // it will only be called as cells are about to scroll onscreen. This is a major performance optimization.
     self.tableView.estimatedRowHeight = 44.0; // set this to whatever your "average" cell height is; it doesn't need to be very accurate
+    
+    self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self];
+    [self.view addSubview:self.keyPadView];
+    [self.view bringSubviewToFront:self.keyPadView];
 }
-
+//- (void) updateViewConstraints {
+//    if (!self.didSetupConstraints) {
+//        // Note: if the constraints you add below require a larger cell size than the current size (which is likely to be the default size {320, 44}), you'll get an exception.
+//        // As a fix, you can temporarily increase the size of the cell's contentView so that this does not occur using code similar to the line below.
+//        //      See here for further discussion: https://github.com/Alex311/TableCellWithAutoLayout/commit/bde387b27e33605eeac3465475d2f2ff9775f163#commitcomment-4633188
+//        
+//        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
+//            [self.tableView autoSetContentCompressionResistancePriorityForAxis:ALAxisHorizontal];
+//        }];
+//        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
+//        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
+//         [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
+//        
+//        
+//        [self.keyboardToolbar autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView withOffset:kLabelVerticalInsets];
+//        
+//        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
+//            [self.keyboardToolbar autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
+//        }];
+//        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
+//        //        [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
+//        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
+//        
+//        self.didSetupConstraints = YES;
+//    }
+//    
+//    [super updateViewConstraints];
+//}
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -177,9 +200,11 @@
     keyboard.tintColor = [UIColor blueColor];
     UIBarButtonItem* previousButton = [[UIBarButtonItem alloc] initWithTitle:@"Previous" style:UIBarButtonItemStylePlain target:self action:@selector(gotoPrevTextfield:)];
     UIBarButtonItem* nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(gotoNextTextfield:)];
-    UIBarButtonItem* flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+//    UIBarButtonItem* flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTyping:)];
-    [keyboard setItems:[NSArray arrayWithObjects: previousButton, nextButton, flexSpace, doneButton, nil] animated:NO];
+    [keyboard setItems:[NSArray arrayWithObjects: previousButton, nextButton, doneButton, nil] animated:NO];
+//    [keyboard removeFromSuperview];
+    [keyboard setUserInteractionEnabled:YES];
     return keyboard;
 }
 
@@ -187,15 +212,7 @@
 
     return YES;
 }
-//-(IBAction)textFieldDidEndEditing:(UITextField *)textField
-//{
-//    NSInteger position = textField.tag-titletag;
-//    NSLog(@"%@ did end editing at index %ld",self.UserInfoArray[position],(long)position);
-//
-//    [textField endEditing:YES];
-//    [textField resignFirstResponder];
-//
-//}
+
 
 #pragma mark textfield toolbar
 -(void)gotoPrevTextfield: (id) sender
@@ -301,23 +318,6 @@
 
 
 #pragma mark - option cell methods
-//-(NSDictionary *) getSettingsFromOptions:(NSString*) searchString{
-//    NSMutableArray* array= [[NSMutableArray alloc] initWithArray:self.optionsArray];
-//    for (NSArray * sectionArray in array){
-//        
-//        for(NSDictionary* cellDict in sectionArray[1])
-//        {
-//            if (cellDict[@"return"] == searchString){
-//                NSDictionary *settings = cellDict[@"settings"];
-//                return settings;
-//                
-//            }
-//            else return nil;
-//            
-//        }
-//    }
-//    return nil;
-//}
 
 //-(void) getPositionInArrayForReturn:(NSString*) returnString{
 //    NSUInteger outerIndex = [self.optionsArray indexOfObjectPassingTest:^(id subarray, NSUInteger outerIdx, BOOL *stopOuter) {
@@ -336,22 +336,7 @@
 //        *stop = [myFloat1 isEqualToNumber:userIdentity];
 //        return (*stop); }];
 //}
-//#pragma mark - options cell return delegates
-//- (void) cellNumericValueDidChange:(NSIndexPath *) cellIndexPath :(NSNumber *)value {
-//    NSInteger sec = [cellIndexPath section];
-//    NSInteger row = [cellIndexPath row];
-//    
-//}
-//
-//- (void) cellSwitchDidChange:(NSIndexPath *) cellIndexPath :(BOOL)value{
-//    NSInteger sec = [cellIndexPath section];
-//    NSInteger row = [cellIndexPath row];
-//    NSNumber *boolNumber = [NSNumber numberWithBool:value];
-//    
-//    //    [self.resultDict setObject:boolNumber forKey:[self.optionsArray[sec][1][row] valueForKey:@"return"]];
-//    
-//}
-//
+
 
 #pragma mark - debug helpers
 

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BaseCell.h"
 #import "TableViewNavigationDelegate.h"
-
+#import "PureLayout.h"
 #import "MutableTableViewCellManager.h"
 
 @protocol OptionsDelegate <NSObject>
@@ -17,12 +17,16 @@
 
 @end
 
-@interface MutableDataCellViewControllerTableViewController : UITableViewController <TableCellEditable,UITableViewDelegate>
+@interface MutableDataCellViewControllerTableViewController : UIViewController <TableCellEditable,UITableViewDelegate,UITableViewDataSource>
 {
     __weak id optionsDelegate;
 }
 @property (nonatomic,weak) id<OptionsDelegate> optionsDelegate;
 @property (nonatomic, strong) MutableTableViewCellManager *  cellManager;
+@property (nonatomic, strong) UITableView *  tableView;
+
+@property (nonatomic, strong) UIView *  keyPadView;
+
 @property (nonatomic, strong) NSString *tagCode;
 @property (nonatomic) NSInteger tagOffset;
 
@@ -33,6 +37,9 @@
 @property (nonatomic, strong) UIBarButtonItem* btnPrev;
 
 @property (nonatomic, strong) NSIndexPath *currentSelection;
+
+
+@property (nonatomic, assign) BOOL didSetupConstraints;
 
 
 @property (nonatomic, strong) NSMutableDictionary *resultDict;
