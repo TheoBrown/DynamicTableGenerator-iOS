@@ -47,8 +47,8 @@
 {
     [super viewDidLoad];
     
-    self.tableView = [UITableView newAutoLayoutView];
-//    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+//    self.tableView = [UITableView newAutoLayoutView];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -67,35 +67,35 @@
     [self.tableView reloadData];
 
 }
-- (void) updateViewConstraints {
-    if (!self.didSetupConstraints) {
-        NSLog(@"tableView did update constraints");
-        // Note: if the constraints you add below require a larger cell size than the current size (which is likely to be the default size {320, 44}), you'll get an exception.
-        // As a fix, you can temporarily increase the size of the cell's contentView so that this does not occur using code similar to the line below.
-        //      See here for further discussion: https://github.com/Alex311/TableCellWithAutoLayout/commit/bde387b27e33605eeac3465475d2f2ff9775f163#commitcomment-4633188
-        
-        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
-            [self.tableView autoSetContentCompressionResistancePriorityForAxis:ALAxisHorizontal];
-        }];
-        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
-        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
-         [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
-        
-        
-//        [self.keyboardToolbar autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView withOffset:kLabelVerticalInsets];
+//- (void) updateViewConstraints {
+//    if (!self.didSetupConstraints) {
+//        NSLog(@"tableView did update constraints");
+//        // Note: if the constraints you add below require a larger cell size than the current size (which is likely to be the default size {320, 44}), you'll get an exception.
+//        // As a fix, you can temporarily increase the size of the cell's contentView so that this does not occur using code similar to the line below.
+//        //      See here for further discussion: https://github.com/Alex311/TableCellWithAutoLayout/commit/bde387b27e33605eeac3465475d2f2ff9775f163#commitcomment-4633188
 //        
 //        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
-//            [self.keyboardToolbar autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
+//            [self.tableView autoSetContentCompressionResistancePriorityForAxis:ALAxisHorizontal];
 //        }];
-//        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
-//        //        [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
-//        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
-        
-        self.didSetupConstraints = YES;
-    }
-    
-    [super updateViewConstraints];
-}
+//        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
+//        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
+//         [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
+//        
+//        
+////        [self.keyboardToolbar autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView withOffset:kLabelVerticalInsets];
+////        
+////        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
+////            [self.keyboardToolbar autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
+////        }];
+////        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
+////        //        [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
+////        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
+//        
+//        self.didSetupConstraints = YES;
+//    }
+//    
+//    [super updateViewConstraints];
+//}
 
 - (void)viewDidUnload
 {
