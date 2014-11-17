@@ -33,7 +33,6 @@
 //    [keyView sizeToFit];
 //    self.tableView.tableFooterView = keyView;
     self.cellManager = [[MutableTableViewCellManager alloc] initWithTagCode:self.tagCode andOffset:self.tagOffset andtableView:self.tableView withAcessoryKeys:self.keyboardToolbar andCellInputs:cellInputArray];
-    [self.view bringSubviewToFront:self.keyboardToolbar];
 
     
     NSLog(@"cell mutables setu[ with array %@" , [cellInputArray description]);
@@ -69,11 +68,11 @@
     // Setting the estimated row height prevents the table view from calling tableView:heightForRowAtIndexPath: for every row in the table on first load;
     // it will only be called as cells are about to scroll onscreen. This is a major performance optimization.
     self.tableView.estimatedRowHeight = 44.0; // set this to whatever your "average" cell height is; it doesn't need to be very accurate
-    
-    self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self  andFrame:self.view.bounds];
+    NSLog(@"table view did load");
+//    self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self  andFrame:self.view.bounds];
 
-    [self.view addSubview:self.keyPadView];
-    [self.view bringSubviewToFront:self.keyPadView];
+//    [self.view addSubview:self.keyPadView];
+//    [self.view bringSubviewToFront:self.keyPadView];
 }
 //- (void) updateViewConstraints {
 //    if (!self.didSetupConstraints) {
@@ -204,7 +203,7 @@
 //    UIBarButtonItem* flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTyping:)];
     [keyboard setItems:[NSArray arrayWithObjects: previousButton, nextButton, doneButton, nil] animated:NO];
-//    [keyboard removeFromSuperview];
+    [keyboard removeFromSuperview];
     [keyboard setUserInteractionEnabled:YES];
     return keyboard;
 }

@@ -11,7 +11,7 @@
 @implementation TableViewNavigationBar
 
 -(id) initWithDelegate:(id) tvDelegate andFrame:(CGRect) viewFrame {
-    CGRect myFrame = CGRectMake(300,300,viewFrame.size.width,44.0);
+    CGRect myFrame = CGRectMake(10 ,viewFrame.origin.y-100,viewFrame.size.width,44.0);
     self = [super initWithFrame:myFrame];
     if (self) {
         self.delegate = tvDelegate;
@@ -43,38 +43,23 @@
         //      See here for further discussion: https://github.com/Alex311/TableCellWithAutoLayout/commit/bde387b27e33605eeac3465475d2f2ff9775f163#commitcomment-4633188
 //        self.bounds = CGRectMake(0.0f, 0.0f, 99999.0f, 99999.0f);
         
-        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
-            [self.previousButton autoSetContentCompressionResistancePriorityForAxis:ALAxisHorizontal];
+        [UIView autoSetIdentifier:@"Pin Container View Edges" forConstraints:^{
+            [self autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0.0, 10.0, 10.0, 10.0) excludingEdge:ALEdgeTop];
         }];
-        [self.previousButton autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
+        NSArray * views = @[self.previousButton,self.nextButton,self.doneButton];
+        
+//        [self autoSetDimension:ALDimensionHeight toSize:40.0];
 
-        [self.previousButton autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
-        [self.previousButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
-        [self.previousButton autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.nextButton withOffset:kLabelHorizontalInsets];
-
+        // Fix all the heights of the views to 40 pt
+        [views autoSetViewsDimension:ALDimensionHeight toSize:40.0];
         
-        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
-            [self.nextButton autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
-        }];
+        // Distribute the views horizontally across the screen, aligned to one another's horizontal axis,
+        // with 10 pt spacing between them and to their superview, and their widths matched equally
+        [views autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:10.0 insetSpacing:YES matchedSizes:YES];
         
-//        [self.nextButton autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
-        [self.nextButton autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.previousButton withOffset:kLabelHorizontalInsets];
-//        [self.nextButton autoPinEdge:ALEdgeRight toEdge: ofView:self.self.nextButton withOffset:kLabelHorizontalInsets];
-
-        [self.nextButton autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
-        [self.nextButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
-        
-//        [self.doneButton autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.previousButton withOffset:kLabelHorizontalInsets];
-
-        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
-            [self.doneButton autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
-        }];
-        
-        [self.doneButton autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
-        
-        [self.doneButton autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
-        [self.doneButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
-        
+        // Align the red view to the horizontal axis of its superview.
+        // This will end up affecting all the views, since they are all aligned to one another's horizontal axis.
+        [self.doneButton autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
         self.didSetupConstraints = YES;
     }
     
