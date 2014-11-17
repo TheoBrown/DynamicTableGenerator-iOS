@@ -70,7 +70,8 @@
     // it will only be called as cells are about to scroll onscreen. This is a major performance optimization.
     self.tableView.estimatedRowHeight = 44.0; // set this to whatever your "average" cell height is; it doesn't need to be very accurate
     
-    self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self];
+    self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self  andFrame:self.view.bounds];
+
     [self.view addSubview:self.keyPadView];
     [self.view bringSubviewToFront:self.keyPadView];
 }

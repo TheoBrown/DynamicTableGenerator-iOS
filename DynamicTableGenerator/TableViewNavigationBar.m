@@ -10,8 +10,9 @@
 
 @implementation TableViewNavigationBar
 
--(id) initWithDelegate:(id) tvDelegate {
-    self = [super init];
+-(id) initWithDelegate:(id) tvDelegate andFrame:(CGRect) viewFrame {
+    CGRect myFrame = CGRectMake(300,300,viewFrame.size.width,44.0);
+    self = [super initWithFrame:myFrame];
     if (self) {
         self.delegate = tvDelegate;
         self.backgroundColor = [UIColor redColor];
@@ -40,10 +41,10 @@
         // Note: if the constraints you add below require a larger cell size than the current size (which is likely to be the default size {320, 44}), you'll get an exception.
         // As a fix, you can temporarily increase the size of the cell's contentView so that this does not occur using code similar to the line below.
         //      See here for further discussion: https://github.com/Alex311/TableCellWithAutoLayout/commit/bde387b27e33605eeac3465475d2f2ff9775f163#commitcomment-4633188
-        self.bounds = CGRectMake(0.0f, 0.0f, 99999.0f, 99999.0f);
+//        self.bounds = CGRectMake(0.0f, 0.0f, 99999.0f, 99999.0f);
         
         [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
-            [self.previousButton autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
+            [self.previousButton autoSetContentCompressionResistancePriorityForAxis:ALAxisHorizontal];
         }];
         [self.previousButton autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
 

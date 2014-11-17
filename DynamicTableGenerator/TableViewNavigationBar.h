@@ -27,6 +27,6 @@
 @property (nonatomic, strong) IBOutlet UIButton *previousButton;
 @property (nonatomic, strong) IBOutlet UIButton *doneButton;
 
--(id) initWithDelegate:(id) tvDelegate;
+-(id) initWithDelegate:(id) tvDelegate andFrame:(CGRect)viewFrame;
 
 @end
