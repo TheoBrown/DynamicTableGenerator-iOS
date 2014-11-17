@@ -150,6 +150,14 @@
 
 
 #pragma mark - Table view delegate
+- (void) contentOfCellWasSelected: (NSIndexPath *) cellIndexPath{
+    NSLog(@"contentOfCellWasSelected  %@" ,[self stringForIndex:cellIndexPath]);
+    if (self.currentSelection != cellIndexPath) {
+        self.currentSelection = cellIndexPath;
+        [self.tableView selectRowAtIndexPath:self.currentSelection animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+    }
+}
+
 - (void)contentSizeCategoryChanged:(NSNotification *)notification
 {
     [self.tableView reloadData];
@@ -193,22 +201,72 @@
 -(void)gotoPrevTextfield: (id) sender
 {
     NSLog(@"go to prev");
+
+    NSInteger lastRowInSection = [self.cellManager rowsInSection:self.currentSelection.section]-1;
+    NSInteger lastSection = [self.cellManager.sectionHeaderArray count]-1;
+    
+    NSInteger newRow;
+    NSInteger newSection;
+    
+    if(self.currentSelection){
+        if (self.currentSelection.row > 0) {
+            newSection = self.currentSelection.section;
+            newRow = self.currentSelection.row-1;
+        }
+        else if (self.currentSelection.row == 0) {
+            if (self.currentSelection.section > 0) {
+                newSection = self.currentSelection.section-1;
+                newRow = [self.cellManager rowsInSection:newSection]-1;
+            }
+            else if (self.currentSelection.section == 0) {
+                newSection = lastSection;
+                newRow = [self.cellManager rowsInSection:newSection]-1;
+            }
+        }
+        
+        self.currentSelection = [NSIndexPath indexPathForRow:newRow  inSection:newSection];
+    }
+    else{
+        NSLog(@"no current selection exits");
+    }
+    
+    [self.tableView selectRowAtIndexPath:self.currentSelection animated:YES scrollPosition: UITableViewScrollPositionMiddle];
 }
 
 -(void)gotoNextTextfield: (id) sender
 {
     NSLog(@"go to next");
     //Remember to check boundaries before just setting an indexpath or your app will crash!
-    NSInteger *lastRowInSection = [self.cellManager rowsInSection:self.currentSelection.section];
-    NSInteger *sectionCount = [self.cellManager.sectionHeaderArray count];
+    NSInteger lastRowInSection = [self.cellManager rowsInSection:self.currentSelection.section]-1;
+    NSInteger lastSection = [self.cellManager.sectionHeaderArray count]-1;
+
+    NSInteger newRow;
+    NSInteger newSection;
+
     if(self.currentSelection){
-        self.currentSelection = [NSIndexPath indexPathForRow:self.currentSelection.row+1 inSection:self.currentSelection.section];
+        if (self.currentSelection.row <lastRowInSection) {
+            newSection = self.currentSelection.section;
+            newRow = self.currentSelection.row+1;
+        }
+        else if (self.currentSelection.row ==lastRowInSection) {
+            if (self.currentSelection.section < lastSection) {
+                newSection = self.currentSelection.section+1;
+                newRow = 0;
+
+            }
+            else if (self.currentSelection.section == lastSection) {
+                newSection = 0;
+                newRow = 0;
+            }
+        }
+
+        self.currentSelection = [NSIndexPath indexPathForRow:newRow  inSection:newSection];
     }
     else{
-        self.currentSelection = [NSIndexPath indexPathForRow:0 inSection:0];
+        NSLog(@"no current selection exits");
     }
     
-    [self.tableView selectRowAtIndexPath:self.currentSelection animated:YES scrollPosition: UITableViewScrollPositionTop];
+    [self.tableView selectRowAtIndexPath:self.currentSelection animated:YES scrollPosition: UITableViewScrollPositionMiddle];
 
 
 }

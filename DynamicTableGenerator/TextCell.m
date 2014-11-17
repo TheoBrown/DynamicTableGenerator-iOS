@@ -29,9 +29,10 @@
         
         self.cellTextField.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5]; // light blue
         [self.cellTextField setClearsOnBeginEditing:true];
+        [self.cellTextField addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventEditingDidBegin];
 
-        [self.cellTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEnd];
-        [self.cellTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEndOnExit];
+//        [self.cellTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEnd];
+//        [self.cellTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEndOnExit];
         [self.cellTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventValueChanged];
         [self.cellTextField setTextAlignment:NSTextAlignmentRight];
         [self.contentView addSubview:self.cellTextField];

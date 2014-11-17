@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseCell.h"
+#import "TableViewNavigationDelegate.h"
 
 #import "MutableTableViewCellManager.h"
 

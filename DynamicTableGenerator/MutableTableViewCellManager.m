@@ -110,7 +110,7 @@
         cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
         cell.delegate = numberCellInput;
         cell.indexPath = indexPath;
-
+        cell.tvDelegate = delegateToAssign;
         cell.numericTextField.text = [cell stringFromNumber:(NSNumber*)[numberCellInput getDisplayValue]];
         return cell;
     }
@@ -138,7 +138,8 @@
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
         cell.delegate = textCellInput;
         cell.indexPath = indexPath;
-        
+        cell.tvDelegate = delegateToAssign;
+
         cell.cellTextField.text = textCellInput.value;
 
         return cell;
@@ -158,7 +159,8 @@
         cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
         cell.delegate = switchCellInput;
         cell.indexPath = indexPath;
-        
+        cell.tvDelegate = delegateToAssign;
+
         cell.cellSwitch.on = [switchCellInput getDisplayValue];
         return cell;
     }
@@ -178,7 +180,8 @@
         cell.indexPath = indexPath;
         cell.selectedDate = dateCellInput.value;
         cell.delegate = dateCellInput;
-        
+        cell.tvDelegate = delegateToAssign;
+
         return cell;
     }
     else if ([CellIdentifier  isEqual: @"SliderCellID"]){
@@ -198,7 +201,8 @@
         cell.cellSlider.minimumValue = [sliderCellInput.minSliderValue floatValue];
         cell.cellSlider.maximumValue = [sliderCellInput.maxSliderValue floatValue];
         [cell.cellSlider setValue:[sliderCellInput.value floatValue]];
-    
+        cell.tvDelegate = delegateToAssign;
+
         [cell sizeToFit];
         return cell;
     }
@@ -227,6 +231,7 @@
         }
         
         cell.indexPath = indexPath;
+        cell.tvDelegate = delegateToAssign;
 
         cell.delegate = segmentCellInput;
          

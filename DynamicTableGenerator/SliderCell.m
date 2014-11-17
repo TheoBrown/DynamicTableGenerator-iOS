@@ -19,6 +19,8 @@
         self.cellSlider = [UISlider newAutoLayoutView];
         self.sliderLable = [UILabel newAutoLayoutView];
         [self.cellSlider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+        [self.cellSlider addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventTouchDown];
+        [self.cellSlider addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventTouchUpInside];
 
         [self.contentView addSubview:self.cellSlider];
         [self.contentView addSubview:self.sliderLable];

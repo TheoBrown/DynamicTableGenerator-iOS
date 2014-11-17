@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "PureLayout.h"
 #import "TableCellEditableProtocol.h"
+#import "TableViewNavigationDelegate.h"
 
 @interface BaseCell : UITableViewCell
 {
     id <TableCellEditable> _delegate;
+    id <TableViewNavigationDelegate> tvDelegate;
 }
 
 #define kLabelHorizontalInsets      15.0f
@@ -23,6 +25,8 @@
 @property (nonatomic, retain) NSIndexPath * indexPath;
 
 @property (nonatomic, strong) id delegate;
+@property (nonatomic, strong) id tvDelegate;
+
 @property (nonatomic, strong) IBOutlet UILabel *title;
 @property (nonatomic, strong) IBOutlet UILabel *subTitle;
 @property (nonatomic, assign) BOOL didSetupConstraints;
@@ -30,7 +34,7 @@
 
 @property (strong, nonatomic) NSString *cellFormatString;
 
--(void) contentWasSelected;
+- (void) contentWasSelected:(id) sender;
 -(void) setCellFormat:(NSString *)formatString;
 - (void)updateFonts;
 

@@ -105,5 +105,12 @@
     self.subTitle.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
 }
 
+-(void) setCellFormat:(NSString *)formatString {
+    self.cellFormatString = formatString;
+}
+#pragma mark - tv delegate methods
+- (void) contentWasSelected:(id) sender {
+    [self.tvDelegate contentOfCellWasSelected:self.indexPath];
+}
 
 @end

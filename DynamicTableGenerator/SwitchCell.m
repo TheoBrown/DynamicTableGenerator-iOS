@@ -23,6 +23,8 @@
     if (self) {
         self.cellSwitch = [UISwitch newAutoLayoutView];
         [self.cellSwitch addTarget:self action:@selector(switchDidChange:) forControlEvents:UIControlEventValueChanged];
+        [self.cellSwitch addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventTouchDown];
+        [self.cellSwitch addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventTouchUpInside];
 
         [self.contentView addSubview:self.cellSwitch];
     }
