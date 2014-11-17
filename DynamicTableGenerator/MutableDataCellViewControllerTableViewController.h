@@ -16,7 +16,7 @@
 
 @end
 
-@interface MutableDataCellViewControllerTableViewController : UITableViewController <TableCellEditable>
+@interface MutableDataCellViewControllerTableViewController : UITableViewController <TableCellEditable,UITableViewDelegate>
 {
     __weak id optionsDelegate;
 }
@@ -30,6 +30,8 @@
 @property (nonatomic, strong) UIBarButtonItem* btnDone;
 @property (nonatomic, strong) UIBarButtonItem* btnNext;
 @property (nonatomic, strong) UIBarButtonItem* btnPrev;
+
+@property (nonatomic, strong) NSIndexPath *currentSelection;
 
 
 @property (nonatomic, strong) NSMutableDictionary *resultDict;

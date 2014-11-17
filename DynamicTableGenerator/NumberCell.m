@@ -102,4 +102,12 @@
     
     [self.delegate cellNumericValueDidChange:self.indexPath: [NSNumber numberWithFloat:value]];
 }
+#pragma mark -text delegate
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [textField resignFirstResponder];
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 @end

@@ -110,6 +110,8 @@
         
         // Configure the cell...
         [cell setCellFormat:[numberCellInput cellTypeString]];
+        [cell.numericTextField setInputAccessoryView:self.keyboardToolbar];
+        cell.numericTextField.delegate = cell;
         cell.title.text = baseCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
         cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
         cell.delegate = numberCellInput;
@@ -147,8 +149,8 @@
         cell.cellTextField.clearsOnBeginEditing = YES;
         cell.cellTextField.autocorrectionType = UITextAutocorrectionTypeNo;
         
-//        [cell.cellTextField setInputAccessoryView:self.keyboardToolbar];
-        [cell.cellTextField setReturnKeyType:UIReturnKeyDone];
+        [cell.cellTextField setInputAccessoryView:self.keyboardToolbar];
+//        [cell.cellTextField setReturnKeyType:UIReturnKeyDone];
         cell.cellTextField.delegate = cell;
 
 //        [cell.contentView addSubview:cell.cellTextField];

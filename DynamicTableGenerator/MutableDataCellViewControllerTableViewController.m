@@ -156,13 +156,8 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    self.currentSelection = indexPath;
+    
 }
 #pragma mark -t ext delegat options
 
@@ -202,10 +197,21 @@
 -(void)gotoNextTextfield: (id) sender
 {
     NSLog(@"go to next");
+    //Remember to check boundaries before just setting an indexpath or your app will crash!
+    if(self.currentSelection){
+        self.currentSelection = [NSIndexPath indexPathForRow:self.currentSelection.row+1 inSection:self.currentSelection.section];
+    }
+    else{
+        self.currentSelection = [NSIndexPath indexPathForRow:0 inSection:0];
+    }
+    
+    [self.tableView selectRowAtIndexPath:self.currentSelection animated:YES scrollPosition: UITableViewScrollPositionTop];
+
 
 }
 -(void)doneTyping: (id) sender {
     NSLog(@"done typing");
+    [self.view endEditing:YES];
 
 }
 -(void)saveCurrentEntry: (id) sender {
