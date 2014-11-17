@@ -17,4 +17,12 @@
 
 -(IBAction)textFieldValueDidChange:(id)sender;
 
+@property (strong, nonatomic) NSDictionary *numberPadFormatDict;
+@property (strong, nonatomic) NSString *numberFormatString;
+@property (strong, nonatomic) NSString *numberDefaultString;
+
+@property (nonatomic) NSInteger numberPadMode;
+
+-(NSString*)stringFromNumber:(NSNumber*)number;
+
 @end

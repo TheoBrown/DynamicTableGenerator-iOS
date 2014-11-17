@@ -15,7 +15,7 @@
 #import "ButtonOptionCellInput.h"
 #import "TextOptionCellInput.h"
 #import "SwitchOptionCellInput.h"
-
+#import "NumberOptionCellInput.h"
 #import "SwitchCell.h"
 #import "DateCell.h"
 #import "TextCell.h"
@@ -97,23 +97,26 @@
 
     if ([CellIdentifier  isEqual: @"TableCellWithNumberCellIdentifier"]){
         NumberCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        NumberOptionCellInput * numberCellInput = (NumberOptionCellInput*)baseCellInput;
         if (cell == nil) {
             [self.tableView registerClass:[NumberCell class] forCellReuseIdentifier:CellIdentifier];
             cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell = [[NumberCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            [cell setCellFormat:[numberCellInput cellTypeString]];
 
 //            cell = (TableCellWithNumber *)[TableCellWithNumber cellFromNibNamed:@"TableCellWithNumber"];
         }
         
         // Configure the cell...
-        [cell.numericTextField setKeyboardType:UIKeyboardTypeDecimalPad];
+        [cell setCellFormat:[numberCellInput cellTypeString]];
         cell.title.text = baseCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
         cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
-        cell.delegate = baseCellInput;
+        cell.delegate = numberCellInput;
         cell.indexPath = indexPath;
-        NSLog(@"created text cell with value %@", [baseCellInput.value description]);
-        cell.numericTextField.text = [NSString stringWithFormat:@"%.2f",  [baseCellInput.value floatValue]];
-        
+        NSLog(@"created number cell with value %@", [baseCellInput.value description]);
+//        cell.numericTextField.text = [numberCellInput getDisplayValue];//[NSString stringWithFormat:@"%.2f",  [baseCellInput.value floatValue]];
+        cell.numericTextField.text = [cell stringFromNumber:(NSNumber*)[numberCellInput getDisplayValue]];
+
         // Make sure the constraints have been added to this cell, since it may have just been created from scratch
  
         
@@ -186,14 +189,14 @@
             
             [self.tableView registerClass:[DateCell class] forCellReuseIdentifier:CellIdentifier];
             cell = [[DateCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            [cell setDateFormat:[dateCellInput dateCellTypeString]];
+            [cell setCellFormat:[dateCellInput cellTypeString]];
             
 //            [cell.dateButon setTitle:[cell stringFromDate:optionsArray[indexPath.section][1][indexPath.row][@"settings"][@"defaultValue"]] forState:UIControlStateNormal];
             [cell.dateButon setTitle:[cell stringFromDate:dateCellInput.value] forState:UIControlStateNormal];
             
 
         }
-        [cell setDateFormat:[dateCellInput dateCellTypeString]];
+        [cell setCellFormat:[dateCellInput cellTypeString]];
 
         [cell.dateButon setTitle:[cell stringFromDate:dateCellInput.value] forState:UIControlStateNormal];
 

@@ -17,6 +17,12 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.numericTextField = [UITextField newAutoLayoutView];
+        self.numberPadFormatDict = @{@"decimal":@{@"format":@"%.2f",@"default":@"0.00"},
+                                @"integer":@{@"format":@"%d",@"default":@"0"},
+
+                                };
+        
+        [self.numericTextField setClearsOnBeginEditing:true];
         [self.numericTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEnd];
         [self.numericTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEndOnExit];
         [self.numericTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventValueChanged];
@@ -52,18 +58,47 @@
     return @"TableCellWithNumberCellIdentifier";
 }
 
+-(void) setCellFormat:(NSString *)formatString{
+    self.cellFormatString = formatString;
+    NSLog(@"Number cell format set to %@", self.cellFormatString);
+    if ([formatString isEqualToString:@"integer"]){
+        self.numberFormatString = [[self.numberPadFormatDict valueForKey:formatString] valueForKey:@"format"];
+        self.numberDefaultString =[[self.numberPadFormatDict valueForKey:formatString] valueForKey:@"default"];
+        self.numberPadMode = UIKeyboardTypeNumberPad;
+        
+    }
+    else if ([formatString isEqualToString:@"decimal"]){
+        self.numberDefaultString =[[self.numberPadFormatDict valueForKey:formatString] valueForKey:@"default"];
+        self.numberFormatString = [[self.numberPadFormatDict valueForKey:formatString] valueForKey:@"format"];
+        self.numberPadMode = UIKeyboardTypeDecimalPad;
+        
+    }
+    [self.numericTextField setKeyboardType:self.numberPadMode];
+}
+
+-(NSString*)stringFromNumber:(NSNumber*)number {
+    NSString* displayString = [[NSString alloc] init];
+    if ([self.cellFormatString isEqualToString:@"integer"]){
+        displayString = [NSString stringWithFormat:self.numberFormatString, [number intValue]];
+    }
+    else if ([self.cellFormatString isEqualToString:@"decimal"]){
+        displayString = [NSString stringWithFormat:self.numberFormatString, [number floatValue]];
+
+    }
+    return displayString;
+}
+
 -(IBAction)textFieldValueDidChange:(id)sender {
     NSScanner *scanner = [[NSScanner alloc] initWithString:self.numericTextField.text];
-    
     float value;
     if (![scanner scanFloat:&value]){
         value = 0;
-        self.numericTextField.text = @"0.00";
+        self.numericTextField.text = self.numberDefaultString;
     } else {
         value = [self.numericTextField.text floatValue];
     }
-    
-    self.numericTextField.text = [NSString stringWithFormat:@"%.2f", value];
+    NSNumber *newValue = [NSNumber numberWithFloat:value];
+    self.numericTextField.text = [self stringFromNumber:newValue];
     
     [self.delegate cellNumericValueDidChange:self.indexPath: [NSNumber numberWithFloat:value]];
 }

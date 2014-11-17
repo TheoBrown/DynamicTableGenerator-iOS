@@ -10,7 +10,6 @@
 
 @implementation DateOptionCellInput
 
-@synthesize dateCellTypeString;
 
 -(id) initDateInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader {
     self = [super init];
@@ -39,9 +38,7 @@
     return self;
 }
 
-- (void) setDateCellType:(NSString*) dateTypeString {
-    self.dateCellTypeString = dateTypeString;
-}
+
 
 - (void) createDefaultValueForObject:(id) managedObject orValue:(NSObject*) backupValue {
     NSObject* newDefault = [managedObject valueForKey:self.returnKey] ?:backupValue;

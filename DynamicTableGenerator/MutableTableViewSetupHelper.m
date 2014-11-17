@@ -121,7 +121,7 @@
             propertyString = @"f";
         }
         else if ([typeString isEqualToString:@"d"]) { //descimal
-            propertyString = @"d";
+            propertyString = @"decimal";
         }
         else if ([typeString isEqualToString:@"dtd"]) {
             propertyString = @"date";
@@ -132,7 +132,9 @@
         else if ([typeString isEqualToString:@"dtt"]) {
             propertyString = @"time";
         }
-        
+        else if ([typeString isEqualToString:@"i"]) {
+            propertyString = @"integer";
+        }
         return @[displayString,propertyString];
     }
     
@@ -170,22 +172,47 @@
         NSString *displayName =[self displayStringForKey:cleanPropertyName];
         
         [displaynames setObject:displayName forKey:key];
+        if ([propertyTypeString isEqualToString:@"NSNumber"]) {
+            
+        
+            if ([parsedPropertyType isEqualToString:@"B"]) {
+                propertyTypeString = @"B";
+            }
+            else if ([parsedPropertyType isEqualToString:@"f"]) {
+                propertyTypeString = @"f";
+            }
+//            else if ([parsedPropertyType isEqualToString:@"d"]) {
+//                parsedPropertyType = @"decimal";
+//            }
+//            else if ([parsedPropertyType isEqualToString:@"i"]) {
+//                parsedPropertyType = @"integer";
+//            }
+//            else {
+//                parsedPropertyType  = @"decimal";
+//            }
+        }
+        
+        
 
         if ([propertyTypeString  isEqual: @"NSString"]){
             TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initTextInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
+            [newTextCell setCellType:parsedPropertyType];
+
             [tempCellsArray addObject:newTextCell];
         }
         
         else if ([propertyTypeString isEqual:@"NSDate"]) {
             DateOptionCellInput *newDateCell = [[DateOptionCellInput alloc] initDateInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"dates section"];
             
-            [newDateCell setDateCellType:parsedPropertyType];
+            [newDateCell setCellType:parsedPropertyType];
             
             [tempCellsArray addObject:newDateCell];
 
         }
         else if ([propertyTypeString isEqual:@"NSNumber"]) {
             NumberOptionCellInput* newNumberCell = [[NumberOptionCellInput alloc] initNumberInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"number section"];
+            
+            [newNumberCell setCellType:parsedPropertyType];
             [tempCellsArray addObject:newNumberCell];
 
         }

@@ -10,7 +10,7 @@
 
 @implementation DateCell
 
-@synthesize datePickerMode, dateFormatDict;
+@synthesize datePickerMode, dateFormatDict, datePickerTitle;
 
 /* date modes
  
@@ -30,10 +30,11 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        self.dateFormatDict = @{@"date":@"MM-dd-YYYY",
-                                @"datetime":@"MM-dd-YYYY hh:mm a",
-                                @"time":@"hh:mm:ss a"};
-        
+        self.dateFormatDict = @{@"date":@{@"format":@"MM-dd-YYYY",@"title":@"Select A Day"},
+                                @"datetime":@{@"format":@"MM-dd-YYYY hh:mm a",@"title":@"Select A Date and Time"},
+                                @"time":@{@"format":@"hh:mm:ss a",@"title":@"Select A Time"}
+                                };
+
         self.dateButon = [UIButton newAutoLayoutView];
         self.dateButon.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5]; // light blue
 
@@ -43,21 +44,28 @@
     return self;
 }
 
--(void) setDateFormat:(NSString *)formatString {
-    
+-(void) setCellFormat:(NSString *)formatString{
+    self.cellFormatString = formatString;
     if ([formatString isEqualToString:@"date"]){
-        self.dateFormatString = [self.dateFormatDict valueForKey:formatString];
+        self.dateFormatString = [[self.dateFormatDict valueForKey:formatString] valueForKey:@"format"];
+        
         self.datePickerMode = UIDatePickerModeDate;
+        self.datePickerTitle =[[self.dateFormatDict valueForKey:formatString] valueForKey:@"title"];
+
     }
     else if ([formatString isEqualToString:@"datetime"]){
-        self.dateFormatString = [self.dateFormatDict valueForKey:formatString];
+        self.dateFormatString = [[self.dateFormatDict valueForKey:formatString] valueForKey:@"format"];
+        self.datePickerTitle =[[self.dateFormatDict valueForKey:formatString] valueForKey:@"title"];
+
         self.datePickerMode = UIDatePickerModeDateAndTime;
     }
     else if ([formatString isEqualToString:@"time"]){
-        self.dateFormatString = [self.dateFormatDict valueForKey:formatString];
+        self.dateFormatString = [[self.dateFormatDict valueForKey:formatString] valueForKey:@"format"];
+        self.datePickerTitle =[[self.dateFormatDict valueForKey:formatString] valueForKey:@"title"];
         self.datePickerMode = UIDatePickerModeTime;
     }
 }
+
 - (void)updateConstraints
 {
     NSLog(@"call to updating constraints in date cell");

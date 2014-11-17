@@ -25,6 +25,8 @@
 @property (nonatomic, assign) BOOL didSetupConstraints;
 @property (nonatomic, assign) BOOL didSetupAcessoryConstraints;
 
+-(void) setCellFormat:(NSString *)formatString;
+@property (strong, nonatomic) NSString *cellFormatString;
 
 - (void)updateFonts;
 

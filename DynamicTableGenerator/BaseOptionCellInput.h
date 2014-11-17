@@ -46,4 +46,9 @@ extern NSString * const segmentCell;
 
 -(NSObject*) getDisplayValue;
 
+- (void) setCellType:(NSString*) cellTypeString;
+
+@property (strong, nonatomic) NSString *cellTypeString;
+
+
 @end

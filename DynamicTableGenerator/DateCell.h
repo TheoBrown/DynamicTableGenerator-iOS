@@ -24,10 +24,13 @@
 
 @property (strong, nonatomic) NSDictionary *dateFormatDict;
 @property (strong, nonatomic) NSString *dateFormatString;
+@property (strong, nonatomic) NSString *datePickerTitle;
+
 @property (nonatomic) NSInteger datePickerMode;
 
 - (IBAction)selectADate:(UIControl *)sender;
 -(NSString*)stringFromDate:(NSDate*)date;
+
 -(void) setDateFormat:(NSString *)formatString;
 
 @end

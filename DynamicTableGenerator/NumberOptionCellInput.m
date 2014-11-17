@@ -42,6 +42,7 @@
     
 }
 
+
 #pragma mark - editable table cell delegate methods
 - (void) cellNumericValueDidChange: (NSIndexPath *) cellIndexPath :(NSNumber *) newValue {
     NSInteger sec = [cellIndexPath section];
@@ -50,4 +51,6 @@
     [self updateContextWithValue:newValue];
 
 }
+
+
 @end

@@ -79,6 +79,13 @@ NSString * const segmentCell = @"SegmentCellID";
         self.value = newValue;
     }
 }
+
+#pragma mark - Cell Type Options
+- (void) setCellType:(NSString*) cellTypeString {
+    self.cellTypeString = cellTypeString;
+}
+
+#pragma  mark - debug
 - (void) printDebug {
     NSLog(@"title: %@ , section %@, id %@", self.title, self.sectionHeader, self.identifier);
 }
