@@ -104,12 +104,10 @@
             cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell = [[NumberCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             [cell setCellFormat:[numberCellInput cellTypeString]];
-
-//            cell = (TableCellWithNumber *)[TableCellWithNumber cellFromNibNamed:@"TableCellWithNumber"];
         }
         
         // Configure the cell...
-        [cell setCellFormat:[numberCellInput cellTypeString]];
+//        [cell setCellFormat:[numberCellInput cellTypeString]];
         [cell.numericTextField setInputAccessoryView:self.keyboardToolbar];
         cell.numericTextField.delegate = cell;
         cell.title.text = baseCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
@@ -132,7 +130,6 @@
         TextCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         if (cell == nil) {
-//            cell = (CellWithText *)[CellWithText cellFromNibNamed:@"CellWithText"];
             [self.tableView registerClass:[TextCell class] forCellReuseIdentifier:CellIdentifier];
             cell = [[TextCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             [cell setCellFormat:[textCellInput cellTypeString]];
@@ -140,7 +137,7 @@
         }
         
         // Configure the cell...
-        [cell setCellFormat:[textCellInput cellTypeString]];
+//        [cell setCellFormat:[textCellInput cellTypeString]];
 
         cell.title.text = textCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
         cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
@@ -202,7 +199,7 @@
             
 
         }
-        [cell setCellFormat:[dateCellInput cellTypeString]];
+//        [cell setCellFormat:[dateCellInput cellTypeString]];
 
         [cell.dateButon setTitle:[cell stringFromDate:dateCellInput.value] forState:UIControlStateNormal];
 
