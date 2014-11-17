@@ -28,7 +28,7 @@
         self.tagOffset = 5;
 //    self.keyboardToolbar = [self createInputAccessoryView];
     
-    CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, 300, self.view.bounds.size.width, 30);
+    CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.size.height-30, self.view.bounds.size.width, 30);
     self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:(CGRect) keyPadFrame];
 
     self.cellManager = [[DynamicTableViewCellManager alloc] initWithTagCode:self.tagCode andOffset:self.tagOffset   andtableView:self.tableView withAcessoryKeys:self.keyPadView andCellInputs:cellInputArray];
@@ -70,6 +70,7 @@
 
     CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, 300, self.view.bounds.size.width, 30);
     self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:(CGRect) keyPadFrame];
+    self.keyPadView.tag = 1;
     [self.view addSubview:self.keyPadView];
     [self.view bringSubviewToFront:self.keyPadView];
 }
@@ -122,19 +123,44 @@
     [super viewDidAppear:animated];
     
         NSLog(@"table view did appear");
-
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(contentSizeCategoryChanged:)
                                                  name:UIContentSizeCategoryDidChangeNotification
                                                object:nil];
 }
+-(void) keyboardWillShow {
+    NSLog(@"keyboardWillShow");
+    [[self.view viewWithTag:1] setHidden:YES];
+//    [self.keyPadView removeFromSuperview];
+}
+-(void) keyboardWillHide {
+    NSLog(@"keyboardWillHide");
+    [[self.view viewWithTag:1] setHidden:NO];
 
+
+}
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UIContentSizeCategoryDidChangeNotification
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
                                                   object:nil];
 }
 
@@ -329,6 +355,8 @@
 //        *stop = [myFloat1 isEqualToNumber:userIdentity];
 //        return (*stop); }];
 //}
+
+#pragma mark - notifications
 
 
 #pragma mark - debug helpers

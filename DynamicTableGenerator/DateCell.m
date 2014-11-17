@@ -108,8 +108,8 @@
     //    NSLog(@"Select a Date called in custom cell");
     
     //    [self.delegate selectADate:sender];
-    _actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Please Select A Date" datePickerMode:self.datePickerMode selectedDate:self.selectedDate target:self action:@selector(dateWasSelected:element:) origin:sender];
-        [self.actionSheetPicker addCustomButtonWithTitle:@"Today" value:[NSDate date]];
+    _actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:self.datePickerTitle datePickerMode:self.datePickerMode selectedDate:self.selectedDate target:self action:@selector(dateWasSelected:element:) origin:sender];
+        [self.actionSheetPicker addCustomButtonWithTitle:@"Now" value:[NSDate date]];
     //    [self.actionSheetPicker addCustomButtonWithTitle:@"Yesterday" value:[[NSDate date] TC_dateByAddingCalendarUnits:NSDayCalendarUnit amount:-1]];
     self.actionSheetPicker.hideCancel = NO;
     [self.actionSheetPicker  setPickerView:self.actionSheetView];
