@@ -32,7 +32,7 @@
 
 #pragma mark - init methods
 
-- (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView withAcessoryKeys:(UIToolbar*) acessoryKeyBoard andCellInputs:(NSArray*) cellInputArray {
+- (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView withAcessoryKeys:(UIView*) acessoryKeyBoard andCellInputs:(NSArray*) cellInputArray {
     self = [super init];
     if (self) {
         self = [super init];
@@ -116,7 +116,7 @@
         }
         
         [cell setCellFormat:[numberCellInput cellTypeString]];
-//        [cell.numericTextField setInputAccessoryView:self.keyboardToolbar];
+        [cell.numericTextField setInputAccessoryView:self.keyboardToolbar];
         cell.numericTextField.delegate = cell;
         
         cell.title.text = baseCellInput.title;
@@ -145,7 +145,7 @@
         cell.cellTextField.clearsOnBeginEditing = YES;
         cell.cellTextField.autocorrectionType = UITextAutocorrectionTypeNo;
         
-//        [cell.cellTextField setInputAccessoryView:self.keyboardToolbar];
+        [cell.cellTextField setInputAccessoryView:self.keyboardToolbar];
         cell.cellTextField.delegate = cell;
 
         cell.selectionStyle = UITableViewCellSelectionStyleGray;

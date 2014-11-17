@@ -19,13 +19,15 @@
 @property (nonatomic, strong) NSArray *sectionHeaderArray;
 @property (nonatomic, strong) NSDictionary *sectionDescription;
 
-@property (nonatomic, strong) UIToolbar* keyboardToolbar;
+@property (nonatomic, strong) UIView* keyboardToolbar;
 @property (nonatomic, strong) UIBarButtonItem* btnDone;
 @property (nonatomic, strong) UIBarButtonItem* btnNext;
 @property (nonatomic, strong) UIBarButtonItem* btnPrev;
 @property (nonatomic, strong) NSIndexPath *currentSelection;
+
 - (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView  andCellInputs:(NSArray*) cellInputArray;
-- (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView withAcessoryKeys:(UIToolbar*) acessoryKeyBoard andCellInputs:(NSArray*) cellInputArray;
+- (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView withAcessoryKeys:(UIView*) acessoryKeyBoard andCellInputs:(NSArray*) cellInputArray;
+
 - (UITableViewCell*)  getCellatIndexPath:(NSIndexPath *)indexPath andDelegate:(id) delegateToAssign;
 - (NSInteger) rowsInSection:(NSInteger) section;
 

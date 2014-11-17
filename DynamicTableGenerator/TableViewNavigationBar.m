@@ -15,21 +15,30 @@
     self = [super initWithFrame:viewFrame];
     if (self) {
         self.delegate = tvDelegate;
-        self.backgroundColor = [UIColor redColor];
-        self.nextButton = [UIButton newAutoLayoutView];
-        self.nextButton.backgroundColor = [UIColor blueColor];
-        [self.nextButton setTitle:@"next" forState:UIControlStateNormal];
-        [self.nextButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchDown];
-        
-        self.previousButton = [UIButton newAutoLayoutView];
-        [self.previousButton setTitle:@"prev" forState:UIControlStateNormal];
-        [self.previousButton addTarget:self action:@selector(prevButtonPressed:) forControlEvents:UIControlEventTouchDown];
-        self.previousButton.backgroundColor = [UIColor blueColor];
+        self.backgroundColor = [UIColor lightGrayColor];
 
-        self.doneButton = [UIButton newAutoLayoutView];
-        [self.doneButton setTitle:@"done" forState:UIControlStateNormal];
+        self.nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        self.nextButton.translatesAutoresizingMaskIntoConstraints = NO;
+         
+        self.nextButton.backgroundColor = [UIColor grayColor];
+        [self.nextButton setTitle:@"Next" forState:UIControlStateNormal];
+        [self.nextButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchDown];
+        [self.nextButton setTitleColor:[UIColor colorWithRed:36/255.0 green:71/255.0 blue:113/255.0 alpha:1.0] forState:UIControlStateNormal];
+        
+        self.previousButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        self.previousButton.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.previousButton setTitle:@"Prev" forState:UIControlStateNormal];
+        [self.previousButton addTarget:self action:@selector(prevButtonPressed:) forControlEvents:UIControlEventTouchDown];
+        self.previousButton.backgroundColor = [UIColor grayColor];
+        [self.previousButton setTitleColor:[UIColor colorWithRed:36/255.0 green:71/255.0 blue:113/255.0 alpha:1.0] forState:UIControlStateNormal];
+
+        self.doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        self.doneButton.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.doneButton setTitle:@"Done" forState:UIControlStateNormal];
         [self.doneButton addTarget:self action:@selector(doneButtonPressed:) forControlEvents:UIControlEventTouchDown];
-        self.doneButton.backgroundColor = [UIColor blueColor];
+        self.doneButton.backgroundColor = [UIColor grayColor];
+        [self.doneButton setTitleColor:[UIColor colorWithRed:36/255.0 green:71/255.0 blue:113/255.0 alpha:1.0] forState:UIControlStateNormal];
+
         self.userInteractionEnabled = YES;
         [self addSubview:self.nextButton];
         [self addSubview:self.previousButton];
@@ -54,7 +63,7 @@
 //        [self autoSetDimension:ALDimensionHeight toSize:40.0];
 
         // Fix all the heights of the views to 40 pt
-        [views autoSetViewsDimension:ALDimensionHeight toSize:40.0];
+        [views autoSetViewsDimension:ALDimensionHeight toSize:28.0];
         
         // Distribute the views horizontally across the screen, aligned to one another's horizontal axis,
         // with 10 pt spacing between them and to their superview, and their widths matched equally

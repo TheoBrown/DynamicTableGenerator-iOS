@@ -27,10 +27,12 @@
         self.tagCode = [NSString stringWithFormat:@"06760"];
         self.tagOffset = 5;
 //    self.keyboardToolbar = [self createInputAccessoryView];
-
-    self.cellManager = [[DynamicTableViewCellManager alloc] initWithTagCode:self.tagCode andOffset:self.tagOffset andtableView:self.tableView andCellInputs:cellInputArray];
-
     
+    CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, 300, self.view.bounds.size.width, 30);
+    self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:(CGRect) keyPadFrame];
+
+    self.cellManager = [[DynamicTableViewCellManager alloc] initWithTagCode:self.tagCode andOffset:self.tagOffset   andtableView:self.tableView withAcessoryKeys:self.keyPadView andCellInputs:cellInputArray];
+
     NSLog(@"cell mutables setu[ with array %@" , [cellInputArray description]);
 }
 - (void)didReceiveMemoryWarning
@@ -66,7 +68,7 @@
     NSLog(@"table view did load");
     [self.tableView reloadData];
 
-    CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, 300, self.view.bounds.size.width, 44);
+    CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, 300, self.view.bounds.size.width, 30);
     self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:(CGRect) keyPadFrame];
     [self.view addSubview:self.keyPadView];
     [self.view bringSubviewToFront:self.keyPadView];
