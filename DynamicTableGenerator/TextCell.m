@@ -34,6 +34,9 @@
 //        [self.cellTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEnd];
 //        [self.cellTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEndOnExit];
         [self.cellTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventValueChanged];
+
+        [self defineContentSelector:@selector(showKeyBoard)];
+
         [self.cellTextField setTextAlignment:NSTextAlignmentRight];
         [self.contentView addSubview:self.cellTextField];
     }
@@ -120,6 +123,10 @@
 
 #pragma mark -delegat methods for text entry
 #pragma text field delegates
+- (void) showKeyBoard {
+    [self.cellTextField becomeFirstResponder];
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [textField resignFirstResponder];
 }

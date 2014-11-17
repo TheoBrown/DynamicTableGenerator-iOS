@@ -23,7 +23,8 @@
         self.numericTextField = [UITextField newAutoLayoutView];
         [self.numericTextField addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventEditingDidBegin];
 
-        
+        [self defineContentSelector:@selector(showKeyBoard)];
+
         [self.numericTextField setClearsOnBeginEditing:true];
 //        [self.numericTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEnd];
 //        [self.numericTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEndOnExit];
@@ -108,6 +109,10 @@
     [self.delegate cellNumericValueDidChange:self.indexPath: [NSNumber numberWithFloat:value]];
 }
 #pragma mark -text delegate
+- (void) showKeyBoard {
+    [self.numericTextField becomeFirstResponder];
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [textField resignFirstResponder];
 }

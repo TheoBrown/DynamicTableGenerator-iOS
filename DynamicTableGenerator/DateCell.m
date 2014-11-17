@@ -40,6 +40,8 @@
         [self.dateButon addTarget:self action:@selector(selectADate:) forControlEvents:UIControlEventTouchUpInside];
         [self.dateButon addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventTouchDown];
 
+        [self defineContentSelector:@selector(selectADate:)];
+        
         //set button text to display to the right, slightly offset from edge
         self.dateButon.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         self.dateButon.contentEdgeInsets = UIEdgeInsetsMake(0,0,0,10);

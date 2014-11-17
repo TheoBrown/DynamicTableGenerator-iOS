@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) ActionSheetDatePicker *actionSheetPicker;
 @property (nonatomic, strong) UIView *actionSheetView;
+@property (nonatomic, strong) UIView *actionSheetAcessoryView;
 
 @property (nonatomic, strong) IBOutlet UIButton *dateButon;
 

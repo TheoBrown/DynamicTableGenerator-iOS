@@ -221,7 +221,15 @@
 {
     NSLog(@"tableView Row Selected %@" ,[self stringForIndex:indexPath]);
     self.currentSelection = indexPath;
+
     
+}
+
+-(void) displayContentForCellAtIndex:(NSIndexPath*)indexPath {
+    NSLog(@"displayContentForCellAtIndex %@" ,[self stringForIndex:indexPath]);
+
+    BaseCell* selectedCell = (BaseCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+    [selectedCell showContentFromSelector];
 }
 #pragma mark -t ext delegat options
 
@@ -236,7 +244,7 @@
 #pragma mark textfield toolbar
 -(void)gotoPrevTextfield: (id) sender
 {
-    NSLog(@"go to prev");
+//    NSLog(@"go to prev");
 
     NSInteger lastRowInSection = [self.cellManager rowsInSection:self.currentSelection.section]-1;
     NSInteger lastSection = [self.cellManager.sectionHeaderArray count]-1;
@@ -267,6 +275,7 @@
     }
     
     [self.tableView selectRowAtIndexPath:self.currentSelection animated:YES scrollPosition: UITableViewScrollPositionMiddle];
+    [self displayContentForCellAtIndex:self.currentSelection];
 }
 
 -(void)gotoNextTextfield: (id) sender
@@ -303,6 +312,7 @@
     }
     
     [self.tableView selectRowAtIndexPath:self.currentSelection animated:YES scrollPosition: UITableViewScrollPositionMiddle];
+    [self displayContentForCellAtIndex:self.currentSelection];
 
 
 }

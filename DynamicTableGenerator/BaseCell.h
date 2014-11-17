@@ -27,6 +27,10 @@
 @property (nonatomic, strong) id delegate;
 @property (nonatomic, strong) id tvDelegate;
 
+@property (nonatomic) SEL contentSelector;
+-(void) showContentFromSelector;
+-(void) defineContentSelector:(SEL) contentSelector;
+
 @property (nonatomic, strong) IBOutlet UILabel *title;
 @property (nonatomic, strong) IBOutlet UILabel *subTitle;
 @property (nonatomic, assign) BOOL didSetupConstraints;

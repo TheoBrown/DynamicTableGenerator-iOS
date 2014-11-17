@@ -47,6 +47,18 @@
     
     return self;
 }
+
+-(void) defineContentSelector:(SEL) contentSelector{
+    self.contentSelector = contentSelector;
+}
+-(void) showContentFromSelector {
+    NSLog(@"Show content force called %@",self.title);
+    if (self.contentSelector) {
+        [self performSelector:self.contentSelector withObject:self];
+
+    }
+    [self contentWasSelected:self];
+}
 -(void) setBaseConstraints {
     self.contentView.bounds = CGRectMake(0.0f, 0.0f, 99999.0f, 99999.0f);
     
@@ -109,6 +121,9 @@
     self.cellFormatString = formatString;
 }
 #pragma mark - tv delegate methods
+- (void) presentContentInput:(id) sender {
+   
+}
 - (void) contentWasSelected:(id) sender {
     [self.tvDelegate contentOfCellWasSelected:self.indexPath];
 }
