@@ -10,7 +10,7 @@
 #import "BaseCell.h"
 #import "TableViewNavigationDelegate.h"
 #import "PureLayout.h"
-#import "MutableTableViewCellManager.h"
+#import "DynamicTableViewCellManager.h"
 
 @protocol OptionsDelegate <NSObject>
 -(void)optionsWereUpdated:(NSDictionary*)optionsDictionary;
@@ -22,7 +22,7 @@
     __weak id optionsDelegate;
 }
 @property (nonatomic,weak) id<OptionsDelegate> optionsDelegate;
-@property (nonatomic, strong) MutableTableViewCellManager *  cellManager;
+@property (nonatomic, strong) DynamicTableViewCellManager *  cellManager;
 @property (nonatomic, strong) UITableView *  tableView;
 
 @property (nonatomic, strong) UIView *  keyPadView;
@@ -43,8 +43,8 @@
 
 
 @property (nonatomic, strong) NSMutableDictionary *resultDict;
+
 - (void) setupWithInputArray:(NSArray*) cellInputArray;
-- (id) initWithCellInputArray:(NSArray*) cellInputArray;
 -(UIToolbar *)createInputAccessoryView;
 
 @end

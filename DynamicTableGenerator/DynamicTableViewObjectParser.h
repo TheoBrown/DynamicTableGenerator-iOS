@@ -18,7 +18,7 @@
 #import "SegmentOptionCellInput.h"
 #import "NumberOptionCellInput.h"
 
-@interface MutableTableViewSetupHelper : NSObject
+@interface DynamicTableViewObjectParser : NSObject
 
 
 

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface MutableTableViewCellManager : NSObject
+@interface DynamicTableViewCellManager : NSObject
 
 
 @property (nonatomic, strong) NSMutableDictionary *resultDict;
@@ -24,7 +24,7 @@
 @property (nonatomic, strong) UIBarButtonItem* btnNext;
 @property (nonatomic, strong) UIBarButtonItem* btnPrev;
 @property (nonatomic, strong) NSIndexPath *currentSelection;
-
+- (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView  andCellInputs:(NSArray*) cellInputArray;
 - (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView withAcessoryKeys:(UIToolbar*) acessoryKeyBoard andCellInputs:(NSArray*) cellInputArray;
 - (UITableViewCell*)  getCellatIndexPath:(NSIndexPath *)indexPath andDelegate:(id) delegateToAssign;
 - (NSInteger) rowsInSection:(NSInteger) section;

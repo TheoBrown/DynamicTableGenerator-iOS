@@ -26,13 +26,9 @@
 
         self.tagCode = [NSString stringWithFormat:@"06760"];
         self.tagOffset = 5;
-    self.keyboardToolbar = [self createInputAccessoryView];
-//    [self.view addSubview:self.keyboardToolbar];
-//    UIView *keyView = [[UIView alloc] init];
-//    [keyView addSubview:self.keyboardToolbar];
-//    [keyView sizeToFit];
-//    self.tableView.tableFooterView = keyView;
-    self.cellManager = [[MutableTableViewCellManager alloc] initWithTagCode:self.tagCode andOffset:self.tagOffset andtableView:self.tableView withAcessoryKeys:self.keyboardToolbar andCellInputs:cellInputArray];
+//    self.keyboardToolbar = [self createInputAccessoryView];
+
+    self.cellManager = [[DynamicTableViewCellManager alloc] initWithTagCode:self.tagCode andOffset:self.tagOffset andtableView:self.tableView andCellInputs:cellInputArray];
 
     
     NSLog(@"cell mutables setu[ with array %@" , [cellInputArray description]);
@@ -50,8 +46,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.tableView = [UITableView newAutoLayoutView];
 //    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 200.0, 0.0);
@@ -60,34 +58,26 @@
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveSettings:)];
 	self.navigationItem.rightBarButtonItem = addButton;
     
-    
-    // Self-sizing table view cells in iOS 8 require that the rowHeight property of the table view be set to the constant UITableViewAutomaticDimension
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    // Self-sizing table view cells in iOS 8 are enabled when the estimatedRowHeight property of the table view is set to a non-zero value.
-    // Setting the estimated row height prevents the table view from calling tableView:heightForRowAtIndexPath: for every row in the table on first load;
-    // it will only be called as cells are about to scroll onscreen. This is a major performance optimization.
     self.tableView.estimatedRowHeight = 44.0; // set this to whatever your "average" cell height is; it doesn't need to be very accurate
     NSLog(@"table view did load");
-//    self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self  andFrame:self.view.bounds];
 
-//    [self.view addSubview:self.keyPadView];
-//    [self.view bringSubviewToFront:self.keyPadView];
 }
-//- (void) updateViewConstraints {
-//    if (!self.didSetupConstraints) {
-//        // Note: if the constraints you add below require a larger cell size than the current size (which is likely to be the default size {320, 44}), you'll get an exception.
-//        // As a fix, you can temporarily increase the size of the cell's contentView so that this does not occur using code similar to the line below.
-//        //      See here for further discussion: https://github.com/Alex311/TableCellWithAutoLayout/commit/bde387b27e33605eeac3465475d2f2ff9775f163#commitcomment-4633188
-//        
-//        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
-//            [self.tableView autoSetContentCompressionResistancePriorityForAxis:ALAxisHorizontal];
-//        }];
-//        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
-//        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
-//         [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
-//        
-//        
+- (void) updateViewConstraints {
+    if (!self.didSetupConstraints) {
+        // Note: if the constraints you add below require a larger cell size than the current size (which is likely to be the default size {320, 44}), you'll get an exception.
+        // As a fix, you can temporarily increase the size of the cell's contentView so that this does not occur using code similar to the line below.
+        //      See here for further discussion: https://github.com/Alex311/TableCellWithAutoLayout/commit/bde387b27e33605eeac3465475d2f2ff9775f163#commitcomment-4633188
+        
+        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
+            [self.tableView autoSetContentCompressionResistancePriorityForAxis:ALAxisHorizontal];
+        }];
+        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
+        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
+         [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
+        
+        
 //        [self.keyboardToolbar autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView withOffset:kLabelVerticalInsets];
 //        
 //        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
@@ -96,12 +86,13 @@
 //        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
 //        //        [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
 //        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
-//        
-//        self.didSetupConstraints = YES;
-//    }
-//    
-//    [super updateViewConstraints];
-//}
+        
+        self.didSetupConstraints = YES;
+    }
+    
+    [super updateViewConstraints];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -193,20 +184,7 @@
 }
 #pragma mark -t ext delegat options
 
--(UIToolbar *)createInputAccessoryView
-{
-    UIToolbar* keyboard = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
-    keyboard.barStyle = UIBarStyleDefault;
-    keyboard.tintColor = [UIColor blueColor];
-    UIBarButtonItem* previousButton = [[UIBarButtonItem alloc] initWithTitle:@"Previous" style:UIBarButtonItemStylePlain target:self action:@selector(gotoPrevTextfield:)];
-    UIBarButtonItem* nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(gotoNextTextfield:)];
-//    UIBarButtonItem* flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTyping:)];
-    [keyboard setItems:[NSArray arrayWithObjects: previousButton, nextButton, doneButton, nil] animated:NO];
-    [keyboard removeFromSuperview];
-    [keyboard setUserInteractionEnabled:YES];
-    return keyboard;
-}
+
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
 
@@ -344,9 +322,5 @@
     NSString *pathString = [[NSString alloc] initWithFormat:@" Row: %ld Section: %ld ",(long)indexPath.row,(long)indexPath.section];
   return pathString;
 }
-
-
-
-
 
 @end

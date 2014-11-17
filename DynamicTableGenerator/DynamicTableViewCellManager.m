@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Theodore Brown. All rights reserved.
 //
 
-#import "MutableTableViewCellManager.h"
+#import "DynamicTableViewCellManager.h"
 #import "BaseOptionCellInput.h"
 #import "DateOptionCellInput.h"
 #import "SliderOptionCellInput.h"
@@ -24,11 +24,13 @@
 #import "SliderCell.h"
 #import "SegmentCell.h"
 
-@implementation MutableTableViewCellManager
+@implementation DynamicTableViewCellManager
 @synthesize tagCode, tagOffset;
 @synthesize tableView;
 @synthesize sectionHeaderArray;
 @synthesize keyboardToolbar;
+
+#pragma mark - init methods
 
 - (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView withAcessoryKeys:(UIToolbar*) acessoryKeyBoard andCellInputs:(NSArray*) cellInputArray {
     self = [super init];
@@ -47,6 +49,15 @@
     return self;
 }
 
+- (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView  andCellInputs:(NSArray*) cellInputArray {
+    self = [super init];
+    if (self) {
+        self = [super init];
+        [self parseInputArray:cellInputArray];
+    }
+    return self;
+}
+#pragma mark -table view setup
 - (void) parseInputArray:(NSArray*) cellInputArray{
     NSMutableArray* sectionTitles = [[NSMutableArray alloc] init];
     NSMutableDictionary* sectionTitleDict = [[NSMutableDictionary alloc] init];
@@ -68,7 +79,7 @@
     self.sectionDescription = [[NSDictionary alloc] initWithDictionary:sectionTitleDict];
 }
 
-
+#pragma mark -table view data/cell source
 
 - (id) getInputForSectionTitle:(NSString*) sectionTitle atRow:(NSInteger) rowNumber {
     return self.sectionDescription[sectionTitle][rowNumber];

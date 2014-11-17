@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Theodore Brown. All rights reserved.
 //
 
-#import "MutableTableViewSetupHelper.h"
+#import "DynamicTableViewObjectParser.h"
 
 #import "PropertyUtil.h"
 
-@implementation MutableTableViewSetupHelper
+@implementation DynamicTableViewObjectParser
 @synthesize NewFormClass;
 @synthesize  saveUserButton;
 @synthesize  UserInfoArray, UserInfoDict, currentSelection,titletag;

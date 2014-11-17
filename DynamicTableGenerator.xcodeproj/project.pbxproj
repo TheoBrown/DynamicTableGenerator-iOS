@@ -23,12 +23,12 @@
 		6C7B9D2219E72DC700C86637 /* FetchedResultsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D1C19E72DC700C86637 /* FetchedResultsHelper.m */; };
 		6C7B9D2319E72DC700C86637 /* MutableTableViewObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D1E19E72DC700C86637 /* MutableTableViewObjects.m */; };
 		6C7B9D2419E72DC700C86637 /* SharedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D2019E72DC700C86637 /* SharedData.m */; };
-		6C7B9D2819E7304400C86637 /* MutableTableViewSetupHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D2719E7304400C86637 /* MutableTableViewSetupHelper.m */; };
+		6C7B9D2819E7304400C86637 /* DynamicTableViewObjectParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D2719E7304400C86637 /* DynamicTableViewObjectParser.m */; };
 		6C7B9D2B19E732AD00C86637 /* DynamicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D2A19E732AD00C86637 /* DynamicTableViewController.m */; };
 		6C7B9D2D19E7352100C86637 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7B9D2C19E7352100C86637 /* UIKit.framework */; };
 		6C7B9D2F19E735D600C86637 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7B9D2E19E735D600C86637 /* CoreData.framework */; };
 		6C7B9D3519E7369A00C86637 /* ResultSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D3219E7369A00C86637 /* ResultSelectionController.m */; };
-		6C7B9D3C19E7386D00C86637 /* MutableTableViewCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D3B19E7386D00C86637 /* MutableTableViewCellManager.m */; };
+		6C7B9D3C19E7386D00C86637 /* DynamicTableViewCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D3B19E7386D00C86637 /* DynamicTableViewCellManager.m */; };
 		6CBA470819E756DF00EF8861 /* CellWithAbstractActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CDB19E72D1200C86637 /* CellWithAbstractActionSheet.xib */; };
 		6CBA470D19E756DF00EF8861 /* CellWithButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CEC19E72D1300C86637 /* CellWithButton.xib */; };
 		F650D15E1A19C2F5008014FA /* TableViewNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F650D15D1A19C2F5008014FA /* TableViewNavigationBar.m */; };
@@ -100,16 +100,16 @@
 		6C7B9D1E19E72DC700C86637 /* MutableTableViewObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableTableViewObjects.m; sourceTree = "<group>"; };
 		6C7B9D1F19E72DC700C86637 /* SharedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedData.h; sourceTree = "<group>"; };
 		6C7B9D2019E72DC700C86637 /* SharedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedData.m; sourceTree = "<group>"; };
-		6C7B9D2619E7304400C86637 /* MutableTableViewSetupHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableTableViewSetupHelper.h; sourceTree = "<group>"; };
-		6C7B9D2719E7304400C86637 /* MutableTableViewSetupHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableTableViewSetupHelper.m; sourceTree = "<group>"; };
+		6C7B9D2619E7304400C86637 /* DynamicTableViewObjectParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTableViewObjectParser.h; sourceTree = "<group>"; };
+		6C7B9D2719E7304400C86637 /* DynamicTableViewObjectParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicTableViewObjectParser.m; sourceTree = "<group>"; };
 		6C7B9D2919E732AD00C86637 /* DynamicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTableViewController.h; sourceTree = "<group>"; };
 		6C7B9D2A19E732AD00C86637 /* DynamicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicTableViewController.m; sourceTree = "<group>"; };
 		6C7B9D2C19E7352100C86637 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6C7B9D2E19E735D600C86637 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6C7B9D3119E7369A00C86637 /* ResultSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSelectionController.h; sourceTree = "<group>"; };
 		6C7B9D3219E7369A00C86637 /* ResultSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultSelectionController.m; sourceTree = "<group>"; };
-		6C7B9D3A19E7386D00C86637 /* MutableTableViewCellManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableTableViewCellManager.h; sourceTree = "<group>"; };
-		6C7B9D3B19E7386D00C86637 /* MutableTableViewCellManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableTableViewCellManager.m; sourceTree = "<group>"; };
+		6C7B9D3A19E7386D00C86637 /* DynamicTableViewCellManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTableViewCellManager.h; sourceTree = "<group>"; };
+		6C7B9D3B19E7386D00C86637 /* DynamicTableViewCellManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicTableViewCellManager.m; sourceTree = "<group>"; };
 		6CBA470019E7566100EF8861 /* DynamicTableXibs.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicTableXibs.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CBA470319E7566100EF8861 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CE5960D3BCCF624D49FCAAA /* Pods-DynamicTableGenerator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicTableGenerator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicTableGenerator/Pods-DynamicTableGenerator.debug.xcconfig"; sourceTree = "<group>"; };
@@ -297,10 +297,10 @@
 			children = (
 				6C7B9D2919E732AD00C86637 /* DynamicTableViewController.h */,
 				6C7B9D2A19E732AD00C86637 /* DynamicTableViewController.m */,
-				6C7B9D3A19E7386D00C86637 /* MutableTableViewCellManager.h */,
-				6C7B9D3B19E7386D00C86637 /* MutableTableViewCellManager.m */,
-				6C7B9D2619E7304400C86637 /* MutableTableViewSetupHelper.h */,
-				6C7B9D2719E7304400C86637 /* MutableTableViewSetupHelper.m */,
+				6C7B9D3A19E7386D00C86637 /* DynamicTableViewCellManager.h */,
+				6C7B9D3B19E7386D00C86637 /* DynamicTableViewCellManager.m */,
+				6C7B9D2619E7304400C86637 /* DynamicTableViewObjectParser.h */,
+				6C7B9D2719E7304400C86637 /* DynamicTableViewObjectParser.m */,
 			);
 			name = MainControllers;
 			sourceTree = "<group>";
@@ -521,11 +521,11 @@
 				6C7B9CF019E72D1300C86637 /* XIBBasedTableCell.m in Sources */,
 				6C7B9D1319E72D9E00C86637 /* DateOptionCellInput.m in Sources */,
 				6C7B9D1419E72D9E00C86637 /* TextOptionCellInput.m in Sources */,
-				6C7B9D2819E7304400C86637 /* MutableTableViewSetupHelper.m in Sources */,
+				6C7B9D2819E7304400C86637 /* DynamicTableViewObjectParser.m in Sources */,
 				F67496371A16989D0060ECA3 /* SwitchCell.m in Sources */,
 				6C7B9D2319E72DC700C86637 /* MutableTableViewObjects.m in Sources */,
 				6C7B9D2119E72DC700C86637 /* PropertyUtil.m in Sources */,
-				6C7B9D3C19E7386D00C86637 /* MutableTableViewCellManager.m in Sources */,
+				6C7B9D3C19E7386D00C86637 /* DynamicTableViewCellManager.m in Sources */,
 				6C7B9D1719E72D9E00C86637 /* ActionSheetOptionCellInput.m in Sources */,
 				6C7B9D2B19E732AD00C86637 /* DynamicTableViewController.m in Sources */,
 				F650D15E1A19C2F5008014FA /* TableViewNavigationBar.m in Sources */,
