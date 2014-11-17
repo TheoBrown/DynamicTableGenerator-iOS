@@ -37,7 +37,10 @@
 
         self.dateButon = [UIButton newAutoLayoutView];
         self.dateButon.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5]; // light blue
-
+        [self.dateButon addTarget:self action:@selector(selectADate:) forControlEvents:UIControlEventTouchDown];
+        //set button text to display to the right, slightly offset from edge
+        self.dateButon.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        self.dateButon.contentEdgeInsets = UIEdgeInsetsMake(0,0,0,10);
         [self.contentView addSubview:self.dateButon];
     }
     
@@ -84,7 +87,8 @@
         }];
         [self.dateButon autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
         [self.dateButon autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
-        [self.dateButon addTarget:self action:@selector(selectADate:) forControlEvents:UIControlEventTouchDown];
+        [self.dateButon autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.title withOffset:kLabelHorizontalSpace];
+
         self.didSetupAcessoryConstraints = YES;
     }
     

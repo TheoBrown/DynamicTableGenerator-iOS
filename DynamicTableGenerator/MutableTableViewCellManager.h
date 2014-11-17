@@ -9,15 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-//#import "TableCellWithNumber.h"
-//#import "CellWithText.h"
-//#import "CellWithSwitch.h"
-//#import "CellWithDate.h"
-//#import "CellWithSegment.h"
-//#import "CellWithSlider.h"
-//#import "CellWithButton.h"
-//#import "CellWithAbstractActionSheet.h"
-
 @interface MutableTableViewCellManager : NSObject
 
 
@@ -37,7 +28,7 @@
 - (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView withAcessoryKeys:(UIToolbar*) acessoryKeyBoard andCellInputs:(NSArray*) cellInputArray;
 - (UITableViewCell*)  getCellatIndexPath:(NSIndexPath *)indexPath andDelegate:(id) delegateToAssign;
 - (NSInteger) rowsInSection:(NSInteger) section;
--(UIToolbar *)createInputAccessoryView;
+
 
 - (void) saveAllChanges;
 

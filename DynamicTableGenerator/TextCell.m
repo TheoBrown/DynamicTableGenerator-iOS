@@ -17,13 +17,15 @@
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.cellTextField = [UITextField newAutoLayoutView];
         self.textPadFormatDict = @{@"email":@{@"format":@"%.2f",@"default":@"Enter Email"},
-                                     @"alphabet":@{@"format":@"%d",@"default":@"Enter Text"},
-                                     @"ascii":@{@"format":@"%d",@"default":@"Enter Text"},
+                                   @"alphabet":@{@"format":@"%d",@"default":@"Enter Text"},
+                                   @"ascii":@{@"format":@"%d",@"default":@"Enter Text"},
                                    @"url":@{@"format":@"%d",@"default":@"Enter URL"},
                                    @"phone":@{@"format":@"%d",@"default":@"Enter Phone Number"},
-                                     };
+                                   };
+        
+        
+        self.cellTextField = [UITextField newAutoLayoutView];
         
         self.cellTextField.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5]; // light blue
         [self.cellTextField setClearsOnBeginEditing:true];
@@ -31,7 +33,7 @@
         [self.cellTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEnd];
         [self.cellTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEndOnExit];
         [self.cellTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventValueChanged];
-
+        [self.cellTextField setTextAlignment:NSTextAlignmentRight];
         [self.contentView addSubview:self.cellTextField];
     }
     
@@ -87,7 +89,8 @@
         }];
         [self.cellTextField autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
         [self.cellTextField autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
-        
+        [self.cellTextField autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.title withOffset:kLabelHorizontalSpace];
+
         self.didSetupAcessoryConstraints = YES;
     }
     

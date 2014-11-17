@@ -8,15 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5923702A754745FEB1F27B3E /* libPods-DynamicTableGenerator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEAA8757C8B446F8D10E45F /* libPods-DynamicTableGenerator.a */; };
-		6C7B9CC019E7256400C86637 /* DynamicTableGenerator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C7B9CBF19E7256400C86637 /* DynamicTableGenerator.h */; };
-		6C7B9CC219E7256400C86637 /* DynamicTableGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CC119E7256400C86637 /* DynamicTableGenerator.m */; };
 		6C7B9CF019E72D1300C86637 /* XIBBasedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CD519E72D1200C86637 /* XIBBasedTableCell.m */; };
-		6C7B9CF119E72D1300C86637 /* CellWithSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CD719E72D1200C86637 /* CellWithSegment.m */; };
 		6C7B9CF219E72D1300C86637 /* CellWithAbstractActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CDA19E72D1200C86637 /* CellWithAbstractActionSheet.m */; };
-		6C7B9CF319E72D1300C86637 /* CellWithDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CDD19E72D1200C86637 /* CellWithDate.m */; };
-		6C7B9CF519E72D1300C86637 /* CellWithText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE319E72D1200C86637 /* CellWithText.m */; };
-		6C7B9CF619E72D1300C86637 /* TableCellWithNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE619E72D1300C86637 /* TableCellWithNumber.m */; };
-		6C7B9CF719E72D1300C86637 /* CustomButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE919E72D1300C86637 /* CustomButtonCell.m */; };
 		6C7B9CF819E72D1300C86637 /* CellWithButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9CEB19E72D1300C86637 /* CellWithButton.m */; };
 		6C7B9D1019E72D9E00C86637 /* BaseOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0119E72D9E00C86637 /* BaseOptionCellInput.m */; };
 		6C7B9D1119E72D9E00C86637 /* SegmentOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0319E72D9E00C86637 /* SegmentOptionCellInput.m */; };
@@ -36,11 +29,7 @@
 		6C7B9D2F19E735D600C86637 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7B9D2E19E735D600C86637 /* CoreData.framework */; };
 		6C7B9D3519E7369A00C86637 /* ResultSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D3219E7369A00C86637 /* ResultSelectionController.m */; };
 		6C7B9D3C19E7386D00C86637 /* MutableTableViewCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D3B19E7386D00C86637 /* MutableTableViewCellManager.m */; };
-		6CBA470719E756DF00EF8861 /* CellWithSegment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CD819E72D1200C86637 /* CellWithSegment.xib */; };
 		6CBA470819E756DF00EF8861 /* CellWithAbstractActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CDB19E72D1200C86637 /* CellWithAbstractActionSheet.xib */; };
-		6CBA470919E756DF00EF8861 /* CellWithDate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CDE19E72D1200C86637 /* CellWithDate.xib */; };
-		6CBA470B19E756DF00EF8861 /* CellWithText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE419E72D1300C86637 /* CellWithText.xib */; };
-		6CBA470C19E756DF00EF8861 /* TableCellWithNumber.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CE719E72D1300C86637 /* TableCellWithNumber.xib */; };
 		6CBA470D19E756DF00EF8861 /* CellWithButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CEC19E72D1300C86637 /* CellWithButton.xib */; };
 		F67496341A1696800060ECA3 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496331A1696800060ECA3 /* BaseCell.m */; };
 		F67496371A16989D0060ECA3 /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496361A16989D0060ECA3 /* SwitchCell.m */; };
@@ -59,7 +48,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				6C7B9CC019E7256400C86637 /* DynamicTableGenerator.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,29 +64,13 @@
 
 /* Begin PBXFileReference section */
 		6C7B9CBC19E7256400C86637 /* libDynamicTableGenerator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDynamicTableGenerator.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C7B9CBF19E7256400C86637 /* DynamicTableGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicTableGenerator.h; sourceTree = "<group>"; };
-		6C7B9CC119E7256400C86637 /* DynamicTableGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicTableGenerator.m; sourceTree = "<group>"; };
 		6C7B9CC719E7256400C86637 /* DynamicTableGeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicTableGeneratorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7B9CCA19E7256400C86637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C7B9CD419E72D1200C86637 /* XIBBasedTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XIBBasedTableCell.h; sourceTree = "<group>"; };
 		6C7B9CD519E72D1200C86637 /* XIBBasedTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XIBBasedTableCell.m; sourceTree = "<group>"; };
-		6C7B9CD619E72D1200C86637 /* CellWithSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithSegment.h; sourceTree = "<group>"; };
-		6C7B9CD719E72D1200C86637 /* CellWithSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithSegment.m; sourceTree = "<group>"; };
-		6C7B9CD819E72D1200C86637 /* CellWithSegment.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithSegment.xib; sourceTree = "<group>"; };
 		6C7B9CD919E72D1200C86637 /* CellWithAbstractActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithAbstractActionSheet.h; sourceTree = "<group>"; };
 		6C7B9CDA19E72D1200C86637 /* CellWithAbstractActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithAbstractActionSheet.m; sourceTree = "<group>"; };
 		6C7B9CDB19E72D1200C86637 /* CellWithAbstractActionSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithAbstractActionSheet.xib; sourceTree = "<group>"; };
-		6C7B9CDC19E72D1200C86637 /* CellWithDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithDate.h; sourceTree = "<group>"; };
-		6C7B9CDD19E72D1200C86637 /* CellWithDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithDate.m; sourceTree = "<group>"; };
-		6C7B9CDE19E72D1200C86637 /* CellWithDate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithDate.xib; sourceTree = "<group>"; };
-		6C7B9CE219E72D1200C86637 /* CellWithText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithText.h; sourceTree = "<group>"; };
-		6C7B9CE319E72D1200C86637 /* CellWithText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithText.m; sourceTree = "<group>"; };
-		6C7B9CE419E72D1300C86637 /* CellWithText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithText.xib; sourceTree = "<group>"; };
-		6C7B9CE519E72D1300C86637 /* TableCellWithNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCellWithNumber.h; sourceTree = "<group>"; };
-		6C7B9CE619E72D1300C86637 /* TableCellWithNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCellWithNumber.m; sourceTree = "<group>"; };
-		6C7B9CE719E72D1300C86637 /* TableCellWithNumber.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCellWithNumber.xib; sourceTree = "<group>"; };
-		6C7B9CE819E72D1300C86637 /* CustomButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButtonCell.h; sourceTree = "<group>"; };
-		6C7B9CE919E72D1300C86637 /* CustomButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButtonCell.m; sourceTree = "<group>"; };
 		6C7B9CEA19E72D1300C86637 /* CellWithButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithButton.h; sourceTree = "<group>"; };
 		6C7B9CEB19E72D1300C86637 /* CellWithButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithButton.m; sourceTree = "<group>"; };
 		6C7B9CEC19E72D1300C86637 /* CellWithButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellWithButton.xib; sourceTree = "<group>"; };
@@ -227,8 +199,6 @@
 				6C7B9D2519E7303300C86637 /* MainControllers */,
 				6C7B9D1819E72DBC00C86637 /* Helper Protocols */,
 				6C7B9CFA19E72D2500C86637 /* TableViewCells */,
-				6C7B9CBF19E7256400C86637 /* DynamicTableGenerator.h */,
-				6C7B9CC119E7256400C86637 /* DynamicTableGenerator.m */,
 			);
 			path = DynamicTableGenerator;
 			sourceTree = "<group>";
@@ -254,23 +224,9 @@
 			children = (
 				6C7B9CD419E72D1200C86637 /* XIBBasedTableCell.h */,
 				6C7B9CD519E72D1200C86637 /* XIBBasedTableCell.m */,
-				6C7B9CD619E72D1200C86637 /* CellWithSegment.h */,
-				6C7B9CD719E72D1200C86637 /* CellWithSegment.m */,
-				6C7B9CD819E72D1200C86637 /* CellWithSegment.xib */,
 				6C7B9CD919E72D1200C86637 /* CellWithAbstractActionSheet.h */,
 				6C7B9CDA19E72D1200C86637 /* CellWithAbstractActionSheet.m */,
 				6C7B9CDB19E72D1200C86637 /* CellWithAbstractActionSheet.xib */,
-				6C7B9CDC19E72D1200C86637 /* CellWithDate.h */,
-				6C7B9CDD19E72D1200C86637 /* CellWithDate.m */,
-				6C7B9CDE19E72D1200C86637 /* CellWithDate.xib */,
-				6C7B9CE219E72D1200C86637 /* CellWithText.h */,
-				6C7B9CE319E72D1200C86637 /* CellWithText.m */,
-				6C7B9CE419E72D1300C86637 /* CellWithText.xib */,
-				6C7B9CE519E72D1300C86637 /* TableCellWithNumber.h */,
-				6C7B9CE619E72D1300C86637 /* TableCellWithNumber.m */,
-				6C7B9CE719E72D1300C86637 /* TableCellWithNumber.xib */,
-				6C7B9CE819E72D1300C86637 /* CustomButtonCell.h */,
-				6C7B9CE919E72D1300C86637 /* CustomButtonCell.m */,
 				6C7B9CEA19E72D1300C86637 /* CellWithButton.h */,
 				6C7B9CEB19E72D1300C86637 /* CellWithButton.m */,
 				6C7B9CEC19E72D1300C86637 /* CellWithButton.xib */,
@@ -505,11 +461,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CBA470719E756DF00EF8861 /* CellWithSegment.xib in Resources */,
 				6CBA470819E756DF00EF8861 /* CellWithAbstractActionSheet.xib in Resources */,
-				6CBA470919E756DF00EF8861 /* CellWithDate.xib in Resources */,
-				6CBA470B19E756DF00EF8861 /* CellWithText.xib in Resources */,
-				6CBA470C19E756DF00EF8861 /* TableCellWithNumber.xib in Resources */,
 				6CBA470D19E756DF00EF8861 /* CellWithButton.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,26 +506,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C7B9CF519E72D1300C86637 /* CellWithText.m in Sources */,
 				F67496341A1696800060ECA3 /* BaseCell.m in Sources */,
 				F674963A1A169D570060ECA3 /* DateCell.m in Sources */,
 				6C7B9D2219E72DC700C86637 /* FetchedResultsHelper.m in Sources */,
-				6C7B9CF119E72D1300C86637 /* CellWithSegment.m in Sources */,
 				6C7B9CF819E72D1300C86637 /* CellWithButton.m in Sources */,
 				F67496401A169DB10060ECA3 /* NumberCell.m in Sources */,
 				6C7B9CF019E72D1300C86637 /* XIBBasedTableCell.m in Sources */,
-				6C7B9CF719E72D1300C86637 /* CustomButtonCell.m in Sources */,
 				6C7B9D1319E72D9E00C86637 /* DateOptionCellInput.m in Sources */,
-				6C7B9CC219E7256400C86637 /* DynamicTableGenerator.m in Sources */,
 				6C7B9D1419E72D9E00C86637 /* TextOptionCellInput.m in Sources */,
-				6C7B9CF619E72D1300C86637 /* TableCellWithNumber.m in Sources */,
 				6C7B9D2819E7304400C86637 /* MutableTableViewSetupHelper.m in Sources */,
 				F67496371A16989D0060ECA3 /* SwitchCell.m in Sources */,
 				6C7B9D2319E72DC700C86637 /* MutableTableViewObjects.m in Sources */,
 				6C7B9D2119E72DC700C86637 /* PropertyUtil.m in Sources */,
 				6C7B9D3C19E7386D00C86637 /* MutableTableViewCellManager.m in Sources */,
 				6C7B9D1719E72D9E00C86637 /* ActionSheetOptionCellInput.m in Sources */,
-				6C7B9CF319E72D1300C86637 /* CellWithDate.m in Sources */,
 				6C7B9D2B19E732AD00C86637 /* MutableDataCellViewControllerTableViewController.m in Sources */,
 				F67496431A169DBA0060ECA3 /* SliderCell.m in Sources */,
 				6C7B9D2419E72DC700C86637 /* SharedData.m in Sources */,

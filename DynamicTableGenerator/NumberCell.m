@@ -16,16 +16,19 @@
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.numericTextField = [UITextField newAutoLayoutView];
         self.numberPadFormatDict = @{@"decimal":@{@"format":@"%.2f",@"default":@"0.00"},
-                                @"integer":@{@"format":@"%d",@"default":@"0"},
+                                     @"integer":@{@"format":@"%d",@"default":@"0"},
+                                     };
+        
+        self.numericTextField = [UITextField newAutoLayoutView];
 
-                                };
         
         [self.numericTextField setClearsOnBeginEditing:true];
         [self.numericTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEnd];
         [self.numericTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEndOnExit];
         [self.numericTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventValueChanged];
+        [self.numericTextField setTextAlignment:NSTextAlignmentRight];
+
         [self.contentView addSubview:self.numericTextField];
     }
     
@@ -47,7 +50,8 @@
         }];
         [self.numericTextField autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
         [self.numericTextField autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
-        
+        [self.numericTextField autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.title withOffset:kLabelHorizontalSpace];
+
         self.didSetupAcessoryConstraints = YES;
     }
     

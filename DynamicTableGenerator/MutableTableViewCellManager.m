@@ -16,6 +16,7 @@
 #import "TextOptionCellInput.h"
 #import "SwitchOptionCellInput.h"
 #import "NumberOptionCellInput.h"
+
 #import "SwitchCell.h"
 #import "DateCell.h"
 #import "TextCell.h"
@@ -91,73 +92,55 @@
 - (UITableViewCell*)  getCellatIndexPath:(NSIndexPath *)indexPath andDelegate:(id) delegateToAssign {
     NSInteger row = [indexPath row];
     NSInteger section = [indexPath section];
-    
     BaseOptionCellInput * baseCellInput = (BaseOptionCellInput*) [self getInputForSectionIndex:section atRow:row];
-    
     NSString * CellIdentifier = baseCellInput.identifier;
-
     if ([CellIdentifier  isEqual: @"TableCellWithNumberCellIdentifier"]){
         NumberCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         NumberOptionCellInput * numberCellInput = (NumberOptionCellInput*)baseCellInput;
         if (cell == nil) {
             [self.tableView registerClass:[NumberCell class] forCellReuseIdentifier:CellIdentifier];
-            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell = [[NumberCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            [cell setCellFormat:[numberCellInput cellTypeString]];
         }
         
-        // Configure the cell...
-//        [cell setCellFormat:[numberCellInput cellTypeString]];
+        [cell setCellFormat:[numberCellInput cellTypeString]];
         [cell.numericTextField setInputAccessoryView:self.keyboardToolbar];
         cell.numericTextField.delegate = cell;
-        cell.title.text = baseCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
+        
+        cell.title.text = baseCellInput.title;
         cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
         cell.delegate = numberCellInput;
         cell.indexPath = indexPath;
-        NSLog(@"created number cell with value %@", [baseCellInput.value description]);
-//        cell.numericTextField.text = [numberCellInput getDisplayValue];//[NSString stringWithFormat:@"%.2f",  [baseCellInput.value floatValue]];
-        cell.numericTextField.text = [cell stringFromNumber:(NSNumber*)[numberCellInput getDisplayValue]];
 
-        // Make sure the constraints have been added to this cell, since it may have just been created from scratch
- 
-        
+        cell.numericTextField.text = [cell stringFromNumber:(NSNumber*)[numberCellInput getDisplayValue]];
         return cell;
-        
     }
     else if ([CellIdentifier  isEqual: @"TableCellWithTextCellIdentifier"]){
         TextOptionCellInput* textCellInput = (TextOptionCellInput*) baseCellInput;
-
         TextCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         if (cell == nil) {
             [self.tableView registerClass:[TextCell class] forCellReuseIdentifier:CellIdentifier];
             cell = [[TextCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            [cell setCellFormat:[textCellInput cellTypeString]];
-
         }
         
-        // Configure the cell...
-//        [cell setCellFormat:[textCellInput cellTypeString]];
+
+        [cell setCellFormat:[textCellInput cellTypeString]];
 
         cell.title.text = textCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
         cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
-        cell.cellTextField.text = textCellInput.value;
-        // setup text field input
+
         cell.cellTextField.clearsOnBeginEditing = YES;
         cell.cellTextField.autocorrectionType = UITextAutocorrectionTypeNo;
         
         [cell.cellTextField setInputAccessoryView:self.keyboardToolbar];
-//        [cell.cellTextField setReturnKeyType:UIReturnKeyDone];
         cell.cellTextField.delegate = cell;
 
-//        [cell.contentView addSubview:cell.cellTextField];
-//        [self configureCell:cell atIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
         cell.delegate = textCellInput;
         cell.indexPath = indexPath;
+        
+        cell.cellTextField.text = textCellInput.value;
 
-        // Make sure the constraints have been added to this cell, since it may have just been created from scratch
- 
         return cell;
         
     }
@@ -167,19 +150,16 @@
 
         SwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
-//            cell = (CellWithSwitch *)[CellWithSwitch cellFromNibNamed:@"CellWithSwitch"];
             [self.tableView registerClass:[SwitchCell class] forCellReuseIdentifier:CellIdentifier];
             cell = [[SwitchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         
-        // Configure the cell...
         cell.title.text = switchCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
         cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
         cell.delegate = switchCellInput;
         cell.indexPath = indexPath;
+        
         cell.cellSwitch.on = [switchCellInput getDisplayValue];
-        // Make sure the constraints have been added to this cell, since it may have just been created from scratch
- 
         return cell;
     }
     else if ([CellIdentifier  isEqual: @"DateCellID"]){
@@ -187,22 +167,11 @@
         DateCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         if (cell == nil) {
-//            cell = (CellWithDate *)[CellWithDate cellFromNibNamed:@"CellWithDate"];
-            
-            
             [self.tableView registerClass:[DateCell class] forCellReuseIdentifier:CellIdentifier];
             cell = [[DateCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            [cell setCellFormat:[dateCellInput cellTypeString]];
-            
-//            [cell.dateButon setTitle:[cell stringFromDate:optionsArray[indexPath.section][1][indexPath.row][@"settings"][@"defaultValue"]] forState:UIControlStateNormal];
-            [cell.dateButon setTitle:[cell stringFromDate:dateCellInput.value] forState:UIControlStateNormal];
-            
-
         }
-//        [cell setCellFormat:[dateCellInput cellTypeString]];
-
+        [cell setCellFormat:[dateCellInput cellTypeString]];
         [cell.dateButon setTitle:[cell stringFromDate:dateCellInput.value] forState:UIControlStateNormal];
-
         // Configure the cell...
         cell.title.text = dateCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
         cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
@@ -214,48 +183,34 @@
         return cell;
     }
     else if ([CellIdentifier  isEqual: @"SliderCellID"]){
-//        NSLog(@"Creating CellwithID %@ at Row %d, Sec %d", CellIdentifier, [indexPath row], [indexPath section]);
         SliderOptionCellInput* sliderCellInput = (SliderOptionCellInput*) baseCellInput;
-
         SliderCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
-//            cell = (CellWithSlider *)[CellWithSlider cellFromNibNamed:@"CellWithSlider"];
             [self.tableView registerClass:[SliderCell class] forCellReuseIdentifier:CellIdentifier];
             cell = [[SliderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            
-            cell.cellSlider.value = [sliderCellInput.value floatValue];
-            cell.sliderLable.text = [NSString stringWithFormat:@"%f", [sliderCellInput.value floatValue]];
-            [cell sizeToFit];
-            
         }
-        
-        // Configure the cell...
-        //cell.title.text = [NSString stringWithFormat:@"Row: %d", [indexPath row]];
+        cell.sliderLable.text = [NSString stringWithFormat:@"%f", [sliderCellInput.value floatValue]];
         cell.title.text = sliderCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
         cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
+        cell.indexPath = indexPath;
+        cell.delegate = sliderCellInput;
+        
         cell.cellSlider.minimumValue = [sliderCellInput.minSliderValue floatValue];
         cell.cellSlider.maximumValue = [sliderCellInput.maxSliderValue floatValue];
-        cell.indexPath = indexPath;
         [cell.cellSlider setValue:[sliderCellInput.value floatValue]];
-        cell.delegate = sliderCellInput;
- 
+    
+        [cell sizeToFit];
         return cell;
     }
     else if ([CellIdentifier  isEqual: @"SegmentCellID"]){
-        NSLog(@"Creating CellwithID %@ at Row %d, Sec %d", CellIdentifier, [indexPath row], [indexPath section]);
+        //this is not done yet
         SegmentOptionCellInput* segmentCellInput = (SegmentOptionCellInput*) baseCellInput;
-
         SegmentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
             [self.tableView registerClass:[SegmentCell class] forCellReuseIdentifier:CellIdentifier];
             cell = [[SegmentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//            cell = (CellWithSegment *)[CellWithSegment cellFromNibNamed:@"CellWithSegment"];
         }
         
-        // Configure the cell...
-//        cell.title.text = optionsArray[indexPath.section][1][indexPath.row][@"title"];
-        //        cell.title.text = optionsArray[indexPath.section][1][indexPath.row][@"title"];
-
         cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
         cell.segmentResults = segmentCellInput.segmentValues;
         NSArray *segmentTitles = segmentCellInput.segmentTitles;
@@ -367,14 +322,8 @@
 }
 
 #pragma text field delegates
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    [textField resignFirstResponder];
-}
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return YES;
-}
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
+    //- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 //{
 //    static NSString *CellIdentifier = @"textCell";
 //    
