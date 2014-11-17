@@ -16,7 +16,7 @@
 
 @end
 
-@interface MutableDataCellViewControllerTableViewController : UITableViewController <TableCellEditable>
+@interface MutableDataCellViewControllerTableViewController : UITableViewController <TableCellEditable, UITextFieldDelegate>
 {
     __weak id optionsDelegate;
 }
@@ -25,8 +25,16 @@
 @property (nonatomic, strong) NSString *tagCode;
 @property (nonatomic) NSInteger tagOffset;
 
+
+@property (nonatomic, strong) UIToolbar* keyboardToolbar;
+@property (nonatomic, strong) UIBarButtonItem* btnDone;
+@property (nonatomic, strong) UIBarButtonItem* btnNext;
+@property (nonatomic, strong) UIBarButtonItem* btnPrev;
+
+
 @property (nonatomic, strong) NSMutableDictionary *resultDict;
 - (void) setupWithInputArray:(NSArray*) cellInputArray;
 - (id) initWithCellInputArray:(NSArray*) cellInputArray;
+-(UIToolbar *)createInputAccessoryView;
 
 @end

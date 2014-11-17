@@ -29,13 +29,14 @@
 @synthesize sectionHeaderArray;
 @synthesize keyboardToolbar;
 
-- (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView andCellInputs:(NSArray*) cellInputArray {
+- (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView withAcessoryKeys:(UIToolbar*) acessoryKeyBoard andCellInputs:(NSArray*) cellInputArray {
     self = [super init];
     if (self) {
         self = [super init];
 //        self.tagCode = [NSString stringWithFormat:@"06760"];
 //        self.tagOffset = newtagOffset;
         self.tableView = newTableView;
+        self.keyboardToolbar = acessoryKeyBoard;
 //        self.keyboardToolbar = [self createInputAccessoryView];
 //        NSLog(@"cell manager init with array %@" ,[cellInputArray description]);
         [self parseInputArray:cellInputArray];
@@ -146,10 +147,10 @@
         cell.cellTextField.clearsOnBeginEditing = YES;
         cell.cellTextField.autocorrectionType = UITextAutocorrectionTypeNo;
         
-        [cell.cellTextField setInputAccessoryView:self.keyboardToolbar];
-        
-        
-        
+//        [cell.cellTextField setInputAccessoryView:self.keyboardToolbar];
+        [cell.cellTextField setReturnKeyType:UIReturnKeyDone];
+        cell.cellTextField.delegate = self;
+
 //        [cell.contentView addSubview:cell.cellTextField];
 //        [self configureCell:cell atIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
@@ -366,6 +367,14 @@
     return nil;
 }
 
+#pragma text field delegates
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [textField resignFirstResponder];
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 //- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 //{
 //    static NSString *CellIdentifier = @"textCell";
@@ -580,7 +589,7 @@
 //
 //-(UIToolbar *)createInputAccessoryView
 //{
-//    UIToolbar* keyboard = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
+//    UIToolbar* keyboard = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 44)];
 //    keyboard.barStyle = UIBarStyleDefault;
 //    keyboard.tintColor = [UIColor lightGrayColor];
 //    UIBarButtonItem* previousButton = [[UIBarButtonItem alloc] initWithTitle:@"Previous" style:UIBarButtonItemStylePlain target:self action:@selector(gotoPrevTextfield:)];

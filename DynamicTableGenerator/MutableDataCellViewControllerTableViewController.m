@@ -34,8 +34,10 @@
     if (self) {
         self.tagCode = [NSString stringWithFormat:@"06760"];
         self.tagOffset = 5;
-        self.cellManager = [[MutableTableViewCellManager alloc] initWithTagCode:self.tagCode andOffset:self.tagOffset andtableView:self.tableView andCellInputs:cellInputArray];
-        NSLog(@"cell mutables init with array %@" , [cellInputArray description]);
+        self.keyboardToolbar = [self createInputAccessoryView];
+        
+        self.cellManager = [[MutableTableViewCellManager alloc] initWithTagCode:self.tagCode andOffset:self.tagOffset andtableView:self.tableView withAcessoryKeys:self.keyboardToolbar andCellInputs:cellInputArray];
+
     }
     return self;
 }
@@ -43,7 +45,11 @@
 - (void) setupWithInputArray:(NSArray*) cellInputArray {
         self.tagCode = [NSString stringWithFormat:@"06760"];
         self.tagOffset = 5;
-        self.cellManager = [[MutableTableViewCellManager alloc] initWithTagCode:self.tagCode andOffset:self.tagOffset andtableView:self.tableView andCellInputs:cellInputArray];
+    self.keyboardToolbar = [self createInputAccessoryView];
+
+    self.cellManager = [[MutableTableViewCellManager alloc] initWithTagCode:self.tagCode andOffset:self.tagOffset andtableView:self.tableView withAcessoryKeys:self.keyboardToolbar andCellInputs:cellInputArray];
+
+    
     NSLog(@"cell mutables setu[ with array %@" , [cellInputArray description]);
 }
 - (void)didReceiveMemoryWarning
@@ -158,7 +164,55 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+#pragma mark -t ext delegat options
 
+-(UIToolbar *)createInputAccessoryView
+{
+    UIToolbar* keyboard = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
+    keyboard.barStyle = UIBarStyleDefault;
+    keyboard.tintColor = [UIColor lightGrayColor];
+    UIBarButtonItem* previousButton = [[UIBarButtonItem alloc] initWithTitle:@"Previous" style:UIBarButtonItemStylePlain target:self action:@selector(gotoPrevTextfield:)];
+    UIBarButtonItem* nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(gotoNextTextfield:)];
+    UIBarButtonItem* flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTyping:)];
+    [keyboard setItems:[NSArray arrayWithObjects: previousButton, nextButton, flexSpace, doneButton, nil] animated:NO];
+    return keyboard;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+
+    return YES;
+}
+//-(IBAction)textFieldDidEndEditing:(UITextField *)textField
+//{
+//    NSInteger position = textField.tag-titletag;
+//    NSLog(@"%@ did end editing at index %ld",self.UserInfoArray[position],(long)position);
+//
+//    [textField endEditing:YES];
+//    [textField resignFirstResponder];
+//
+//}
+
+#pragma mark textfield toolbar
+-(void)gotoPrevTextfield: (id) sender
+{
+    NSLog(@"go to prev");
+}
+
+-(void)gotoNextTextfield: (id) sender
+{
+    NSLog(@"go to next");
+
+}
+-(void)doneTyping: (id) sender {
+    NSLog(@"done typing");
+
+}
+-(void)saveCurrentEntry: (id) sender {
+
+}
+
+#pragma mark save options
 -(IBAction)saveSettings:(id)sender{
     NSLog(@"Save Settings Hit with delegate %@", [self.optionsDelegate description]);
     [self.cellManager saveAllChanges];
@@ -176,6 +230,9 @@
     //    [self dismissModalViewControllerAnimated:YES];
     
 }
+
+
+
 #pragma mark - option cell methods
 //-(NSDictionary *) getSettingsFromOptions:(NSString*) searchString{
 //    NSMutableArray* array= [[NSMutableArray alloc] initWithArray:self.optionsArray];

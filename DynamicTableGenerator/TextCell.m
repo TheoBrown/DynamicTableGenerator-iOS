@@ -114,6 +114,6 @@
     [self.delegate cellTextValueDidChange:self.indexPath :value];
 }
 
-
+#pragma mark -delegat methods for text entry
 
 @end

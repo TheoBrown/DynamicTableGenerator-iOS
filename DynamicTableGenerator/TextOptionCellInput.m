@@ -41,6 +41,7 @@
     [self setManagedObject:managedObject withDefaultValue:newDefault];
     
 }
+#pragma mark - text delegate methods
 
 #pragma mark - editable table cell delegate methods
 - (void) cellTextValueDidChange:(NSIndexPath *) cellIndexPath :(NSString *) newValue{
