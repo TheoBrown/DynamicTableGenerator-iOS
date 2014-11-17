@@ -17,7 +17,7 @@
 
 @end
 
-@interface MutableDataCellViewControllerTableViewController : UIViewController <TableCellEditable,UITableViewDelegate,UITableViewDataSource>
+@interface DynamicTableViewController : UIViewController <TableCellEditable,UITableViewDelegate,UITableViewDataSource>
 {
     __weak id optionsDelegate;
 }

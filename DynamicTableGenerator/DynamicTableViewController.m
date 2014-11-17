@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Theodore Brown. All rights reserved.
 //
 
-#import "MutableDataCellViewControllerTableViewController.h"
+#import "DynamicTableViewController.h"
 #import "SharedData.h"
 #import "FetchedResultsHelper.h"
 
 #import "TableViewNavigationBar.h"
 
-@implementation MutableDataCellViewControllerTableViewController
+@implementation DynamicTableViewController
 
 
 @synthesize optionsDelegate, cellManager;

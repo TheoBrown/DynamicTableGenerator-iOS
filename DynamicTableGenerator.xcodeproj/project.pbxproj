@@ -24,7 +24,7 @@
 		6C7B9D2319E72DC700C86637 /* MutableTableViewObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D1E19E72DC700C86637 /* MutableTableViewObjects.m */; };
 		6C7B9D2419E72DC700C86637 /* SharedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D2019E72DC700C86637 /* SharedData.m */; };
 		6C7B9D2819E7304400C86637 /* MutableTableViewSetupHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D2719E7304400C86637 /* MutableTableViewSetupHelper.m */; };
-		6C7B9D2B19E732AD00C86637 /* MutableDataCellViewControllerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D2A19E732AD00C86637 /* MutableDataCellViewControllerTableViewController.m */; };
+		6C7B9D2B19E732AD00C86637 /* DynamicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D2A19E732AD00C86637 /* DynamicTableViewController.m */; };
 		6C7B9D2D19E7352100C86637 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7B9D2C19E7352100C86637 /* UIKit.framework */; };
 		6C7B9D2F19E735D600C86637 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7B9D2E19E735D600C86637 /* CoreData.framework */; };
 		6C7B9D3519E7369A00C86637 /* ResultSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D3219E7369A00C86637 /* ResultSelectionController.m */; };
@@ -102,8 +102,8 @@
 		6C7B9D2019E72DC700C86637 /* SharedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedData.m; sourceTree = "<group>"; };
 		6C7B9D2619E7304400C86637 /* MutableTableViewSetupHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableTableViewSetupHelper.h; sourceTree = "<group>"; };
 		6C7B9D2719E7304400C86637 /* MutableTableViewSetupHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableTableViewSetupHelper.m; sourceTree = "<group>"; };
-		6C7B9D2919E732AD00C86637 /* MutableDataCellViewControllerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableDataCellViewControllerTableViewController.h; sourceTree = "<group>"; };
-		6C7B9D2A19E732AD00C86637 /* MutableDataCellViewControllerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableDataCellViewControllerTableViewController.m; sourceTree = "<group>"; };
+		6C7B9D2919E732AD00C86637 /* DynamicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTableViewController.h; sourceTree = "<group>"; };
+		6C7B9D2A19E732AD00C86637 /* DynamicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicTableViewController.m; sourceTree = "<group>"; };
 		6C7B9D2C19E7352100C86637 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6C7B9D2E19E735D600C86637 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6C7B9D3119E7369A00C86637 /* ResultSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSelectionController.h; sourceTree = "<group>"; };
@@ -295,8 +295,8 @@
 		6C7B9D2519E7303300C86637 /* MainControllers */ = {
 			isa = PBXGroup;
 			children = (
-				6C7B9D2919E732AD00C86637 /* MutableDataCellViewControllerTableViewController.h */,
-				6C7B9D2A19E732AD00C86637 /* MutableDataCellViewControllerTableViewController.m */,
+				6C7B9D2919E732AD00C86637 /* DynamicTableViewController.h */,
+				6C7B9D2A19E732AD00C86637 /* DynamicTableViewController.m */,
 				6C7B9D3A19E7386D00C86637 /* MutableTableViewCellManager.h */,
 				6C7B9D3B19E7386D00C86637 /* MutableTableViewCellManager.m */,
 				6C7B9D2619E7304400C86637 /* MutableTableViewSetupHelper.h */,
@@ -527,7 +527,7 @@
 				6C7B9D2119E72DC700C86637 /* PropertyUtil.m in Sources */,
 				6C7B9D3C19E7386D00C86637 /* MutableTableViewCellManager.m in Sources */,
 				6C7B9D1719E72D9E00C86637 /* ActionSheetOptionCellInput.m in Sources */,
-				6C7B9D2B19E732AD00C86637 /* MutableDataCellViewControllerTableViewController.m in Sources */,
+				6C7B9D2B19E732AD00C86637 /* DynamicTableViewController.m in Sources */,
 				F650D15E1A19C2F5008014FA /* TableViewNavigationBar.m in Sources */,
 				F67496431A169DBA0060ECA3 /* SliderCell.m in Sources */,
 				6C7B9D2419E72DC700C86637 /* SharedData.m in Sources */,
