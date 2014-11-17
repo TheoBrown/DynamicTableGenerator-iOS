@@ -54,7 +54,9 @@
     self.tableView.delegate = self;
     self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 200.0, 0.0);
     self.view.userInteractionEnabled = YES;
+    
     [self.view addSubview:self.tableView];
+    
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveSettings:)];
 	self.navigationItem.rightBarButtonItem = addButton;
     
@@ -62,10 +64,12 @@
     
     self.tableView.estimatedRowHeight = 44.0; // set this to whatever your "average" cell height is; it doesn't need to be very accurate
     NSLog(@"table view did load");
+    [self.tableView reloadData];
 
 }
 - (void) updateViewConstraints {
     if (!self.didSetupConstraints) {
+        NSLog(@"tableView did update constraints");
         // Note: if the constraints you add below require a larger cell size than the current size (which is likely to be the default size {320, 44}), you'll get an exception.
         // As a fix, you can temporarily increase the size of the cell's contentView so that this does not occur using code similar to the line below.
         //      See here for further discussion: https://github.com/Alex311/TableCellWithAutoLayout/commit/bde387b27e33605eeac3465475d2f2ff9775f163#commitcomment-4633188
@@ -101,7 +105,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated
-{
+{    NSLog(@"table view will appear");
+
     [super viewWillAppear:animated];
 }
 
@@ -110,6 +115,8 @@
 {
     [super viewDidAppear:animated];
     
+        NSLog(@"table view did appear");
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(contentSizeCategoryChanged:)
                                                  name:UIContentSizeCategoryDidChangeNotification
@@ -154,6 +161,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"table view cellForRowAtIndexPath %@",[self stringForIndex:indexPath]);
+
     UITableViewCell * cell = [self.cellManager getCellatIndexPath:indexPath andDelegate:self];
     [cell setNeedsUpdateConstraints];
     [cell updateConstraintsIfNeeded];
