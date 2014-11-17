@@ -30,7 +30,7 @@
         [self.doneButton setTitle:@"done" forState:UIControlStateNormal];
         [self.doneButton addTarget:self action:@selector(doneButtonPressed:) forControlEvents:UIControlEventTouchDown];
         self.doneButton.backgroundColor = [UIColor blueColor];
-
+        self.userInteractionEnabled = YES;
         [self addSubview:self.nextButton];
         [self addSubview:self.previousButton];
         [self addSubview:self.doneButton];
@@ -46,9 +46,9 @@
         //      See here for further discussion: https://github.com/Alex311/TableCellWithAutoLayout/commit/bde387b27e33605eeac3465475d2f2ff9775f163#commitcomment-4633188
 //        self.bounds = CGRectMake(0.0f, 0.0f, 99999.0f, 99999.0f);
         
-        [UIView autoSetIdentifier:@"Pin Container View Edges" forConstraints:^{
-            [self autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0.0, 10.0, 10.0, 10.0) excludingEdge:ALEdgeTop];
-        }];
+//        [UIView autoSetIdentifier:@"Pin Container View Edges" forConstraints:^{
+//            [self autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0.0, 10.0, 10.0, 10.0) excludingEdge:ALEdgeTop];
+//        }];
         NSArray * views = @[self.previousButton,self.nextButton,self.doneButton];
         
 //        [self autoSetDimension:ALDimensionHeight toSize:40.0];

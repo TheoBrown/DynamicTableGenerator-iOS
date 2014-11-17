@@ -66,7 +66,7 @@
     NSLog(@"table view did load");
     [self.tableView reloadData];
 
-    CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y/2, self.view.bounds.size.width, 100);
+    CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, 300, self.view.bounds.size.width, 44);
     self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:(CGRect) keyPadFrame];
     [self.view addSubview:self.keyPadView];
     [self.view bringSubviewToFront:self.keyPadView];
