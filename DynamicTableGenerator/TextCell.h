@@ -9,7 +9,7 @@
 #import "BaseCell.h"
 #import "TableCellEditableProtocol.h"
 
-@interface TextCell : BaseCell {
+@interface TextCell : BaseCell <UITextFieldDelegate> {
     id <TableCellEditable> _delegate;
 }
 

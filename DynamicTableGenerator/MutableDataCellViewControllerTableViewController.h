@@ -16,7 +16,7 @@
 
 @end
 
-@interface MutableDataCellViewControllerTableViewController : UITableViewController <TableCellEditable, UITextFieldDelegate>
+@interface MutableDataCellViewControllerTableViewController : UITableViewController <TableCellEditable>
 {
     __weak id optionsDelegate;
 }

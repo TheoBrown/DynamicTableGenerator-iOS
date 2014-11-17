@@ -115,5 +115,12 @@
 }
 
 #pragma mark -delegat methods for text entry
-
+#pragma text field delegates
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [textField resignFirstResponder];
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 @end

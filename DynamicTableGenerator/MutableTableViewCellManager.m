@@ -149,7 +149,7 @@
         
 //        [cell.cellTextField setInputAccessoryView:self.keyboardToolbar];
         [cell.cellTextField setReturnKeyType:UIReturnKeyDone];
-        cell.cellTextField.delegate = self;
+        cell.cellTextField.delegate = cell;
 
 //        [cell.contentView addSubview:cell.cellTextField];
 //        [self configureCell:cell atIndexPath:indexPath];
