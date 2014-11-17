@@ -135,6 +135,9 @@
         else if ([typeString isEqualToString:@"i"]) {
             propertyString = @"integer";
         }
+        else {
+            propertyString = typeString;
+        }
         return @[displayString,propertyString];
     }
     
@@ -181,18 +184,30 @@
             else if ([parsedPropertyType isEqualToString:@"f"]) {
                 propertyTypeString = @"f";
             }
-//            else if ([parsedPropertyType isEqualToString:@"d"]) {
-//                parsedPropertyType = @"decimal";
-//            }
-//            else if ([parsedPropertyType isEqualToString:@"i"]) {
-//                parsedPropertyType = @"integer";
-//            }
-//            else {
-//                parsedPropertyType  = @"decimal";
-//            }
+
         }
-        
-        
+        else if ([propertyTypeString isEqualToString:@"NSString"]) {
+            
+            
+            if ([parsedPropertyType isEqualToString:@"a"]) {
+                parsedPropertyType = @"ascii";
+            }
+            else if ([parsedPropertyType isEqualToString:@"abc"]) {
+                parsedPropertyType = @"alphabet";
+            }
+            else if ([parsedPropertyType isEqualToString:@"e"]) {
+                parsedPropertyType = @"email";
+            }
+            else if ([parsedPropertyType isEqualToString:@"u"]) {
+                parsedPropertyType = @"url";
+            }
+            else if ([parsedPropertyType isEqualToString:@"p"]) {
+                parsedPropertyType = @"phone";
+            }
+            else {
+                parsedPropertyType = @"ascii";
+            }
+        }
 
         if ([propertyTypeString  isEqual: @"NSString"]){
             TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initTextInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];

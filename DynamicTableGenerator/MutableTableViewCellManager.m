@@ -132,10 +132,13 @@
 //            cell = (CellWithText *)[CellWithText cellFromNibNamed:@"CellWithText"];
             [self.tableView registerClass:[TextCell class] forCellReuseIdentifier:CellIdentifier];
             cell = [[TextCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            [cell setCellFormat:[textCellInput cellTypeString]];
 
         }
         
         // Configure the cell...
+        [cell setCellFormat:[textCellInput cellTypeString]];
+
         cell.title.text = textCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
         cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
         cell.cellTextField.text = textCellInput.value;

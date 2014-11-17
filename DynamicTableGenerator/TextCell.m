@@ -18,8 +18,14 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.cellTextField = [UITextField newAutoLayoutView];
+        self.textPadFormatDict = @{@"email":@{@"format":@"%.2f",@"default":@"Enter Email"},
+                                     @"alphabet":@{@"format":@"%d",@"default":@"Enter Text"},
+                                     @"ascii":@{@"format":@"%d",@"default":@"Enter Text"},
+                                   @"url":@{@"format":@"%d",@"default":@"Enter URL"},
+                                   @"phone":@{@"format":@"%d",@"default":@"Enter Phone Number"},
+                                     };
+        
         self.cellTextField.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5]; // light blue
-        self.cellTextField.placeholder = @"Enter Text";
         [self.cellTextField setClearsOnBeginEditing:true];
 
         [self.cellTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEnd];
@@ -31,6 +37,40 @@
     
     return self;
 }
+
+-(void) setCellFormat:(NSString *)formatString{
+    self.cellFormatString = formatString;
+    NSLog(@"Text cell format set to %@", self.cellFormatString);
+    if ([formatString isEqualToString:@"alphabet"]){
+        self.textFormatString = [[self.textPadFormatDict valueForKey:formatString] valueForKey:@"format"];
+        self.textDefaultString =[[self.textPadFormatDict valueForKey:formatString] valueForKey:@"default"];
+        self.textPadMode = UIKeyboardTypeAlphabet;
+    }
+    else if ([formatString isEqualToString:@"email"]){
+        self.textFormatString = [[self.textPadFormatDict valueForKey:formatString] valueForKey:@"format"];
+        self.textDefaultString =[[self.textPadFormatDict valueForKey:formatString] valueForKey:@"default"];
+        self.textPadMode = UIKeyboardTypeEmailAddress;
+    }
+    else if ([formatString isEqualToString:@"url"]){
+        self.textFormatString = [[self.textPadFormatDict valueForKey:formatString] valueForKey:@"format"];
+        self.textDefaultString =[[self.textPadFormatDict valueForKey:formatString] valueForKey:@"default"];
+        self.textPadMode = UIKeyboardTypeURL;
+    }
+    else if ([formatString isEqualToString:@"ascii"]){
+        self.textFormatString = [[self.textPadFormatDict valueForKey:formatString] valueForKey:@"format"];
+        self.textDefaultString =[[self.textPadFormatDict valueForKey:formatString] valueForKey:@"default"];
+        self.textPadMode = UIKeyboardTypeASCIICapable;
+    }
+    else if ([formatString isEqualToString:@"phone"]){
+        self.textFormatString = [[self.textPadFormatDict valueForKey:formatString] valueForKey:@"format"];
+        self.textDefaultString =[[self.textPadFormatDict valueForKey:formatString] valueForKey:@"default"];
+        self.textPadMode = UIKeyboardTypePhonePad;
+    }
+    self.cellTextField.placeholder = self.textDefaultString;
+
+    [self.cellTextField setKeyboardType:self.textPadMode];
+}
+
 
 - (void)updateConstraints
 {
