@@ -9,9 +9,7 @@
 #import "BaseCell.h"
 #import "TableCellEditableProtocol.h"
 
-@interface SegmentCell: BaseCell {
-    id <TableCellEditable> _delegate;
-}
+@interface SegmentCell: BaseCell
 
 
 @property (nonatomic, strong) IBOutlet UISegmentedControl *cellSegment;

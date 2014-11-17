@@ -114,6 +114,7 @@
 		8CE5960D3BCCF624D49FCAAA /* Pods-DynamicTableGenerator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicTableGenerator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicTableGenerator/Pods-DynamicTableGenerator.debug.xcconfig"; sourceTree = "<group>"; };
 		DAEAA8757C8B446F8D10E45F /* libPods-DynamicTableGenerator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DynamicTableGenerator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC5972F758B4B74B733E38BF /* Pods-DynamicTableGenerator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicTableGenerator.release.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicTableGenerator/Pods-DynamicTableGenerator.release.xcconfig"; sourceTree = "<group>"; };
+		F650D1591A19A365008014FA /* TableViewNavigationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewNavigationDelegate.h; sourceTree = "<group>"; };
 		F67496321A1696800060ECA3 /* BaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
 		F67496331A1696800060ECA3 /* BaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCell.m; sourceTree = "<group>"; };
 		F67496351A16989D0060ECA3 /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = "<group>"; };
@@ -237,9 +238,10 @@
 		6C7B9CFA19E72D2500C86637 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				F650D1591A19A365008014FA /* TableViewNavigationDelegate.h */,
+				6C7B9CFB19E72D3A00C86637 /* TableCellEditableProtocol.h */,
 				F6482AB71A16947000865039 /* AutoLayoutCellClasses */,
 				6C7B9CFF19E72D7500C86637 /* Option Cell Input Types */,
-				6C7B9CFB19E72D3A00C86637 /* TableCellEditableProtocol.h */,
 				6C7B9CD319E72CF000C86637 /* CellNIBS */,
 			);
 			name = TableViewCells;

@@ -7,13 +7,10 @@
 //
 
 #import "BaseCell.h"
-#import "TableCellEditableProtocol.h"
 
 #import "ActionSheetDatePicker.h"
 
-@interface DateCell : BaseCell {
-    id <TableCellEditable> _delegate;
-}
+@interface DateCell : BaseCell
 
 @property (nonatomic, strong) ActionSheetDatePicker *actionSheetPicker;
 @property (nonatomic, strong) UIView *actionSheetView;

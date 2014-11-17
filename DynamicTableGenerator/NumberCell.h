@@ -7,11 +7,8 @@
 //
 
 #import "BaseCell.h"
-#import "TableCellEditableProtocol.h"
 
-@interface NumberCell : BaseCell <UITextFieldDelegate> {
-    id <TableCellEditable> _delegate;
-}
+@interface NumberCell : BaseCell <UITextFieldDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField *numericTextField;
 

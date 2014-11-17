@@ -9,11 +9,8 @@
 #import <UIKit/UIKit.h>
 
 #import "BaseCell.h"
-#import "TableCellEditableProtocol.h"
 
-@interface SwitchCell : BaseCell {
-    id <TableCellEditable> _delegate;
-}
+@interface SwitchCell : BaseCell
 
 @property (nonatomic, strong) IBOutlet UISwitch *cellSwitch;
 

@@ -11,6 +11,9 @@
 #import "TableCellEditableProtocol.h"
 
 @interface BaseCell : UITableViewCell
+{
+    id <TableCellEditable> _delegate;
+}
 
 #define kLabelHorizontalInsets      15.0f
 #define kLabelVerticalInsets        10.0f
@@ -25,9 +28,10 @@
 @property (nonatomic, assign) BOOL didSetupConstraints;
 @property (nonatomic, assign) BOOL didSetupAcessoryConstraints;
 
--(void) setCellFormat:(NSString *)formatString;
 @property (strong, nonatomic) NSString *cellFormatString;
 
+-(void) contentWasSelected;
+-(void) setCellFormat:(NSString *)formatString;
 - (void)updateFonts;
 
 @end

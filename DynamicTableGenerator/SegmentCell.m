@@ -18,7 +18,7 @@
     if (self) {
         self.cellSegment = [UISegmentedControl newAutoLayoutView];
         [self.cellSegment addTarget:self action:@selector(segmentedControlChanged:) forControlEvents:UIControlEventValueChanged];
-        [self.cellSegment addTarget:self action:@selector(segmentedControlChanged:) forControlEvents:UIControlEventTouchUpInsides];
+        [self.cellSegment addTarget:self action:@selector(segmentedControlChanged:) forControlEvents:UIControlEventTouchUpInside];
 
         [self.contentView addSubview:self.cellSegment];
     }

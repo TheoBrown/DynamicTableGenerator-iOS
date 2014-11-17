@@ -107,7 +107,7 @@
         cell.numericTextField.delegate = cell;
         
         cell.title.text = baseCellInput.title;
-        cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
+        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
         cell.delegate = numberCellInput;
         cell.indexPath = indexPath;
 
@@ -127,7 +127,7 @@
         [cell setCellFormat:[textCellInput cellTypeString]];
 
         cell.title.text = textCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
-        cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
+        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
 
         cell.cellTextField.clearsOnBeginEditing = YES;
         cell.cellTextField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -155,7 +155,7 @@
         }
         
         cell.title.text = switchCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
-        cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
+        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
         cell.delegate = switchCellInput;
         cell.indexPath = indexPath;
         
@@ -174,12 +174,11 @@
         [cell.dateButon setTitle:[cell stringFromDate:dateCellInput.value] forState:UIControlStateNormal];
         // Configure the cell...
         cell.title.text = dateCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
-        cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
+        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
         cell.indexPath = indexPath;
         cell.selectedDate = dateCellInput.value;
         cell.delegate = dateCellInput;
         
- 
         return cell;
     }
     else if ([CellIdentifier  isEqual: @"SliderCellID"]){
@@ -191,7 +190,8 @@
         }
         cell.sliderLable.text = [NSString stringWithFormat:@"%f", [sliderCellInput.value floatValue]];
         cell.title.text = sliderCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
-        cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
+        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
+        
         cell.indexPath = indexPath;
         cell.delegate = sliderCellInput;
         
@@ -211,7 +211,7 @@
             cell = [[SegmentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         
-        cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
+        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
         cell.segmentResults = segmentCellInput.segmentValues;
         NSArray *segmentTitles = segmentCellInput.segmentTitles;
         int count = 0;
@@ -252,7 +252,7 @@
 //            self.fishTankArray = @[optionsArray[indexPath.section][1][indexPath.row],cell,indexPath];
 //            NSLog(@"Fishtank array created as %@" , [self.fishTankArray description]);
 //        }
-//        cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
+//        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
 //        
 //        //        cell.actionSheetPredicate = optionsArray[indexPath.section][1][indexPath.row][@"settings"][@"predicate"];
 //        cell.actionSheetTitle = optionsArray[indexPath.section][1][indexPath.row][@"title"];
@@ -295,7 +295,7 @@
 //        
 //        // Configure the cell...
 //        cell.title.text = optionsArray[indexPath.section][1][indexPath.row][@"return"];
-//        cell.subTitle.text = [NSString stringWithFormat:@"Row: %d, Sec: %d",[indexPath row], [indexPath section]];
+//        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
 //        [cell setResultTypeFromURL:[self.updatedPredicates objectForKey:optionsArray[indexPath.section][1][indexPath.row][@"return"]]];
 //        
 //        if (self.optionsArray[indexPath.section][1][indexPath.row][@"settings"][@"prePredicates"] != nil){

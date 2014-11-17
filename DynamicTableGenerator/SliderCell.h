@@ -7,11 +7,8 @@
 //
 
 #import "BaseCell.h"
-#import "TableCellEditableProtocol.h"
 
-@interface SliderCell : BaseCell {
-    id <TableCellEditable> _delegate;
-}
+@interface SliderCell : BaseCell
 
 @property (nonatomic, strong) IBOutlet UISlider *cellSlider;
 @property (nonatomic, strong) IBOutlet UILabel *sliderLable;

@@ -156,6 +156,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"tableView Row Selected %@" ,[self stringForIndex:indexPath]);
     self.currentSelection = indexPath;
     
 }
@@ -165,7 +166,7 @@
 {
     UIToolbar* keyboard = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
     keyboard.barStyle = UIBarStyleDefault;
-    keyboard.tintColor = [UIColor lightGrayColor];
+    keyboard.tintColor = [UIColor blueColor];
     UIBarButtonItem* previousButton = [[UIBarButtonItem alloc] initWithTitle:@"Previous" style:UIBarButtonItemStylePlain target:self action:@selector(gotoPrevTextfield:)];
     UIBarButtonItem* nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(gotoNextTextfield:)];
     UIBarButtonItem* flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
@@ -198,6 +199,8 @@
 {
     NSLog(@"go to next");
     //Remember to check boundaries before just setting an indexpath or your app will crash!
+    NSInteger *lastRowInSection = [self.cellManager rowsInSection:self.currentSelection.section];
+    NSInteger *sectionCount = [self.cellManager.sectionHeaderArray count];
     if(self.currentSelection){
         self.currentSelection = [NSIndexPath indexPathForRow:self.currentSelection.row+1 inSection:self.currentSelection.section];
     }
@@ -292,8 +295,12 @@
 //}
 //
 
+#pragma mark - debug helpers
 
-
+- (NSString*) stringForIndex:(NSIndexPath*)indexPath {
+    NSString *pathString = [[NSString alloc] initWithFormat:@" Row: %ld Section: %ld ",(long)indexPath.row,(long)indexPath.section];
+  return pathString;
+}
 
 
 
