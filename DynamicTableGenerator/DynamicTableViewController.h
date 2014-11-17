@@ -45,6 +45,5 @@
 @property (nonatomic, strong) NSMutableDictionary *resultDict;
 
 - (void) setupWithInputArray:(NSArray*) cellInputArray;
--(UIToolbar *)createInputAccessoryView;
 
 @end

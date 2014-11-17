@@ -11,23 +11,26 @@
 @implementation TableViewNavigationBar
 
 -(id) initWithDelegate:(id) tvDelegate andFrame:(CGRect) viewFrame {
-    CGRect myFrame = CGRectMake(10 ,viewFrame.origin.y-100,viewFrame.size.width,44.0);
-    self = [super initWithFrame:myFrame];
+//    CGRect myFrame = CGRectMake(10 ,viewFrame.origin.y-100,viewFrame.size.width,44.0);
+    self = [super initWithFrame:viewFrame];
     if (self) {
         self.delegate = tvDelegate;
         self.backgroundColor = [UIColor redColor];
         self.nextButton = [UIButton newAutoLayoutView];
+        self.nextButton.backgroundColor = [UIColor blueColor];
         [self.nextButton setTitle:@"next" forState:UIControlStateNormal];
         [self.nextButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchDown];
         
         self.previousButton = [UIButton newAutoLayoutView];
         [self.previousButton setTitle:@"prev" forState:UIControlStateNormal];
         [self.previousButton addTarget:self action:@selector(prevButtonPressed:) forControlEvents:UIControlEventTouchDown];
+        self.previousButton.backgroundColor = [UIColor blueColor];
 
         self.doneButton = [UIButton newAutoLayoutView];
         [self.doneButton setTitle:@"done" forState:UIControlStateNormal];
         [self.doneButton addTarget:self action:@selector(doneButtonPressed:) forControlEvents:UIControlEventTouchDown];
-        
+        self.doneButton.backgroundColor = [UIColor blueColor];
+
         [self addSubview:self.nextButton];
         [self addSubview:self.previousButton];
         [self addSubview:self.doneButton];
