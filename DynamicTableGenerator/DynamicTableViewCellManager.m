@@ -148,7 +148,7 @@
         [cell.cellTextField setInputAccessoryView:self.keyboardToolbar];
         cell.cellTextField.delegate = cell;
 
-        cell.selectionStyle = UITableViewCellSelectionStyleGray;
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
         cell.delegate = textCellInput;
         cell.indexPath = indexPath;
         cell.tvDelegate = delegateToAssign;

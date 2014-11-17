@@ -54,7 +54,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 200.0, 0.0);
+    self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 250.0, 0.0);
     self.view.userInteractionEnabled = YES;
     
     [self.view addSubview:self.tableView];
@@ -209,7 +209,7 @@
     NSLog(@"contentOfCellWasSelected  %@" ,[self stringForIndex:cellIndexPath]);
     if (self.currentSelection != cellIndexPath) {
         self.currentSelection = cellIndexPath;
-        [self.tableView selectRowAtIndexPath:self.currentSelection animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+        [self.tableView selectRowAtIndexPath:self.currentSelection animated:YES scrollPosition:UITableViewScrollPositionTop];
     }
 }
 
@@ -219,9 +219,10 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.view endEditing:YES]; // dismiss current editing views
     NSLog(@"tableView Row Selected %@" ,[self stringForIndex:indexPath]);
     self.currentSelection = indexPath;
-
+    [self displayContentForCellAtIndex:self.currentSelection];
     
 }
 
@@ -274,7 +275,7 @@
         NSLog(@"no current selection exits");
     }
     
-    [self.tableView selectRowAtIndexPath:self.currentSelection animated:YES scrollPosition: UITableViewScrollPositionMiddle];
+    [self.tableView selectRowAtIndexPath:self.currentSelection animated:YES scrollPosition: UITableViewScrollPositionTop];
     [self displayContentForCellAtIndex:self.currentSelection];
 }
 
@@ -311,7 +312,7 @@
         NSLog(@"no current selection exits");
     }
     
-    [self.tableView selectRowAtIndexPath:self.currentSelection animated:YES scrollPosition: UITableViewScrollPositionMiddle];
+    [self.tableView selectRowAtIndexPath:self.currentSelection animated:YES scrollPosition: UITableViewScrollPositionTop];
     [self displayContentForCellAtIndex:self.currentSelection];
 
 

@@ -28,16 +28,16 @@
         [self.title setNumberOfLines:1];
         [self.title setTextAlignment:NSTextAlignmentLeft];
         [self.title setTextColor:[UIColor blackColor]];
-        self.title.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.1]; // light blue
+//        self.title.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.1]; // light blue
         
         self.subTitle = [UILabel newAutoLayoutView];
         [self.subTitle setLineBreakMode:NSLineBreakByTruncatingTail];
         [self.subTitle setNumberOfLines:0];
         [self.subTitle setTextAlignment:NSTextAlignmentLeft];
         [self.subTitle setTextColor:[UIColor darkGrayColor]];
-        self.subTitle.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.1]; // light red
+//        self.subTitle.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.1]; // light red
         
-        self.contentView.backgroundColor = [UIColor colorWithRed:0 green:1 blue:0 alpha:0.1]; // light green
+//        self.contentView.backgroundColor = [UIColor colorWithRed:0 green:1 blue:0 alpha:0.1]; // light green
         
         [self.contentView addSubview:self.title];
         [self.contentView addSubview:self.subTitle];

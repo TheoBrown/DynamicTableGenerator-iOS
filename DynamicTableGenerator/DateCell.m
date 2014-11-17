@@ -36,9 +36,10 @@
                                 };
 
         self.dateButon = [UIButton newAutoLayoutView];
-        self.dateButon.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5]; // light blue
+//        self.dateButon.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5]; // light blue
         [self.dateButon addTarget:self action:@selector(selectADate:) forControlEvents:UIControlEventTouchUpInside];
         [self.dateButon addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventTouchDown];
+        [self.dateButon setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 
         [self defineContentSelector:@selector(selectADate:)];
         
@@ -114,6 +115,7 @@
         [self.actionSheetPicker addCustomButtonWithTitle:@"Now" value:[NSDate date]];
     //    [self.actionSheetPicker addCustomButtonWithTitle:@"Yesterday" value:[[NSDate date] TC_dateByAddingCalendarUnits:NSDayCalendarUnit amount:-1]];
     self.actionSheetPicker.hideCancel = NO;
+
     [self.actionSheetPicker  setPickerView:self.actionSheetView];
     //    NSLog(@"Picker View set");
     [self.actionSheetPicker showActionSheetPicker];
