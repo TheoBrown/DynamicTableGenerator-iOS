@@ -21,35 +21,40 @@
 
 @interface BaseOptionCellInput : NSObject
 
+//table table view cell attributes
 @property (strong, nonatomic) NSString* sectionHeader;
 @property (strong, nonatomic) NSString* identifier;
 @property (strong, nonatomic) NSString* title; // title to be listed by the cell
+
+//data manaagment
 @property (strong, nonatomic) NSString* returnKey; // key to be used to save and look up th value obect
-
-@property (nonatomic) NSInteger cellPosition;
-
 @property (strong, nonatomic) id value;
 @property (strong, nonatomic) id defaultValue;
 @property (strong, nonatomic) id observedObject;
 
+@property (nonatomic) NSInteger cellPosition; //not used
+
+//DTVC setup
+@property (nonatomic,strong) NSNumber * cellInputFormatType;
+- (void) defineCellInputFormatType:(NSNumber*) newCellInputFormatType;
+
+
 - (id) initType:(NSString*) optionType forReturnKey:(NSString*) newReturnKey withTitle:(NSString*) titleString inSection:(NSString*) sectionHeaderString;
+
+//save CoreData
 - (void) setManagedObject:(id) managedObject;
-
-- (void) updateContextWithValue:(NSObject*) newValue;
-
 - (void) setManagedObject:(id) managedObject withDefaultValue:(NSObject*) defaultvalue;
+
+//save NSObject
+- (void) updateValue:(id) newValue;
+- (void) updateContextWithValue:(NSObject*) newValue;
+- (void) saveObjectContext;
+
+//debug
 - (void) printDebug;
 - (void) debugClassTypes;
 
-- (void) updateValue:(id) newValue;
-- (void) saveObjectContext;
-
+//UI info
 -(NSObject*) getDisplayValue;
-
-
-@property (nonatomic,strong) NSNumber * cellInputFormatType;
-
-- (void) defineCellInputFormatType:(NSNumber*) newCellInputFormatType;
-
 
 @end
