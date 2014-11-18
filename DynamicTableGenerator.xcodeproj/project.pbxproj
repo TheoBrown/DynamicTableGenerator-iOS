@@ -135,6 +135,7 @@
 		F67496451A169DEE0060ECA3 /* SegmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentCell.m; sourceTree = "<group>"; };
 		F6B75EFF1A1BDE4C00099557 /* OptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionCell.h; sourceTree = "<group>"; };
 		F6B75F001A1BDE4C00099557 /* OptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionCell.m; sourceTree = "<group>"; };
+		F6B75F021A1BEB8D00099557 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
 		F6BF66691A1AE6A600362F7C /* DynamicTableViewConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTableViewConstants.h; sourceTree = "<group>"; };
 		F6C099301A16D39F004BBEAE /* SwitchOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchOptionCellInput.h; sourceTree = "<group>"; };
 		F6C099311A16D39F004BBEAE /* SwitchOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchOptionCellInput.m; sourceTree = "<group>"; };
@@ -305,6 +306,7 @@
 				6C7B9D3B19E7386D00C86637 /* DynamicTableViewCellManager.m */,
 				6C7B9D2619E7304400C86637 /* DynamicTableViewObjectParser.h */,
 				6C7B9D2719E7304400C86637 /* DynamicTableViewObjectParser.m */,
+				F6B75F021A1BEB8D00099557 /* Test.h */,
 				F6BF66691A1AE6A600362F7C /* DynamicTableViewConstants.h */,
 			);
 			name = MainControllers;

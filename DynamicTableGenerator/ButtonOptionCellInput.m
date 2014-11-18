@@ -9,8 +9,9 @@
 #import "ButtonOptionCellInput.h"
 
 @implementation ButtonOptionCellInput
+
 -(NSString*) cellType {
-    return DTVCCellType_ButtonCell;
+    return DTVCCellIdentifier_ButtonCell;
 }
 
 

@@ -9,8 +9,9 @@
 #import "TextOptionCellInput.h"
 
 @implementation TextOptionCellInput
+
 -(NSString*) cellType {
-    return DTVCCellType_TextCell;
+    return DTVCCellIdentifier_TextCell;
 }
 -(id) initTextInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader {
     self = [super init];

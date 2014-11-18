@@ -17,6 +17,15 @@
 //NSString * const DTVCCellIdentifier_NumberCell = @"DTVC_SwitchCell";
 //NSString * const DTVCCellIdentifier_SwitchCell = @"DTVC_NumberCell";
 //NSString * const DTVCCellIdentifier_SegmentCell = @"DTVC_SegmentCell";
+
+NSString * const DTVCCellIdentifier_DateCell = @"DTVC_DateCell";
+NSString * const DTVCCellIdentifier_SliderCell = @"DTVC_SliderCell";
+NSString * const DTVCCellIdentifier_ButtonCell = @"DTVC_ButtonCell";
+NSString * const DTVCCellIdentifier_ActionCell = @"DTVC_ActionSheetCell";
+NSString * const DTVCCellIdentifier_TextCell = @"DTVC_TextCell";
+NSString * const DTVCCellIdentifier_NumberCell = @"DTVC_SwitchCell";
+NSString * const DTVCCellIdentifier_SwitchCell = @"DTVC_NumberCell";
+NSString * const DTVCCellIdentifier_SegmentCell = @"DTVC_SegmentCell";
 @interface BaseCell ()
 
 

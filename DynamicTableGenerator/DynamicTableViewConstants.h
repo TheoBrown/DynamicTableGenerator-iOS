@@ -8,23 +8,30 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const DTVCCellType_DateCell;
-extern NSString * const DTVCCellType_SliderCell;
-extern NSString * const DTVCCellType_ButtonCell;
-extern NSString * const DTVCCellType_ActionCell;
-extern NSString * const DTVCCellType_TextCell;
-extern NSString * const DTVCCellType_NumberCell;
-extern NSString * const DTVCCellType_SwitchCell;
-extern NSString * const DTVCCellType_SegmentCell;
+#ifndef DynamicTableGenerator_DynamicTableViewConstants_h
+#define DynamicTableGenerator_DynamicTableViewConstants_h
 
-NSString * const DTVCCellIdentifier_DateCell = @"DTVC_DateCell";
-NSString * const DTVCCellIdentifier_SliderCell = @"DTVC_SliderCell";
-NSString * const DTVCCellIdentifier_ButtonCell = @"DTVC_ButtonCell";
-NSString * const DTVCCellIdentifier_ActionCell = @"DTVC_ActionSheetCell";
-NSString * const DTVCCellIdentifier_TextCell = @"DTVC_TextCell";
-NSString * const DTVCCellIdentifier_NumberCell = @"DTVC_SwitchCell";
-NSString * const DTVCCellIdentifier_SwitchCell = @"DTVC_NumberCell";
-NSString * const DTVCCellIdentifier_SegmentCell = @"DTVC_SegmentCell";
+
+#endif
+
+//extern NSString * const DTVCCellType_DateCell;
+//extern NSString * const DTVCCellType_SliderCell;
+//extern NSString * const DTVCCellType_ButtonCell;
+//extern NSString * const DTVCCellType_ActionCell;
+//extern NSString * const DTVCCellType_TextCell;
+//extern NSString * const DTVCCellType_NumberCell;
+//extern NSString * const DTVCCellType_SwitchCell;
+//extern NSString * const DTVCCellType_SegmentCell;
+extern NSString * const DTVCCellIdentifier_DateCell;
+extern NSString * const DTVCCellIdentifier_SliderCell;
+extern NSString * const DTVCCellIdentifier_ButtonCell;
+extern NSString * const DTVCCellIdentifier_ActionCell;
+extern NSString * const DTVCCellIdentifier_TextCell;
+extern NSString * const DTVCCellIdentifier_NumberCell;
+extern NSString * const DTVCCellIdentifier_SwitchCell;
+extern NSString * const DTVCCellIdentifier_SegmentCell;
+
+
 //extern NSString * const DTVCInputType_SwitchCell_Bool;
 //
 //extern NSString * const DTVCInputType_SliderCell_Float;
@@ -47,6 +54,17 @@ NSString * const DTVCCellIdentifier_SegmentCell = @"DTVC_SegmentCell";
 //
 //extern NSString * const DTVCInputType_ButtonCell_Array;
 
+typedef NS_ENUM(NSInteger, DTVCCellType)
+{
+     DTVCCellType_DateCell = 1,
+     DTVCCellType_SliderCell,
+     DTVCCellType_ButtonCell,
+     DTVCCellType_ActionCell,
+     DTVCCellType_TextCell,
+     DTVCCellType_NumberCell,
+     DTVCCellType_SwitchCell,
+     DTVCCellType_SegmentCell
+};
 
 typedef NS_ENUM(NSInteger, DTVCInputType_SwitchCell)
 {

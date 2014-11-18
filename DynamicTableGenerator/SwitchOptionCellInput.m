@@ -11,7 +11,7 @@
 @implementation SwitchOptionCellInput
 
 -(NSString*) cellType {
-    return DTVCCellType_SwitchCell;
+    return DTVCCellIdentifier_SwitchCell;
 }
 
 -(id) initSwitchInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader {

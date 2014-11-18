@@ -109,7 +109,9 @@ extern const double EARTH_RADIUS;
     NSInteger row = [indexPath row];
     NSInteger section = [indexPath section];
     BaseOptionCellInput * baseCellInput = (BaseOptionCellInput*) [self getInputForSectionIndex:section atRow:row];
+    
     NSString * CellIdentifier = baseCellInput.identifier;
+    
     if ([CellIdentifier  isEqual: DTVCCellIdentifier_NumberCell]){
         NumberCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         NumberOptionCellInput * numberCellInput = (NumberOptionCellInput*)baseCellInput;

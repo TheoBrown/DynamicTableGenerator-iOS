@@ -11,7 +11,7 @@
 @implementation SliderOptionCellInput
 
 -(NSString*) cellType {
-    return DTVCCellType_SliderCell;
+    return DTVCCellIdentifier_SliderCell;
 }
 
 -(id) initFloatSliderInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader {

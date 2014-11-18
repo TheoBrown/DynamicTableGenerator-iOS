@@ -11,7 +11,7 @@
 @implementation DateOptionCellInput
 
 -(NSString*) cellType {
-    return DTVCCellType_DateCell;
+    return DTVCCellIdentifier_DateCell;
 }
 -(id) initDateInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader {
     self = [super init];

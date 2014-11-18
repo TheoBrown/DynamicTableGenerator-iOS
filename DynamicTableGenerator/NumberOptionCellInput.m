@@ -11,7 +11,7 @@
 @implementation NumberOptionCellInput
 
 -(NSString*) cellType {
-    return DTVCCellType_NumberCell;
+    return DTVCCellIdentifier_NumberCell;
 }
 
 -(id) initNumberInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader {
