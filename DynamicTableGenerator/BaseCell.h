@@ -49,14 +49,14 @@ extern NSString * const DTVCCellIdentifier_SegmentCell;
 
 @property (strong, nonatomic) NSDictionary *cellContentFormatDict;
 
-@property (nonatomic) int cellContentFormatType;
+@property (nonatomic,strong) NSNumber* cellContentFormatType; //stores a value for the content of the cell IE date vs date or Numpad vs text
 @property (strong, nonatomic) NSString *cellContentFormatString;
 @property (strong, nonatomic) NSString *cellContentTitle;
 
 - (void) contentWasSelected:(id) sender;
-@property (nonatomic,strong) NSNumber* cellFormatType;
+@property (nonatomic,strong) NSNumber* cellFormatType; //the global value of the cell type
 
--(void) defineCellFormatType:(NSNumber*)cellFormatEnumType;
+-(void) defineCellFormatType:(NSNumber*)cellFormatEnumType; //defines cellFormatType
 
 -(void) setCellFormatDict:(NSDictionary *)cellFormatDict;
 - (void) cellFormatWasUpdated;

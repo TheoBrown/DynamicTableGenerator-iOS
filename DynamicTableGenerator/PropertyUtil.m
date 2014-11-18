@@ -74,7 +74,139 @@ static BOOL property_getTypeString( objc_property_t property, char *buffer )
     return [NSDictionary dictionaryWithDictionary:results];
 }
 
-
+//- (NSArray*) getForm:(id)form {
+//    if (!form) return nil;
+//    
+//    static void *FXFormPropertiesKey = &FXFormPropertiesKey;
+//    NSMutableArray *properties = objc_getAssociatedObject(form, FXFormPropertiesKey);
+//    if (!properties)
+//    {
+//        static NSSet *NSObjectProperties;
+//        static dispatch_once_t onceToken;
+//        dispatch_once(&onceToken, ^{
+//            NSObjectProperties = [NSMutableSet setWithArray:@[@"description", @"debugDescription", @"hash", @"superclass"]];
+//            unsigned int propertyCount;
+//            objc_property_t *propertyList = class_copyPropertyList([NSObject class], &propertyCount);
+//            for (unsigned int i = 0; i < propertyCount; i++)
+//            {
+//                //get property name
+//                objc_property_t property = propertyList[i];
+//                const char *propertyName = property_getName(property);
+//                [(NSMutableSet *)NSObjectProperties addObject:@(propertyName)];
+//            }
+//            free(propertyList);
+//            NSObjectProperties = [NSObjectProperties copy];
+//        });
+//        
+//        properties = [NSMutableArray array];
+//        Class subclass = [form class];
+//        while (subclass != [NSObject class])
+//        {
+//            unsigned int propertyCount;
+//            objc_property_t *propertyList = class_copyPropertyList(subclass, &propertyCount);
+//            for (unsigned int i = 0; i < propertyCount; i++)
+//            {
+//                //get property name
+//                objc_property_t property = propertyList[i];
+//                const char *propertyName = property_getName(property);
+//                NSString *key = @(propertyName);
+//                
+//                //ignore NSObject properties, unless overridden as readwrite
+//                char *readonly = property_copyAttributeValue(property, "R");
+//                if (readonly)
+//                {
+//                    free(readonly);
+//                    if ([NSObjectProperties containsObject:key])
+//                    {
+//                        continue;
+//                    }
+//                }
+//                
+//                //get property type
+//                Class valueClass = nil;
+//                NSString *valueType = nil;
+//                char *typeEncoding = property_copyAttributeValue(property, "T");
+//                switch (typeEncoding[0])
+//                {
+//                    case '@':
+//                    {
+//                        if (strlen(typeEncoding) >= 3)
+//                        {
+//                            char *className = strndup(typeEncoding + 2, strlen(typeEncoding) - 3);
+//                            __autoreleasing NSString *name = @(className);
+//                            NSRange range = [name rangeOfString:@"<"];
+//                            if (range.location != NSNotFound)
+//                            {
+//                                name = [name substringToIndex:range.location];
+//                            }
+//                            valueClass = FXFormClassFromString(name) ?: [NSObject class];
+//                            free(className);
+//                        }
+//                        break;
+//                    }
+//                    case 'c':
+//                    case 'B':
+//                    {
+//                        valueClass = [NSNumber class];
+//                        valueType = FXFormFieldTypeBoolean;
+//                        break;
+//                    }
+//                    case 'i':
+//                    case 's':
+//                    case 'l':
+//                    case 'q':
+//                    {
+//                        valueClass = [NSNumber class];
+//                        valueType = FXFormFieldTypeInteger;
+//                        break;
+//                    }
+//                    case 'C':
+//                    case 'I':
+//                    case 'S':
+//                    case 'L':
+//                    case 'Q':
+//                    {
+//                        valueClass = [NSNumber class];
+//                        valueType = FXFormFieldTypeUnsigned;
+//                        break;
+//                    }
+//                    case 'f':
+//                    case 'd':
+//                    {
+//                        valueClass = [NSNumber class];
+//                        valueType = FXFormFieldTypeFloat;
+//                        break;
+//                    }
+//                    case '{': //struct
+//                    case '(': //union
+//                    {
+//                        valueClass = [NSValue class];
+//                        valueType = FXFormFieldTypeLabel;
+//                        break;
+//                    }
+//                    case ':': //selector
+//                    case '#': //class
+//                    default:
+//                    {
+//                        valueClass = nil;
+//                        valueType = nil;
+//                    }
+//                }
+//                free(typeEncoding);
+//                
+//                //add to properties
+//                NSMutableDictionary *inferred = [NSMutableDictionary dictionaryWithObject:key forKey:FXFormFieldKey];
+//                if (valueClass) inferred[FXFormFieldClass] = valueClass;
+//                if (valueType) inferred[FXFormFieldType] = valueType;
+//                [properties addObject:[inferred copy]];
+//            }
+//            free(propertyList);
+//            subclass = [subclass superclass];
+//        }
+//        objc_setAssociatedObject(form, FXFormPropertiesKey, properties, OBJC_ASSOCIATION_RETAIN);
+//    }
+//    return properties;
+//}
 
 //static const char * getPropertyType(objc_property_t property) {
 //    const char *attributes = property_getAttributes(property);

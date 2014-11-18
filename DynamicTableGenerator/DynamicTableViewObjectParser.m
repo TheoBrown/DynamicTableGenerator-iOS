@@ -13,12 +13,7 @@
 @implementation DynamicTableViewObjectParser
 @synthesize NewFormClass;
 @synthesize  saveUserButton;
-@synthesize  UserInfoArray, UserInfoDict, currentSelection,titletag;
-@synthesize txtActiveField = _txtActiveField;
-@synthesize keyboardToolbar = _keyboardToolbar;
-@synthesize btnDone = _btnDone;
-@synthesize btnNext = _btnNext;
-@synthesize btnPrev = _btnPrev;
+@synthesize  UserInfoArray, UserInfoDict,titletag;
 @synthesize cellsArray;
 
 - (id) initWithObject:(id)newFormObject {

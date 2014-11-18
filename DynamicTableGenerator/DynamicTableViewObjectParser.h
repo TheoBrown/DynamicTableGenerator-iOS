@@ -58,13 +58,8 @@
 @property (nonatomic, retain) NSManagedObject *NewFormClass;
 @property (strong, nonatomic) id mutableFormObject; // this is the object that is managed and updated
 
-@property (nonatomic, strong) UITextField* txtActiveField;
-@property (nonatomic, strong) UIToolbar* keyboardToolbar;
-@property (nonatomic, strong) UIBarButtonItem* btnDone;
-@property (nonatomic, strong) UIBarButtonItem* btnNext;
-@property (nonatomic, strong) UIBarButtonItem* btnPrev;
 
-@property (nonatomic, strong) NSIndexPath *currentSelection;
+
 @property  NSInteger titletag;
 
 - (id) initWithObject:(id)newFormObject;

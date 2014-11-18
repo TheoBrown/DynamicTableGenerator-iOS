@@ -69,7 +69,7 @@
 }
 
 -(void) cellFormatWasUpdated {
-    [self.numericTextField setKeyboardType:self.cellContentFormatType];
+    [self.numericTextField setKeyboardType:[self.cellContentFormatType intValue]];
 
 }
 
@@ -92,10 +92,10 @@
 
 -(NSString*)stringFromNumber:(NSNumber*)number {
     NSString* displayString = [[NSString alloc] init];
-    if (self.cellContentFormatType == DTVCInputType_NumberCell_Integer) {
+    if ([self.cellContentFormatType intValue] == DTVCInputType_NumberCell_Integer) {
         displayString = [NSString stringWithFormat:self.cellContentFormatString, [number intValue]];
     }
-    else if (self.cellContentFormatType == DTVCInputType_NumberCell_Decimal) {
+    else if ([self.cellContentFormatType intValue] == DTVCInputType_NumberCell_Decimal) {
         displayString = [NSString stringWithFormat:self.cellContentFormatString, [number floatValue]];
     }
     return displayString;
