@@ -10,6 +10,9 @@
 
 @implementation SliderOptionCellInput
 
+-(NSString*) cellType {
+    return DTVCCellType_SliderCell;
+}
 
 -(id) initFloatSliderInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader {
     self = [super init];
@@ -22,14 +25,18 @@
 }
 
 -(id) initFloatSliderInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withDefault:(NSNumber*) defaultFloat withMaxValue:(NSNumber*) maxValue andMinValue:(NSNumber*) minValue inSection:(NSString*) newSectionHeader {
+    
     self = [super init];
+    
     NSLog(@"slider created with object %@" , [managedObject description]);
+    
     if (self) {
 //        NSDictionary* settingsDictionary = @{@"Identifier":@"SliderCellID",
 //                                             @"return":@"yMinValue",
 //                                             @"settings":@{@"minValue":@-50.0f,
 //                                                           @"maxValue":@50.0f,
 //                                                           @"defaultValue":@(self.yMinValue ?:0.0f)}}
+        
         self = [self initType:DTVCCellIdentifier_SliderCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
 
         self.minSliderValue = minValue;

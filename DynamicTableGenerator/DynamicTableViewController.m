@@ -33,7 +33,7 @@
 
     self.cellManager = [[DynamicTableViewCellManager alloc] initWithTagCode:self.tagCode andOffset:self.tagOffset   andtableView:self.tableView withAcessoryKeys:self.keyPadView andCellInputs:cellInputArray];
 
-    NSLog(@"cell mutables setu[ with array %@" , [cellInputArray description]);
+    NSLog(@"Dynamic Table View Controller setup with array %@" , [cellInputArray description]);
 }
 - (void)didReceiveMemoryWarning
 {
@@ -139,12 +139,12 @@
                                                object:nil];
 }
 -(void) keyboardWillShow {
-    NSLog(@"keyboardWillShow");
+//    NSLog(@"keyboardWillShow");
     [[self.view viewWithTag:1] setHidden:YES];
 //    [self.keyPadView removeFromSuperview];
 }
 -(void) keyboardWillHide {
-    NSLog(@"keyboardWillHide");
+//    NSLog(@"keyboardWillHide");
     [[self.view viewWithTag:1] setHidden:NO];
 
 
@@ -193,7 +193,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"table view cellForRowAtIndexPath %@",[self stringForIndex:indexPath]);
+//    NSLog(@"table view cellForRowAtIndexPath %@",[self stringForIndex:indexPath]);
 
     UITableViewCell * cell = [self.cellManager getCellatIndexPath:indexPath andDelegate:self];
     [cell setNeedsUpdateConstraints];
@@ -206,7 +206,7 @@
 
 #pragma mark - Table view delegate
 - (void) contentOfCellWasSelected: (NSIndexPath *) cellIndexPath{
-    NSLog(@"contentOfCellWasSelected  %@" ,[self stringForIndex:cellIndexPath]);
+//    NSLog(@"contentOfCellWasSelected  %@" ,[self stringForIndex:cellIndexPath]);
     if (self.currentSelection != cellIndexPath) {
         self.currentSelection = cellIndexPath;
         [self.tableView selectRowAtIndexPath:self.currentSelection animated:YES scrollPosition:UITableViewScrollPositionTop];
@@ -220,14 +220,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.view endEditing:YES]; // dismiss current editing views
-    NSLog(@"tableView Row Selected %@" ,[self stringForIndex:indexPath]);
+//    NSLog(@"tableView Row Selected %@" ,[self stringForIndex:indexPath]);
     self.currentSelection = indexPath;
     [self displayContentForCellAtIndex:self.currentSelection];
     
 }
 
 -(void) displayContentForCellAtIndex:(NSIndexPath*)indexPath {
-    NSLog(@"displayContentForCellAtIndex %@" ,[self stringForIndex:indexPath]);
+//    NSLog(@"displayContentForCellAtIndex %@" ,[self stringForIndex:indexPath]);
 
     BaseCell* selectedCell = (BaseCell*)[self.tableView cellForRowAtIndexPath:indexPath];
     [selectedCell showContentFromSelector];
@@ -318,7 +318,7 @@
 
 }
 -(void)doneTyping: (id) sender {
-    NSLog(@"done typing");
+//    NSLog(@"done typing");
     [self.view endEditing:YES];
 
 }

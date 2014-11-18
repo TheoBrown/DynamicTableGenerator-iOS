@@ -11,8 +11,7 @@
 
 //#import "CellWithDate.h"
 
-@interface DateOptionCellInput : BaseOptionCellInput <TableCellEditable>
-
+@interface DateOptionCellInput : BaseOptionCellInput 
 -(id) initDateInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
 -(id) initDateInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withDefault:(NSDate*) defaultDate withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
 

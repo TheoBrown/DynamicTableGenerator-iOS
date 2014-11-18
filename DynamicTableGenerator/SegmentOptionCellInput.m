@@ -11,7 +11,9 @@
 @implementation SegmentOptionCellInput
 @synthesize segmentTitles, segmentValues, selectedSegment;
 
-
+-(NSString*) cellType {
+    return DTVCCellType_SegmentCell;
+}
 
 -(id) initSegmentInputForObject:(id) managedObject forReturnKey:(NSString*) newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader {
     self = [super init];

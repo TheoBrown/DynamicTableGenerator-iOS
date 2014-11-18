@@ -6,17 +6,20 @@
 //  Copyright (c) 2013 Theodore Brown. All rights reserved.
 //
 
-#import "ResultSelectionController.h"
+#import "DynamicTableViewCellOptionsPickerViewController.h"
 #import "SharedData.h"
-@interface ResultSelectionController ()
+
+@interface DynamicTableViewCellOptionsPickerViewController ()
 -(void) setTestType:(NSString*)testType;
 @end
 
-@implementation ResultSelectionController
-@synthesize arForTable = _arForTable;
-@synthesize arForIPs = _arForIPs;
+
+@implementation DynamicTableViewCellOptionsPickerViewController
+@synthesize optionsArray = _optionsArray;
+@synthesize selectedOptionsArray = _selectedOptionsArray;
 @synthesize selectedTestType;
 @synthesize resultDelegate;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -26,18 +29,26 @@
     return self;
 }
 
+- (id)initWIthOptionsArray:(NSArray*)optionsArray
+{
+    self = [super init];
+    if (self) {
+        self.optionsArray = optionsArray;
+    }
+    return self;
+}
 
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = selectedTestType;
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStyleDone target:self action:@selector(doneButtonPressed:)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonPressed:)];
 	self.navigationItem.rightBarButtonItem = addButton;	// Do any additional setup
-//    self.arForTable=[NSArray arrayWithObjects:@"Object-One",@"Object-Two",@"Object-Three",@"Object-Four",@"Object-Five", nil];
-    self.arForTable = [[[[SharedData getInstance] settings] dictionaryForKey:@"resultTypes"] objectForKey:selectedTestType];
 
-    self.arForIPs=[NSMutableArray array];
+//    self.optionsArray = [[[[SharedData getInstance] settings] dictionaryForKey:@"resultTypes"] objectForKey:selectedTestType];
+
+    self.selectedOptionsArray = [NSMutableArray array];
 
 }
 
@@ -48,7 +59,7 @@
     self.selectedTestType = testType;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.arForTable count];
+    return [self.optionsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -57,21 +68,21 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    if([self.arForIPs containsObject:indexPath]){
+    if([self.selectedOptionsArray containsObject:indexPath]){
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     } else {
         [cell setAccessoryType:UITableViewCellAccessoryNone];
     }
-    cell.textLabel.text=[self.arForTable objectAtIndex:indexPath.row];
+    cell.textLabel.text=[self.optionsArray objectAtIndex:indexPath.row];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if([self.arForIPs containsObject:indexPath]){
-        [self.arForIPs removeObject:indexPath];
+    if([self.selectedOptionsArray containsObject:indexPath]){
+        [self.selectedOptionsArray removeObject:indexPath];
     } else {
-        [self.arForIPs addObject:indexPath];
+        [self.selectedOptionsArray addObject:indexPath];
     }
     [tableView reloadData];
 }
@@ -98,12 +109,14 @@
 
 -(IBAction)doneButtonPressed:(id)sender{
     NSMutableArray *selectedresulttypes = [NSMutableArray array];
-    for (NSIndexPath * path in self.arForIPs){
-        [selectedresulttypes addObject:[self.arForTable objectAtIndex:path.row]];
+    
+    for (NSIndexPath * path in self.selectedOptionsArray){
+        [selectedresulttypes addObject:[self.optionsArray objectAtIndex:path.row]];
     }
+    
     NSLog(@"Result Selection will close with : %@",selectedresulttypes);
     //    share.selectedresultTypes = selectedresulttypes;
-    [[[SharedData getInstance] settings] setObject:selectedresulttypes forKey:@"selectedResultTypes"];
+//    [[[SharedData getInstance] settings] setObject:selectedresulttypes forKey:@"selectedResultTypes"];
     if([self.resultDelegate respondsToSelector:@selector(resultsUpdated:)])
     {
         NSLog(@"Settings will respond");

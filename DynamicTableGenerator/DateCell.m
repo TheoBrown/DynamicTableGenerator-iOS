@@ -32,7 +32,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        self.cellContentFormatDict = @{[NSNumber numberWithInt:DTVCInputType_DateCell_Date]:@{@"format":@"MM-dd-YYYY",
+        NSDictionary *cellContentFormatDict = @{[NSNumber numberWithInt:DTVCInputType_DateCell_Date]:@{@"format":@"MM-dd-YYYY",
                                                                                        @"title":@"Select A Day",
                                                                                        @"contentType":[NSNumber numberWithInt:UIDatePickerModeDate]},
                                 [NSNumber numberWithInt:DTVCInputType_DateCell_DateTime]:@{@"format":@"MM-dd-YYYY hh:mm a",
@@ -41,7 +41,7 @@
                                 [NSNumber numberWithInt:DTVCInputType_DateCell_Time]:@{@"format":@"hh:mm:ss a",
                                                                                        @"title":@"Select A Time",
                                                                                        @"contentType":[NSNumber numberWithInt:UIDatePickerModeTime]}};
-
+        [self setCellContentFormatDict:cellContentFormatDict];
         self.dateButon = [UIButton newAutoLayoutView];
 //        self.dateButon.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5]; // light blue
         [self.dateButon addTarget:self action:@selector(selectADate:) forControlEvents:UIControlEventTouchUpInside];

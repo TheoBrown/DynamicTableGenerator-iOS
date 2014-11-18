@@ -19,7 +19,7 @@
 //extern NSString * const switchCell;
 //extern NSString * const segmentCell;
 
-@interface BaseOptionCellInput : NSObject
+@interface BaseOptionCellInput : NSObject <TableCellEditable>
 
 //table table view cell attributes
 @property (strong, nonatomic) NSString* sectionHeader;
@@ -40,6 +40,7 @@
 
 
 - (id) initType:(NSString*) optionType forReturnKey:(NSString*) newReturnKey withTitle:(NSString*) titleString inSection:(NSString*) sectionHeaderString;
+-(id) initInputType:(NSString*) optionType forObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
 
 //save CoreData
 - (void) setManagedObject:(id) managedObject;

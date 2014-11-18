@@ -27,7 +27,7 @@
 		6C7B9D2B19E732AD00C86637 /* DynamicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D2A19E732AD00C86637 /* DynamicTableViewController.m */; };
 		6C7B9D2D19E7352100C86637 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7B9D2C19E7352100C86637 /* UIKit.framework */; };
 		6C7B9D2F19E735D600C86637 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7B9D2E19E735D600C86637 /* CoreData.framework */; };
-		6C7B9D3519E7369A00C86637 /* ResultSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D3219E7369A00C86637 /* ResultSelectionController.m */; };
+		6C7B9D3519E7369A00C86637 /* DynamicTableViewCellOptionsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D3219E7369A00C86637 /* DynamicTableViewCellOptionsPickerViewController.m */; };
 		6C7B9D3C19E7386D00C86637 /* DynamicTableViewCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D3B19E7386D00C86637 /* DynamicTableViewCellManager.m */; };
 		6CBA470819E756DF00EF8861 /* CellWithAbstractActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CDB19E72D1200C86637 /* CellWithAbstractActionSheet.xib */; };
 		6CBA470D19E756DF00EF8861 /* CellWithButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CEC19E72D1300C86637 /* CellWithButton.xib */; };
@@ -39,6 +39,7 @@
 		F67496401A169DB10060ECA3 /* NumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F674963F1A169DB10060ECA3 /* NumberCell.m */; };
 		F67496431A169DBA0060ECA3 /* SliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496421A169DBA0060ECA3 /* SliderCell.m */; };
 		F67496461A169DEE0060ECA3 /* SegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496451A169DEE0060ECA3 /* SegmentCell.m */; };
+		F6B75F011A1BDE4C00099557 /* OptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B75F001A1BDE4C00099557 /* OptionCell.m */; };
 		F6C099321A16D39F004BBEAE /* SwitchOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C099311A16D39F004BBEAE /* SwitchOptionCellInput.m */; };
 /* End PBXBuildFile section */
 
@@ -106,8 +107,8 @@
 		6C7B9D2A19E732AD00C86637 /* DynamicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicTableViewController.m; sourceTree = "<group>"; };
 		6C7B9D2C19E7352100C86637 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6C7B9D2E19E735D600C86637 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		6C7B9D3119E7369A00C86637 /* ResultSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSelectionController.h; sourceTree = "<group>"; };
-		6C7B9D3219E7369A00C86637 /* ResultSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultSelectionController.m; sourceTree = "<group>"; };
+		6C7B9D3119E7369A00C86637 /* DynamicTableViewCellOptionsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTableViewCellOptionsPickerViewController.h; sourceTree = "<group>"; };
+		6C7B9D3219E7369A00C86637 /* DynamicTableViewCellOptionsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicTableViewCellOptionsPickerViewController.m; sourceTree = "<group>"; };
 		6C7B9D3A19E7386D00C86637 /* DynamicTableViewCellManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTableViewCellManager.h; sourceTree = "<group>"; };
 		6C7B9D3B19E7386D00C86637 /* DynamicTableViewCellManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicTableViewCellManager.m; sourceTree = "<group>"; };
 		6CBA470019E7566100EF8861 /* DynamicTableXibs.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicTableXibs.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +133,8 @@
 		F67496421A169DBA0060ECA3 /* SliderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderCell.m; sourceTree = "<group>"; };
 		F67496441A169DEE0060ECA3 /* SegmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentCell.h; sourceTree = "<group>"; };
 		F67496451A169DEE0060ECA3 /* SegmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentCell.m; sourceTree = "<group>"; };
+		F6B75EFF1A1BDE4C00099557 /* OptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionCell.h; sourceTree = "<group>"; };
+		F6B75F001A1BDE4C00099557 /* OptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionCell.m; sourceTree = "<group>"; };
 		F6BF66691A1AE6A600362F7C /* DynamicTableViewConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTableViewConstants.h; sourceTree = "<group>"; };
 		F6C099301A16D39F004BBEAE /* SwitchOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchOptionCellInput.h; sourceTree = "<group>"; };
 		F6C099311A16D39F004BBEAE /* SwitchOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchOptionCellInput.m; sourceTree = "<group>"; };
@@ -200,9 +203,9 @@
 		6C7B9CBE19E7256400C86637 /* DynamicTableGenerator */ = {
 			isa = PBXGroup;
 			children = (
-				6C7B9D3019E7365000C86637 /* Test Files */,
 				6C7B9D2519E7303300C86637 /* MainControllers */,
 				6C7B9D1819E72DBC00C86637 /* Helper Protocols */,
+				6C7B9D3019E7365000C86637 /* CellVCS */,
 				6C7B9CFA19E72D2500C86637 /* TableViewCells */,
 			);
 			path = DynamicTableGenerator;
@@ -307,13 +310,13 @@
 			name = MainControllers;
 			sourceTree = "<group>";
 		};
-		6C7B9D3019E7365000C86637 /* Test Files */ = {
+		6C7B9D3019E7365000C86637 /* CellVCS */ = {
 			isa = PBXGroup;
 			children = (
-				6C7B9D3119E7369A00C86637 /* ResultSelectionController.h */,
-				6C7B9D3219E7369A00C86637 /* ResultSelectionController.m */,
+				6C7B9D3119E7369A00C86637 /* DynamicTableViewCellOptionsPickerViewController.h */,
+				6C7B9D3219E7369A00C86637 /* DynamicTableViewCellOptionsPickerViewController.m */,
 			);
-			name = "Test Files";
+			name = CellVCS;
 			sourceTree = "<group>";
 		};
 		6CBA470119E7566100EF8861 /* DynamicTableXibs */ = {
@@ -350,6 +353,8 @@
 				F67496361A16989D0060ECA3 /* SwitchCell.m */,
 				F67496381A169D570060ECA3 /* DateCell.h */,
 				F67496391A169D570060ECA3 /* DateCell.m */,
+				F6B75EFF1A1BDE4C00099557 /* OptionCell.h */,
+				F6B75F001A1BDE4C00099557 /* OptionCell.m */,
 				F674963B1A169DA20060ECA3 /* TextCell.h */,
 				F674963C1A169DA20060ECA3 /* TextCell.m */,
 				F674963E1A169DB10060ECA3 /* NumberCell.h */,
@@ -515,6 +520,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6B75F011A1BDE4C00099557 /* OptionCell.m in Sources */,
 				F67496341A1696800060ECA3 /* BaseCell.m in Sources */,
 				F674963A1A169D570060ECA3 /* DateCell.m in Sources */,
 				6C7B9D2219E72DC700C86637 /* FetchedResultsHelper.m in Sources */,
@@ -534,7 +540,7 @@
 				F67496431A169DBA0060ECA3 /* SliderCell.m in Sources */,
 				6C7B9D2419E72DC700C86637 /* SharedData.m in Sources */,
 				6C7B9D1019E72D9E00C86637 /* BaseOptionCellInput.m in Sources */,
-				6C7B9D3519E7369A00C86637 /* ResultSelectionController.m in Sources */,
+				6C7B9D3519E7369A00C86637 /* DynamicTableViewCellOptionsPickerViewController.m in Sources */,
 				F6C099321A16D39F004BBEAE /* SwitchOptionCellInput.m in Sources */,
 				6C7B9D1219E72D9E00C86637 /* SliderOptionCellInput.m in Sources */,
 				6C7B9D1619E72D9E00C86637 /* ButtonOptionCellInput.m in Sources */,

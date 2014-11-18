@@ -7,17 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @protocol resultArrayDelegate <NSObject>
 -(void)resultsUpdated:(NSArray *)resultArray;
 @end
-@interface ResultSelectionController : UITableViewController
+
+@interface DynamicTableViewCellOptionsPickerViewController : UITableViewController
 {
     __weak id resultDelegate;
 }
 @property (nonatomic,weak) id<resultArrayDelegate> resultDelegate;
 
-@property (nonatomic, retain) NSArray *arForTable;
-@property (nonatomic, retain) NSMutableArray *arForIPs;
+@property (nonatomic, retain) NSArray *optionsArray;
+
+@property (nonatomic, retain) NSMutableArray *selectedOptionsArray;
 @property (nonatomic, retain) NSString *selectedTestType;
 -(void) setTestType:(NSString*)testType;
 

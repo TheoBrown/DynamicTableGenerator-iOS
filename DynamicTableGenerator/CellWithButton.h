@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "XIBBasedTableCell.h"
 #import "TableCellEditableProtocol.h"
-#import "ResultSelectionController.h"
+#import "DynamicTableViewCellOptionsPickerViewController.h"
 
 
 @interface CellWithButton : XIBBasedTableCell <resultArrayDelegate> {
@@ -17,15 +17,17 @@
 }
 
 @property (nonatomic, strong) id delegate;
-@property (nonatomic, strong) ResultSelectionController * resultsViewController;
+@property (nonatomic, strong) DynamicTableViewCellOptionsPickerViewController * resultsViewController;
 
 @property (nonatomic, weak) IBOutlet UILabel *title;
 @property (nonatomic, weak) IBOutlet UILabel *subTitle;
 @property (nonatomic, weak) IBOutlet UIButton *cellButton;
+
 @property (nonatomic, retain) NSString *selectedTestType;
 @property (nonatomic, retain) NSString *titleObject;
 
 - (IBAction)buttonPressed:(UIControl *)sender;
+
 -(void) setResultTypeFromURL:(NSURL *) objectURL;
 
 @end

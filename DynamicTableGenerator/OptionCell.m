@@ -1,25 +1,18 @@
 //
-//  CellWithButton.m
-//  CoreDataTest
+//  OptionCell.m
+//  DynamicTableGenerator
 //
-//  Created by Theodore Brown on 12/12/13.
-//  Copyright (c) 2013 Theodore Brown. All rights reserved.
+//  Created by tpb on 11/18/14.
+//  Copyright (c) 2014 Theodore Brown. All rights reserved.
 //
 
-#import "CellWithButton.h"
+#import "OptionCell.h"
 #import "FetchedResultsHelper.h"
-@implementation CellWithButton
 
-@synthesize delegate = _delegate;
-
-@synthesize title = _title;
-@synthesize subTitle = _subTitle;
-@synthesize cellButton = _cellButton;
-@synthesize selectedTestType, resultsViewController;
-@synthesize titleObject;
+@implementation OptionCell
 
 -(NSString *) reuseIdentifier {
-    return @"ButtonCellID";
+    return DTVCCellIdentifier_ButtonCell;
 }
 
 
@@ -31,6 +24,7 @@
         self.resultsViewController.selectedTestType = self.selectedTestType;
         self.resultsViewController.resultDelegate = self;
 #warning will not work if no navigation controller exits
+
         [[self.delegate navigationController] pushViewController:self.resultsViewController animated:YES];
         NSLog(@"Try to present %@", [self.resultsViewController description]);
     }

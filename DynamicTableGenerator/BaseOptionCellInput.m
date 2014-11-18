@@ -28,6 +28,7 @@
 @synthesize sectionHeader, title, identifier , cellPosition;
 @synthesize observedObject, value, defaultValue;
 
+#pragma mark - init
 - (id) initType:(NSString*) optionType forReturnKey:(NSString*) newReturnKey withTitle:(NSString*) titleString inSection:(NSString*) sectionHeaderString {
 //    NSLog(@"base init called");
     self = [super init];
@@ -40,6 +41,19 @@
         self.identifier = optionType;
     }
 //    [self printDebug];
+    return self;
+}
+
+-(id) initInputType:(NSString*) optionType forObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader{
+    self = [super init];
+    
+    if (self) {
+        self.returnKey = newReturnKey;
+        self.title = cellTitle;
+        self.sectionHeader = newSectionHeader;
+        self.identifier = optionType;
+        [self setManagedObject:managedObject];
+    }
     return self;
 }
 

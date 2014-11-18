@@ -8,7 +8,7 @@
 
 #import "BaseOptionCellInput.h"
 
-@interface SwitchOptionCellInput : BaseOptionCellInput <TableCellEditable>
+@interface SwitchOptionCellInput : BaseOptionCellInput
 
 
 -(id) initSwitchInputForObject:(id) managedObject forReturnKey:(NSString*) newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;

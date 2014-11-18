@@ -10,6 +10,9 @@
 
 @implementation SwitchOptionCellInput
 
+-(NSString*) cellType {
+    return DTVCCellType_SwitchCell;
+}
 
 -(id) initSwitchInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader {
     self = [super init];
@@ -36,6 +39,8 @@
     }
     return self;
 }
+
+
 
 - (void) createDefaultValueForObject:(id)managedObject orValue:(id) backupValue {
     NSObject* newDefault = [managedObject valueForKey:self.returnKey] ?:backupValue;

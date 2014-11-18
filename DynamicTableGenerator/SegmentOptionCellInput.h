@@ -10,7 +10,7 @@
 
 
 
-@interface SegmentOptionCellInput : BaseOptionCellInput <TableCellEditable>
+@interface SegmentOptionCellInput : BaseOptionCellInput
 
 @property (strong, nonatomic) NSArray* segmentTitles;
 @property (strong, nonatomic) NSArray* segmentValues;

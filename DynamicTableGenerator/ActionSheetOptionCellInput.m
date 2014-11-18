@@ -10,6 +10,10 @@
 
 @implementation ActionSheetOptionCellInput
 
+-(NSString*) cellType {
+    return DTVCCellType_ActionCell;
+}
+
 -(id) initActionSheetInputTitled:(NSString*) cellTitle withEntity:(id) managedObjectEntity andSettings:(NSDictionary*) settingsDictionary inSection:(NSString*) newSectionHeader {
     
     if (!self) {

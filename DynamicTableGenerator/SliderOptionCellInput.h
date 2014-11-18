@@ -12,7 +12,7 @@
 //#import "CellWithSlider.h"
 
 
-@interface SliderOptionCellInput : BaseOptionCellInput <TableCellEditable>
+@interface SliderOptionCellInput : BaseOptionCellInput
 @property (strong, nonatomic) NSNumber *minSliderValue;
 @property (strong, nonatomic) NSNumber *maxSliderValue;
 

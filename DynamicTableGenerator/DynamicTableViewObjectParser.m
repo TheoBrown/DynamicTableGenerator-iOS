@@ -174,12 +174,14 @@
 
         if ([propertyTypeString  isEqual: @"NSString"]){
             int inputFormatType = [self parsTextEntryTypes:parsedPropertyType];
-            NSLog(@"%@ parsed to input enum %d",parsedPropertyType,inputFormatType);
-            TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initTextInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
-            NSLog(@"%@ parsed to finished init," ,newTextCell.title);
+//            NSLog(@"%@ parsed to input enum %d",parsedPropertyType,inputFormatType);
+//            TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initTextInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
+            TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initInputType:DTVCCellType_TextCell forObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
+
+//            NSLog(@"%@ parsed to finished init," ,newTextCell.title);
 
             [newTextCell defineCellInputFormatType:[NSNumber numberWithInt:inputFormatType]];
-            NSLog(@"%@ parsed set format %d," ,newTextCell.title,[newTextCell.cellInputFormatType intValue]);
+//            NSLog(@"%@ parsed set format %d," ,newTextCell.title,[newTextCell.cellInputFormatType intValue]);
 
             [tempCellsArray addObject:newTextCell];
         }

@@ -9,7 +9,9 @@
 #import "ButtonOptionCellInput.h"
 
 @implementation ButtonOptionCellInput
-
+-(NSString*) cellType {
+    return DTVCCellType_ButtonCell;
+}
 
 
 #pragma mark - editable table cell delegate methods

@@ -118,7 +118,7 @@ extern const double EARTH_RADIUS;
             cell = [[NumberCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         
-        [cell setCellFormatType:[numberCellInput cellInputFormatType]];
+        [cell defineCellFormatType:numberCellInput.cellInputFormatType];
         [cell.numericTextField setInputAccessoryView:self.keyboardToolbar];
         cell.numericTextField.delegate = cell;
         
@@ -140,7 +140,7 @@ extern const double EARTH_RADIUS;
         }
         
 
-        [cell setCellFormatType:[textCellInput cellInputFormatType]];
+        [cell defineCellFormatType:textCellInput.cellInputFormatType];
 
         cell.title.text = textCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
         cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
@@ -188,7 +188,7 @@ extern const double EARTH_RADIUS;
             [self.tableView registerClass:[DateCell class] forCellReuseIdentifier:CellIdentifier];
             cell = [[DateCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
-        [cell setCellFormatType:[dateCellInput cellInputFormatType]];
+        [cell defineCellFormatType:dateCellInput.cellInputFormatType];
         [cell.dateButon setTitle:[cell stringFromDate:dateCellInput.value] forState:UIControlStateNormal];
         // Configure the cell...
         cell.title.text = dateCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
