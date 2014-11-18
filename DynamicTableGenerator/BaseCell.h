@@ -10,6 +10,7 @@
 #import "PureLayout.h"
 #import "TableCellEditableProtocol.h"
 #import "TableViewNavigationDelegate.h"
+#import "DynamicTableViewConstants.h"
 
 extern NSString * const DTVCCellIdentifier_DateCell;
 extern NSString * const DTVCCellIdentifier_SliderCell;
@@ -45,10 +46,17 @@ extern NSString * const DTVCCellIdentifier_SegmentCell;
 @property (nonatomic, assign) BOOL didSetupConstraints;
 @property (nonatomic, assign) BOOL didSetupAcessoryConstraints;
 
-@property (strong, nonatomic) NSString *cellFormatString;
+@property (nonatomic) int cellFormatType;
+
+@property (strong, nonatomic) NSDictionary *cellContentFormatDict;
+
+@property (nonatomic) int cellContentFormatType;
+@property (strong, nonatomic) NSString *cellContentFormatString;
+@property (strong, nonatomic) NSString *cellContentTitle;
 
 - (void) contentWasSelected:(id) sender;
--(void) setCellFormat:(NSString *)formatString;
-- (void)updateFonts;
 
+-(void) setCellFormatType:(int)cellFormatEnumType;
+-(void) setCellFormatDict:(NSDictionary *)cellFormatDict;
+- (void) cellFormatWasUpdated;
 @end

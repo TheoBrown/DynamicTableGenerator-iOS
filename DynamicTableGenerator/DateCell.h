@@ -29,6 +29,5 @@
 - (IBAction)selectADate:(UIControl *)sender;
 -(NSString*)stringFromDate:(NSDate*)date;
 
--(void) setDateFormat:(NSString *)formatString;
 
 @end

@@ -14,9 +14,12 @@
 
 /* date modes
  
+ typedef NS_ENUM(NSInteger, UIDatePickerMode) {
  UIDatePickerModeTime,           // Displays hour, minute, and optionally AM/PM designation depending on the locale setting (e.g. 6 | 53 | PM)
  UIDatePickerModeDate,           // Displays month, day, and year depending on the locale setting (e.g. November | 15 | 2007)
  UIDatePickerModeDateAndTime,    // Displays date, hour, minute, and optionally AM/PM designation depending on the locale setting (e.g. Wed Nov 15 | 6 | 53 | PM)
+ UIDatePickerModeCountDownTimer, // Displays hour and minute (e.g. 1 | 53)
+ };
  
  */
 
@@ -30,10 +33,15 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        self.dateFormatDict = @{@"date":@{@"format":@"MM-dd-YYYY",@"title":@"Select A Day"},
-                                @"datetime":@{@"format":@"MM-dd-YYYY hh:mm a",@"title":@"Select A Date and Time"},
-                                @"time":@{@"format":@"hh:mm:ss a",@"title":@"Select A Time"}
-                                };
+        self.dateFormatDict = @{[NSNumber numberWithInt:DTVCInputType_DateCell_Date]:@{@"format":@"MM-dd-YYYY",
+                                                                                       @"title":@"Select A Day",
+                                                                                       @"contentType":[NSNumber numberWithInt:UIDatePickerModeDate]},
+                                [NSNumber numberWithInt:DTVCInputType_DateCell_DateTime]:@{@"format":@"MM-dd-YYYY hh:mm a",
+                                                                                       @"title":@"Select A Date and Time",
+                                                                                       @"contentType":[NSNumber numberWithInt:UIDatePickerModeDateAndTime]},
+                                [NSNumber numberWithInt:DTVCInputType_DateCell_Time]:@{@"format":@"hh:mm:ss a",
+                                                                                       @"title":@"Select A Time",
+                                                                                       @"contentType":[NSNumber numberWithInt:UIDatePickerModeTime]}};
 
         self.dateButon = [UIButton newAutoLayoutView];
 //        self.dateButon.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5]; // light blue
@@ -52,27 +60,33 @@
     return self;
 }
 
--(void) setCellFormat:(NSString *)formatString{
-    self.cellFormatString = formatString;
-    if ([formatString isEqualToString:@"date"]){
-        self.dateFormatString = [[self.dateFormatDict valueForKey:formatString] valueForKey:@"format"];
-        
-        self.datePickerMode = UIDatePickerModeDate;
-        self.datePickerTitle =[[self.dateFormatDict valueForKey:formatString] valueForKey:@"title"];
+//-(void) setCellFormat:(NSString *)formatString{
+//    self.cellFormatString = formatString;
+//    if ([formatString isEqualToString:@"date"]){
+//        self.dateFormatString = [[self.dateFormatDict valueForKey:formatString] valueForKey:@"format"];
+//        
+//        self.datePickerMode = UIDatePickerModeDate;
+//        self.datePickerTitle =[[self.dateFormatDict valueForKey:formatString] valueForKey:@"title"];
+//        
+//    }
+//    else if ([formatString isEqualToString:@"datetime"]){
+//        self.dateFormatString = [[self.dateFormatDict valueForKey:formatString] valueForKey:@"format"];
+//        self.datePickerTitle =[[self.dateFormatDict valueForKey:formatString] valueForKey:@"title"];
+//        
+//        self.datePickerMode = UIDatePickerModeDateAndTime;
+//    }
+//    else if ([formatString isEqualToString:@"time"]){
+//        self.dateFormatString = [[self.dateFormatDict valueForKey:formatString] valueForKey:@"format"];
+//        self.datePickerTitle =[[self.dateFormatDict valueForKey:formatString] valueForKey:@"title"];
+//        self.datePickerMode = UIDatePickerModeTime;
+//    }
+//}
 
-    }
-    else if ([formatString isEqualToString:@"datetime"]){
-        self.dateFormatString = [[self.dateFormatDict valueForKey:formatString] valueForKey:@"format"];
-        self.datePickerTitle =[[self.dateFormatDict valueForKey:formatString] valueForKey:@"title"];
-
-        self.datePickerMode = UIDatePickerModeDateAndTime;
-    }
-    else if ([formatString isEqualToString:@"time"]){
-        self.dateFormatString = [[self.dateFormatDict valueForKey:formatString] valueForKey:@"format"];
-        self.datePickerTitle =[[self.dateFormatDict valueForKey:formatString] valueForKey:@"title"];
-        self.datePickerMode = UIDatePickerModeTime;
-    }
+- (void) cellFormatWasUpdated {
+    NSLog(@"%@ format updated", self.title);
 }
+#pragma mark - View control
+
 
 - (void)updateConstraints
 {
@@ -101,6 +115,22 @@
 }
 
 
+-(void) setActionSheetView: (UIView*) newview
+{
+    NSLog(@"actionSheetView View called with %@" ,[newview description]);
+    NSLog(@" View changed from   %@" ,[self.actionSheetView description]);
+    
+    if (self.actionSheetView == nil){
+        NSLog(@"actionSheetView does not exist yet");
+        
+        self.actionSheetView = newview;
+        NSLog(@"actionSheetView View set");
+    }
+    
+    
+}
+
+#pragma mark - UI actions
 - (IBAction)selectADate:(UIControl *)sender {
     if (self.selectedDate == nil)
     {
@@ -111,7 +141,7 @@
     //    NSLog(@"Select a Date called in custom cell");
     
     //    [self.delegate selectADate:sender];
-    _actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:self.datePickerTitle datePickerMode:self.datePickerMode selectedDate:self.selectedDate target:self action:@selector(dateWasSelected:element:) origin:sender];
+    _actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:self.cellContentTitle datePickerMode:self.cellContentFormatType selectedDate:self.selectedDate target:self action:@selector(dateWasSelected:element:) origin:sender];
         [self.actionSheetPicker addCustomButtonWithTitle:@"Now" value:[NSDate date]];
     //    [self.actionSheetPicker addCustomButtonWithTitle:@"Yesterday" value:[[NSDate date] TC_dateByAddingCalendarUnits:NSDayCalendarUnit amount:-1]];
     self.actionSheetPicker.hideCancel = NO;
@@ -132,7 +162,7 @@
 }
 -(NSString*)stringFromDate:(NSDate*)date{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:self.dateFormatString];
+    [formatter setDateFormat:self.cellContentFormatString];
     
     //Optionally for time zone converstions
     [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
@@ -141,18 +171,5 @@
     return tempdatestring;
 }
 
--(void) setActionSheetView: (UIView*) newview
-{
-    NSLog(@"actionSheetView View called with %@" ,[newview description]);
-    NSLog(@" View changed from   %@" ,[self.actionSheetView description]);
-    
-    if (self.actionSheetView == nil){
-        NSLog(@"actionSheetView does not exist yet");
-        
-        self.actionSheetView = newview;
-        NSLog(@"actionSheetView View set");
-    }
-    
-    
-}
+
 @end

@@ -42,6 +42,9 @@ NSString * const DTVCCellIdentifier_SegmentCell = @"DTVC_SegmentCell";
         [self.subTitle setNumberOfLines:0];
         [self.subTitle setTextAlignment:NSTextAlignmentLeft];
         [self.subTitle setTextColor:[UIColor darkGrayColor]];
+        
+        self.title.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+        self.subTitle.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
 //        self.subTitle.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.1]; // light red
         
 //        self.contentView.backgroundColor = [UIColor colorWithRed:0 green:1 blue:0 alpha:0.1]; // light green
@@ -66,27 +69,7 @@ NSString * const DTVCCellIdentifier_SegmentCell = @"DTVC_SegmentCell";
     }
     [self contentWasSelected:self];
 }
--(void) setBaseConstraints {
-    self.contentView.bounds = CGRectMake(0.0f, 0.0f, 99999.0f, 99999.0f);
-    
-    [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
-        [self.title autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
-    }];
-    [self.title autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
-    [self.title autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
-    //        [self.title autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
-    
-    
-    [self.subTitle autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.title withOffset:kLabelVerticalInsets];
-    
-    [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
-        [self.subTitle autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
-    }];
-    [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
-    //        [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
-    [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
-    
-}
+
 - (void)updateConstraints
 {
     if (!self.didSetupConstraints) {
@@ -118,15 +101,23 @@ NSString * const DTVCCellIdentifier_SegmentCell = @"DTVC_SegmentCell";
     [super updateConstraints];
 }
 
-- (void)updateFonts
-{
-    self.title.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
-    self.subTitle.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
+
+-(void) setCellFormatType:(int)formatTypeDef {
+    
+    self.cellFormatType = formatTypeDef;
+    NSNumber *cellFormatTypeDictKey = [NSNumber numberWithInt:self.cellFormatType];
+    self.cellContentTitle = [[self.cellContentFormatDict objectForKey:cellFormatTypeDictKey] valueForKey:@"title"];
+    self.cellContentFormatString = [[self.cellContentFormatDict objectForKey:cellFormatTypeDictKey] valueForKey:@"format"];;
+    self.cellContentFormatType = [[[self.cellContentFormatDict objectForKey:cellFormatTypeDictKey] valueForKey:@"contentType"] intValue];;
+    [self cellFormatWasUpdated];
+    
 }
 
--(void) setCellFormat:(NSString *)formatString {
-    self.cellFormatString = formatString;
+-(void) setCellFormatDict:(NSDictionary *)cellFormatDict{
+    self.cellContentFormatDict = cellFormatDict;
 }
+
+
 #pragma mark - tv delegate methods
 - (void) presentContentInput:(id) sender {
    

@@ -16,8 +16,12 @@
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.numberPadFormatDict = @{@"decimal":@{@"format":@"%.2f",@"default":@"0.00"},
-                                     @"integer":@{@"format":@"%d",@"default":@"0"},
+        self.numberPadFormatDict = @{[NSNumber numberWithInt:DTVCInputType_NumberCell_Decimal]:@{@"format":@"%.2f",
+                                                                                                 @"default":@"0.00",
+                                                                                                 @"contentType":[NSNumber numberWithInt:UIKeyboardTypeDecimalPad]},
+                                     [NSNumber numberWithInt:DTVCInputType_NumberCell_Integer]:@{@"format":@"%d",
+                                                                                                 @"default":@"0",
+                                                                                                 @"contentType":[NSNumber numberWithInt:UIKeyboardTypeNumberPad]},
                                      };
         
         self.numericTextField = [UITextField newAutoLayoutView];

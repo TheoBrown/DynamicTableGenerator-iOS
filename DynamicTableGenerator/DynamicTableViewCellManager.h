@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
+#import "DynamicTableViewConstants.h"
 
 extern NSString * const DTVCCellType_DateCell;
 extern NSString * const DTVCCellType_SliderCell;
