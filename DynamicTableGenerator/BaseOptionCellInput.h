@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TableCellEditableProtocol.h"
 #import "BaseCell.h"
-
+#import "DynamicTableViewConstants.h"
 //extern NSString * const dateCell;
 //extern NSString * const sliderCell;
 //extern NSString * const buttonCell;
@@ -41,6 +41,7 @@
 
 - (id) initType:(NSString*) optionType forReturnKey:(NSString*) newReturnKey withTitle:(NSString*) titleString inSection:(NSString*) sectionHeaderString;
 -(id) initInputType:(NSString*) optionType forObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
+-(id) initInputClassforObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
 
 //save CoreData
 - (void) setManagedObject:(id) managedObject;
@@ -57,5 +58,5 @@
 
 //UI info
 -(NSObject*) getDisplayValue;
-
+-(NSString*) cellType;// each option input type returns its own unique id (== cell Identifier from table VC)
 @end

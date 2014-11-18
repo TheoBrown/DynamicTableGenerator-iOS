@@ -176,10 +176,9 @@
             int inputFormatType = [self parsTextEntryTypes:parsedPropertyType];
 //            NSLog(@"%@ parsed to input enum %d",parsedPropertyType,inputFormatType);
 //            TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initTextInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
-            TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initInputType:DTVCCellType_TextCell forObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
-
+//            TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initInputType:DTVCCellType_TextCell forObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
+            TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
 //            NSLog(@"%@ parsed to finished init," ,newTextCell.title);
-
             [newTextCell defineCellInputFormatType:[NSNumber numberWithInt:inputFormatType]];
 //            NSLog(@"%@ parsed set format %d," ,newTextCell.title,[newTextCell.cellInputFormatType intValue]);
 
@@ -187,7 +186,7 @@
         }
         
         else if ([propertyTypeString isEqual:@"NSDate"]) {
-            DateOptionCellInput *newDateCell = [[DateOptionCellInput alloc] initDateInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"dates section"];
+            DateOptionCellInput *newDateCell = [[DateOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"dates section"];
             
             [newDateCell defineCellInputFormatType:[NSNumber numberWithInt:inputFormatType]];
             
@@ -195,7 +194,7 @@
 
         }
         else if ([propertyTypeString isEqual:@"NSNumber"]) {
-            NumberOptionCellInput* newNumberCell = [[NumberOptionCellInput alloc] initNumberInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"number section"];
+            NumberOptionCellInput* newNumberCell = [[NumberOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"number section"];
             
             [newNumberCell defineCellInputFormatType:[NSNumber numberWithInt:inputFormatType]];
             [tempCellsArray addObject:newNumberCell];
@@ -224,7 +223,7 @@
             
         }
         else if ([propertyTypeString isEqual:@"B"]) { // bool
-            SwitchOptionCellInput *newCell = [[SwitchOptionCellInput alloc] initSwitchInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"number section"];
+            SwitchOptionCellInput *newCell = [[SwitchOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"number section"];
             [tempCellsArray addObject:newCell];
         }
     }

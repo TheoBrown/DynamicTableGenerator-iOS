@@ -57,6 +57,19 @@
     return self;
 }
 
+-(id) initInputClassforObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader{
+    self = [super init];
+    
+    if (self) {
+        self.returnKey = newReturnKey;
+        self.title = cellTitle;
+        self.sectionHeader = newSectionHeader;
+        self.identifier = [self cellType];
+        [self setManagedObject:managedObject];
+    }
+    return self;
+}
+
 - (void) setManagedObject:(id) managedObject {
     self.observedObject = managedObject;
     self.defaultValue = [managedObject valueForKey:self.returnKey];
@@ -109,4 +122,12 @@
     NSLog(@"observedObject: %@ , value %@, id %@", [self.observedObject class], [self.value class], self.identifier);
 
 }
+//-(NSString*) cellType {
+//    
+//    if (!self.identifier) {
+//        NSLog(@"ERROR Cell type not set");
+//    }
+//    return self.identifier;
+//    
+//}
 @end

@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "BaseOptionCellInput.h"
 
-#import "CellWithAbstractActionSheet.h"
-
 @interface ActionSheetOptionCellInput : BaseOptionCellInput <TableCellEditable>
 
 

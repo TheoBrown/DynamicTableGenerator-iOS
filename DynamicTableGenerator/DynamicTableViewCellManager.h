@@ -10,14 +10,14 @@
 #import <UIKit/UIKit.h>
 #import "DynamicTableViewConstants.h"
 
-extern NSString * const DTVCCellType_DateCell;
-extern NSString * const DTVCCellType_SliderCell;
-extern NSString * const DTVCCellType_ButtonCell;
-extern NSString * const DTVCCellType_ActionCell;
-extern NSString * const DTVCCellType_TextCell;
-extern NSString * const DTVCCellType_NumberCell;
-extern NSString * const DTVCCellType_SwitchCell;
-extern NSString * const DTVCCellType_SegmentCell;
+//extern NSString * const DTVCCellType_DateCell;
+//extern NSString * const DTVCCellType_SliderCell;
+//extern NSString * const DTVCCellType_ButtonCell;
+//extern NSString * const DTVCCellType_ActionCell;
+//extern NSString * const DTVCCellType_TextCell;
+//extern NSString * const DTVCCellType_NumberCell;
+//extern NSString * const DTVCCellType_SwitchCell;
+//extern NSString * const DTVCCellType_SegmentCell;
 
 
 @interface DynamicTableViewCellManager : NSObject
