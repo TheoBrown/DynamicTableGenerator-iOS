@@ -81,8 +81,9 @@
 }
 
 #pragma mark - Cell Type Options
-- (void) setCellInputFormatType:(int) cellInputFormatType {
-    self.cellInputFormatType = cellInputFormatType;
+- (void) defineCellInputFormatType:(NSNumber*) newCellInputFormatType {
+//    NSLog(@"%@ input format set to %d",self.title,newCellInputFormatType);
+    self.cellInputFormatType = newCellInputFormatType;
 }
 
 #pragma  mark - debug

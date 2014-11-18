@@ -102,13 +102,18 @@ NSString * const DTVCCellIdentifier_SegmentCell = @"DTVC_SegmentCell";
 }
 
 
--(void) setCellFormatType:(int)formatTypeDef {
+-(void) defineCellFormatType:(NSNumber*)cellFormatEnumType{
+
+    self.cellFormatType = cellFormatEnumType;
+//    NSLog(@"%@ set cell format to %d",self.title,formatTypeDef);
+    NSNumber *cellFormatTypeDictKey = cellFormatEnumType;
     
-    self.cellFormatType = formatTypeDef;
-    NSNumber *cellFormatTypeDictKey = [NSNumber numberWithInt:self.cellFormatType];
-    self.cellContentTitle = [[self.cellContentFormatDict objectForKey:cellFormatTypeDictKey] valueForKey:@"title"];
-    self.cellContentFormatString = [[self.cellContentFormatDict objectForKey:cellFormatTypeDictKey] valueForKey:@"format"];;
-    self.cellContentFormatType = [[[self.cellContentFormatDict objectForKey:cellFormatTypeDictKey] valueForKey:@"contentType"] intValue];;
+    if (self.cellContentFormatDict) {
+        self.cellContentTitle = [[self.cellContentFormatDict objectForKey:cellFormatTypeDictKey] valueForKey:@"title"];
+        self.cellContentFormatString = [[self.cellContentFormatDict objectForKey:cellFormatTypeDictKey] valueForKey:@"format"];;
+        self.cellContentFormatType = [[[self.cellContentFormatDict objectForKey:cellFormatTypeDictKey] valueForKey:@"contentType"] intValue];;
+    }
+
     [self cellFormatWasUpdated];
     
 }

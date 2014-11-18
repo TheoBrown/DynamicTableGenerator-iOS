@@ -107,46 +107,7 @@
 
 
 
--(NSArray*) parseTypeFromStringFormat:(NSString*)keyString {
-    if ([keyString rangeOfString:@"__"].location != NSNotFound) {
 
-        NSArray *listItems = [keyString componentsSeparatedByString:@"__"];
-        NSLog(@"list items in parseTypeFromStringFormat %@",listItems);
-        NSString *typeString = listItems[1];
-        NSString *displayString = [NSString stringWithFormat:@"%@",listItems[0]];
-        
-        NSString *propertyString = [[NSString alloc] init];
-        
-        if ([typeString isEqualToString:@"b"]) {
-            propertyString = @"B";
-        }
-        else if ([typeString isEqualToString:@"f"]) {
-            propertyString = @"f";
-        }
-        else if ([typeString isEqualToString:@"d"]) { //descimal
-            propertyString = @"decimal";
-        }
-        else if ([typeString isEqualToString:@"dtd"]) {
-            propertyString = @"date";
-        }
-        else if ([typeString isEqualToString:@"dtdt"]) {
-            propertyString = @"datetime";
-        }
-        else if ([typeString isEqualToString:@"dtt"]) {
-            propertyString = @"time";
-        }
-        else if ([typeString isEqualToString:@"i"]) {
-            propertyString = @"integer";
-        }
-        else {
-            propertyString = typeString;
-        }
-        return @[displayString,propertyString];
-    }
-    
-    return @[keyString,@""];
-
-}
 -(NSString*) displayStringForKey:(NSString*)keyString {
     NSString *displayString = [[NSString alloc] init];
     if ([keyString rangeOfString:@"_"].location != NSNotFound){
@@ -159,10 +120,33 @@
     return displayString;
 }
 
+-(int) parsTextEntryTypes:(NSString*) parsedPropertyType {
+    int returnInputEnumType = 0;
+        if ([parsedPropertyType isEqualToString:@"a"]) {
+            returnInputEnumType = DTVCInputType_TextCell_Ascii;
+        }
+        else if ([parsedPropertyType isEqualToString:@"abc"]) {
+            returnInputEnumType = DTVCInputType_TextCell_Alphabet;
+        }
+        else if ([parsedPropertyType isEqualToString:@"e"]) {
+            returnInputEnumType = DTVCInputType_TextCell_Email;
+        }
+        else if ([parsedPropertyType isEqualToString:@"u"]) {
+            returnInputEnumType = DTVCInputType_TextCell_URL;
+        }
+        else if ([parsedPropertyType isEqualToString:@"p"]) {
+            returnInputEnumType = DTVCInputType_TextCell_Phone;
+        }
+        else {
+            returnInputEnumType = DTVCInputType_TextCell_Ascii;
+        }
+    return returnInputEnumType;
+}
+
 -(void) populateTableInfo: (NSDictionary *) info{
     NSMutableArray *tempCellsArray = [[NSMutableArray alloc] init];
     NSMutableDictionary *displaynames = [[NSMutableDictionary alloc] init];
-    
+    NSLog(@"%@" ,[info description]);
     for (NSString* key in info){
         NSString* propertyTypeString = [info objectForKey:key];
         NSLog(@" key = %@, propStr = %@",key,propertyTypeString);
@@ -172,15 +156,16 @@
         
         NSString* cleanPropertyName = parsedPropertys[0];
         NSString* parsedPropertyType = parsedPropertys[1];
+        int inputFormatType = [parsedPropertys[2] intValue];
 
         
         
         NSString *displayName =[self displayStringForKey:cleanPropertyName];
-        
+
+
         [displaynames setObject:displayName forKey:key];
-        if ([propertyTypeString isEqualToString:@"NSNumber"]) {
-            
         
+        if ([propertyTypeString isEqualToString:@"NSNumber"]) { //create alternative controls based on attr name
             if ([parsedPropertyType isEqualToString:@"B"]) {
                 propertyTypeString = @"B";
             }
@@ -189,32 +174,17 @@
             }
 
         }
-        else if ([propertyTypeString isEqualToString:@"NSString"]) {
-            
-            
-            if ([parsedPropertyType isEqualToString:@"a"]) {
-                parsedPropertyType = @"ascii";
-            }
-            else if ([parsedPropertyType isEqualToString:@"abc"]) {
-                parsedPropertyType = @"alphabet";
-            }
-            else if ([parsedPropertyType isEqualToString:@"e"]) {
-                parsedPropertyType = @"email";
-            }
-            else if ([parsedPropertyType isEqualToString:@"u"]) {
-                parsedPropertyType = @"url";
-            }
-            else if ([parsedPropertyType isEqualToString:@"p"]) {
-                parsedPropertyType = @"phone";
-            }
-            else {
-                parsedPropertyType = @"ascii";
-            }
-        }
+
+        NSLog(@"%@ key property type %@ format %d",displayName,propertyTypeString,inputFormatType);
 
         if ([propertyTypeString  isEqual: @"NSString"]){
+            int inputFormatType = [self parsTextEntryTypes:parsedPropertyType];
+            NSLog(@"%@ parsed to input enum %d",parsedPropertyType,inputFormatType);
             TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initTextInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
-            [newTextCell setCellInputFormatType:parsedPropertyType];
+            NSLog(@"%@ parsed to finished init," ,newTextCell.title);
+
+            [newTextCell defineCellInputFormatType:[NSNumber numberWithInt:inputFormatType]];
+            NSLog(@"%@ parsed set format %d," ,newTextCell.title,[newTextCell.cellInputFormatType intValue]);
 
             [tempCellsArray addObject:newTextCell];
         }
@@ -222,7 +192,7 @@
         else if ([propertyTypeString isEqual:@"NSDate"]) {
             DateOptionCellInput *newDateCell = [[DateOptionCellInput alloc] initDateInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"dates section"];
             
-            [newDateCell setCellInputFormatType:parsedPropertyType];
+            [newDateCell defineCellInputFormatType:[NSNumber numberWithInt:inputFormatType]];
             
             [tempCellsArray addObject:newDateCell];
 
@@ -230,7 +200,7 @@
         else if ([propertyTypeString isEqual:@"NSNumber"]) {
             NumberOptionCellInput* newNumberCell = [[NumberOptionCellInput alloc] initNumberInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"number section"];
             
-            [newNumberCell setCellInputFormatType:parsedPropertyType];
+            [newNumberCell defineCellInputFormatType:[NSNumber numberWithInt:inputFormatType]];
             [tempCellsArray addObject:newNumberCell];
 
         }
@@ -269,7 +239,54 @@
     self.cellsArray = [[NSArray alloc] initWithArray:tempCellsArray];
 }
 
+#pragma mark  - property type parsing
 
-
+-(NSArray*) parseTypeFromStringFormat:(NSString*)keyString {
+    int inputFormatType = 0;
+    if ([keyString rangeOfString:@"__"].location != NSNotFound) {
+        NSArray *listItems = [keyString componentsSeparatedByString:@"__"];
+        NSLog(@"list items in parseTypeFromStringFormat %@",listItems);
+        NSString *typeString = listItems[1];
+        NSString *displayString = [NSString stringWithFormat:@"%@",listItems[0]];
+        NSString *propertyString = [[NSString alloc] init];
+        
+        if ([typeString isEqualToString:@"b"]) {
+            propertyString = @"B";
+            inputFormatType = DTVCInputType_SwitchCell_Bool;
+        }
+        else if ([typeString isEqualToString:@"f"]) {
+            propertyString = @"f";
+            inputFormatType = DTVCInputType_SliderCell_Float;
+        }
+        else if ([typeString isEqualToString:@"d"]) { //descimal
+            propertyString = @"decimal";
+            inputFormatType = DTVCInputType_NumberCell_Decimal;
+        }
+        else if ([typeString isEqualToString:@"dtd"]) {
+            propertyString = @"date";
+            inputFormatType = DTVCInputType_DateCell_Date;
+        }
+        else if ([typeString isEqualToString:@"dtdt"]) {
+            propertyString = @"datetime";
+            inputFormatType = DTVCInputType_DateCell_DateTime;
+            
+        }
+        else if ([typeString isEqualToString:@"dtt"]) {
+            propertyString = @"time";
+            inputFormatType = DTVCInputType_DateCell_Time;
+        }
+        else if ([typeString isEqualToString:@"i"]) {
+            propertyString = @"integer";
+            inputFormatType = DTVCInputType_NumberCell_Integer;
+        }
+        else {
+            propertyString = typeString;
+            inputFormatType = DTVCInputType_SwitchCell_Bool;
+        }
+        return @[displayString,propertyString,[NSNumber numberWithInt:inputFormatType]];
+    }
+    return @[keyString,@"",[NSNumber numberWithInt:inputFormatType]];
+    
+}
 
 @end

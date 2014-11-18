@@ -46,7 +46,6 @@ extern NSString * const DTVCCellIdentifier_SegmentCell;
 @property (nonatomic, assign) BOOL didSetupConstraints;
 @property (nonatomic, assign) BOOL didSetupAcessoryConstraints;
 
-@property (nonatomic) int cellFormatType;
 
 @property (strong, nonatomic) NSDictionary *cellContentFormatDict;
 
@@ -55,8 +54,10 @@ extern NSString * const DTVCCellIdentifier_SegmentCell;
 @property (strong, nonatomic) NSString *cellContentTitle;
 
 - (void) contentWasSelected:(id) sender;
+@property (nonatomic,strong) NSNumber* cellFormatType;
 
--(void) setCellFormatType:(int)cellFormatEnumType;
+-(void) defineCellFormatType:(NSNumber*)cellFormatEnumType;
+
 -(void) setCellFormatDict:(NSDictionary *)cellFormatDict;
 - (void) cellFormatWasUpdated;
 @end

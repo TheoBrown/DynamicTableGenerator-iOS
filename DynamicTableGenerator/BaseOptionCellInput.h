@@ -47,8 +47,9 @@
 -(NSObject*) getDisplayValue;
 
 
-@property (nonatomic) int cellInputFormatType;
-- (void) setCellInputFormatType:(int) cellInputFormatType;
+@property (nonatomic,strong) NSNumber * cellInputFormatType;
+
+- (void) defineCellInputFormatType:(NSNumber*) newCellInputFormatType;
 
 
 @end
