@@ -75,16 +75,18 @@
 
 
 -(IBAction)buttonPressed:(UIControl *)sender{
-    if (self.selectedTestType != nil){
         self.resultsViewController = [[DynamicTableViewCellOptionsPickerViewController alloc] init];
+    NSLog(@"Try to present %@", [self.resultsViewController description]);
+
         self.resultsViewController.selectedTestType = self.selectedTestType;
         [self.resultsViewController setOptionsArray:self.optionsArray];
         self.resultsViewController.resultDelegate = self;
 #warning will not work if no navigation controller exits
+    
+    [self.resultsViewController parseDefaultSelection:self.selectedOptionsArray];
 
         [[self.tvDelegate navigationController] pushViewController:self.resultsViewController animated:YES];
-        NSLog(@"Try to present %@", [self.resultsViewController description]);
-    }
+//           [self presentViewController:self.resultsViewController animated:YES completion: nil];
 }
 
 -(void) setResultTypeFromURL:(NSURL *) objectURL{
@@ -93,7 +95,16 @@
 }
 -(void) resultsUpdated:(NSArray *)resultArray{
     
-    [self.cellButton setTitle:[NSString stringWithFormat:@"%@", [resultArray description]]forState:UIControlStateNormal];
+    [self.cellButton setTitle:[self combineStringsFromArray:resultArray] forState:UIControlStateNormal];
     [self.delegate cellButtonresultsUpdated:self.indexPath withResults:resultArray];
+    self.selectedOptionsArray = resultArray;
+}
+
+-(NSString*) combineStringsFromArray:(NSArray*) stringArray {
+    NSString *finalString = [[NSString alloc] init];
+    for (NSString* item in stringArray) {
+        finalString = [NSString stringWithFormat:@"%@ %@,",finalString,item];
+    }
+    return finalString;
 }
 @end

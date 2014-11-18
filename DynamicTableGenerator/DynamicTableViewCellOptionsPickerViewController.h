@@ -23,5 +23,5 @@
 @property (nonatomic, retain) NSMutableArray *selectedOptionsArray;
 @property (nonatomic, retain) NSString *selectedTestType;
 -(void) setTestType:(NSString*)testType;
-
+-(void) parseDefaultSelection:(NSArray*) selectedOptions;
 @end

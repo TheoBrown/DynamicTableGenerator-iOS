@@ -20,10 +20,12 @@
 @property (nonatomic, retain) NSString *titleObject;
 @property (strong, nonatomic) NSArray* optionsArray;
 
+@property (strong, nonatomic) NSArray* selectedOptionsArray;
+
 - (IBAction)buttonPressed:(UIControl *)sender;
 -(void) setResultTypeFromURL:(NSURL *) objectURL;
 
-
+-(NSString*) combineStringsFromArray:(NSArray*) stringArray;
 
 
 @end

@@ -324,8 +324,9 @@ extern const double EARTH_RADIUS;
         cell.indexPath = indexPath;
         cell.tvDelegate = delegateToAssign;
         cell.optionsArray = optionCellInput.optionsArray;
+        cell.selectedOptionsArray = (NSArray*)[optionCellInput getDisplayValue];
         
-        
+        [cell.cellButton setTitle:[cell combineStringsFromArray:cell.selectedOptionsArray] forState:UIControlStateNormal];
 //        [cell setResultTypeFromURL:[self.updatedPredicates objectForKey:optionsArray[indexPath.section][1][indexPath.row][@"return"]]];
         
 //        if (self.optionsArray[indexPath.section][1][indexPath.row][@"settings"][@"prePredicates"] != nil){

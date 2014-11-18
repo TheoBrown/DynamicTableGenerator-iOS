@@ -34,11 +34,21 @@
     self = [super init];
     if (self) {
         self.optionsArray = optionsArray;
+        self.selectedOptionsArray = [NSMutableArray array];
+
     }
     return self;
 }
 
-
+-(void) parseDefaultSelection:(NSArray*) selectedOptions {
+    NSMutableArray *selectedOptionIndexes = [NSMutableArray array];
+    
+    for (NSString * selectedOption in selectedOptions){
+        
+        [selectedOptionIndexes addObject:[NSIndexPath indexPathForRow:[self.optionsArray indexOfObject:selectedOption] inSection:0]];
+    }
+    self.selectedOptionsArray = selectedOptionIndexes;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,8 +57,7 @@
 	self.navigationItem.rightBarButtonItem = addButton;	// Do any additional setup
 
 //    self.optionsArray = [[[[SharedData getInstance] settings] dictionaryForKey:@"resultTypes"] objectForKey:selectedTestType];
-
-    self.selectedOptionsArray = [NSMutableArray array];
+    
 
 }
 
@@ -68,6 +77,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    
     if([self.selectedOptionsArray containsObject:indexPath]){
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     } else {
@@ -79,11 +89,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     if([self.selectedOptionsArray containsObject:indexPath]){
         [self.selectedOptionsArray removeObject:indexPath];
     } else {
         [self.selectedOptionsArray addObject:indexPath];
     }
+    
     [tableView reloadData];
 }
 
