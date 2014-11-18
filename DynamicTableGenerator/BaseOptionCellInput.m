@@ -81,8 +81,8 @@
 }
 
 #pragma mark - Cell Type Options
-- (void) setCellType:(NSString*) cellTypeString {
-    self.cellTypeString = cellTypeString;
+- (void) setCellInputFormatType:(int) cellInputFormatType {
+    self.cellInputFormatType = cellInputFormatType;
 }
 
 #pragma  mark - debug

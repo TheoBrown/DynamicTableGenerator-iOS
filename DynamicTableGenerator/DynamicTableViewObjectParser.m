@@ -214,7 +214,7 @@
 
         if ([propertyTypeString  isEqual: @"NSString"]){
             TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initTextInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
-            [newTextCell setCellType:parsedPropertyType];
+            [newTextCell setCellInputFormatType:parsedPropertyType];
 
             [tempCellsArray addObject:newTextCell];
         }
@@ -222,7 +222,7 @@
         else if ([propertyTypeString isEqual:@"NSDate"]) {
             DateOptionCellInput *newDateCell = [[DateOptionCellInput alloc] initDateInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"dates section"];
             
-            [newDateCell setCellType:parsedPropertyType];
+            [newDateCell setCellInputFormatType:parsedPropertyType];
             
             [tempCellsArray addObject:newDateCell];
 
@@ -230,7 +230,7 @@
         else if ([propertyTypeString isEqual:@"NSNumber"]) {
             NumberOptionCellInput* newNumberCell = [[NumberOptionCellInput alloc] initNumberInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"number section"];
             
-            [newNumberCell setCellType:parsedPropertyType];
+            [newNumberCell setCellInputFormatType:parsedPropertyType];
             [tempCellsArray addObject:newNumberCell];
 
         }

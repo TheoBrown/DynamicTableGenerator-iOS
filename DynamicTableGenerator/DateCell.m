@@ -10,7 +10,6 @@
 
 @implementation DateCell
 
-@synthesize datePickerMode, dateFormatDict, datePickerTitle;
 
 /* date modes
  
@@ -33,7 +32,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        self.dateFormatDict = @{[NSNumber numberWithInt:DTVCInputType_DateCell_Date]:@{@"format":@"MM-dd-YYYY",
+        self.cellContentFormatDict = @{[NSNumber numberWithInt:DTVCInputType_DateCell_Date]:@{@"format":@"MM-dd-YYYY",
                                                                                        @"title":@"Select A Day",
                                                                                        @"contentType":[NSNumber numberWithInt:UIDatePickerModeDate]},
                                 [NSNumber numberWithInt:DTVCInputType_DateCell_DateTime]:@{@"format":@"MM-dd-YYYY hh:mm a",

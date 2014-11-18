@@ -46,9 +46,9 @@
 
 -(NSObject*) getDisplayValue;
 
-- (void) setCellType:(NSString*) cellTypeString;
 
-@property (strong, nonatomic) NSString *cellTypeString;
+@property (nonatomic) int cellInputFormatType;
+- (void) setCellInputFormatType:(int) cellInputFormatType;
 
 
 @end

@@ -10,13 +10,17 @@
 
 @implementation NumberCell
 
+-(NSString *) reuseIdentifier {
+    return DTVCCellIdentifier_NumberCell;
+}
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     reuseIdentifier = [self reuseIdentifier];
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.numberPadFormatDict = @{[NSNumber numberWithInt:DTVCInputType_NumberCell_Decimal]:@{@"format":@"%.2f",
+        self.cellContentFormatDict = @{[NSNumber numberWithInt:DTVCInputType_NumberCell_Decimal]:@{@"format":@"%.2f",
                                                                                                  @"default":@"0.00",
                                                                                                  @"contentType":[NSNumber numberWithInt:UIKeyboardTypeDecimalPad]},
                                      [NSNumber numberWithInt:DTVCInputType_NumberCell_Integer]:@{@"format":@"%d",
@@ -64,36 +68,35 @@
     [super updateConstraints];
 }
 
--(NSString *) reuseIdentifier {
-    return DTVCCellIdentifier_NumberCell;
+-(void) cellFormatWasUpdated {
+    [self.numericTextField setKeyboardType:self.cellContentFormatType];
+
 }
 
--(void) setCellFormat:(NSString *)formatString{
-    self.cellFormatString = formatString;
-    NSLog(@"Number cell format set to %@", self.cellFormatString);
-    if ([formatString isEqualToString:@"integer"]){
-        self.numberFormatString = [[self.numberPadFormatDict valueForKey:formatString] valueForKey:@"format"];
-        self.numberDefaultString =[[self.numberPadFormatDict valueForKey:formatString] valueForKey:@"default"];
-        self.numberPadMode = UIKeyboardTypeNumberPad;
-        
-    }
-    else if ([formatString isEqualToString:@"decimal"]){
-        self.numberDefaultString =[[self.numberPadFormatDict valueForKey:formatString] valueForKey:@"default"];
-        self.numberFormatString = [[self.numberPadFormatDict valueForKey:formatString] valueForKey:@"format"];
-        self.numberPadMode = UIKeyboardTypeDecimalPad;
-        
-    }
-    [self.numericTextField setKeyboardType:self.numberPadMode];
-}
+//-(void) setCellFormat:(NSString *)formatString{
+//    self.cellFormatString = formatString;
+//    NSLog(@"Number cell format set to %@", self.cellFormatString);
+//    if ([formatString isEqualToString:@"integer"]){
+//        self.numberFormatString = [[self.numberPadFormatDict valueForKey:formatString] valueForKey:@"format"];
+//        self.numberDefaultString =[[self.numberPadFormatDict valueForKey:formatString] valueForKey:@"default"];
+//        self.numberPadMode = UIKeyboardTypeNumberPad;
+//        
+//    }
+//    else if ([formatString isEqualToString:@"decimal"]){
+//        self.numberDefaultString =[[self.numberPadFormatDict valueForKey:formatString] valueForKey:@"default"];
+//        self.numberFormatString = [[self.numberPadFormatDict valueForKey:formatString] valueForKey:@"format"];
+//        self.numberPadMode = UIKeyboardTypeDecimalPad;
+//        
+//    }
+//}
 
 -(NSString*)stringFromNumber:(NSNumber*)number {
     NSString* displayString = [[NSString alloc] init];
-    if ([self.cellFormatString isEqualToString:@"integer"]){
-        displayString = [NSString stringWithFormat:self.numberFormatString, [number intValue]];
+    if (self.cellContentFormatType == DTVCInputType_NumberCell_Integer) {
+        displayString = [NSString stringWithFormat:self.cellContentFormatString, [number intValue]];
     }
-    else if ([self.cellFormatString isEqualToString:@"decimal"]){
-        displayString = [NSString stringWithFormat:self.numberFormatString, [number floatValue]];
-
+    else if (self.cellContentFormatType == DTVCInputType_NumberCell_Decimal) {
+        displayString = [NSString stringWithFormat:self.cellContentFormatString, [number floatValue]];
     }
     return displayString;
 }
@@ -103,7 +106,7 @@
     float value;
     if (![scanner scanFloat:&value]){
         value = 0;
-        self.numericTextField.text = self.numberDefaultString;
+        self.numericTextField.text = self.cellContentTitle;
     } else {
         value = [self.numericTextField.text floatValue];
     }

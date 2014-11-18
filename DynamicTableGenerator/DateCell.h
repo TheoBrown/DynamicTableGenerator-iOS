@@ -17,14 +17,7 @@
 @property (nonatomic, strong) UIView *actionSheetAcessoryView;
 
 @property (nonatomic, strong) IBOutlet UIButton *dateButon;
-
 @property (strong, nonatomic) NSDate *selectedDate;
-
-@property (strong, nonatomic) NSDictionary *dateFormatDict;
-@property (strong, nonatomic) NSString *dateFormatString;
-@property (strong, nonatomic) NSString *datePickerTitle;
-
-@property (nonatomic) NSInteger datePickerMode;
 
 - (IBAction)selectADate:(UIControl *)sender;
 -(NSString*)stringFromDate:(NSDate*)date;

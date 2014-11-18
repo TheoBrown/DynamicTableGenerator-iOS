@@ -21,7 +21,7 @@
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.textPadFormatDict = @{[NSNumber numberWithInt:DTVCInputType_TextCell_Email]:@{@"format":@"%.2f",
+        self.cellContentFormatDict = @{[NSNumber numberWithInt:DTVCInputType_TextCell_Email]:@{@"format":@"%.2f",
                                                                                            @"default":@"Enter Email",
                                                                                            @"contentType":[NSNumber numberWithInt:UIKeyboardTypeEmailAddress]},
                                    [NSNumber numberWithInt:DTVCInputType_TextCell_Alphabet]:@{@"format":@"%d",
