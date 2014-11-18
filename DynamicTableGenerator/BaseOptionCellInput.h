@@ -46,7 +46,7 @@
 //save CoreData
 - (void) setManagedObject:(id) managedObject;
 - (void) setManagedObject:(id) managedObject withDefaultValue:(NSObject*) defaultvalue;
-
+- (void) createDefaultValueForObject:(id)managedObject orValue:(id) backupValue;
 //save NSObject
 - (void) updateValue:(id) newValue;
 - (void) updateContextWithValue:(NSObject*) newValue;

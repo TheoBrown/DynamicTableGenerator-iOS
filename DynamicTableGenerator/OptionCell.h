@@ -18,6 +18,7 @@
 
 @property (nonatomic, retain) NSString *selectedTestType;
 @property (nonatomic, retain) NSString *titleObject;
+@property (strong, nonatomic) NSArray* optionsArray;
 
 - (IBAction)buttonPressed:(UIControl *)sender;
 -(void) setResultTypeFromURL:(NSURL *) objectURL;

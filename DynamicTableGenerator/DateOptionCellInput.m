@@ -13,16 +13,6 @@
 -(NSString*) cellType {
     return DTVCCellIdentifier_DateCell;
 }
--(id) initDateInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader {
-    self = [super init];
-
-    if (self) {
-        self = [self initType:DTVCCellIdentifier_DateCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
-        
-        [self setManagedObject:managedObject];
-    }
-    return self;
-}
 
 -(id) initDateInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withDefault:(NSDate*) defaultDate withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader {
     self = [super init];
@@ -42,12 +32,16 @@
 
 
 
-- (void) createDefaultValueForObject:(id) managedObject orValue:(NSObject*) backupValue {
-    NSObject* newDefault = [managedObject valueForKey:self.returnKey] ?:backupValue;
-    [self setManagedObject:managedObject withDefaultValue:newDefault];
-}
-
-
+//- (void) createDefaultValueForObject:(id) managedObject orValue:(NSObject*) backupValue {
+//    NSObject* newDefault = [managedObject valueForKey:self.returnKey] ?:backupValue;
+//    [self setManagedObject:managedObject withDefaultValue:newDefault];
+//}
+//
+//- (void) createDefaultValueForObject:(id)managedObject orValue:(id) backupValue {
+//    NSObject* newDefault = [managedObject valueForKey:self.returnKey] ?:backupValue;
+//    [self setManagedObject:managedObject withDefaultValue:newDefault];
+//    
+//}
 #pragma mark - editable table cell delegate methods
 - (void) cellDateDidChange: (NSIndexPath *) cellIndexPath :(NSDate*) newValue
 {

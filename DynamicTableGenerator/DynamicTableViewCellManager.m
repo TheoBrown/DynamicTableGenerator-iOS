@@ -23,7 +23,7 @@
 #import "NumberCell.h"
 #import "SliderCell.h"
 #import "SegmentCell.h"
-
+#import "OptionCell.h"
 @implementation DynamicTableViewCellManager
 @synthesize tagCode, tagOffset;
 @synthesize tableView;
@@ -307,20 +307,27 @@ extern const double EARTH_RADIUS;
 //        [cell updateConstraintsIfNeeded];
 //        return cell;
 //    }
-//    else if ([CellIdentifier  isEqual: @"ButtonCellID"]){
-//        NSLog(@"Creating CellwithID %@ at Row %d, Sec %d", CellIdentifier, [indexPath row], [indexPath section]);
-//        
-//        CellWithButton *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//        
-//        if (cell == nil) {
-//            cell = (CellWithButton *)[CellWithButton cellFromNibNamed:@"CellWithButton"];
-//        }
-//        
-//        // Configure the cell...
-//        cell.title.text = optionsArray[indexPath.section][1][indexPath.row][@"return"];
-//        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
+    else if ([CellIdentifier  isEqual: DTVCCellIdentifier_ButtonCell]){
+        ButtonOptionCellInput* optionCellInput = (ButtonOptionCellInput*) baseCellInput;
+        OptionCell  *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (cell == nil) {
+            [self.tableView registerClass:[OptionCell class] forCellReuseIdentifier:CellIdentifier];
+            cell = [[OptionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        
+        // Configure the cell...
+        cell.title.text = optionCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
+        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
+        cell.delegate = optionCellInput;
+        
+        cell.indexPath = indexPath;
+        cell.tvDelegate = delegateToAssign;
+        cell.optionsArray = optionCellInput.optionsArray;
+        
+        
 //        [cell setResultTypeFromURL:[self.updatedPredicates objectForKey:optionsArray[indexPath.section][1][indexPath.row][@"return"]]];
-//        
+        
 //        if (self.optionsArray[indexPath.section][1][indexPath.row][@"settings"][@"prePredicates"] != nil){
 //            NSArray *prePredicates =self.optionsArray[indexPath.section][1][indexPath.row][@"settings"][@"prePredicates"];
 //            if ([self.optionsArray[indexPath.section][1][indexPath.row][@"settings"][@"predicateReference"] containsObject:@"selectedTank"])
@@ -334,13 +341,10 @@ extern const double EARTH_RADIUS;
 //                
 //            }
 //        }
-//        cell.cellButton.tag = tag;
-//        cell.indexPath = indexPath;
-//        cell.delegate = delegateToAssign;
-//                [cell setNeedsUpdateConstraints];
-//        [cell updateConstraintsIfNeeded];
-//        return cell;
-//    }
+
+
+        return cell;
+    }
     return nil;
 }
 

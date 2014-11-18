@@ -71,7 +71,7 @@ NSString * const DTVCCellIdentifier_SegmentCell = @"DTVC_SegmentCell";
     self.contentSelector = contentSelector;
 }
 -(void) showContentFromSelector {
-    NSLog(@"Show content force called %@",self.title);
+    NSLog(@"Show content force called %@",self.title.text);
     if (self.contentSelector) {
         [self performSelector:self.contentSelector withObject:self];
     }

@@ -14,16 +14,16 @@
     return DTVCCellIdentifier_NumberCell;
 }
 
--(id) initNumberInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader {
-    self = [super init];
-    
-    if (self) {
-        self = [self initType:DTVCCellIdentifier_NumberCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
-        
-        [self createDefaultValueForObject:managedObject orValue:[NSNumber numberWithFloat:0.0f]];
-    }
-    return self;
-}
+//-(id) initNumberInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader {
+//    self = [super init];
+//    
+//    if (self) {
+//        self = [self initType:DTVCCellIdentifier_NumberCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
+//        
+//        [self createDefaultValueForObject:managedObject orValue:[NSNumber numberWithFloat:0.0f]];
+//    }
+//    return self;
+//}
 
 -(id) initNumberInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withDefault:(NSNumber*) defaultNumber  inSection:(NSString*) newSectionHeader {
     self = [super init];
@@ -41,11 +41,6 @@
     return self;
 }
 
-- (void) createDefaultValueForObject:(id)managedObject orValue:(id) backupValue {
-    NSObject* newDefault = [managedObject valueForKey:self.returnKey] ?:backupValue;
-    [self setManagedObject:managedObject withDefaultValue:newDefault];
-    
-}
 
 
 #pragma mark - editable table cell delegate methods

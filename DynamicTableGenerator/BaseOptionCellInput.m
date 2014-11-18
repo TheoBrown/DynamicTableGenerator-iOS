@@ -69,7 +69,7 @@
     }
     return self;
 }
-
+#pragma mark - value definitions
 - (void) setManagedObject:(id) managedObject {
     self.observedObject = managedObject;
     self.defaultValue = [managedObject valueForKey:self.returnKey];
@@ -85,11 +85,16 @@
     self.defaultValue = defaultvalue;
     self.value = self.defaultValue;
 }
-
+- (void) createDefaultValueForObject:(id)managedObject orValue:(id) backupValue {
+    NSObject* newDefault = [managedObject valueForKey:self.returnKey] ?:backupValue;
+    [self setManagedObject:managedObject withDefaultValue:newDefault];
+    
+}
 - (void) updateValue:(id) newValue {
     self.value = newValue;
 }
 
+#pragma mark - update values
 -(NSObject*) getDisplayValue{
     return self.value;
 }

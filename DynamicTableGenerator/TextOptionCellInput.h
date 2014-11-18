@@ -13,6 +13,5 @@
 
 @interface TextOptionCellInput : BaseOptionCellInput <UITextFieldDelegate>
 
--(id) initTextInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
 -(id) initTextInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withDefault:(NSString*) defaultText  inSection:(NSString*) newSectionHeader;
 @end

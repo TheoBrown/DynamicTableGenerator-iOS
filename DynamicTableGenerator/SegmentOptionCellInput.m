@@ -15,14 +15,7 @@
     return DTVCCellIdentifier_SegmentCell;
 }
 
--(id) initSegmentInputForObject:(id) managedObject forReturnKey:(NSString*) newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader {
-    self = [super init];
-    if (self) {
-        self = [self initType:DTVCCellIdentifier_SegmentCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
-        [self setManagedObject:managedObject];
-    }
-    return self;
-}
+
 
 -(id) initSegmentInputForObject:(id) managedObject forReturnKey:(NSString*) newReturnKey withTitle:(NSString*) cellTitle withSegmentTitles:(NSArray*) segmentTitleArray andSegmentValues:(NSArray*) segmentValueArray andDefaultSelection:(NSInteger) selectedCell inSection:(NSString*) newSectionHeader {
     if (!self) {

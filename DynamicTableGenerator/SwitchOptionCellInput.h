@@ -11,7 +11,6 @@
 @interface SwitchOptionCellInput : BaseOptionCellInput
 
 
--(id) initSwitchInputForObject:(id) managedObject forReturnKey:(NSString*) newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
 -(id) initSwitchInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withDefault:(BOOL) defaultBool  inSection:(NSString*) newSectionHeader;
 
 

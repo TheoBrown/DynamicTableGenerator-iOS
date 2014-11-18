@@ -14,15 +14,7 @@
     return DTVCCellIdentifier_SliderCell;
 }
 
--(id) initFloatSliderInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader {
-    self = [super init];
 
-    if (self) {
-        self = [self initType:DTVCCellIdentifier_SliderCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
-        [self setManagedObject:managedObject];
-    }
-    return self;
-}
 
 -(id) initFloatSliderInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withDefault:(NSNumber*) defaultFloat withMaxValue:(NSNumber*) maxValue andMinValue:(NSNumber*) minValue inSection:(NSString*) newSectionHeader {
     
@@ -46,13 +38,17 @@
     return self;
 }
 
-- (void) createDefaultValueForObject:(NSObject*)managedObject orValue:(NSObject*) backupValue {
-    NSObject* newDefault = [managedObject valueForKey:self.returnKey] ?:backupValue;
-    [self setManagedObject:managedObject withDefaultValue:newDefault];
-
-}
-
-#pragma mark - editable table cell delegate methods 
+//- (void) createDefaultValueForObject:(NSObject*)managedObject orValue:(NSObject*) backupValue {
+//    NSObject* newDefault = [managedObject valueForKey:self.returnKey] ?:backupValue;
+//    [self setManagedObject:managedObject withDefaultValue:newDefault];
+//
+//}
+//- (void) createDefaultValueForObject:(id)managedObject orValue:(id) backupValue {
+//    NSObject* newDefault = [managedObject valueForKey:self.returnKey] ?:backupValue;
+//    [self setManagedObject:managedObject withDefaultValue:newDefault];
+//    
+//}
+#pragma mark - editable table cell delegate methods
 
 
 -(void) cellSliderDidChange:(NSIndexPath *) cellIndexPath :(NSNumber*) value{

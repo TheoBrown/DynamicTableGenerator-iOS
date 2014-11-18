@@ -14,14 +14,26 @@
     return DTVCCellIdentifier_ButtonCell;
 }
 
+-(id) initOptionInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withOptions:(NSArray*) optionsArray inSection:(NSString*) newSectionHeader {
+    self = [super init];
+    
+    if (self) {
+
+        self = [self initType:[self cellType] forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
+        
+        [self createDefaultValueForObject:managedObject orValue:optionsArray];
+        self.optionsArray = optionsArray;
+    }
+    return self;
+}
+
 
 #pragma mark - editable table cell delegate methods
 
 -(void) cellButtonresultsUpdated:(NSIndexPath *) cellIndexPath withResults:(NSArray *)resultArray{
     
-    NSInteger sec = [cellIndexPath section];
-    NSInteger row = [cellIndexPath row];
-    
+    [self updateValue:resultArray];
+    [self updateContextWithValue:resultArray];
     
     //    [self.resultDict setObject:resultArray forKey:[self.optionsArray[sec][1][row] valueForKey:@"return"]];
     //    [[[SharedData getInstance] settings] setObject:resultArray forKey:[self.optionsArray[sec][1][row] valueForKey:@"return"]];

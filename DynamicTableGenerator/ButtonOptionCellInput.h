@@ -7,11 +7,15 @@
 //
 
 #import "BaseOptionCellInput.h"
-
+#import "DynamicTableViewCellOptionsPickerViewController.h"
 //#import "CellWithButton.h"
 
 @interface ButtonOptionCellInput : BaseOptionCellInput
--(id) initDateInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
--(id) initDateInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withDefault:(NSDate*) defaultDate withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
+
+-(id) initOptionInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withOptions:(NSArray*) optionsArray inSection:(NSString*) newSectionHeader;
+
+-(id) initOptionInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withOptions:(NSArray*) optionsArray withDefault:(NSNumber*) defaultSelection  inSection:(NSString*) newSectionHeader;
+
+@property (strong, nonatomic) NSArray* optionsArray;
 
 @end

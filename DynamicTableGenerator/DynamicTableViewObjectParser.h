@@ -17,7 +17,7 @@
 #import "TextOptionCellInput.h"
 #import "SegmentOptionCellInput.h"
 #import "NumberOptionCellInput.h"
-
+#import "ButtonOptionCellInput.h"
 
 //extern NSString * const DTVCInputType_SwitchCell_Bool;
 //

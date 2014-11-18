@@ -13,15 +13,7 @@
 -(NSString*) cellType {
     return DTVCCellIdentifier_TextCell;
 }
--(id) initTextInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader {
-    self = [super init];
-    
-    if (self) {
-        self = [self initType:DTVCCellIdentifier_TextCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
-        [self setManagedObject:managedObject];
-    }
-    return self;
-}
+
 
 -(id) initTextInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withDefault:(NSString*) defaultText  inSection:(NSString*) newSectionHeader {
     self = [super init];
@@ -39,11 +31,7 @@
     return self;
 }
 
-- (void) createDefaultValueForObject:(id)managedObject orValue:(id) backupValue {
-    NSObject* newDefault = [managedObject valueForKey:self.returnKey] ?:backupValue;
-    [self setManagedObject:managedObject withDefaultValue:newDefault];
-    
-}
+
 #pragma mark - text delegate methods
 
 #pragma mark - editable table cell delegate methods

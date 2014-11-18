@@ -204,7 +204,10 @@
             
         }
         else if ([propertyTypeString isEqual:@"NSArray"]) {
-            
+            NSArray* defoptionsArray = @[@"Blue",@"Green",@"Red",@"Orange"];
+            ButtonOptionCellInput* newOptionCell = [[ButtonOptionCellInput alloc] initOptionInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName withOptions:defoptionsArray inSection:@"Options Section"];
+            [newOptionCell defineCellInputFormatType:[NSNumber numberWithInt:inputFormatType]];
+            [tempCellsArray addObject:newOptionCell];
         }
         else if ([propertyTypeString isEqual:@"NSSet"]) {
             
