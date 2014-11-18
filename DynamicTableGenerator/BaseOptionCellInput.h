@@ -10,14 +10,14 @@
 #import "TableCellEditableProtocol.h"
 #import "BaseCell.h"
 
-extern NSString * const dateCell;
-extern NSString * const sliderCell;
-extern NSString * const buttonCell;
-extern NSString * const actionCell;
-extern NSString * const textCell;
-extern NSString * const numberCell;
-extern NSString * const switchCell;
-extern NSString * const segmentCell;
+//extern NSString * const dateCell;
+//extern NSString * const sliderCell;
+//extern NSString * const buttonCell;
+//extern NSString * const actionCell;
+//extern NSString * const textCell;
+//extern NSString * const numberCell;
+//extern NSString * const switchCell;
+//extern NSString * const segmentCell;
 
 @interface BaseOptionCellInput : NSObject
 

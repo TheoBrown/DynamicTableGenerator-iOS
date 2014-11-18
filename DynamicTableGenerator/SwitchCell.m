@@ -12,7 +12,7 @@
 
 
 -(NSString *) reuseIdentifier {
-    return @"TableCellWithSwitchCellIdentifier";
+    return DTVCCellIdentifier_SwitchCell;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

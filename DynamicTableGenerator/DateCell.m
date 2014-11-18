@@ -21,7 +21,7 @@
  */
 
 -(NSString *) reuseIdentifier {
-    return @"DateCellID";
+    return DTVCCellIdentifier_DateCell;
 }
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

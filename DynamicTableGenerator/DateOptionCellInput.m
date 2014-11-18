@@ -15,7 +15,7 @@
     self = [super init];
 
     if (self) {
-        self = [self initType:dateCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
+        self = [self initType:DTVCCellIdentifier_DateCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
         
         [self setManagedObject:managedObject];
     }
@@ -31,7 +31,7 @@
 //            @"title":@"Select End Date",
 //            @"return":@"endDate",
 //            @"settings":@{@"defaultValue":self.endDate}}
-        self = [self initType:dateCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
+        self = [self initType:DTVCCellIdentifier_DateCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
         [self createDefaultValueForObject:managedObject orValue:defaultDate];
 
     }

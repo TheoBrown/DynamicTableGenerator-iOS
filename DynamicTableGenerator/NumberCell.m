@@ -61,7 +61,7 @@
 }
 
 -(NSString *) reuseIdentifier {
-    return @"TableCellWithNumberCellIdentifier";
+    return DTVCCellIdentifier_NumberCell;
 }
 
 -(void) setCellFormat:(NSString *)formatString{

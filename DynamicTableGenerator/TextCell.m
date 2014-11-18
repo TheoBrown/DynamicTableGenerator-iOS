@@ -102,7 +102,7 @@
 }
 
 -(NSString *) reuseIdentifier {
-    return @"TableCellWithTextCellIdentifier";
+    return DTVCCellIdentifier_TextCell;
 }
 
 -(IBAction)textFieldValueDidChange:(id)sender {

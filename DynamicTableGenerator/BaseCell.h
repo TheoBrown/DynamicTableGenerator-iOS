@@ -11,6 +11,15 @@
 #import "TableCellEditableProtocol.h"
 #import "TableViewNavigationDelegate.h"
 
+extern NSString * const DTVCCellIdentifier_DateCell;
+extern NSString * const DTVCCellIdentifier_SliderCell;
+extern NSString * const DTVCCellIdentifier_ButtonCell;
+extern NSString * const DTVCCellIdentifier_ActionCell;
+extern NSString * const DTVCCellIdentifier_TextCell;
+extern NSString * const DTVCCellIdentifier_NumberCell;
+extern NSString * const DTVCCellIdentifier_SwitchCell;
+extern NSString * const DTVCCellIdentifier_SegmentCell;
+
 @interface BaseCell : UITableViewCell
 {
     id <TableCellEditable> _delegate;

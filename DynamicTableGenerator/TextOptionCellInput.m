@@ -14,7 +14,7 @@
     self = [super init];
     
     if (self) {
-        self = [self initType:textCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
+        self = [self initType:DTVCCellIdentifier_TextCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
         [self setManagedObject:managedObject];
     }
     return self;
@@ -29,7 +29,7 @@
         //                                             @"settings":@{@"minValue":@-50.0f,
         //                                                           @"maxValue":@50.0f,
         //                                                           @"defaultValue":@(self.yMinValue ?:0.0f)}}
-        self = [self initType:textCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
+        self = [self initType:DTVCCellIdentifier_TextCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
 
         [self createDefaultValueForObject:managedObject orValue:defaultText];
     }

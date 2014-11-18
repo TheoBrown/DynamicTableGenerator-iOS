@@ -58,7 +58,7 @@
 }
 
 -(NSString *) reuseIdentifier {
-    return @"SliderCellID";
+    return DTVCCellIdentifier_SliderCell;
 }
 
 -(IBAction)sliderValueChanged:(UISlider *)sender{

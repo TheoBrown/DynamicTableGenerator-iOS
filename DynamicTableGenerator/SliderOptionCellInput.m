@@ -15,7 +15,7 @@
     self = [super init];
 
     if (self) {
-        self = [self initType:sliderCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
+        self = [self initType:DTVCCellIdentifier_SliderCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
         [self setManagedObject:managedObject];
     }
     return self;
@@ -30,7 +30,7 @@
 //                                             @"settings":@{@"minValue":@-50.0f,
 //                                                           @"maxValue":@50.0f,
 //                                                           @"defaultValue":@(self.yMinValue ?:0.0f)}}
-        self = [self initType:sliderCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
+        self = [self initType:DTVCCellIdentifier_SliderCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
 
         self.minSliderValue = minValue;
         self.maxSliderValue = maxValue;

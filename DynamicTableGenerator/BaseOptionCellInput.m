@@ -15,14 +15,14 @@
 //extern NSString * const textCell;
 //extern NSString * const numberCell;
 
-NSString * const dateCell = @"DateCellID";
-NSString * const sliderCell = @"SliderCellID";
-NSString * const buttonCell = @"ButtonCellID";
-NSString * const actionCell = @"ActionSheetCellID";
-NSString * const textCell = @"TableCellWithTextCellIdentifier";
-NSString * const switchCell = @"TableCellWithSwitchCellIdentifier";
-NSString * const numberCell = @"TableCellWithNumberCellIdentifier";
-NSString * const segmentCell = @"SegmentCellID";
+//NSString * const dateCell = @"DateCellID";
+//NSString * const sliderCell = @"SliderCellID";
+//NSString * const buttonCell = @"ButtonCellID";
+//NSString * const actionCell = @"ActionSheetCellID";
+//NSString * const textCell = @"TableCellWithTextCellIdentifier";
+//NSString * const switchCell = @"TableCellWithSwitchCellIdentifier";
+//NSString * const numberCell = @"TableCellWithNumberCellIdentifier";
+//NSString * const segmentCell = @"SegmentCellID";
 
 @implementation BaseOptionCellInput
 @synthesize sectionHeader, title, identifier , cellPosition;

@@ -30,6 +30,9 @@
 @synthesize sectionHeaderArray;
 @synthesize keyboardToolbar;
 
+extern const double EARTH_RADIUS;
+
+
 #pragma mark - init methods
 
 - (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView withAcessoryKeys:(UIView*) acessoryKeyBoard andCellInputs:(NSArray*) cellInputArray {
@@ -107,7 +110,7 @@
     NSInteger section = [indexPath section];
     BaseOptionCellInput * baseCellInput = (BaseOptionCellInput*) [self getInputForSectionIndex:section atRow:row];
     NSString * CellIdentifier = baseCellInput.identifier;
-    if ([CellIdentifier  isEqual: @"TableCellWithNumberCellIdentifier"]){
+    if ([CellIdentifier  isEqual: DTVCCellIdentifier_NumberCell]){
         NumberCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         NumberOptionCellInput * numberCellInput = (NumberOptionCellInput*)baseCellInput;
         if (cell == nil) {
@@ -127,7 +130,7 @@
         cell.numericTextField.text = [cell stringFromNumber:(NSNumber*)[numberCellInput getDisplayValue]];
         return cell;
     }
-    else if ([CellIdentifier  isEqual: @"TableCellWithTextCellIdentifier"]){
+    else if ([CellIdentifier  isEqual: DTVCCellIdentifier_TextCell]){
         TextOptionCellInput* textCellInput = (TextOptionCellInput*) baseCellInput;
         TextCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
@@ -159,7 +162,7 @@
         
     }
     
-    else if ([CellIdentifier  isEqual: @"TableCellWithSwitchCellIdentifier"]){
+    else if ([CellIdentifier  isEqual: DTVCCellIdentifier_SwitchCell]){
         SwitchOptionCellInput* switchCellInput = (SwitchOptionCellInput*) baseCellInput;
 
         SwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -177,7 +180,7 @@
         cell.cellSwitch.on = [switchCellInput getDisplayValue];
         return cell;
     }
-    else if ([CellIdentifier  isEqual: @"DateCellID"]){
+    else if ([CellIdentifier  isEqual: DTVCCellIdentifier_DateCell]){
         DateOptionCellInput* dateCellInput = (DateOptionCellInput*) baseCellInput;
         DateCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
@@ -197,7 +200,7 @@
 
         return cell;
     }
-    else if ([CellIdentifier  isEqual: @"SliderCellID"]){
+    else if ([CellIdentifier  isEqual: DTVCCellIdentifier_SliderCell]){
         SliderOptionCellInput* sliderCellInput = (SliderOptionCellInput*) baseCellInput;
         SliderCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
@@ -219,7 +222,7 @@
         [cell sizeToFit];
         return cell;
     }
-    else if ([CellIdentifier  isEqual: @"SegmentCellID"]){
+    else if ([CellIdentifier  isEqual: DTVCCellIdentifier_SegmentCell]){
         //this is not done yet
         SegmentOptionCellInput* segmentCellInput = (SegmentOptionCellInput*) baseCellInput;
         SegmentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];

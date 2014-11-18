@@ -51,7 +51,7 @@
 }
 
 -(NSString *) reuseIdentifier {
-    return @"SegmentCellID";
+    return DTVCCellIdentifier_SegmentCell;
 }
 
 -(IBAction)segmentedControlChanged:(UISegmentedControl*)sender {
