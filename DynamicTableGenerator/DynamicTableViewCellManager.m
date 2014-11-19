@@ -24,11 +24,12 @@
 #import "SliderCell.h"
 #import "SegmentCell.h"
 #import "OptionCell.h"
+
+#import "TableViewNavigationBar.h"
 @implementation DynamicTableViewCellManager
 @synthesize tagCode, tagOffset;
 @synthesize tableView;
 @synthesize sectionHeaderArray;
-@synthesize keyboardToolbar;
 
 extern const double EARTH_RADIUS;
 
@@ -42,9 +43,9 @@ extern const double EARTH_RADIUS;
 //        self.tagCode = [NSString stringWithFormat:@"06760"];
 //        self.tagOffset = newtagOffset;
         self.tableView = newTableView;
+        self.keyPadView = acessoryKeyBoard;
+
         
-        
-        self.keyboardToolbar = acessoryKeyBoard;
 //        self.keyboardToolbar = [self createInputAccessoryView];
 //        NSLog(@"cell manager init with array %@" ,[cellInputArray description]);
         [self parseInputArray:cellInputArray];
@@ -109,7 +110,6 @@ extern const double EARTH_RADIUS;
     NSInteger row = [indexPath row];
     NSInteger section = [indexPath section];
     BaseOptionCellInput * baseCellInput = (BaseOptionCellInput*) [self getInputForSectionIndex:section atRow:row];
-    
     NSString * CellIdentifier = baseCellInput.identifier;
     
     if ([CellIdentifier  isEqual: DTVCCellIdentifier_NumberCell]){
@@ -121,7 +121,7 @@ extern const double EARTH_RADIUS;
         }
         
         [cell defineCellFormatType:numberCellInput.cellInputFormatType];
-        [cell.numericTextField setInputAccessoryView:self.keyboardToolbar];
+        [cell.numericTextField setInputAccessoryView:self.keyPadView];
         cell.numericTextField.delegate = cell;
         
         cell.title.text = baseCellInput.title;
@@ -150,7 +150,7 @@ extern const double EARTH_RADIUS;
         cell.cellTextField.clearsOnBeginEditing = YES;
         cell.cellTextField.autocorrectionType = UITextAutocorrectionTypeNo;
         
-        [cell.cellTextField setInputAccessoryView:self.keyboardToolbar];
+        [cell.cellTextField setInputAccessoryView:self.keyPadView];
         cell.cellTextField.delegate = cell;
 
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;

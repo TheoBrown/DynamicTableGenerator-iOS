@@ -11,7 +11,7 @@
 #import "TableViewNavigationDelegate.h"
 #import "PureLayout.h"
 #import "DynamicTableViewCellManager.h"
-
+#import "TableViewNavigationBar.h"
 @protocol OptionsDelegate <NSObject>
 -(void)optionsWereUpdated:(NSDictionary*)optionsDictionary;
 
@@ -25,7 +25,7 @@
 @property (nonatomic, strong) DynamicTableViewCellManager *  cellManager;
 @property (nonatomic, strong) UITableView *  tableView;
 
-@property (nonatomic, strong) UIView *  keyPadView;
+@property (nonatomic, strong) TableViewNavigationBar *  keyPadView;
 
 @property (nonatomic, strong) NSString *tagCode;
 @property (nonatomic) NSInteger tagOffset;

@@ -41,6 +41,7 @@
 		F67496461A169DEE0060ECA3 /* SegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496451A169DEE0060ECA3 /* SegmentCell.m */; };
 		F6B75F011A1BDE4C00099557 /* OptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B75F001A1BDE4C00099557 /* OptionCell.m */; };
 		F6C099321A16D39F004BBEAE /* SwitchOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C099311A16D39F004BBEAE /* SwitchOptionCellInput.m */; };
+		F6C5E5301A1D4611002389BD /* TPBLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C5E52F1A1D4611002389BD /* TPBLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -138,6 +139,8 @@
 		F6BF66691A1AE6A600362F7C /* DynamicTableViewConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTableViewConstants.h; sourceTree = "<group>"; };
 		F6C099301A16D39F004BBEAE /* SwitchOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchOptionCellInput.h; sourceTree = "<group>"; };
 		F6C099311A16D39F004BBEAE /* SwitchOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchOptionCellInput.m; sourceTree = "<group>"; };
+		F6C5E52E1A1D4611002389BD /* TPBLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPBLayout.h; sourceTree = "<group>"; };
+		F6C5E52F1A1D4611002389BD /* TPBLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPBLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +295,8 @@
 				6C7B9D1E19E72DC700C86637 /* MutableTableViewObjects.m */,
 				6C7B9D1F19E72DC700C86637 /* SharedData.h */,
 				6C7B9D2019E72DC700C86637 /* SharedData.m */,
+				F6C5E52E1A1D4611002389BD /* TPBLayout.h */,
+				F6C5E52F1A1D4611002389BD /* TPBLayout.m */,
 			);
 			name = "Helper Protocols";
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 			files = (
 				F6B75F011A1BDE4C00099557 /* OptionCell.m in Sources */,
 				F67496341A1696800060ECA3 /* BaseCell.m in Sources */,
+				F6C5E5301A1D4611002389BD /* TPBLayout.m in Sources */,
 				F674963A1A169D570060ECA3 /* DateCell.m in Sources */,
 				6C7B9D2219E72DC700C86637 /* FetchedResultsHelper.m in Sources */,
 				6C7B9CF819E72D1300C86637 /* CellWithButton.m in Sources */,

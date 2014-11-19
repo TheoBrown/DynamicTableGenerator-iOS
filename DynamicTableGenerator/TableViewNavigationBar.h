@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PureLayout.h"
 #import "TableViewNavigationDelegate.h"
+#import "TPBLayout.h"
 
 
 #define kLabelHorizontalInsets      15.0f

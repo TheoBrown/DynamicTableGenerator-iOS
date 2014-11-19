@@ -11,6 +11,7 @@
 #import "TableCellEditableProtocol.h"
 #import "TableViewNavigationDelegate.h"
 #import "DynamicTableViewConstants.h"
+#import "TPBLayout.h"
 
 //extern NSString * const DTVCCellIdentifier_DateCell;
 //extern NSString * const DTVCCellIdentifier_SliderCell;

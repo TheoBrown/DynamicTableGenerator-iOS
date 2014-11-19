@@ -9,7 +9,7 @@
 #import "DynamicTableViewController.h"
 #import "SharedData.h"
 #import "FetchedResultsHelper.h"
-
+#import "TPBLayout.h"
 #import "TableViewNavigationBar.h"
 
 @implementation DynamicTableViewController
@@ -28,9 +28,8 @@
         self.tagOffset = 5;
 //    self.keyboardToolbar = [self createInputAccessoryView];
     
-    CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.size.height-30, self.view.bounds.size.width, 30);
-    self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:(CGRect) keyPadFrame];
-
+//    CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.size.height-30, self.view.bounds.size.width, 30);
+//    self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:(CGRect) keyPadFrame];
     self.cellManager = [[DynamicTableViewCellManager alloc] initWithTagCode:self.tagCode andOffset:self.tagOffset   andtableView:self.tableView withAcessoryKeys:self.keyPadView andCellInputs:cellInputArray];
 
     NSLog(@"Dynamic Table View Controller setup with array %@" , [cellInputArray description]);
@@ -50,9 +49,13 @@
     [super viewDidLoad];
     
 //    self.tableView = [UITableView newAutoLayoutView];
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    CGFloat controlHeight = 40.0;
+    CGRect tableFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.x, self.view.bounds.size.width, self.view.bounds.size.height-controlHeight);
+
+    self.tableView = [[UITableView alloc] initWithFrame:tableFrame];
     
     self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [UIColor orangeColor];
     self.tableView.delegate = self;
     self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 250.0, 0.0);
     self.view.userInteractionEnabled = YES;
@@ -68,47 +71,51 @@
     NSLog(@"table view did load");
     [self.tableView reloadData];
 
-    CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, 300, self.view.bounds.size.width, 30);
+    CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.size.height-controlHeight, self.view.bounds.size.width, controlHeight);
     self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:(CGRect) keyPadFrame];
     self.keyPadView.tag = 1;
     [self.view addSubview:self.keyPadView];
     [self.view bringSubviewToFront:self.keyPadView];
-}
-- (void) updateViewConstraints {
-    if (!self.didSetupConstraints) {
-        [self.view addSubview:self.keyPadView];
+    TPBLayout* layoutHelp = [[TPBLayout alloc] init];
+    [layoutHelp listSubviewsOfView:self.view];
+    [layoutHelp listSubviewsOfView:self.keyPadView];
 
-        NSLog(@"tableView did update constraints");
-        // Note: if the constraints you add below require a larger cell size than the current size (which is likely to be the default size {320, 44}), you'll get an exception.
-        // As a fix, you can temporarily increase the size of the cell's contentView so that this does not occur using code similar to the line below.
-        //      See here for further discussion: https://github.com/Alex311/TableCellWithAutoLayout/commit/bde387b27e33605eeac3465475d2f2ff9775f163#commitcomment-4633188
-        
-        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
-            [self.tableView autoSetContentCompressionResistancePriorityForAxis:ALAxisHorizontal];
-        }];
-        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTop];
-        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
-         [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
-        NSLog(@"keypad super %@" ,[self.keyPadView.superview description]);
-        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
-        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
-        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
-        [self.keyPadView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView];
-        
-//        [self.keyboardToolbar autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView withOffset:kLabelVerticalInsets];
+}
+//- (void) updateViewConstraints {
+//    if (!self.didSetupConstraints) {
+//        [self.view addSubview:self.keyPadView];
+//
+//        NSLog(@"tableView did update constraints");
+//        // Note: if the constraints you add below require a larger cell size than the current size (which is likely to be the default size {320, 44}), you'll get an exception.
+//        // As a fix, you can temporarily increase the size of the cell's contentView so that this does not occur using code similar to the line below.
+//        //      See here for further discussion: https://github.com/Alex311/TableCellWithAutoLayout/commit/bde387b27e33605eeac3465475d2f2ff9775f163#commitcomment-4633188
 //        
 //        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
-//            [self.keyboardToolbar autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
+//            [self.tableView autoSetContentCompressionResistancePriorityForAxis:ALAxisHorizontal];
 //        }];
-//        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
-//        //        [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
-//        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
-        
-        self.didSetupConstraints = YES;
-    }
-    
-    [super updateViewConstraints];
-}
+//        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTop];
+//        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
+//         [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
+//        NSLog(@"keypad super %@" ,[self.keyPadView.superview description]);
+//        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+//        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
+//        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
+//        [self.keyPadView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView];
+//        
+////        [self.keyboardToolbar autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView withOffset:kLabelVerticalInsets];
+////        
+////        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
+////            [self.keyboardToolbar autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
+////        }];
+////        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
+////        //        [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
+////        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
+//        
+//        self.didSetupConstraints = YES;
+//    }
+//    
+//    [super updateViewConstraints];
+//}
 
 - (void)viewDidUnload
 {

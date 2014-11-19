@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "DynamicTableViewConstants.h"
+#import "TableViewNavigationBar.h"
 
 //extern NSString * const DTVCCellType_DateCell;
 //extern NSString * const DTVCCellType_SliderCell;
@@ -30,10 +31,8 @@
 @property (nonatomic, strong) NSArray *sectionHeaderArray;
 @property (nonatomic, strong) NSDictionary *sectionDescription;
 
-@property (nonatomic, strong) UIView* keyboardToolbar;
-@property (nonatomic, strong) UIBarButtonItem* btnDone;
-@property (nonatomic, strong) UIBarButtonItem* btnNext;
-@property (nonatomic, strong) UIBarButtonItem* btnPrev;
+@property (nonatomic, strong) TableViewNavigationBar *  keyPadView;
+
 @property (nonatomic, strong) NSIndexPath *currentSelection;
 
 - (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView  andCellInputs:(NSArray*) cellInputArray;
