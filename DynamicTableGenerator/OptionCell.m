@@ -42,7 +42,7 @@
 
 
 - (void) cellFormatWasUpdated {
-    NSLog(@"%@ format updated", self.title);
+    NSLog(@"%@ format updated", self.title.text);
 }
 #pragma mark - View control
 

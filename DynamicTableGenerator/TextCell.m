@@ -16,7 +16,7 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    NSLog(@"Text cell init called");
+//    NSLog(@"Text cell init called");
     reuseIdentifier = [self reuseIdentifier];
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -86,7 +86,7 @@
 
 
 - (void) cellFormatWasUpdated {
-    NSLog(@"%@ format updated", self.title);
+    NSLog(@"%@ format updated", self.title.text);
     self.cellTextField.placeholder = self.cellContentTitle;
     [self.cellTextField setKeyboardType:[self.cellContentFormatType intValue]];
 }

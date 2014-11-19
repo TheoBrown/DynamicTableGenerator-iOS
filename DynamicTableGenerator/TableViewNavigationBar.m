@@ -15,7 +15,7 @@
     self = [super initWithFrame:viewFrame];
     if (self) {
         self.delegate = tvDelegate;
-        self.backgroundColor = [UIColor lightGrayColor];
+        self.backgroundColor = [UIColor redColor];
 
         self.nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         self.nextButton.translatesAutoresizingMaskIntoConstraints = NO;
