@@ -34,12 +34,12 @@
 @property (nonatomic, strong) TableViewNavigationBar *  keyPadView;
 
 @property (nonatomic, strong) NSIndexPath *currentSelection;
-
-- (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView  andCellInputs:(NSArray*) cellInputArray;
+- (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView andCellInputs:(NSArray*) cellInputArray;
 - (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView withAcessoryKeys:(UIView*) acessoryKeyBoard andCellInputs:(NSArray*) cellInputArray;
 
 - (UITableViewCell*)  getCellatIndexPath:(NSIndexPath *)indexPath andDelegate:(id) delegateToAssign;
 - (NSInteger) rowsInSection:(NSInteger) section;
+-(void) setAcessoryInput:(TableViewNavigationBar*)buttonBar;
 
 
 - (void) saveAllChanges;

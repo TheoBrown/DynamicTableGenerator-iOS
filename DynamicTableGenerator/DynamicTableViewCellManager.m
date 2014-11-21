@@ -35,7 +35,22 @@ extern const double EARTH_RADIUS;
 
 
 #pragma mark - init methods
+- (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView andCellInputs:(NSArray*) cellInputArray {
+    self = [super init];
+    if (self) {
+        self = [super init];
+        //        self.tagCode = [NSString stringWithFormat:@"06760"];
+        //        self.tagOffset = newtagOffset;
+        self.tableView = newTableView;
+//        self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:CGRectMake(0,0,30,30)];
 
+        
+        //        self.keyboardToolbar = [self createInputAccessoryView];
+        //        NSLog(@"cell manager init with array %@" ,[cellInputArray description]);
+        [self parseInputArray:cellInputArray];
+    }
+    return self;
+}
 - (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView withAcessoryKeys:(UIView*) acessoryKeyBoard andCellInputs:(NSArray*) cellInputArray {
     self = [super init];
     if (self) {
@@ -43,7 +58,6 @@ extern const double EARTH_RADIUS;
 //        self.tagCode = [NSString stringWithFormat:@"06760"];
 //        self.tagOffset = newtagOffset;
         self.tableView = newTableView;
-        self.keyPadView = acessoryKeyBoard;
 
         
 //        self.keyboardToolbar = [self createInputAccessoryView];
@@ -53,13 +67,17 @@ extern const double EARTH_RADIUS;
     return self;
 }
 
-- (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView  andCellInputs:(NSArray*) cellInputArray {
-    self = [super init];
-    if (self) {
-        self = [super init];
-        [self parseInputArray:cellInputArray];
-    }
-    return self;
+//- (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView  andCellInputs:(NSArray*) cellInputArray {
+//    self = [super init];
+//    if (self) {
+//        self = [super init];
+//        [self parseInputArray:cellInputArray];
+//    }
+//    return self;
+//}
+
+-(void) setAcessoryInput:(TableViewNavigationBar*)buttonBar {
+    self.keyPadView = buttonBar;
 }
 #pragma mark -table view setup
 - (void) parseInputArray:(NSArray*) cellInputArray{
@@ -121,6 +139,7 @@ extern const double EARTH_RADIUS;
         }
         
         [cell defineCellFormatType:numberCellInput.cellInputFormatType];
+//        [self.keyPadView removeFromSuperview];
         [cell.numericTextField setInputAccessoryView:self.keyPadView];
         cell.numericTextField.delegate = cell;
         
@@ -149,7 +168,8 @@ extern const double EARTH_RADIUS;
 
         cell.cellTextField.clearsOnBeginEditing = YES;
         cell.cellTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-        
+//        [self.keyPadView removeFromSuperview];
+
         [cell.cellTextField setInputAccessoryView:self.keyPadView];
         cell.cellTextField.delegate = cell;
 

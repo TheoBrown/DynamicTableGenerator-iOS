@@ -30,7 +30,7 @@
     
 //    CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.size.height-30, self.view.bounds.size.width, 30);
 //    self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:(CGRect) keyPadFrame];
-    self.cellManager = [[DynamicTableViewCellManager alloc] initWithTagCode:self.tagCode andOffset:self.tagOffset   andtableView:self.tableView withAcessoryKeys:self.keyPadView andCellInputs:cellInputArray];
+    self.cellManager = [[DynamicTableViewCellManager alloc] initWithTagCode:self.tagCode andOffset:self.tagOffset   andtableView:self.tableView andCellInputs:cellInputArray];
 
     NSLog(@"Dynamic Table View Controller setup with array %@" , [cellInputArray description]);
 }
@@ -51,7 +51,7 @@
 //    self.tableView = [UITableView newAutoLayoutView];
     CGFloat controlHeight = 40.0;
     CGRect tableFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.x, self.view.bounds.size.width, self.view.bounds.size.height-controlHeight);
-
+    [self.view setUserInteractionEnabled:NO];
     self.tableView = [[UITableView alloc] initWithFrame:tableFrame];
     
     self.tableView.dataSource = self;
@@ -72,50 +72,66 @@
     [self.tableView reloadData];
 
     CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.size.height-controlHeight, self.view.bounds.size.width, controlHeight);
-    self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:(CGRect) keyPadFrame];
+    UIView* newView = [[UIView alloc] initWithFrame:keyPadFrame];
+    [newView setBackgroundColor:[UIColor redColor]];
+    
+//    [self.view addSubview:newView];
+//    [self.view bringSubviewToFront:newView];
+    
+    
+    self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:keyPadFrame];
     self.keyPadView.tag = 1;
+    [self.keyPadView setUserInteractionEnabled:NO];
     [self.view addSubview:self.keyPadView];
     [self.view bringSubviewToFront:self.keyPadView];
+    [self.cellManager setAcessoryInput:self.keyPadView];
     TPBLayout* layoutHelp = [[TPBLayout alloc] init];
     [layoutHelp listSubviewsOfView:self.view];
     [layoutHelp listSubviewsOfView:self.keyPadView];
 
 }
-//- (void) updateViewConstraints {
-//    if (!self.didSetupConstraints) {
-//        [self.view addSubview:self.keyPadView];
-//
-//        NSLog(@"tableView did update constraints");
-//        // Note: if the constraints you add below require a larger cell size than the current size (which is likely to be the default size {320, 44}), you'll get an exception.
-//        // As a fix, you can temporarily increase the size of the cell's contentView so that this does not occur using code similar to the line below.
-//        //      See here for further discussion: https://github.com/Alex311/TableCellWithAutoLayout/commit/bde387b27e33605eeac3465475d2f2ff9775f163#commitcomment-4633188
+-(UIView*) createKeysLayout {
+    return nil;
+}
+- (void) updateViewConstraints {
+    if (!self.didSetupConstraints) {
+        [self.view addSubview:self.keyPadView];
+
+        NSLog(@"tableView did update constraints");
+        // Note: if the constraints you add below require a larger cell size than the current size (which is likely to be the default size {320, 44}), you'll get an exception.
+        // As a fix, you can temporarily increase the size of the cell's contentView so that this does not occur using code similar to the line below.
+        //      See here for further discussion: https://github.com/Alex311/TableCellWithAutoLayout/commit/bde387b27e33605eeac3465475d2f2ff9775f163#commitcomment-4633188
+        
+        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
+            [self.tableView autoSetContentCompressionResistancePriorityForAxis:ALAxisHorizontal];
+        }];
+        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTop];
+        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
+         [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
+        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:25+30];
+
+        NSLog(@"keypad super %@" ,[self.keyPadView.superview description]);
+        [self.keyPadView autoSetDimension:ALDimensionHeight toSize:30.0];
+//        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
+        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
+        [self.keyPadView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView];
+        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:25];
+
+//        [self.keyboardToolbar autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView withOffset:kLabelVerticalInsets];
 //        
 //        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
-//            [self.tableView autoSetContentCompressionResistancePriorityForAxis:ALAxisHorizontal];
+//            [self.keyboardToolbar autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
 //        }];
-//        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTop];
-//        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
-//         [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
-//        NSLog(@"keypad super %@" ,[self.keyPadView.superview description]);
-//        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
-//        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
-//        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
-//        [self.keyPadView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView];
-//        
-////        [self.keyboardToolbar autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView withOffset:kLabelVerticalInsets];
-////        
-////        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
-////            [self.keyboardToolbar autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
-////        }];
-////        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
-////        //        [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
-////        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
-//        
-//        self.didSetupConstraints = YES;
-//    }
-//    
-//    [super updateViewConstraints];
-//}
+//        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
+//        //        [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
+//        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
+        
+        self.didSetupConstraints = YES;
+    }
+    
+    [super updateViewConstraints];
+}
 
 - (void)viewDidUnload
 {
@@ -152,14 +168,15 @@
                                                object:nil];
 }
 -(void) keyboardWillShow {
-//    NSLog(@"keyboardWillShow");
-//    [[self.view viewWithTag:1] setHidden:YES];
-//    [self.keyPadView removeFromSuperview];
+    NSLog(@"keyboardWillShow");
+    [[self.view viewWithTag:1] setHidden:YES];
+    [self.keyPadView removeFromSuperview];
 }
 -(void) keyboardWillHide {
-//    NSLog(@"keyboardWillHide");
-//    [[self.view viewWithTag:1] setHidden:NO];
-
+    NSLog(@"keyboardWillHide");
+    [[self.view viewWithTag:1] setHidden:NO];
+    [self.view addSubview:self.keyPadView];
+    [self.view bringSubviewToFront:self.keyPadView];
 
 }
 - (void)viewDidDisappear:(BOOL)animated
@@ -235,7 +252,7 @@
     [self.view endEditing:YES]; // dismiss current editing views
 //    NSLog(@"tableView Row Selected %@" ,[self stringForIndex:indexPath]);
     self.currentSelection = indexPath;
-    [self displayContentForCellAtIndex:self.currentSelection];
+//    [self displayContentForCellAtIndex:self.currentSelection];
     
 }
 
