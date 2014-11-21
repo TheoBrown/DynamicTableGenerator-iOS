@@ -13,13 +13,14 @@
 -(id) initWithDelegate:(id) tvDelegate andFrame:(CGRect) viewFrame {
 //    CGRect myFrame = CGRectMake(10 ,viewFrame.origin.y-100,viewFrame.size.width,44.0);
 //    self = [super initWithFrame:viewFrame];
-    self = [super initWithFrame:viewFrame];
+    self = [super init];
     if (self) {
 //        self.translatesAutoresizingMaskIntoConstraints = NO;
 //        self.userInteractionEnabled = NO;
+        self.view = [[UIView alloc] initWithFrame:viewFrame];
         self.delegate = tvDelegate;
-        self.backgroundColor = [UIColor colorWithRed:255/255.0 green:71/255.0 blue:113/255.0 alpha:1.0];
-        self.opaque = YES;
+        self.view.backgroundColor = [UIColor colorWithRed:255/255.0 green:71/255.0 blue:113/255.0 alpha:1.0];
+        self.view.opaque = YES;
         self.nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 //        self.nextButton.translatesAutoresizingMaskIntoConstraints = NO;
         
@@ -47,24 +48,24 @@
 //        NSArray * views = @[self.previousButton,self.nextButton,self.doneButton];
 //        [layoutHelp horizontalLayout:views];
 
-        [self addSubview:self.nextButton];
-        [self addSubview:self.previousButton];
-        [self addSubview:self.doneButton];
+        [self.view addSubview:self.nextButton];
+        [self.view addSubview:self.previousButton];
+        [self.view addSubview:self.doneButton];
         CGFloat bWidth = 40;
         CGFloat bHeight = 30;
-        CGFloat pad = 10;
+        CGFloat pad = 30;
         CGFloat cum = 0;
-
-        self.nextButton.frame =  CGRectMake(pad, 0, bWidth, bHeight);
+        CGFloat yOffset = 5;
+        self.nextButton.frame =  CGRectMake(pad, yOffset, bWidth, bHeight);
         cum =pad+bWidth;
-        self.previousButton.frame =  CGRectMake(pad+cum, 0, bWidth, bHeight);
+        self.previousButton.frame =  CGRectMake(pad+cum, yOffset, bWidth, bHeight);
         cum =cum +pad+bWidth;
 
-        self.doneButton.frame =  CGRectMake(pad+cum, 0, bWidth, bHeight);
+        self.doneButton.frame =  CGRectMake(pad+cum, yOffset, bWidth, bHeight);
 
 
-        [self setNeedsDisplay];
-        [self setHidden:NO];
+        [self.view setNeedsDisplay];
+        [self.view setHidden:NO];
 //        [self needsUpdateConstraints];
     }
     return self;

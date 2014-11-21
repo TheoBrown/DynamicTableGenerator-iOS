@@ -16,7 +16,7 @@
 #define kLabelVerticalInsets        10.0f
 #define kLabelHorizontalSpace       5.0f
 
-@interface TableViewNavigationBar : UIView {
+@interface TableViewNavigationBar: NSObject {
     id <TableViewNavigationDelegate> delegate;
 
 }
@@ -24,9 +24,11 @@
 
 @property (nonatomic, assign) BOOL didSetupConstraints;
 
-@property (nonatomic, strong) IBOutlet UIButton *nextButton;
-@property (nonatomic, strong) IBOutlet UIButton *previousButton;
-@property (nonatomic, strong) IBOutlet UIButton *doneButton;
+@property (nonatomic, strong) UIView * view;
+
+@property (nonatomic, strong)  UIButton *nextButton;
+@property (nonatomic, strong)  UIButton *previousButton;
+@property (nonatomic, strong)  UIButton *doneButton;
 
 -(id) initWithDelegate:(id) tvDelegate andFrame:(CGRect)viewFrame;
 

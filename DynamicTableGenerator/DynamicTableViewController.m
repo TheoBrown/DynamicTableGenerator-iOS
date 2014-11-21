@@ -51,14 +51,14 @@
 //    self.tableView = [UITableView newAutoLayoutView];
     CGFloat controlHeight = 40.0;
     CGRect tableFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.x, self.view.bounds.size.width, self.view.bounds.size.height-controlHeight);
-    [self.view setUserInteractionEnabled:NO];
+//    [self.view setUserInteractionEnabled:NO];
     self.tableView = [[UITableView alloc] initWithFrame:tableFrame];
     
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor orangeColor];
     self.tableView.delegate = self;
     self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 250.0, 0.0);
-    self.view.userInteractionEnabled = YES;
+//    self.view.userInteractionEnabled = YES;
     
     [self.view addSubview:self.tableView];
     
@@ -79,12 +79,10 @@
 //    [self.view bringSubviewToFront:newView];
     
     
-    self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:keyPadFrame];
-    self.keyPadView.tag = 1;
-    [self.keyPadView setUserInteractionEnabled:NO];
+    self.keyPad = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:keyPadFrame];
+    self.keyPadView = self.keyPad.view;
     [self.view addSubview:self.keyPadView];
     [self.view bringSubviewToFront:self.keyPadView];
-    [self.cellManager setAcessoryInput:self.keyPadView];
     TPBLayout* layoutHelp = [[TPBLayout alloc] init];
     [layoutHelp listSubviewsOfView:self.view];
     [layoutHelp listSubviewsOfView:self.keyPadView];
@@ -93,45 +91,45 @@
 -(UIView*) createKeysLayout {
     return nil;
 }
-- (void) updateViewConstraints {
-    if (!self.didSetupConstraints) {
-        [self.view addSubview:self.keyPadView];
-
-        NSLog(@"tableView did update constraints");
-        // Note: if the constraints you add below require a larger cell size than the current size (which is likely to be the default size {320, 44}), you'll get an exception.
-        // As a fix, you can temporarily increase the size of the cell's contentView so that this does not occur using code similar to the line below.
-        //      See here for further discussion: https://github.com/Alex311/TableCellWithAutoLayout/commit/bde387b27e33605eeac3465475d2f2ff9775f163#commitcomment-4633188
-        
-        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
-            [self.tableView autoSetContentCompressionResistancePriorityForAxis:ALAxisHorizontal];
-        }];
-        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTop];
-        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
-         [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
-        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:25+30];
-
-        NSLog(@"keypad super %@" ,[self.keyPadView.superview description]);
-        [self.keyPadView autoSetDimension:ALDimensionHeight toSize:30.0];
-//        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
-        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
-        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
-        [self.keyPadView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView];
-        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:25];
-
-//        [self.keyboardToolbar autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView withOffset:kLabelVerticalInsets];
+//- (void) updateViewConstraints {
+//    if (!self.didSetupConstraints) {
+//        [self.view addSubview:self.keyPadView];
+//
+//        NSLog(@"tableView did update constraints");
+//        // Note: if the constraints you add below require a larger cell size than the current size (which is likely to be the default size {320, 44}), you'll get an exception.
+//        // As a fix, you can temporarily increase the size of the cell's contentView so that this does not occur using code similar to the line below.
+//        //      See here for further discussion: https://github.com/Alex311/TableCellWithAutoLayout/commit/bde387b27e33605eeac3465475d2f2ff9775f163#commitcomment-4633188
 //        
 //        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
-//            [self.keyboardToolbar autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
+//            [self.tableView autoSetContentCompressionResistancePriorityForAxis:ALAxisHorizontal];
 //        }];
-//        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
-//        //        [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
-//        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
-        
-        self.didSetupConstraints = YES;
-    }
-    
-    [super updateViewConstraints];
-}
+//        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTop];
+//        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
+//         [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
+//        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:25+30];
+//
+//        NSLog(@"keypad super %@" ,[self.keyPadView.superview description]);
+//        [self.keyPadView autoSetDimension:ALDimensionHeight toSize:30.0];
+////        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+//        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
+//        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
+//        [self.keyPadView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView];
+//        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:25];
+//
+////        [self.keyboardToolbar autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tableView withOffset:kLabelVerticalInsets];
+////        
+////        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
+////            [self.keyboardToolbar autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
+////        }];
+////        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
+////        //        [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
+////        [self.keyboardToolbar autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
+//        
+//        self.didSetupConstraints = YES;
+//    }
+//    
+//    [super updateViewConstraints];
+//}
 
 - (void)viewDidUnload
 {

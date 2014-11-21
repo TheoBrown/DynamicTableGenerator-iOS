@@ -140,7 +140,7 @@ extern const double EARTH_RADIUS;
         
         [cell defineCellFormatType:numberCellInput.cellInputFormatType];
 //        [self.keyPadView removeFromSuperview];
-        [cell.numericTextField setInputAccessoryView:self.keyPadView];
+//        [cell.numericTextField setInputAccessoryView:self.keyPadView];
         cell.numericTextField.delegate = cell;
         
         cell.title.text = baseCellInput.title;
@@ -170,7 +170,7 @@ extern const double EARTH_RADIUS;
         cell.cellTextField.autocorrectionType = UITextAutocorrectionTypeNo;
 //        [self.keyPadView removeFromSuperview];
 
-        [cell.cellTextField setInputAccessoryView:self.keyPadView];
+//        [cell.cellTextField setInputAccessoryView:self.keyPadView];
         cell.cellTextField.delegate = cell;
 
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;

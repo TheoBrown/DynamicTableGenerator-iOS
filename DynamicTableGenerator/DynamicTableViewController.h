@@ -25,7 +25,8 @@
 @property (nonatomic, strong) DynamicTableViewCellManager *  cellManager;
 @property (nonatomic, strong) UITableView *  tableView;
 
-@property (nonatomic, strong) TableViewNavigationBar *  keyPadView;
+@property (nonatomic, strong) TableViewNavigationBar *  keyPad;
+@property (nonatomic, strong) UIView *  keyPadView;
 
 @property (nonatomic, strong) NSString *tagCode;
 @property (nonatomic) NSInteger tagOffset;
