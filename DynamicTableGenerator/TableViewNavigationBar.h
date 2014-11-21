@@ -17,10 +17,10 @@
 #define kLabelHorizontalSpace       5.0f
 
 @interface TableViewNavigationBar: NSObject {
-    id <TableViewNavigationDelegate> delegate;
+     __weak id<TableViewNavigationDelegate> delegate;
 
 }
-@property (nonatomic, strong) id delegate;
+@property (nonatomic, weak) id delegate;
 
 @property (nonatomic, assign) BOOL didSetupConstraints;
 

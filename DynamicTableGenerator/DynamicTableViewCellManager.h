@@ -30,16 +30,19 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *sectionHeaderArray;
 @property (nonatomic, strong) NSDictionary *sectionDescription;
+@property (nonatomic, strong) TableViewNavigationBar *  keyPad;
 
-@property (nonatomic, strong) TableViewNavigationBar *  keyPadView;
+@property (nonatomic, strong) UIView *  keyPadView;
 
 @property (nonatomic, strong) NSIndexPath *currentSelection;
+- (id) initWithDelegate:(id) delegate andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView andCellInputs:(NSArray*) cellInputArray;
+
 - (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView andCellInputs:(NSArray*) cellInputArray;
 - (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView withAcessoryKeys:(UIView*) acessoryKeyBoard andCellInputs:(NSArray*) cellInputArray;
 
 - (UITableViewCell*)  getCellatIndexPath:(NSIndexPath *)indexPath andDelegate:(id) delegateToAssign;
 - (NSInteger) rowsInSection:(NSInteger) section;
--(void) setAcessoryInput:(TableViewNavigationBar*)buttonBar;
+-(void) setAcessoryInput:(UIView*)buttonBar;
 
 
 - (void) saveAllChanges;

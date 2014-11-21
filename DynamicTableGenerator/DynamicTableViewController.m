@@ -30,7 +30,7 @@
     
 //    CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.size.height-30, self.view.bounds.size.width, 30);
 //    self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:(CGRect) keyPadFrame];
-    self.cellManager = [[DynamicTableViewCellManager alloc] initWithTagCode:self.tagCode andOffset:self.tagOffset   andtableView:self.tableView andCellInputs:cellInputArray];
+    self.cellManager = [[DynamicTableViewCellManager alloc] initWithDelegate:self andOffset:self.tagOffset   andtableView:self.tableView andCellInputs:cellInputArray];
 
     NSLog(@"Dynamic Table View Controller setup with array %@" , [cellInputArray description]);
 }
@@ -78,14 +78,15 @@
 //    [self.view addSubview:newView];
 //    [self.view bringSubviewToFront:newView];
     
-    
+    NSLog(@"tv keypad");
     self.keyPad = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:keyPadFrame];
     self.keyPadView = self.keyPad.view;
     [self.view addSubview:self.keyPadView];
     [self.view bringSubviewToFront:self.keyPadView];
-    TPBLayout* layoutHelp = [[TPBLayout alloc] init];
-    [layoutHelp listSubviewsOfView:self.view];
-    [layoutHelp listSubviewsOfView:self.keyPadView];
+//    [self.cellManager setKeyPadView:self.keyPadView];
+//    TPBLayout* layoutHelp = [[TPBLayout alloc] init];
+//    [layoutHelp listSubviewsOfView:self.view];
+//    [layoutHelp listSubviewsOfView:self.keyPadView];
 
 }
 -(UIView*) createKeysLayout {
@@ -154,7 +155,10 @@
                                              selector:@selector(keyboardWillShow)
                                                  name:UIKeyboardWillShowNotification
                                                object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillChange)
+                                                 name:UIKeyboardWillChangeFrameNotification
+                                               object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillHide)
                                                  name:UIKeyboardWillHideNotification
@@ -165,6 +169,10 @@
                                                  name:UIContentSizeCategoryDidChangeNotification
                                                object:nil];
 }
+-(void) keyboardWillChange {
+    NSLog(@"keyboard frame changed");
+}
+
 -(void) keyboardWillShow {
     NSLog(@"keyboardWillShow");
     [[self.view viewWithTag:1] setHidden:YES];

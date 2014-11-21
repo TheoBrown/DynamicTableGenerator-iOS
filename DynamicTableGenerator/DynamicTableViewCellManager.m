@@ -35,13 +35,17 @@ extern const double EARTH_RADIUS;
 
 
 #pragma mark - init methods
-- (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView andCellInputs:(NSArray*) cellInputArray {
+- (id) initWithDelegate:(id) delegate andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView andCellInputs:(NSArray*) cellInputArray {
     self = [super init];
     if (self) {
         self = [super init];
         //        self.tagCode = [NSString stringWithFormat:@"06760"];
         //        self.tagOffset = newtagOffset;
         self.tableView = newTableView;
+        NSLog(@"cell acessory keypad");
+        self.keyPad = [[TableViewNavigationBar alloc] initWithDelegate:delegate andFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 40)];
+        self.keyPadView = self.keyPad.view;
+        [self.keyPadView removeFromSuperview];
 //        self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:CGRectMake(0,0,30,30)];
 
         
@@ -76,8 +80,8 @@ extern const double EARTH_RADIUS;
 //    return self;
 //}
 
--(void) setAcessoryInput:(TableViewNavigationBar*)buttonBar {
-    self.keyPadView = buttonBar;
+-(void) setAcessoryInput:(UIView*)buttonBar {
+//    self.keyPadView = buttonBar;
 }
 #pragma mark -table view setup
 - (void) parseInputArray:(NSArray*) cellInputArray{
@@ -129,7 +133,9 @@ extern const double EARTH_RADIUS;
     NSInteger section = [indexPath section];
     BaseOptionCellInput * baseCellInput = (BaseOptionCellInput*) [self getInputForSectionIndex:section atRow:row];
     NSString * CellIdentifier = baseCellInput.identifier;
+    //create acessory view
     
+
     if ([CellIdentifier  isEqual: DTVCCellIdentifier_NumberCell]){
         NumberCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         NumberOptionCellInput * numberCellInput = (NumberOptionCellInput*)baseCellInput;
@@ -139,8 +145,10 @@ extern const double EARTH_RADIUS;
         }
         
         [cell defineCellFormatType:numberCellInput.cellInputFormatType];
+        
 //        [self.keyPadView removeFromSuperview];
-//        [cell.numericTextField setInputAccessoryView:self.keyPadView];
+        [cell.numericTextField setInputAccessoryView:self.keyPadView];
+        
         cell.numericTextField.delegate = cell;
         
         cell.title.text = baseCellInput.title;
@@ -168,11 +176,11 @@ extern const double EARTH_RADIUS;
 
         cell.cellTextField.clearsOnBeginEditing = YES;
         cell.cellTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-//        [self.keyPadView removeFromSuperview];
-
-//        [cell.cellTextField setInputAccessoryView:self.keyPadView];
+        
+        
+        [cell.cellTextField setInputAccessoryView:self.keyPadView];
+        
         cell.cellTextField.delegate = cell;
-
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
         cell.delegate = textCellInput;
         cell.indexPath = indexPath;

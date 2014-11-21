@@ -19,6 +19,7 @@
 //        self.userInteractionEnabled = NO;
         self.view = [[UIView alloc] initWithFrame:viewFrame];
         self.delegate = tvDelegate;
+        NSLog(@"%@ button bar init with delegate %@",[self description],[self.delegate description]);
         self.view.backgroundColor = [UIColor colorWithRed:255/255.0 green:71/255.0 blue:113/255.0 alpha:1.0];
         self.view.opaque = YES;
         self.nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -56,16 +57,16 @@
         CGFloat pad = 30;
         CGFloat cum = 0;
         CGFloat yOffset = 5;
-        self.nextButton.frame =  CGRectMake(pad, yOffset, bWidth, bHeight);
+        self.previousButton.frame =  CGRectMake(pad, yOffset, bWidth, bHeight);
         cum =pad+bWidth;
-        self.previousButton.frame =  CGRectMake(pad+cum, yOffset, bWidth, bHeight);
+        self.nextButton.frame =  CGRectMake(pad+cum, yOffset, bWidth, bHeight);
         cum =cum +pad+bWidth;
 
         self.doneButton.frame =  CGRectMake(pad+cum, yOffset, bWidth, bHeight);
 
 
-        [self.view setNeedsDisplay];
-        [self.view setHidden:NO];
+//        [self.view setNeedsDisplay];
+//        [self.view setHidden:NO];
 //        [self needsUpdateConstraints];
     }
     return self;

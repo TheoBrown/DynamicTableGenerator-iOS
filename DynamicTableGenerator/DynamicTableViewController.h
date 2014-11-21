@@ -12,6 +12,7 @@
 #import "PureLayout.h"
 #import "DynamicTableViewCellManager.h"
 #import "TableViewNavigationBar.h"
+
 @protocol OptionsDelegate <NSObject>
 -(void)optionsWereUpdated:(NSDictionary*)optionsDictionary;
 
