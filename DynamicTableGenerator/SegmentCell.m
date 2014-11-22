@@ -55,16 +55,18 @@
 }
 
 -(IBAction)segmentedControlChanged:(UISegmentedControl*)sender {
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit ) fromDate:[NSDate date]];
-    NSDate * startDate = [calendar dateFromComponents:components];
-    NSLog(@"Segment COntrol did change StartDate Components: %@", [startDate description]);
+    id result = [self.segmentResults objectAtIndex:sender.selectedSegmentIndex];
+//    NSCalendar *calendar = [NSCalendar currentCalendar];
+//    NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit ) fromDate:[NSDate date]];
+//    NSDate * startDate = [calendar dateFromComponents:components];
+//    NSLog(@"Segment COntrol did change StartDate Components: %@", [startDate description]);
     
+//    
+//    NSDate * endDate = [calendar dateByAddingComponents:[self.segmentResults objectAtIndex:sender.selectedSegmentIndex] toDate:startDate options:0];
+//    NSLog(@"EndDate Components: %@", [endDate description]);
     
-    NSDate * endDate = [calendar dateByAddingComponents:[self.segmentResults objectAtIndex:sender.selectedSegmentIndex] toDate:startDate options:0];
-    NSLog(@"EndDate Components: %@", [endDate description]);
-    
-    [self.delegate cellDateSegmentDidChange:self.indexPath startDate:startDate endDate:endDate];
+//    [self.delegate cellDateSegmentDidChange:self.indexPath startDate:startDate endDate:endDate];
+//    self.delegate cell
 }
 
 @end

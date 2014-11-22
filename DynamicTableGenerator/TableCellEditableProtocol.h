@@ -19,6 +19,9 @@
 - (void) cellDateDidChange: (NSIndexPath *) cellIndexPath :(NSDate*) value;
 
 - (void) cellDateSegmentDidChange: (NSIndexPath *) cellIndexPath startDate:(NSDate*) startDate endDate:(NSDate*)endDate;
+- (void) cellSegmentDidChange: (NSIndexPath *) cellIndexPath withObject:(NSObject*)segmentResult;
+- (void) cellSegmentDidChange: (NSIndexPath *) cellIndexPath withIndex:(NSNumber*)segmentIndex;
+- (void) cellSegmentIntClickerDidChange: (NSIndexPath *) cellIndexPath withValue:(NSNumber*) newValue;
 
 //-(void) cellSliderDidChange:(NSIndexPath *) cellIndexPath :(float) value;
 -(void) cellSliderDidChange:(NSIndexPath *) cellIndexPath :(NSNumber*) value;

@@ -12,6 +12,7 @@
 @interface SegmentCell: BaseCell
 
 
+
 @property (nonatomic, strong) IBOutlet UISegmentedControl *cellSegment;
 @property (nonatomic, strong) NSArray * segmentResults;
 
