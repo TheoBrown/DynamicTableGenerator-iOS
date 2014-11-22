@@ -175,14 +175,14 @@
 
 -(void) keyboardWillShow {
     NSLog(@"keyboardWillShow");
-    [[self.view viewWithTag:1] setHidden:YES];
-    [self.keyPadView removeFromSuperview];
+//    [[self.view viewWithTag:1] setHidden:YES];
+//    [self.keyPadView removeFromSuperview];
 }
 -(void) keyboardWillHide {
     NSLog(@"keyboardWillHide");
-    [[self.view viewWithTag:1] setHidden:NO];
-    [self.view addSubview:self.keyPadView];
-    [self.view bringSubviewToFront:self.keyPadView];
+//    [[self.view viewWithTag:1] setHidden:NO];
+//    [self.view addSubview:self.keyPadView];
+//    [self.view bringSubviewToFront:self.keyPadView];
 
 }
 - (void)viewDidDisappear:(BOOL)animated
@@ -256,9 +256,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.view endEditing:YES]; // dismiss current editing views
-//    NSLog(@"tableView Row Selected %@" ,[self stringForIndex:indexPath]);
+    NSLog(@"tableView Row Selected %@" ,[self stringForIndex:indexPath]);
     self.currentSelection = indexPath;
-//    [self displayContentForCellAtIndex:self.currentSelection];
+    [self displayContentForCellAtIndex:self.currentSelection];
     
 }
 
@@ -285,7 +285,8 @@
 
     NSInteger lastRowInSection = [self.cellManager rowsInSection:self.currentSelection.section]-1;
     NSInteger lastSection = [self.cellManager.sectionHeaderArray count]-1;
-    
+    [self.view endEditing:YES]; // dismiss current editing views
+
     NSInteger newRow;
     NSInteger newSection;
     
@@ -317,6 +318,8 @@
 
 -(void)gotoNextTextfield: (id) sender
 {
+    [self.view endEditing:YES]; // dismiss current editing views
+
     NSLog(@"go to next");
     //Remember to check boundaries before just setting an indexpath or your app will crash!
     NSInteger lastRowInSection = [self.cellManager rowsInSection:self.currentSelection.section]-1;
