@@ -120,26 +120,13 @@
         NSString* parsedPropertyType = parsedPropertys[1];
         int inputFormatType = [parsedPropertys[2] intValue];
 
-        
-        
         NSString *displayName =[self displayStringForParameterName:cleanPropertyName];
-
-
         [displaynames setObject:displayName forKey:key];
-        
-        if ([propertyTypeString isEqualToString:@"NSNumber"]) { //create alternative controls based on attr name
-            if ([parsedPropertyType isEqualToString:@"B"]) {
-                propertyTypeString = @"B";
-            }
-            else if ([parsedPropertyType isEqualToString:@"f"]) {
-                propertyTypeString = @"f";
-            }
-
-        }
-
         NSLog(@"%@ key property type %@ format %d",displayName,propertyTypeString,inputFormatType);
 
+        
         if ([propertyTypeString  isEqual: @"NSString"]){
+            
             int inputFormatType = [self parseDTVTextEntryTypes:parsedPropertyType];
             TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
             [newTextCell defineCellInputFormatType:[NSNumber numberWithInt:inputFormatType]];
@@ -157,6 +144,7 @@
         else if ([propertyTypeString isEqual:@"NSNumber"]) {
             NumberOptionCellInput* newNumberCell = [[NumberOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"number section"];
             
+            int inputFormatType = [self parseDTVTextEntryTypes:parsedPropertyType];
             [newNumberCell defineCellInputFormatType:[NSNumber numberWithInt:inputFormatType]];
             [tempCellsArray addObject:newNumberCell];
 
@@ -232,7 +220,27 @@
     }
     return returnInputEnumType;
 }
-
+-(int) parseDTVNumberEntryTypes:(NSString*) parsedPropertyType {
+    int returnInputEnumType = 0;
+    NSString * propertyTypeString = [NSString new];
+    if ([parsedPropertyType isEqualToString:@"B"]) {
+        propertyTypeString = @"B";
+        
+    }
+    else if ([parsedPropertyType isEqualToString:@"f"]) {
+        propertyTypeString = @"f";
+    }
+    else if ([parsedPropertyType isEqualToString:@"d"]) {
+        returnInputEnumType = DTVCInputType_NumberCell_Decimal;
+    }
+    else if ([parsedPropertyType isEqualToString:@"i"]) {
+        returnInputEnumType = DTVCInputType_NumberCell_Integer;
+    }
+    else {
+        returnInputEnumType = DTVCInputType_TextCell_Ascii;
+    }
+    return returnInputEnumType;
+}
 #pragma mark  - property type parsing from attribute name
 
 -(NSArray*) parseTypeFromStringFormat:(NSString*)keyString {
@@ -275,7 +283,7 @@
         }
         else {
             propertyString = typeString;
-            inputFormatType = DTVCInputType_SwitchCell_Bool;
+            inputFormatType = 0;
         }
         return @[displayString,propertyString,[NSNumber numberWithInt:inputFormatType]];
     }
