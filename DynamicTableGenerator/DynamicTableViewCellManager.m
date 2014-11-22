@@ -28,7 +28,7 @@
 #import "TableViewNavigationBar.h"
 
 @implementation DynamicTableViewCellManager
-@synthesize tagCode, tagOffset;
+
 @synthesize tableView;
 @synthesize sectionHeaderArray;
 
@@ -81,9 +81,6 @@ extern const double EARTH_RADIUS;
 //    return self;
 //}
 
--(void) setAcessoryInput:(UIView*)buttonBar {
-//    self.keyPadView = buttonBar;
-}
 #pragma mark -table view setup
 - (void) parseInputArray:(NSArray*) cellInputArray{
     NSMutableArray* sectionTitles = [[NSMutableArray alloc] init];

@@ -33,9 +33,10 @@
 @interface DynamicTableViewCellManager : NSObject
 
 
-@property (nonatomic, strong) NSMutableDictionary *resultDict;
+@property (nonatomic, strong) NSMutableDictionary *resultDict; //not used now
 
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UITableView *tableView; // an instance of DTVC
+
 @property (nonatomic, strong) NSArray *sectionHeaderArray;
 @property (nonatomic, strong) NSDictionary *sectionDescription;
 
@@ -51,7 +52,6 @@
 - (UITableViewCell*)  getCellatIndexPath:(NSIndexPath *)indexPath andDelegate:(id) delegateToAssign;
 - (NSInteger) rowsInSection:(NSInteger) section;
 
--(void) setAcessoryInput:(UIView*)buttonBar;
 
 
 

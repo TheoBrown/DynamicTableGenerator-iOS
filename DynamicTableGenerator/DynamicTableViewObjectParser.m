@@ -12,8 +12,6 @@
 
 @implementation DynamicTableViewObjectParser
 @synthesize NewFormClass;
-@synthesize  saveUserButton;
-@synthesize  UserInfoArray, UserInfoDict,titletag;
 @synthesize cellsArray;
 
 #pragma mark - init methods
@@ -67,7 +65,8 @@
 }
 
 
-/*
+/*   Example Properties returned
+ 
  Properties for class: {
  endDate = NSDate;
  majorIncrement = q;
@@ -104,15 +103,13 @@
  */
 
 
-
-
-
-
 -(NSArray*) populateTableInfo: (NSDictionary *) info{
     NSMutableArray *tempCellsArray = [[NSMutableArray alloc] init];
     NSMutableDictionary *displaynames = [[NSMutableDictionary alloc] init];
     NSLog(@"%@" ,[info description]);
-    for (NSString* key in info){
+    
+    for (NSString* key in info){ //key is the raw property name, displayName is a cleaned up version converted to look nice
+        
         NSString* propertyTypeString = [info objectForKey:key];
         NSLog(@" key = %@, propStr = %@",key,propertyTypeString);
 
@@ -144,14 +141,8 @@
 
         if ([propertyTypeString  isEqual: @"NSString"]){
             int inputFormatType = [self parseDTVTextEntryTypes:parsedPropertyType];
-//            NSLog(@"%@ parsed to input enum %d",parsedPropertyType,inputFormatType);
-//            TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initTextInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
-//            TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initInputType:DTVCCellType_TextCell forObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
             TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
-//            NSLog(@"%@ parsed to finished init," ,newTextCell.title);
             [newTextCell defineCellInputFormatType:[NSNumber numberWithInt:inputFormatType]];
-//            NSLog(@"%@ parsed set format %d," ,newTextCell.title,[newTextCell.cellInputFormatType intValue]);
-
             [tempCellsArray addObject:newTextCell];
         }
         
@@ -171,7 +162,7 @@
 
         }
         else if ([propertyTypeString isEqual:@"NSObject"]) {
-            
+            //What to do with blank object?
         }
         else if ([propertyTypeString isEqual:@"NSArray"]) {
             NSArray* defoptionsArray = @[@"Blue",@"Green",@"Red",@"Orange"];
@@ -180,7 +171,7 @@
             [tempCellsArray addObject:newOptionCell];
         }
         else if ([propertyTypeString isEqual:@"NSSet"]) {
-            
+            // this can be linked to a fetched result picker
         }
         else if ([propertyTypeString isEqual:@"f"]) { // value is float
             SliderOptionCellInput *newCell = [[SliderOptionCellInput alloc] initFloatSliderInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName withDefault:[NSNumber numberWithFloat:0.5] withMaxValue:[NSNumber numberWithFloat:1] andMinValue:[NSNumber numberWithFloat:0] inSection:@"number section"];
@@ -200,14 +191,11 @@
             [tempCellsArray addObject:newCell];
         }
     }
-    UserInfoDict = [[NSDictionary alloc] initWithDictionary:displaynames];
-    UserInfoArray = [[NSArray alloc] initWithArray:[displaynames allKeys]];
-//    NSLog(@"Temp Array Info: %@",UserInfoArray);
-//
-
-    self.cellsArray = [[NSArray alloc] initWithArray:tempCellsArray];
-    return tempCellsArray;
+    self.attributeNameMapDict = [[NSDictionary alloc] initWithDictionary:displaynames];//maps the clean title to the attribute name -- the key is the attribute name
+    self.targetAttributeNameList = [[NSArray alloc] initWithArray:[displaynames allKeys]]; //an array of the clean titles for the TV to show
+    return [[NSArray alloc] initWithArray:tempCellsArray];
 }
+
 #pragma mark - Object Attribute Name Parsing
 
 -(NSString*) displayStringForParameterName:(NSString*)keyString {
@@ -244,6 +232,7 @@
     }
     return returnInputEnumType;
 }
+
 #pragma mark  - property type parsing from attribute name
 
 -(NSArray*) parseTypeFromStringFormat:(NSString*)keyString {

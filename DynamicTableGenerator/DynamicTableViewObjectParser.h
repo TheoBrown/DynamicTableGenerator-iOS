@@ -48,34 +48,24 @@ DTV_ObjectParser takes a NSObject or NSManagedObject and builds an array of Base
  The parsed array must be passed to DTV_CellManager
  
  */
+
 @interface DynamicTableViewObjectParser : NSObject
 
 
-
-@property (weak, nonatomic) IBOutlet UIButton *saveUserButton;
-
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain) NSDictionary *UserInfoDict;
-@property (nonatomic, retain) NSArray *UserInfoArray;
-@property (nonatomic, retain) NSArray *cellsArray;
 
-//@property (nonatomic, retain) UserInfo *NewUserInfo;
-//@property (nonatomic, retain) FishTank *NewFishTank;
+@property (nonatomic, retain) NSDictionary *attributeNameMapDict;
+@property (nonatomic, retain) NSArray *targetAttributeNameList;
+
+@property (nonatomic, retain) NSArray *cellsArray; //main array of input info for each attriute int he given object
 
 @property (nonatomic, retain) NSManagedObject *NewFormClass;
 @property (strong, nonatomic) id mutableFormObject; // this is the object that is managed and updated
 
 
-
-@property  NSInteger titletag;
-
 - (id) initWithObject:(id)newFormObject;
 - (id) initWithManagedObject:(id)newFormObject;
 - (id) initWithDict:(id)newFormObject;
 
-//-(IBAction)saveUser:(id)sender;
-//- (void)setFormClass:(id)newFormClass;
-//
-//-(UIToolbar *)createInputAccessoryViewWithTags:(NSInteger) allTag;
 @end
 

@@ -20,7 +20,7 @@
 @synthesize resultDict;
 
 
-
+#pragma mark - custom init methods
 - (void) setupWithInputArray:(NSArray*) cellInputArray {
 
 
@@ -34,13 +34,7 @@
 
     NSLog(@"Dynamic Table View Controller setup with array %@" , [cellInputArray description]);
 }
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
+
 
 #pragma mark - View lifecycle
 
@@ -132,6 +126,15 @@
 //    [super updateViewConstraints];
 //}
 
+
+#pragma mark - required view controller  implementation
+- (void)didReceiveMemoryWarning
+{
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Release any cached data, images, etc that aren't in use.
+}
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -169,22 +172,7 @@
                                                  name:UIContentSizeCategoryDidChangeNotification
                                                object:nil];
 }
--(void) keyboardWillChange {
-    NSLog(@"keyboard frame changed");
-}
 
--(void) keyboardWillShow {
-    NSLog(@"keyboardWillShow");
-//    [[self.view viewWithTag:1] setHidden:YES];
-//    [self.keyPadView removeFromSuperview];
-}
--(void) keyboardWillHide {
-    NSLog(@"keyboardWillHide");
-//    [[self.view viewWithTag:1] setHidden:NO];
-//    [self.view addSubview:self.keyPadView];
-//    [self.view bringSubviewToFront:self.keyPadView];
-
-}
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
@@ -237,9 +225,6 @@
     return cell;
 }
 
-
-
-
 #pragma mark - Table view delegate
 - (void) contentOfCellWasSelected: (NSIndexPath *) cellIndexPath{
     NSLog(@"contentOfCellWasSelected  %@" ,[self stringForIndex:cellIndexPath]);
@@ -253,6 +238,7 @@
 {
     [self.tableView reloadData];
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.view endEditing:YES]; // dismiss current editing views
@@ -268,16 +254,31 @@
     BaseCell* selectedCell = (BaseCell*)[self.tableView cellForRowAtIndexPath:indexPath];
     [selectedCell showContentFromSelector];
 }
-#pragma mark -t ext delegat options
 
-
+#pragma mark - Input delegate
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
 
     return YES;
 }
 
+#pragma mark  keyboard delegate
+-(void) keyboardWillChange {
+    NSLog(@"keyboard frame changed");
+}
 
+-(void) keyboardWillShow {
+    NSLog(@"keyboardWillShow");
+    //    [[self.view viewWithTag:1] setHidden:YES];
+    //    [self.keyPadView removeFromSuperview];
+}
+-(void) keyboardWillHide {
+    NSLog(@"keyboardWillHide");
+    //    [[self.view viewWithTag:1] setHidden:NO];
+    //    [self.view addSubview:self.keyPadView];
+    //    [self.view bringSubviewToFront:self.keyPadView];
+    
+}
 #pragma mark textfield toolbar
 -(void)gotoPrevTextfield: (id) sender
 {
@@ -361,6 +362,8 @@
     [self.view endEditing:YES];
 
 }
+
+#pragma mark - session recording
 -(void)saveCurrentEntry: (id) sender {
 
 }

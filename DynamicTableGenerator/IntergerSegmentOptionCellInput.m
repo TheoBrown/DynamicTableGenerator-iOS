@@ -18,8 +18,7 @@
 -(id) initIntergerSegmentInputForObject:(id)managedObject forReturnKey:(NSString *)newReturnKey withTitle:(NSString *)cellTitle inSection:(NSString *)newSectionHeader {
     if (!self) {
         self = [self initType:DTVCCellIdentifier_SegmentCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
-        self.segmentValues = segmentValueArray;
-        self.segmentTitles = segmentTitleArray;
+
         self.observedObject = managedObject;
         
     }
@@ -29,8 +28,7 @@
 -(id) initIntergerSegmentInputForObject:(id)managedObject withIncrement:(NSNumber *)defaultIncrement forReturnKey:(NSString *)newReturnKey withTitle:(NSString *)cellTitle inSection:(NSString *)newSectionHeader{
     if (!self) {
         self = [self initType:DTVCCellIdentifier_SegmentCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
-        self.segmentValues = segmentValueArray;
-        self.segmentTitles = segmentTitleArray;
+
         self.observedObject = managedObject;
         
     }
@@ -40,8 +38,8 @@
 -(id) initIntergerSegmentInputForObject:(id)managedObject forReturnKey:(NSString *)newReturnKey withMaxValue:(NSNumber *)maxValue andMinValue:(NSNumber *)minValue withTitle:(NSString *)cellTitle inSection:(NSString *)newSectionHeader{
     if (!self) {
         self = [self initType:DTVCCellIdentifier_SegmentCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
-        self.segmentValues = segmentValueArray;
-        self.segmentTitles = segmentTitleArray;
+//        self.segmentValues = segmentValueArray;
+//        self.segmentTitles = segmentTitleArray;
         
     }
     return self;
