@@ -41,6 +41,13 @@
 //
 //extern NSString * const DTVCInputType_ButtonCell_Array;
 
+
+/**
+DTV_ObjectParser takes a NSObject or NSManagedObject and builds an array of BaseOptionCellInput instances to fill in the data in the object
+ 
+ The parsed array must be passed to DTV_CellManager
+ 
+ */
 @interface DynamicTableViewObjectParser : NSObject
 
 

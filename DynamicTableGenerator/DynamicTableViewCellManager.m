@@ -26,6 +26,7 @@
 #import "OptionCell.h"
 
 #import "TableViewNavigationBar.h"
+
 @implementation DynamicTableViewCellManager
 @synthesize tagCode, tagOffset;
 @synthesize tableView;

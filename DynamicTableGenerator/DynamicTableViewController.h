@@ -4,6 +4,8 @@
 //
 //  Created by Theodore Brown on 8/9/14.
 //  Copyright (c) 2014 Theodore Brown. All rights reserved.
+
+
 //
 
 #import <UIKit/UIKit.h>
@@ -12,6 +14,16 @@
 #import "PureLayout.h"
 #import "DynamicTableViewCellManager.h"
 #import "TableViewNavigationBar.h"
+
+
+/**
+ DynamicTableViewController manages a table view and its dynamically generated content. 
+ 
+ Content can be created from a standard NSObject, or from a CoreData ManagedObject
+ 
+ The object must be passed to DynamicTableViewCellManager first, parsed, and used to init this VC.
+ 
+ */
 
 @protocol OptionsDelegate <NSObject>
 -(void)optionsWereUpdated:(NSDictionary*)optionsDictionary;

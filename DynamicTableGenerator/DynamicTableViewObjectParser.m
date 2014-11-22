@@ -16,6 +16,8 @@
 @synthesize  UserInfoArray, UserInfoDict,titletag;
 @synthesize cellsArray;
 
+#pragma mark - init methods
+//TODO different init for ManagedObject or NSObject..or NSDictionary??
 - (id) initWithObject:(id)newFormObject {
     if (self = [super init]) {
         if (self.mutableFormObject != newFormObject) {
@@ -56,10 +58,12 @@
     
 }
 
+
 - (void) setupFormPropertiesFromObject:(id) formObject {
+    //this is the main method that initializes the array
     NSDictionary *properties = [PropertyUtil classPropsFor:[formObject class]];
     NSLog(@"Properties for class %@: %@",[[formObject class] debugDescription], properties);
-    [self populateTableInfo:properties];
+    self.cellsArray = [self populateTableInfo:properties];
 }
 
 
@@ -103,42 +107,8 @@
 
 
 
--(NSString*) displayStringForKey:(NSString*)keyString {
-    NSString *displayString = [[NSString alloc] init];
-    if ([keyString rangeOfString:@"_"].location != NSNotFound){
-        NSArray *listItems = [keyString componentsSeparatedByString:@"_"];
-        displayString = [NSString stringWithFormat:@"%@ %@",[listItems[0] capitalizedString],[listItems[1] capitalizedString]];
-    }
-    else{
-        displayString = [keyString capitalizedString];
-    }
-    return displayString;
-}
 
--(int) parsTextEntryTypes:(NSString*) parsedPropertyType {
-    int returnInputEnumType = 0;
-        if ([parsedPropertyType isEqualToString:@"a"]) {
-            returnInputEnumType = DTVCInputType_TextCell_Ascii;
-        }
-        else if ([parsedPropertyType isEqualToString:@"abc"]) {
-            returnInputEnumType = DTVCInputType_TextCell_Alphabet;
-        }
-        else if ([parsedPropertyType isEqualToString:@"e"]) {
-            returnInputEnumType = DTVCInputType_TextCell_Email;
-        }
-        else if ([parsedPropertyType isEqualToString:@"u"]) {
-            returnInputEnumType = DTVCInputType_TextCell_URL;
-        }
-        else if ([parsedPropertyType isEqualToString:@"p"]) {
-            returnInputEnumType = DTVCInputType_TextCell_Phone;
-        }
-        else {
-            returnInputEnumType = DTVCInputType_TextCell_Ascii;
-        }
-    return returnInputEnumType;
-}
-
--(void) populateTableInfo: (NSDictionary *) info{
+-(NSArray*) populateTableInfo: (NSDictionary *) info{
     NSMutableArray *tempCellsArray = [[NSMutableArray alloc] init];
     NSMutableDictionary *displaynames = [[NSMutableDictionary alloc] init];
     NSLog(@"%@" ,[info description]);
@@ -155,7 +125,7 @@
 
         
         
-        NSString *displayName =[self displayStringForKey:cleanPropertyName];
+        NSString *displayName =[self displayStringForParameterName:cleanPropertyName];
 
 
         [displaynames setObject:displayName forKey:key];
@@ -173,7 +143,7 @@
         NSLog(@"%@ key property type %@ format %d",displayName,propertyTypeString,inputFormatType);
 
         if ([propertyTypeString  isEqual: @"NSString"]){
-            int inputFormatType = [self parsTextEntryTypes:parsedPropertyType];
+            int inputFormatType = [self parseDTVTextEntryTypes:parsedPropertyType];
 //            NSLog(@"%@ parsed to input enum %d",parsedPropertyType,inputFormatType);
 //            TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initTextInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
 //            TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initInputType:DTVCCellType_TextCell forObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
@@ -236,9 +206,45 @@
 //
 
     self.cellsArray = [[NSArray alloc] initWithArray:tempCellsArray];
+    return tempCellsArray;
+}
+#pragma mark - Object Attribute Name Parsing
+
+-(NSString*) displayStringForParameterName:(NSString*)keyString {
+    NSString *displayString = [[NSString alloc] init];
+    if ([keyString rangeOfString:@"_"].location != NSNotFound){
+        NSArray *listItems = [keyString componentsSeparatedByString:@"_"];
+        displayString = [NSString stringWithFormat:@"%@ %@",[listItems[0] capitalizedString],[listItems[1] capitalizedString]];
+    }
+    else{
+        displayString = [keyString capitalizedString];
+    }
+    return displayString;
 }
 
-#pragma mark  - property type parsing
+-(int) parseDTVTextEntryTypes:(NSString*) parsedPropertyType {
+    int returnInputEnumType = 0;
+    if ([parsedPropertyType isEqualToString:@"a"]) {
+        returnInputEnumType = DTVCInputType_TextCell_Ascii;
+    }
+    else if ([parsedPropertyType isEqualToString:@"abc"]) {
+        returnInputEnumType = DTVCInputType_TextCell_Alphabet;
+    }
+    else if ([parsedPropertyType isEqualToString:@"e"]) {
+        returnInputEnumType = DTVCInputType_TextCell_Email;
+    }
+    else if ([parsedPropertyType isEqualToString:@"u"]) {
+        returnInputEnumType = DTVCInputType_TextCell_URL;
+    }
+    else if ([parsedPropertyType isEqualToString:@"p"]) {
+        returnInputEnumType = DTVCInputType_TextCell_Phone;
+    }
+    else {
+        returnInputEnumType = DTVCInputType_TextCell_Ascii;
+    }
+    return returnInputEnumType;
+}
+#pragma mark  - property type parsing from attribute name
 
 -(NSArray*) parseTypeFromStringFormat:(NSString*)keyString {
     int inputFormatType = 0;
