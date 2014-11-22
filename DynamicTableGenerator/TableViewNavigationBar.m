@@ -48,7 +48,6 @@
 //        TPBLayout* layoutHelp = [[TPBLayout alloc] init];
 //        NSArray * views = @[self.previousButton,self.nextButton,self.doneButton];
 //        [layoutHelp horizontalLayout:views];
-
         [self.view addSubview:self.nextButton];
         [self.view addSubview:self.previousButton];
         [self.view addSubview:self.doneButton];
