@@ -76,7 +76,7 @@
     if (self.defaultValue != NULL) {
         self.value = self.defaultValue;
     }
-    NSLog(@"%@ set object with default %@ and value  %@",self.title,[self.defaultValue description], [self.value description]);
+//    NSLog(@"%@ set object with default %@ and value  %@",self.title,[self.defaultValue description], [self.value description]);
 }
 
 - (void) setManagedObject:(id) managedObject withDefaultValue:(NSObject*) defaultvalue {
