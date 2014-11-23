@@ -235,6 +235,8 @@
             cellType = [updatedCellInfo[0] intValue];
             cellFormatType = [updatedCellInfo[1] intValue];
         }
+        NSLog(@"number with type %d %d ",cellType,cellFormatType);
+
     }
     else if ([attributeClassString isEqual:@"NSDecimalNumber"]) { // NSDecimalNumber
         cellType = DTVCCellType_NumberCell;
@@ -311,8 +313,8 @@
         cellFormatType = DTVCInputType_DateCell_Time;
     }
     else {
-        cellType =DTVCCellType_TextCell;
-        cellFormatType = DTVCInputType_TextCell_Ascii;
+        cellType =DTVCCellType_DateCell;
+        cellFormatType = DTVCInputType_DateCell_Time;
     }
     return @[[NSNumber numberWithInt:cellType],[NSNumber numberWithInt:cellFormatType]];;
 }
@@ -356,6 +358,7 @@
         cellFormatType = 0; //switch has no format
     }
     else if ([parsedPropertyType isEqualToString:@"f"]) {
+        NSLog(@"ns numer set to slider");
         cellType = DTVCCellType_SliderCell;
         cellFormatType = 0; //slider has no format
     }
