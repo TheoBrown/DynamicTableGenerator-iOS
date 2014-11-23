@@ -110,7 +110,8 @@
     NSLog(@"%@" ,[targeObjectPropertyDict description]);
     
     for (NSString* key in targeObjectPropertyDict){ //key is the raw property name, displayName is a cleaned up version converted to look nice
-        
+        NSLog(@"getting attributes for %@ class %@",key,[targeObjectPropertyDict objectForKey:key]);
+
         NSArray * cellAttributeInfo = [self parseCellInfoFromAttributeName:key andAttributeClass:[targeObjectPropertyDict objectForKey:key]];
 
         NSString* cleanPropertyName = cellAttributeInfo[0];
@@ -122,24 +123,31 @@
         [displaynames setObject:displayName forKey:key];
         
         NSLog(@"%@ property %@ key type %d format %@",displayName,key,cellType,cellFormatType);
-        
+        NSString *sectionTitle = @"Ungrouped";
+        NSDictionary* defaultOptionsDict = [self getPlistOptionsForAttribute:key];
+        if (defaultOptionsDict) {
+            if([defaultOptionsDict objectForKey:@"sectionTitle"]){
+                sectionTitle = [defaultOptionsDict objectForKey:@"sectionTitle"];
+            }
+        }
         if (cellType ==DTVCCellType_TextCell){
             NSLog(@"new text cell");
-            TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
+            TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:sectionTitle];
             [newTextCell defineCellInputFormatType:cellFormatType];
             [tempCellsArray addObject:newTextCell];
         }
         else if (cellType ==DTVCCellType_DateCell) {
             NSLog(@"new date cell");
 
-            DateOptionCellInput *newDateCell = [[DateOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"dates section"];
+            DateOptionCellInput *newDateCell = [[DateOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:sectionTitle];
             [newDateCell defineCellInputFormatType:cellFormatType];
             [tempCellsArray addObject:newDateCell];
         }
+        
         else if (cellType ==DTVCCellType_NumberCell) {
             NSLog(@"new number cell");
 
-            NumberOptionCellInput* newNumberCell = [[NumberOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"number section"];
+            NumberOptionCellInput* newNumberCell = [[NumberOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:sectionTitle];
             [newNumberCell defineCellInputFormatType:cellFormatType];
             [tempCellsArray addObject:newNumberCell];
         }
@@ -154,20 +162,34 @@
         }
         else if (cellType ==DTVCCellType_SliderCell) { // value is float
             NSLog(@"new slider cell");
-
-            SliderOptionCellInput *newCell = [[SliderOptionCellInput alloc] initFloatSliderInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName withDefault:[NSNumber numberWithFloat:0.5] withMaxValue:[NSNumber numberWithFloat:1] andMinValue:[NSNumber numberWithFloat:0] inSection:@"number section"];
+            NSNumber *minValue = [defaultOptionsDict objectForKey:@"minValue"];
+            NSNumber *maxValue = [defaultOptionsDict objectForKey:@"maxValue"];
+            NSNumber *defaultValue = [defaultOptionsDict objectForKey:@"defaultValue"];
+            SliderOptionCellInput *newCell = [[SliderOptionCellInput alloc] initFloatSliderInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName withDefault:defaultValue withMaxValue:maxValue andMinValue:minValue inSection:sectionTitle];
+//            SliderOptionCellInput *newCell = [[SliderOptionCellInput alloc] initFloatSliderInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName withDefault:[NSNumber numberWithFloat:0.5] withMaxValue:[NSNumber numberWithFloat:1] andMinValue:[NSNumber numberWithFloat:0] inSection:@"number section"];
             [tempCellsArray addObject:newCell];
         }
         else if (cellType ==DTVCCellType_SwitchCell) { // bool
             NSLog(@"new switch cell");
 
-            SwitchOptionCellInput *newCell = [[SwitchOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"number section"];
+            SwitchOptionCellInput *newCell = [[SwitchOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:sectionTitle];
             [tempCellsArray addObject:newCell];
         }
     }
     self.attributeNameMapDict = [[NSDictionary alloc] initWithDictionary:displaynames];//maps the clean title to the attribute name -- the key is the attribute name
     self.targetAttributeNameList = [[NSArray alloc] initWithArray:[displaynames allKeys]]; //an array of the clean titles for the TV to show
     return [[NSArray alloc] initWithArray:tempCellsArray];
+}
+
+-(NSDictionary*) getPlistOptionsForAttribute:(NSString*) attributeName {
+        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"sampleFormProperties" ofType:@"plist"];
+        NSArray* pListCellArray = [NSArray arrayWithContentsOfFile:plistPath];
+    for (NSDictionary* cellEntry in pListCellArray) {
+        if ([cellEntry[@"attributeName"] isEqualToString:attributeName]) {
+            return cellEntry;
+        }
+    }
+    return nil;
 }
 
 #pragma mark  - property type parsing from attribute name
@@ -193,12 +215,13 @@
 -(NSArray*)parseCellInfoFromAttributeName:(NSString*) attributeName andAttributeClass:(NSString*) attributeClassString {
     
     NSArray * parsedAttributeName = [self extractDTV_AttributeStringFromPropertyName:attributeName];
-    NSString * cleanAttributeName =parsedAttributeName[0];
-    NSString * DTVC_typeString =parsedAttributeName[1];
+    NSString * cleanAttributeName = parsedAttributeName[0];
+    NSString * DTVC_typeString = parsedAttributeName[1];
     
     int cellType = 0;
     int cellFormatType = 0;
     
+    NSLog(@"%@ - %@ - %@",cleanAttributeName,attributeClassString,DTVC_typeString);
     
     if ([attributeClassString  isEqual: @"NSString"]){
         cellType = DTVCCellType_TextCell;
@@ -226,7 +249,7 @@
     else if ([attributeClassString isEqual:@"NSNumber"]) {
         
         cellType = DTVCCellType_NumberCell;
-        cellType = DTVCInputType_NumberCell_Decimal;
+        cellFormatType = DTVCInputType_NumberCell_Decimal;
         
         if (DTVC_typeString.length){ //checks is string is empty
             NSLog(@"number with format %@",DTVC_typeString);
@@ -363,8 +386,10 @@
         cellFormatType = 0; //slider has no format
     }
     else if ([parsedPropertyType isEqualToString:@"d"]) {
-        cellType = DTVCCellType_NumberCell;
-        cellFormatType = DTVCInputType_NumberCell_Decimal;
+//        cellType = DTVCCellType_NumberCell;
+//        cellFormatType = DTVCInputType_NumberCell_Decimal;
+        cellType = DTVCCellType_SliderCell;
+        cellFormatType = 0; //slider has no format
     }
     else if ([parsedPropertyType isEqualToString:@"i"]) {
         cellType = DTVCCellType_NumberCell;
@@ -375,190 +400,5 @@
         cellFormatType = DTVCInputType_NumberCell_Decimal;
     }
     return @[[NSNumber numberWithInt:cellType],[NSNumber numberWithInt:cellFormatType]];
-}
-
-#pragma mark - debugging tests
-
--(int) parseDTVNumberEntryTypes:(NSString*) parsedPropertyType {
-    int returnInputEnumType = 0;
-    NSString * propertyTypeString = [NSString new];
-    if ([parsedPropertyType isEqualToString:@"B"]) {
-        propertyTypeString = @"B";
-        
-    }
-    else if ([parsedPropertyType isEqualToString:@"f"]) {
-        propertyTypeString = @"f";
-    }
-    else if ([parsedPropertyType isEqualToString:@"d"]) {
-        returnInputEnumType = DTVCInputType_NumberCell_Decimal;
-    }
-    else if ([parsedPropertyType isEqualToString:@"i"]) {
-        returnInputEnumType = DTVCInputType_NumberCell_Integer;
-    }
-    else {
-        returnInputEnumType = DTVCInputType_TextCell_Ascii;
-    }
-    return returnInputEnumType;
-}
-
--(void) cellForType:(int) cellType {
-    switch (cellType) {
-        case DTVCCellType_TextCell: {
-            
-        }
-            break;
-        case DTVCCellType_NumberCell:
-            //
-            break;
-        case DTVCCellType_DateCell:
-            //
-            break;
-        case DTVCCellType_SwitchCell:
-            //
-            break;
-        case DTVCCellType_SliderCell:
-            //
-            break;
-        case DTVCCellType_ButtonCell:
-            //
-            break;
-        case DTVCCellType_ActionCell:
-            //
-            break;
-        default:
-            break;
-    }
-    
-}
-
-
-//-(NSArray*) populateTableInfo: (NSDictionary *) info{
-//    NSMutableArray *tempCellsArray = [[NSMutableArray alloc] init];
-//    NSMutableDictionary *displaynames = [[NSMutableDictionary alloc] init];
-//    NSLog(@"%@" ,[info description]);
-//    
-//    for (NSString* key in info){ //key is the raw property name, displayName is a cleaned up version converted to look nice
-//        
-//        [self parseCellInfoFromAttributeName:key andAttributeClass:[info objectForKey:key]];
-//        
-//        NSString* propertyTypeString = [info objectForKey:key];
-//        NSLog(@" key = %@, propStr = %@",key,propertyTypeString);
-//        
-//        NSArray * parsedPropertys = [self parseTypeFromStringFormat:key];
-//        NSLog(@"parsed propertys are %@",parsedPropertys);
-//        
-//        NSString* cleanPropertyName = parsedPropertys[0];
-//        NSString* parsedPropertyType = parsedPropertys[1];
-//        int inputFormatType = [parsedPropertys[2] intValue];
-//        
-//        NSString *displayName =[self displayStringForParameterName:cleanPropertyName];
-//        [displaynames setObject:displayName forKey:key];
-//        NSLog(@"%@ key property type %@ format %d",displayName,propertyTypeString,inputFormatType);
-//        
-//        
-//        if ([propertyTypeString  isEqual: @"NSString"]){
-//            
-//            int inputFormatType = [self parseDTVTextEntryTypes:parsedPropertyType];
-//            TextOptionCellInput* newTextCell = [[TextOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"text section"];
-//            [newTextCell defineCellInputFormatType:[NSNumber numberWithInt:inputFormatType]];
-//            [tempCellsArray addObject:newTextCell];
-//        }
-//        
-//        else if ([propertyTypeString isEqual:@"NSDate"]) {
-//            DateOptionCellInput *newDateCell = [[DateOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"dates section"];
-//            
-//            [newDateCell defineCellInputFormatType:[NSNumber numberWithInt:inputFormatType]];
-//            
-//            [tempCellsArray addObject:newDateCell];
-//            
-//        }
-//        else if ([propertyTypeString isEqual:@"NSNumber"]) {
-//            NumberOptionCellInput* newNumberCell = [[NumberOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"number section"];
-//            
-//            int inputFormatType = [self parseDTVTextEntryTypes:parsedPropertyType];
-//            [newNumberCell defineCellInputFormatType:[NSNumber numberWithInt:inputFormatType]];
-//            [tempCellsArray addObject:newNumberCell];
-//            
-//        }
-//        else if ([propertyTypeString isEqual:@"NSObject"]) {
-//            //What to do with blank object?
-//        }
-//        else if ([propertyTypeString isEqual:@"NSArray"]) {
-//            NSArray* defoptionsArray = @[@"Blue",@"Green",@"Red",@"Orange"];
-//            ButtonOptionCellInput* newOptionCell = [[ButtonOptionCellInput alloc] initOptionInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName withOptions:defoptionsArray inSection:@"Options Section"];
-//            [newOptionCell defineCellInputFormatType:[NSNumber numberWithInt:inputFormatType]];
-//            [tempCellsArray addObject:newOptionCell];
-//        }
-//        else if ([propertyTypeString isEqual:@"NSSet"]) {
-//            // this can be linked to a fetched result picker
-//        }
-//        else if ([propertyTypeString isEqual:@"f"]) { // value is float
-//            SliderOptionCellInput *newCell = [[SliderOptionCellInput alloc] initFloatSliderInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName withDefault:[NSNumber numberWithFloat:0.5] withMaxValue:[NSNumber numberWithFloat:1] andMinValue:[NSNumber numberWithFloat:0] inSection:@"number section"];
-//            [tempCellsArray addObject:newCell];
-//        }
-//        else if ([propertyTypeString isEqual:@"d"]) { //CGFloat
-//            
-//        }
-//        else if ([propertyTypeString isEqual:@"q"]) { // NSInteger
-//            
-//        }
-//        else if ([propertyTypeString isEqual:@"NSDecimalNumber"]) { // NSDecimalNumber
-//            
-//        }
-//        else if ([propertyTypeString isEqual:@"B"]) { // bool
-//            SwitchOptionCellInput *newCell = [[SwitchOptionCellInput alloc] initInputClassforObject:self.mutableFormObject forReturnKey:key withTitle:displayName inSection:@"number section"];
-//            [tempCellsArray addObject:newCell];
-//        }
-//    }
-//    self.attributeNameMapDict = [[NSDictionary alloc] initWithDictionary:displaynames];//maps the clean title to the attribute name -- the key is the attribute name
-//    self.targetAttributeNameList = [[NSArray alloc] initWithArray:[displaynames allKeys]]; //an array of the clean titles for the TV to show
-//    return [[NSArray alloc] initWithArray:tempCellsArray];
-//}
--(NSArray*) parseTypeFromStringFormat:(NSString*)keyString {
-    int inputFormatType = 0;
-    if ([keyString rangeOfString:@"__"].location != NSNotFound) {
-        NSArray *listItems = [keyString componentsSeparatedByString:@"__"];
-        NSLog(@"list items in parseTypeFromStringFormat %@",listItems);
-        NSString *typeString = listItems[1];
-        NSString *displayString = [NSString stringWithFormat:@"%@",listItems[0]];
-        NSString *propertyString = [[NSString alloc] init];
-        
-        if ([typeString isEqualToString:@"b"]) {
-            propertyString = @"B";
-            inputFormatType = DTVCInputType_SwitchCell_Bool;
-        }
-        else if ([typeString isEqualToString:@"f"]) {
-            propertyString = @"f";
-            inputFormatType = DTVCInputType_SliderCell_Float;
-        }
-        else if ([typeString isEqualToString:@"d"]) { //descimal
-            propertyString = @"decimal";
-            inputFormatType = DTVCInputType_NumberCell_Decimal;
-        }
-        else if ([typeString isEqualToString:@"dtd"]) {
-            propertyString = @"date";
-            inputFormatType = DTVCInputType_DateCell_Date;
-        }
-        else if ([typeString isEqualToString:@"dtdt"]) {
-            propertyString = @"datetime";
-            inputFormatType = DTVCInputType_DateCell_DateTime;
-            
-        }
-        else if ([typeString isEqualToString:@"dtt"]) {
-            propertyString = @"time";
-            inputFormatType = DTVCInputType_DateCell_Time;
-        }
-        else if ([typeString isEqualToString:@"i"]) {
-            propertyString = @"integer";
-            inputFormatType = DTVCInputType_NumberCell_Integer;
-        }
-        else {
-            propertyString = typeString;
-            inputFormatType = 0;
-        }
-        return @[displayString,propertyString,[NSNumber numberWithInt:inputFormatType]];
-    }
-    return @[keyString,@"",[NSNumber numberWithInt:inputFormatType]];
-    
 }
 @end

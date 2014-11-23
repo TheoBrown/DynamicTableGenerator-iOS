@@ -147,6 +147,7 @@
 		F6CB6D2E1A204C7900C0CF56 /* IntergerButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntergerButtonCell.m; sourceTree = "<group>"; };
 		F6CB6D301A204F4E00C0CF56 /* IntergerSegmentOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntergerSegmentOptionCellInput.h; sourceTree = "<group>"; };
 		F6CB6D311A204F4E00C0CF56 /* IntergerSegmentOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntergerSegmentOptionCellInput.m; sourceTree = "<group>"; };
+		F6D7A5631A216192003AE7A1 /* sampleFormProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sampleFormProperties.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +306,7 @@
 				6C7B9D2019E72DC700C86637 /* SharedData.m */,
 				F6C5E52E1A1D4611002389BD /* TPBLayout.h */,
 				F6C5E52F1A1D4611002389BD /* TPBLayout.m */,
+				F6D7A5631A216192003AE7A1 /* sampleFormProperties.plist */,
 			);
 			name = "Helper Protocols";
 			sourceTree = "<group>";
