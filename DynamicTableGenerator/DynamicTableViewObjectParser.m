@@ -125,9 +125,10 @@
         NSLog(@"%@ property %@ key type %d format %@",displayName,key,cellType,cellFormatType);
         NSString *sectionTitle = @"Ungrouped";
         NSDictionary* defaultOptionsDict = [self getPlistOptionsForAttribute:key];
-        if (defaultOptionsDict) {
-            if([defaultOptionsDict objectForKey:@"sectionTitle"]){
-                sectionTitle = [defaultOptionsDict objectForKey:@"sectionTitle"];
+        if (defaultOptionsDict != nil) {
+            NSLog(@"%@ has defaults %@",key,defaultOptionsDict);
+            if([defaultOptionsDict objectForKey:@"cellSection"]){
+                sectionTitle = [defaultOptionsDict objectForKey:@"cellSection"];
             }
         }
         if (cellType ==DTVCCellType_TextCell){
@@ -185,7 +186,11 @@
         NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"sampleFormProperties" ofType:@"plist"];
         NSArray* pListCellArray = [NSArray arrayWithContentsOfFile:plistPath];
     for (NSDictionary* cellEntry in pListCellArray) {
-        if ([cellEntry[@"attributeName"] isEqualToString:attributeName]) {
+        NSString* dictAttrName = [cellEntry objectForKey:@"attributeName"];
+        NSLog(@"plist loaded for entry %@, %@",dictAttrName,attributeName);
+        NSLog(@"%d",(dictAttrName == attributeName));
+        if ([dictAttrName isEqualToString:attributeName]) {
+            NSLog(@"found entry");
             return cellEntry;
         }
     }
