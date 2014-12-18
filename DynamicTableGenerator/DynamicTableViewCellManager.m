@@ -121,6 +121,7 @@ extern const double EARTH_RADIUS;
         cell.indexPath = indexPath;
         cell.tableViewDelegate = delegateToAssign;
         cell.numericTextField.text = [cell stringFromNumber:(NSNumber*)[numberCellInput getDisplayValue]];
+        NSLog(@"Display value for number %@,%@",numberCellInput.value,[numberCellInput getDisplayValue]);
         return cell;
     }
     else if ([CellIdentifier  isEqual: DTVCCellIdentifier_TextCell]){

@@ -23,7 +23,7 @@
 - (void) setupWithInputArray:(NSArray*) cellInputArray {
     self.cellManager = [[DynamicTableViewCellManager alloc] initWithDelegate:self andtableView:self.tableView andCellInputs:cellInputArray];
     
-    NSLog(@"Dynamic Table View Controller setup with array %@" , [cellInputArray description]);
+//    NSLog(@"Dynamic Table View Controller setup with array %@" , [cellInputArray description]);
 }
 
 
@@ -171,7 +171,7 @@
 
 #pragma mark  keyboard delegate
 -(void) keyboardWillChange {
-    NSLog(@"keyboard frame changed");
+//    NSLog(@"keyboard frame changed");
 }
 
 -(void) keyboardWillShow {

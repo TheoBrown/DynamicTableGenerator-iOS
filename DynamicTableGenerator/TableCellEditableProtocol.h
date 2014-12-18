@@ -10,6 +10,7 @@
 @protocol TableCellEditable <NSObject>
 
 @optional
+
 - (void) cellNumericValueDidChange: (NSIndexPath *) cellIndexPath :(NSNumber *) value;
 - (void) cellTextValueDidChange: (NSIndexPath *) cellIndexPath :(NSString *) value;
 

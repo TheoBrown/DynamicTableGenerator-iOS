@@ -86,7 +86,7 @@
 
 
 - (void) cellFormatWasUpdated {
-    NSLog(@"%@ format updated", self.title.text);
+//    NSLog(@"%@ format updated", self.title.text);
     self.cellTextField.placeholder = self.cellContentTitle;
     [self.cellTextField setKeyboardType:[self.cellContentFormatType intValue]];
 }

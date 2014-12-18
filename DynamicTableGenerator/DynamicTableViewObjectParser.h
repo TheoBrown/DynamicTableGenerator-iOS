@@ -37,7 +37,7 @@ DTV_ObjectParser takes a NSObject or NSManagedObject and builds an array of Base
 @property (nonatomic, retain) NSArray *cellsArray; //main array of input info for each attriute int he given object
 
 @property (nonatomic, retain) NSManagedObject *NewFormClass;
-@property (strong, nonatomic) id mutableFormObject; // this is the object that is managed and updated
+@property (weak, nonatomic) id mutableFormObject; // this is the object that is managed and updated
 
 - (id) initWithObject:(id)newFormObject;
 - (id) initWithObject:(id)newFormObject andSettingsPlist:(NSString*)settingsPlistPath;

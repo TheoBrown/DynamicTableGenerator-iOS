@@ -161,6 +161,8 @@ NSString * const DTVCCellIdentifier_StepperCell = @"DTVC_StepperCell";
 
     self.cellFormatType = cellFormatEnumType;
 //    NSLog(@"%@ set cell format to %d",self.title,formatTypeDef);
+    NSLog(@"%@ format type defined by %@ with dict %@",self.title.text,self.cellFormatType,self.cellContentFormatDict);
+
     if (self.cellContentFormatDict) {
         self.cellContentTitle = [[self.cellContentFormatDict objectForKey:self.cellFormatType] valueForKey:@"title"]; //default string used in content: e.g. text box prompt string
         self.cellContentFormatString = [[self.cellContentFormatDict objectForKey:self.cellFormatType] valueForKey:@"format"];//string used to format data for display

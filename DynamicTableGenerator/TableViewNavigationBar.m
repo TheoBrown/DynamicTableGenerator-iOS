@@ -65,14 +65,14 @@
         CGFloat pad = 30;
         CGFloat cum = 0;
         CGFloat yOffset = 5;
-        NSLog(@"viewframe = %@",[NSValue valueWithCGRect:self.view.frame]);
+//        NSLog(@"viewframe = %@",[NSValue valueWithCGRect:self.view.frame]);
         self.previousButton.frame =  CGRectMake(pad, yOffset, bWidth, bHeight);
         cum =pad+bWidth;
         self.nextButton.frame =  CGRectMake(pad+cum, yOffset, bWidth, bHeight);
         cum =cum +pad+bWidth;
         CGFloat donePos = cum+pad+pad;
         CGFloat forcePos =self.view.frame.size.width -10-bWidth;
-        NSLog(@"%f , %f",donePos,forcePos);
+//        NSLog(@"%f , %f",donePos,forcePos);
         self.doneButton.frame =  CGRectMake(donePos, yOffset, bWidth, bHeight);
         
         

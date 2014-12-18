@@ -28,14 +28,15 @@
                                                                                                  @"contentType":[NSNumber numberWithInt:UIKeyboardTypeNumberPad]},
                                      };
         [self setCellContentFormatDict:cellContentFormatDict];
+        
         self.numericTextField = [UITextField newAutoLayoutView];
         [self.numericTextField addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventEditingDidBegin];
 
         [self defineContentSelector:@selector(showKeyBoard)];
 
         [self.numericTextField setClearsOnBeginEditing:true];
-//        [self.numericTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEnd];
-//        [self.numericTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEndOnExit];
+        [self.numericTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEnd];
+        [self.numericTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingDidEndOnExit];
         [self.numericTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventValueChanged];
         [self.numericTextField setTextAlignment:NSTextAlignmentRight];
 
@@ -69,6 +70,7 @@
 }
 
 -(void) cellFormatWasUpdated {
+    NSLog(@"%@ format type is %d",self.title.text,[self.cellContentFormatType intValue]);
     [self.numericTextField setKeyboardType:[self.cellContentFormatType intValue]];
 
 }
@@ -92,11 +94,15 @@
 
 -(NSString*)stringFromNumber:(NSNumber*)number {
     NSString* displayString = [[NSString alloc] init];
-    if ([self.cellContentFormatType intValue] == DTVCInputType_NumberCell_Integer) {
+    NSLog(@"format %@, format str %@",self.cellContentFormatType,self.cellContentFormatString);
+    if ([self.cellFormatType intValue] == DTVCInputType_NumberCell_Integer) {
         displayString = [NSString stringWithFormat:self.cellContentFormatString, [number intValue]];
     }
-    else if ([self.cellContentFormatType intValue] == DTVCInputType_NumberCell_Decimal) {
+    else if ([self.cellFormatType intValue] == DTVCInputType_NumberCell_Decimal) {
         displayString = [NSString stringWithFormat:self.cellContentFormatString, [number floatValue]];
+    }
+    else {
+        NSLog(@"ERROR: %d not predefined value ",[self.cellContentFormatType intValue]);
     }
     return displayString;
 }
@@ -112,9 +118,11 @@
     }
     NSNumber *newValue = [NSNumber numberWithFloat:value];
     self.numericTextField.text = [self stringFromNumber:newValue];
-    
-    [self.delegate cellNumericValueDidChange:self.indexPath: [NSNumber numberWithFloat:value]];
+    NSLog(@"text value did change with %f, should display %@",value,[self stringFromNumber:newValue]);
+
+    [self.delegate cellNumericValueDidChange:self.indexPath :[NSNumber numberWithFloat:value]];
 }
+
 #pragma mark -text delegate
 - (void) showKeyBoard {
     [self.numericTextField becomeFirstResponder];

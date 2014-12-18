@@ -85,6 +85,7 @@
     self.defaultValue = defaultvalue;
     self.value = self.defaultValue;
 }
+
 - (void) createDefaultValueForObject:(id)managedObject orValue:(id) backupValue {
     NSObject* newDefault = [managedObject valueForKey:self.returnKey] ?:backupValue;
     [self setManagedObject:managedObject withDefaultValue:newDefault];
@@ -99,7 +100,11 @@
     return self.value;
 }
 - (void) saveObjectContext {
-    [self.observedObject setValue:self.value forKey:self.returnKey];
+    if ([self.observedObject respondsToSelector:@selector(setValue:forKey:)]) {
+        NSLog(@"core data entity value set from %@",[self.observedObject valueForKey:self.returnKey]);
+        [self.observedObject setValue:self.value forKey:self.returnKey];
+        NSLog(@"to value %@ for value %@",[self.observedObject valueForKey:self.returnKey],self.value);
+    }
 }
 
 - (void) updateContextWithValue:(NSObject*) newValue {
