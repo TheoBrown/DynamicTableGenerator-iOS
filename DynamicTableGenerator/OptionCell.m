@@ -102,8 +102,19 @@
 
 -(NSString*) combineStringsFromArray:(NSArray*) stringArray {
     NSString *finalString = [[NSString alloc] init];
-    for (NSString* item in stringArray) {
-        finalString = [NSString stringWithFormat:@"%@ %@,",finalString,item];
+    NSString* tempString = @"";
+    NSInteger resultCount = [stringArray count];
+    for (int i = 0; i < resultCount; i++) {
+        NSLog(@"Temp:%@ item:%@",tempString,stringArray[i]);
+        tempString = [tempString stringByAppendingString:(NSString*)stringArray[i]];
+        if (resultCount-i ==1) { //this is the last item
+            finalString = tempString;
+        }
+        else {
+            tempString = [tempString stringByAppendingString:@", "];
+        }
+//        finalString = [NSString stringWithFormat:@"%@ %@,",finalString,item];
+
     }
     return finalString;
 }

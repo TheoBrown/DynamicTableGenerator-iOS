@@ -14,8 +14,6 @@
     return DTVCCellIdentifier_SliderCell;
 }
 
-
-
 -(id) initFloatSliderInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withDefault:(NSNumber*) defaultFloat withMaxValue:(NSNumber*) maxValue andMinValue:(NSNumber*) minValue inSection:(NSString*) newSectionHeader {
     
     self = [super init];

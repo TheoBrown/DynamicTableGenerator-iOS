@@ -9,7 +9,7 @@
 #import "DynamicTableViewObjectParser.h"
 
 #import "PropertyUtil.h"
-
+#import "TPBLogger.h"
 @implementation DynamicTableViewObjectParser
 @synthesize NewFormClass;
 @synthesize cellsArray;
@@ -20,6 +20,22 @@
     if (self = [super init]) {
         if (self.mutableFormObject != newFormObject) {
             self.mutableFormObject = newFormObject;
+            NSString * defaultPlist =@"sampleFormProperties";
+            NSString *plistPath = [[NSBundle mainBundle] pathForResource:defaultPlist ofType:@"plist"];
+            self.pListPropertyArray = [NSArray arrayWithContentsOfFile:plistPath];
+            NSLog(@"Plist loaded as ::%@",self.pListPropertyArray);
+            [self setupFormPropertiesFromObject:self.mutableFormObject];
+
+        }
+    }
+    return self;
+}
+- (id) initWithObject:(id)newFormObject andSettingsPlist:(NSString*)settingsPlistPath {
+    if (self = [super init]) {
+        if (self.mutableFormObject != newFormObject) {
+            self.mutableFormObject = newFormObject;
+            NSString *plistPath = [[NSBundle mainBundle] pathForResource:settingsPlistPath ofType:@"plist"];
+            self.pListPropertyArray = [NSArray arrayWithContentsOfFile:plistPath];
             [self setupFormPropertiesFromObject:self.mutableFormObject];
         }
     }
@@ -44,7 +60,6 @@
     return self;
 }
 
-
 - (void)setFormClass:(id)newFormClass
 {
 	NSLog(@"form class set to %@" , [newFormClass debugDescription]);
@@ -55,7 +70,6 @@
     }
     
 }
-
 
 - (void) setupFormPropertiesFromObject:(id) formObject {
     //this is the main method that initializes the array
@@ -111,7 +125,6 @@
     
     for (NSString* key in targeObjectPropertyDict){ //key is the raw property name, displayName is a cleaned up version converted to look nice
         NSLog(@"getting attributes for %@ class %@",key,[targeObjectPropertyDict objectForKey:key]);
-
         NSArray * cellAttributeInfo = [self parseCellInfoFromAttributeName:key andAttributeClass:[targeObjectPropertyDict objectForKey:key]];
 
         NSString* cleanPropertyName = cellAttributeInfo[0];
@@ -125,6 +138,7 @@
         NSLog(@"%@ property %@ key type %d format %@",displayName,key,cellType,cellFormatType);
         NSString *sectionTitle = @"Ungrouped";
         NSDictionary* defaultOptionsDict = [self getPlistOptionsForAttribute:key];
+        
         if (defaultOptionsDict != nil) {
             NSLog(@"%@ has defaults %@",key,defaultOptionsDict);
             if([defaultOptionsDict objectForKey:@"cellSection"]){
@@ -166,6 +180,7 @@
             NSNumber *minValue = [defaultOptionsDict objectForKey:@"minValue"];
             NSNumber *maxValue = [defaultOptionsDict objectForKey:@"maxValue"];
             NSNumber *defaultValue = [defaultOptionsDict objectForKey:@"defaultValue"];
+            NSLog(@"slider defaults %@ %@ %@",minValue,maxValue,defaultValue);
             SliderOptionCellInput *newCell = [[SliderOptionCellInput alloc] initFloatSliderInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName withDefault:defaultValue withMaxValue:maxValue andMinValue:minValue inSection:sectionTitle];
 //            SliderOptionCellInput *newCell = [[SliderOptionCellInput alloc] initFloatSliderInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName withDefault:[NSNumber numberWithFloat:0.5] withMaxValue:[NSNumber numberWithFloat:1] andMinValue:[NSNumber numberWithFloat:0] inSection:@"number section"];
             [tempCellsArray addObject:newCell];
@@ -183,9 +198,8 @@
 }
 
 -(NSDictionary*) getPlistOptionsForAttribute:(NSString*) attributeName {
-        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"sampleFormProperties" ofType:@"plist"];
-        NSArray* pListCellArray = [NSArray arrayWithContentsOfFile:plistPath];
-    for (NSDictionary* cellEntry in pListCellArray) {
+    NSLog(@"looking for %@ in %@",attributeName,self.pListPropertyArray);
+    for (NSDictionary* cellEntry in self.pListPropertyArray) {
         NSString* dictAttrName = [cellEntry objectForKey:@"attributeName"];
         NSLog(@"plist loaded for entry %@, %@",dictAttrName,attributeName);
         NSLog(@"%d",(dictAttrName == attributeName));

@@ -127,12 +127,12 @@
     NSLog(@"observedObject: %@ , value %@, id %@", [self.observedObject class], [self.value class], self.identifier);
 
 }
-//-(NSString*) cellType {
-//    
-//    if (!self.identifier) {
-//        NSLog(@"ERROR Cell type not set");
-//    }
-//    return self.identifier;
-//    
-//}
+-(NSString*) cellType {
+    
+    if (!self.identifier) {
+        NSLog(@"ERROR Cell type not set");
+    }
+    return self.identifier;
+    
+}
 @end

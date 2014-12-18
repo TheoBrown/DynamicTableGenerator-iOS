@@ -14,12 +14,10 @@
 
 #import "SharedData.h"
 #import "FetchedResultsHelper.h"
+
 @implementation DynamicTableViewController
-
-
 @synthesize optionsDelegate, cellManager;
 @synthesize resultDict;
-
 
 #pragma mark - custom init methods
 - (void) setupWithInputArray:(NSArray*) cellInputArray {
@@ -35,50 +33,36 @@
 {
     [super viewDidLoad];
     
-//    self.tableView = [UITableView newAutoLayoutView];
     CGFloat controlHeight = 40.0;
     CGRect tableFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.x, self.view.bounds.size.width, self.view.bounds.size.height-controlHeight);
-//    [self.view setUserInteractionEnabled:NO];
     self.tableView = [[UITableView alloc] initWithFrame:tableFrame];
-    
     self.tableView.dataSource = self;
-    self.tableView.backgroundColor = [UIColor orangeColor];
+    self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 44.0; // set this to whatever your "average" cell height is; it doesn't need to be very accurate
     self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 250.0, 0.0);
-//    self.view.userInteractionEnabled = YES;
-    
     [self.view addSubview:self.tableView];
     
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveSettings:)];
 	self.navigationItem.rightBarButtonItem = addButton;
     
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
-    self.tableView.estimatedRowHeight = 44.0; // set this to whatever your "average" cell height is; it doesn't need to be very accurate
-    NSLog(@"table view did load");
     [self.tableView reloadData];
 
     CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.size.height-controlHeight, self.view.bounds.size.width, controlHeight);
     UIView* newView = [[UIView alloc] initWithFrame:keyPadFrame];
     [newView setBackgroundColor:[UIColor redColor]];
-    
-//    [self.view addSubview:newView];
-//    [self.view bringSubviewToFront:newView];
-    
-    NSLog(@"tv keypad");
+
     self.keyPad = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:keyPadFrame];
     self.keyPadView = self.keyPad.view;
     [self.view addSubview:self.keyPadView];
     [self.view bringSubviewToFront:self.keyPadView];
-//    [self.cellManager setKeyPadView:self.keyPadView];
-//    TPBLayout* layoutHelp = [[TPBLayout alloc] init];
-//    [layoutHelp listSubviewsOfView:self.view];
-//    [layoutHelp listSubviewsOfView:self.keyPadView];
-
 }
+
 -(UIView*) createKeysLayout {
     return nil;
 }
+
 //- (void) updateViewConstraints {
 //    if (!self.didSetupConstraints) {
 //        [self.view addSubview:self.keyPadView];
@@ -119,9 +103,6 @@
 //    [super updateViewConstraints];
 //}
 
-
-
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -157,6 +138,7 @@
 - (void) contentOfCellWasSelected: (NSIndexPath *) cellIndexPath{
     NSLog(@"contentOfCellWasSelected  %@" ,[self stringForIndex:cellIndexPath]);
     if (self.currentSelection != cellIndexPath) {
+        [self.view endEditing:YES];
         self.currentSelection = cellIndexPath;
         [self.tableView selectRowAtIndexPath:self.currentSelection animated:YES scrollPosition:UITableViewScrollPositionTop];
     }
@@ -177,8 +159,7 @@
 }
 
 -(void) displayContentForCellAtIndex:(NSIndexPath*)indexPath {
-//    NSLog(@"displayContentForCellAtIndex %@" ,[self stringForIndex:indexPath]);
-
+    NSLog(@"displayContentForCellAtIndex %@" ,[self stringForIndex:indexPath]);
     BaseCell* selectedCell = (BaseCell*)[self.tableView cellForRowAtIndexPath:indexPath];
     [selectedCell showContentFromSelector];
 }
@@ -186,7 +167,6 @@
 #pragma mark - Input delegate
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-
     return YES;
 }
 

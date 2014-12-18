@@ -19,29 +19,6 @@
 #import "NumberOptionCellInput.h"
 #import "ButtonOptionCellInput.h"
 
-//extern NSString * const DTVCInputType_SwitchCell_Bool;
-//
-//extern NSString * const DTVCInputType_SliderCell_Float;
-//extern NSString * const DTVCInputType_SliderCell_Integer;
-//
-//extern NSString * const DTVCInputType_NumberCell_Integer;
-//extern NSString * const DTVCInputType_NumberCell_Decimal;
-//
-//extern NSString * const DTVCInputType_TextCell_Alphaet;
-//extern NSString * const DTVCInputType_TextCell_Ascii;
-//extern NSString * const DTVCInputType_TextCell_URL;
-//extern NSString * const DTVCInputType_TextCell_Email;
-//extern NSString * const DTVCInputType_TextCell_Phone;
-//
-//extern NSString * const DTVCInputType_DateCell_Date;
-//extern NSString * const DTVCInputType_DateCell_DateTime;
-//extern NSString * const DTVCInputType_DateCell_Time;
-//
-//extern NSString * const DTVCInputType_SegmentCell_Object;
-//
-//extern NSString * const DTVCInputType_ButtonCell_Array;
-
-
 /**
 DTV_ObjectParser takes a NSObject or NSManagedObject and builds an array of BaseOptionCellInput instances to fill in the data in the object
  
@@ -51,8 +28,8 @@ DTV_ObjectParser takes a NSObject or NSManagedObject and builds an array of Base
 
 @interface DynamicTableViewObjectParser : NSObject
 
-
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSArray *pListPropertyArray;
 
 @property (nonatomic, retain) NSDictionary *attributeNameMapDict;
 @property (nonatomic, retain) NSArray *targetAttributeNameList;
@@ -62,8 +39,9 @@ DTV_ObjectParser takes a NSObject or NSManagedObject and builds an array of Base
 @property (nonatomic, retain) NSManagedObject *NewFormClass;
 @property (strong, nonatomic) id mutableFormObject; // this is the object that is managed and updated
 
-
 - (id) initWithObject:(id)newFormObject;
+- (id) initWithObject:(id)newFormObject andSettingsPlist:(NSString*)settingsPlistPath;
+
 - (id) initWithManagedObject:(id)newFormObject;
 - (id) initWithDict:(id)newFormObject;
 

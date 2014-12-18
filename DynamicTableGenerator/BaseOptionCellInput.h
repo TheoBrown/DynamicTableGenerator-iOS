@@ -7,17 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TableCellEditableProtocol.h"
 #import "BaseCell.h"
+
+#import "TableCellEditableProtocol.h"
 #import "DynamicTableViewConstants.h"
-//extern NSString * const dateCell;
-//extern NSString * const sliderCell;
-//extern NSString * const buttonCell;
-//extern NSString * const actionCell;
-//extern NSString * const textCell;
-//extern NSString * const numberCell;
-//extern NSString * const switchCell;
-//extern NSString * const segmentCell;
+
 
 @interface BaseOptionCellInput : NSObject <TableCellEditable>
 
@@ -37,7 +31,6 @@
 //DTVC setup
 @property (nonatomic,strong) NSNumber * cellInputFormatType;
 - (void) defineCellInputFormatType:(NSNumber*) newCellInputFormatType;
-
 
 - (id) initType:(NSString*) optionType forReturnKey:(NSString*) newReturnKey withTitle:(NSString*) titleString inSection:(NSString*) sectionHeaderString;
 -(id) initInputType:(NSString*) optionType forObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;

@@ -14,7 +14,6 @@
     return DTVCCellIdentifier_SwitchCell;
 }
 
-
 -(id) initSwitchInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withDefault:(BOOL) defaultBool  inSection:(NSString*) newSectionHeader {
     self = [super init];
     

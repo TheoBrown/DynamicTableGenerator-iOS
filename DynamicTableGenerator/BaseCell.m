@@ -30,10 +30,51 @@ NSString * const DTVCCellIdentifier_StepperCell = @"DTVC_StepperCell";
 
 @interface BaseCell ()
 
-
 @end
 
 @implementation BaseCell
+#pragma mark - special init with optionInput
+- (id)initWithStyle:(UITableViewCellStyle)style forInput:(id)optionCellInput atIndex:(NSIndexPath*)indexPath withReuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        
+    }
+    return self;
+}
+
+#pragma mark - init methods
+- (id)initWithStyle:(UITableViewCellStyle)style atIndex:(NSIndexPath*)indexPath withReuseIdentifier:(NSString *)reuseIdentifier
+{
+    //    NSLog(@"BAse cell init called");
+    
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.indexPath = indexPath;
+        
+        self.title = [UILabel newAutoLayoutView];
+        [self.title setLineBreakMode:NSLineBreakByTruncatingTail];
+        [self.title setNumberOfLines:1];
+        [self.title setTextAlignment:NSTextAlignmentLeft];
+        [self.title setTextColor:[UIColor blackColor]];
+        
+        self.subTitle = [UILabel newAutoLayoutView];
+        [self.subTitle setLineBreakMode:NSLineBreakByTruncatingTail];
+        [self.subTitle setNumberOfLines:0];
+        [self.subTitle setTextAlignment:NSTextAlignmentLeft];
+        [self.subTitle setTextColor:[UIColor darkGrayColor]];
+        
+        self.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[self.indexPath row], (long)[self.indexPath section]];
+        
+        self.title.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+        self.subTitle.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
+        
+        [self.contentView addSubview:self.title];
+        [self.contentView addSubview:self.subTitle];
+        
+    }
+    
+    return self;
+}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -69,6 +110,8 @@ NSString * const DTVCCellIdentifier_StepperCell = @"DTVC_StepperCell";
     return self;
 }
 
+
+#pragma mark -
 -(void) defineContentSelector:(SEL) contentSelector{
     self.contentSelector = contentSelector;
 }
@@ -117,9 +160,9 @@ NSString * const DTVCCellIdentifier_StepperCell = @"DTVC_StepperCell";
     self.cellFormatType = cellFormatEnumType;
 //    NSLog(@"%@ set cell format to %d",self.title,formatTypeDef);
     if (self.cellContentFormatDict) {
-        self.cellContentTitle = [[self.cellContentFormatDict objectForKey:self.cellFormatType] valueForKey:@"title"];
-        self.cellContentFormatString = [[self.cellContentFormatDict objectForKey:self.cellFormatType] valueForKey:@"format"];;
-        self.cellContentFormatType = [[self.cellContentFormatDict objectForKey:self.cellFormatType] valueForKey:@"contentType"];;
+        self.cellContentTitle = [[self.cellContentFormatDict objectForKey:self.cellFormatType] valueForKey:@"title"]; //default string used in content: e.g. text box prompt string
+        self.cellContentFormatString = [[self.cellContentFormatDict objectForKey:self.cellFormatType] valueForKey:@"format"];//string used to format data for display
+        self.cellContentFormatType = [[self.cellContentFormatDict objectForKey:self.cellFormatType] valueForKey:@"contentType"]; //static value used to define format of data
     }
 
     [self cellFormatWasUpdated];

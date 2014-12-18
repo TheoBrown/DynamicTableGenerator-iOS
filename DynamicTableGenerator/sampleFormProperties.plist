@@ -6,7 +6,7 @@
 	<string></string>
 	<dict>
 		<key>attributeName</key>
-		<string>gpa__d</string>
+		<string>gpa__f</string>
 		<key>cellType</key>
 		<string>slider</string>
 		<key>cellPosition</key>

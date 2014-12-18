@@ -62,7 +62,6 @@ extern const double EARTH_RADIUS;
         }
         else {
             [sectionTitles addObject:baseCellInput.sectionHeader];
-            
             sectionTitleDict[baseCellInput.sectionHeader] = [[NSMutableArray alloc] init];
             [sectionTitleDict[baseCellInput.sectionHeader] addObject:baseCellInput];
             // access inputs with self.sectionDescription[section_title][row#]
@@ -73,7 +72,13 @@ extern const double EARTH_RADIUS;
 }
 
 #pragma mark -table view data/cell source
-
+- (void) saveAllChanges {
+    for (NSString* sectionKey in self.sectionHeaderArray) {
+        for (BaseOptionCellInput* cellInput in self.sectionDescription[sectionKey]) {
+            [cellInput saveObjectContext];
+        }
+    }
+}
 - (id) getInputForSectionTitle:(NSString*) sectionTitle atRow:(NSInteger) rowNumber {
     return self.sectionDescription[sectionTitle][rowNumber];
 }
@@ -88,13 +93,7 @@ extern const double EARTH_RADIUS;
     return [self.sectionDescription[sectionKey] count];
 }
 
-- (void) saveAllChanges {
-    for (NSString* sectionKey in self.sectionHeaderArray) {
-        for (BaseOptionCellInput* cellInput in self.sectionDescription[sectionKey]) {
-            [cellInput saveObjectContext];
-        }
-    }
-}
+
 - (UITableViewCell*)  getCellatIndexPath:(NSIndexPath *)indexPath andDelegate:(id) delegateToAssign {
     NSInteger row = [indexPath row];
     NSInteger section = [indexPath section];
@@ -102,7 +101,6 @@ extern const double EARTH_RADIUS;
     NSString * CellIdentifier = baseCellInput.identifier;
     //create acessory view
     
-
     if ([CellIdentifier  isEqual: DTVCCellIdentifier_NumberCell]){
         NumberCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         NumberOptionCellInput * numberCellInput = (NumberOptionCellInput*)baseCellInput;
@@ -110,16 +108,12 @@ extern const double EARTH_RADIUS;
             [self.tableView registerClass:[NumberCell class] forCellReuseIdentifier:CellIdentifier];
             cell = [[NumberCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
-        
         [cell defineCellFormatType:numberCellInput.cellInputFormatType];
-        
-//        [self.keyPadView removeFromSuperview];
         [cell.numericTextField setInputAccessoryView:self.keyPadView];
-        
         cell.numericTextField.delegate = cell;
         
         cell.title.text = baseCellInput.title;
-        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
+       // cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
         cell.delegate = numberCellInput;
         cell.indexPath = indexPath;
         cell.tableViewDelegate = delegateToAssign;
@@ -139,7 +133,7 @@ extern const double EARTH_RADIUS;
         [cell defineCellFormatType:textCellInput.cellInputFormatType];
 
         cell.title.text = textCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
-        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
+       // cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
 
         cell.cellTextField.clearsOnBeginEditing = YES;
         cell.cellTextField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -169,7 +163,7 @@ extern const double EARTH_RADIUS;
         }
         
         cell.title.text = switchCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
-        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
+       // cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
         cell.delegate = switchCellInput;
         cell.indexPath = indexPath;
         cell.tableViewDelegate = delegateToAssign;
@@ -189,7 +183,7 @@ extern const double EARTH_RADIUS;
         [cell.dateButon setTitle:[cell stringFromDate:dateCellInput.value] forState:UIControlStateNormal];
         // Configure the cell...
         cell.title.text = dateCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
-        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
+       // cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
         cell.indexPath = indexPath;
         cell.selectedDate = dateCellInput.value;
         cell.delegate = dateCellInput;
@@ -206,7 +200,7 @@ extern const double EARTH_RADIUS;
         }
         cell.sliderLable.text = [NSString stringWithFormat:@"%f", [sliderCellInput.value floatValue]];
         cell.title.text = sliderCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
-        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
+       // cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
         
         cell.indexPath = indexPath;
         cell.delegate = sliderCellInput;
@@ -228,7 +222,7 @@ extern const double EARTH_RADIUS;
         }
         cell.stepperLabel.text = [NSString stringWithFormat:@"%f", [stepperCellInput.value floatValue]];
         cell.title.text = stepperCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
-        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
+       // cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
         
         cell.indexPath = indexPath;
         cell.delegate = stepperCellInput;
@@ -249,7 +243,7 @@ extern const double EARTH_RADIUS;
             cell = [[SegmentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         
-        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
+       // cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
         cell.segmentResults = segmentCellInput.segmentValues;
         NSArray *segmentTitles = segmentCellInput.segmentTitles;
         int count = 0;
@@ -291,7 +285,7 @@ extern const double EARTH_RADIUS;
 //            self.fishTankArray = @[optionsArray[indexPath.section][1][indexPath.row],cell,indexPath];
 //            NSLog(@"Fishtank array created as %@" , [self.fishTankArray description]);
 //        }
-//        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
+//       // cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
 //        
 //        //        cell.actionSheetPredicate = optionsArray[indexPath.section][1][indexPath.row][@"settings"][@"predicate"];
 //        cell.actionSheetTitle = optionsArray[indexPath.section][1][indexPath.row][@"title"];
@@ -334,7 +328,7 @@ extern const double EARTH_RADIUS;
         
         // Configure the cell...
         cell.title.text = optionCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
-        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
+       // cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
         cell.delegate = optionCellInput;
         
         cell.indexPath = indexPath;
