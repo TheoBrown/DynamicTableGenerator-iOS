@@ -32,6 +32,7 @@
 		6CBA470819E756DF00EF8861 /* CellWithAbstractActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CDB19E72D1200C86637 /* CellWithAbstractActionSheet.xib */; };
 		6CBA470D19E756DF00EF8861 /* CellWithButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CEC19E72D1300C86637 /* CellWithButton.xib */; };
 		F650D15E1A19C2F5008014FA /* TableViewNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F650D15D1A19C2F5008014FA /* TableViewNavigationBar.m */; };
+		F654ECFC1A427E7A002074DD /* StepperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F654ECFB1A427E7A002074DD /* StepperCell.m */; };
 		F67496341A1696800060ECA3 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496331A1696800060ECA3 /* BaseCell.m */; };
 		F67496371A16989D0060ECA3 /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496361A16989D0060ECA3 /* SwitchCell.m */; };
 		F674963A1A169D570060ECA3 /* DateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496391A169D570060ECA3 /* DateCell.m */; };
@@ -122,6 +123,8 @@
 		F650D1591A19A365008014FA /* TableViewNavigationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewNavigationDelegate.h; sourceTree = "<group>"; };
 		F650D15C1A19C2F5008014FA /* TableViewNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewNavigationBar.h; sourceTree = "<group>"; };
 		F650D15D1A19C2F5008014FA /* TableViewNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewNavigationBar.m; sourceTree = "<group>"; };
+		F654ECFA1A427E7A002074DD /* StepperCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepperCell.h; sourceTree = "<group>"; };
+		F654ECFB1A427E7A002074DD /* StepperCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepperCell.m; sourceTree = "<group>"; };
 		F67496321A1696800060ECA3 /* BaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
 		F67496331A1696800060ECA3 /* BaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCell.m; sourceTree = "<group>"; };
 		F67496351A16989D0060ECA3 /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = "<group>"; };
@@ -378,6 +381,8 @@
 				F67496421A169DBA0060ECA3 /* SliderCell.m */,
 				F67496441A169DEE0060ECA3 /* SegmentCell.h */,
 				F67496451A169DEE0060ECA3 /* SegmentCell.m */,
+				F654ECFA1A427E7A002074DD /* StepperCell.h */,
+				F654ECFB1A427E7A002074DD /* StepperCell.m */,
 				F6CB6D2D1A204C7900C0CF56 /* IntergerButtonCell.h */,
 				F6CB6D2E1A204C7900C0CF56 /* IntergerButtonCell.m */,
 			);
@@ -547,6 +552,7 @@
 				6C7B9CF019E72D1300C86637 /* XIBBasedTableCell.m in Sources */,
 				6C7B9D1319E72D9E00C86637 /* DateOptionCellInput.m in Sources */,
 				6C7B9D1419E72D9E00C86637 /* TextOptionCellInput.m in Sources */,
+				F654ECFC1A427E7A002074DD /* StepperCell.m in Sources */,
 				6C7B9D2819E7304400C86637 /* DynamicTableViewObjectParser.m in Sources */,
 				F67496371A16989D0060ECA3 /* SwitchCell.m in Sources */,
 				6C7B9D2319E72DC700C86637 /* MutableTableViewObjects.m in Sources */,

@@ -25,6 +25,7 @@
 
 //-(void) cellSliderDidChange:(NSIndexPath *) cellIndexPath :(float) value;
 -(void) cellSliderDidChange:(NSIndexPath *) cellIndexPath :(NSNumber*) value;
+-(void) cellStepperDidChange:(NSIndexPath *) cellIndexPath :(NSNumber*) value;
 
 -(void) cellAbstractActionSheetPickerDidChange:(NSIndexPath *) cellIndexPath withPredicateArray:(NSArray *)predicateArray :(NSObject *)value;
 -(void) cellAbstractActionSheetPickerDidChange:(NSIndexPath *) cellIndexPath withPredicateArray:(NSArray *)predicateArray withURL:(NSURL *)value;
