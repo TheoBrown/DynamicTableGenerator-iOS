@@ -30,6 +30,6 @@
 @property (nonatomic, strong)  UIButton *previousButton;
 @property (nonatomic, strong)  UIButton *doneButton;
 
--(id) initWithDelegate:(id) tvDelegate andFrame:(CGRect)viewFrame;
+-(id) initWithDelegate:(id) tableViewDelegate andFrame:(CGRect)viewFrame;
 
 @end

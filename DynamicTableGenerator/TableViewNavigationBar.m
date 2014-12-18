@@ -10,7 +10,7 @@
 
 @implementation TableViewNavigationBar
 
--(id) initWithDelegate:(id) tvDelegate andFrame:(CGRect) viewFrame {
+-(id) initWithDelegate:(id) tableViewDelegate andFrame:(CGRect) viewFrame {
 //    CGRect myFrame = CGRectMake(10 ,viewFrame.origin.y-100,viewFrame.size.width,44.0);
 //    self = [super initWithFrame:viewFrame];
     self = [super init];
@@ -18,7 +18,7 @@
 //        self.translatesAutoresizingMaskIntoConstraints = NO;
 //        self.userInteractionEnabled = NO;
         self.view = [[UIView alloc] initWithFrame:viewFrame];
-        self.delegate = tvDelegate;
+        self.delegate = tableViewDelegate;
         NSLog(@"%@ button bar init with delegate %@",[self description],[self.delegate description]);
         self.view.backgroundColor = [UIColor colorWithRed:255/255.0 green:71/255.0 blue:113/255.0 alpha:1.0];
         self.view.opaque = YES;

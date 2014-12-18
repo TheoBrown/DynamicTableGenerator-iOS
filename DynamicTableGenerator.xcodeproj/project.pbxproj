@@ -33,6 +33,7 @@
 		6CBA470D19E756DF00EF8861 /* CellWithButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CEC19E72D1300C86637 /* CellWithButton.xib */; };
 		F650D15E1A19C2F5008014FA /* TableViewNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F650D15D1A19C2F5008014FA /* TableViewNavigationBar.m */; };
 		F654ECFC1A427E7A002074DD /* StepperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F654ECFB1A427E7A002074DD /* StepperCell.m */; };
+		F654ECFF1A42801E002074DD /* StepperOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F654ECFE1A42801E002074DD /* StepperOptionCellInput.m */; };
 		F67496341A1696800060ECA3 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496331A1696800060ECA3 /* BaseCell.m */; };
 		F67496371A16989D0060ECA3 /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496361A16989D0060ECA3 /* SwitchCell.m */; };
 		F674963A1A169D570060ECA3 /* DateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496391A169D570060ECA3 /* DateCell.m */; };
@@ -125,6 +126,8 @@
 		F650D15D1A19C2F5008014FA /* TableViewNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewNavigationBar.m; sourceTree = "<group>"; };
 		F654ECFA1A427E7A002074DD /* StepperCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepperCell.h; sourceTree = "<group>"; };
 		F654ECFB1A427E7A002074DD /* StepperCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepperCell.m; sourceTree = "<group>"; };
+		F654ECFD1A42801E002074DD /* StepperOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepperOptionCellInput.h; sourceTree = "<group>"; };
+		F654ECFE1A42801E002074DD /* StepperOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepperOptionCellInput.m; sourceTree = "<group>"; };
 		F67496321A1696800060ECA3 /* BaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
 		F67496331A1696800060ECA3 /* BaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCell.m; sourceTree = "<group>"; };
 		F67496351A16989D0060ECA3 /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = "<group>"; };
@@ -280,6 +283,8 @@
 				6C7B9D0319E72D9E00C86637 /* SegmentOptionCellInput.m */,
 				F6CB6D301A204F4E00C0CF56 /* IntergerSegmentOptionCellInput.h */,
 				F6CB6D311A204F4E00C0CF56 /* IntergerSegmentOptionCellInput.m */,
+				F654ECFD1A42801E002074DD /* StepperOptionCellInput.h */,
+				F654ECFE1A42801E002074DD /* StepperOptionCellInput.m */,
 				6C7B9D0419E72D9E00C86637 /* SliderOptionCellInput.h */,
 				6C7B9D0519E72D9E00C86637 /* SliderOptionCellInput.m */,
 				6C7B9D0619E72D9E00C86637 /* DateOptionCellInput.h */,
@@ -555,6 +560,7 @@
 				F654ECFC1A427E7A002074DD /* StepperCell.m in Sources */,
 				6C7B9D2819E7304400C86637 /* DynamicTableViewObjectParser.m in Sources */,
 				F67496371A16989D0060ECA3 /* SwitchCell.m in Sources */,
+				F654ECFF1A42801E002074DD /* StepperOptionCellInput.m in Sources */,
 				6C7B9D2319E72DC700C86637 /* MutableTableViewObjects.m in Sources */,
 				6C7B9D2119E72DC700C86637 /* PropertyUtil.m in Sources */,
 				F6CB6D321A204F4E00C0CF56 /* IntergerSegmentOptionCellInput.m in Sources */,

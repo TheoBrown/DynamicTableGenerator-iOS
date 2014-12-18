@@ -25,7 +25,7 @@
 @interface BaseCell : UITableViewCell
 {
     id <TableCellEditable> _delegate;
-    id <TableViewNavigationDelegate> tvDelegate;
+    id <TableViewNavigationDelegate> tableViewDelegate;
 }
 
 #define kLabelHorizontalInsets      15.0f
@@ -36,7 +36,7 @@
 @property (nonatomic, retain) NSIndexPath * indexPath;
 
 @property (nonatomic, strong) id delegate;
-@property (nonatomic, strong) id tvDelegate;
+@property (nonatomic, strong) id tableViewDelegate;
 
 @property (nonatomic) SEL contentSelector;
 -(void) showContentFromSelector;

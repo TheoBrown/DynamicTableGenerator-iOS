@@ -137,7 +137,7 @@ NSString * const DTVCCellIdentifier_StepperCell = @"DTVC_StepperCell";
 }
 - (void) contentWasSelected:(id) sender {
     NSLog(@"%@ content display with format %@",self.title.text,self.cellContentFormatType);
-    [self.tvDelegate contentOfCellWasSelected:self.indexPath];
+    [self.tableViewDelegate contentOfCellWasSelected:self.indexPath];
 }
 
 @end

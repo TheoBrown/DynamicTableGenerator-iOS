@@ -16,6 +16,7 @@
 #import "TextOptionCellInput.h"
 #import "SwitchOptionCellInput.h"
 #import "NumberOptionCellInput.h"
+#import "StepperOptionCellInput.h"
 
 #import "SwitchCell.h"
 #import "DateCell.h"
@@ -24,7 +25,7 @@
 #import "SliderCell.h"
 #import "SegmentCell.h"
 #import "OptionCell.h"
-
+#import "StepperCell.h"
 #import "TableViewNavigationBar.h"
 
 @implementation DynamicTableViewCellManager
@@ -153,7 +154,7 @@ extern const double EARTH_RADIUS;
         cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
         cell.delegate = numberCellInput;
         cell.indexPath = indexPath;
-        cell.tvDelegate = delegateToAssign;
+        cell.tableViewDelegate = delegateToAssign;
         cell.numericTextField.text = [cell stringFromNumber:(NSNumber*)[numberCellInput getDisplayValue]];
         return cell;
     }
@@ -182,7 +183,7 @@ extern const double EARTH_RADIUS;
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
         cell.delegate = textCellInput;
         cell.indexPath = indexPath;
-        cell.tvDelegate = delegateToAssign;
+        cell.tableViewDelegate = delegateToAssign;
 
         cell.cellTextField.text = textCellInput.value;
 
@@ -203,7 +204,7 @@ extern const double EARTH_RADIUS;
         cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
         cell.delegate = switchCellInput;
         cell.indexPath = indexPath;
-        cell.tvDelegate = delegateToAssign;
+        cell.tableViewDelegate = delegateToAssign;
 
         cell.cellSwitch.on = [switchCellInput getDisplayValue];
         return cell;
@@ -224,7 +225,7 @@ extern const double EARTH_RADIUS;
         cell.indexPath = indexPath;
         cell.selectedDate = dateCellInput.value;
         cell.delegate = dateCellInput;
-        cell.tvDelegate = delegateToAssign;
+        cell.tableViewDelegate = delegateToAssign;
 
         return cell;
     }
@@ -245,8 +246,29 @@ extern const double EARTH_RADIUS;
         cell.cellSlider.minimumValue = [sliderCellInput.minSliderValue floatValue];
         cell.cellSlider.maximumValue = [sliderCellInput.maxSliderValue floatValue];
         [cell.cellSlider setValue:[sliderCellInput.value floatValue]];
-        cell.tvDelegate = delegateToAssign;
+        cell.tableViewDelegate = delegateToAssign;
 
+        [cell sizeToFit];
+        return cell;
+    }
+    else if ([CellIdentifier  isEqual: DTVCCellIdentifier_StepperCell]){
+        StepperOptionCellInput* stepperCellInput = (StepperOptionCellInput*) baseCellInput;
+        StepperCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            [self.tableView registerClass:[StepperCell class] forCellReuseIdentifier:CellIdentifier];
+            cell = [[StepperCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        cell.stepperLabel.text = [NSString stringWithFormat:@"%f", [stepperCellInput.value floatValue]];
+        cell.title.text = stepperCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
+        cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
+        
+        cell.indexPath = indexPath;
+        cell.delegate = stepperCellInput;
+        
+        cell.cellStepper.minimumValue = [stepperCellInput.minStepperValue floatValue];
+        cell.cellStepper.maximumValue = [stepperCellInput.maxStepperValue floatValue];
+        [cell.cellStepper setValue:[stepperCellInput.value integerValue]];
+        cell.tableViewDelegate = delegateToAssign;
         [cell sizeToFit];
         return cell;
     }
@@ -275,7 +297,7 @@ extern const double EARTH_RADIUS;
         }
         
         cell.indexPath = indexPath;
-        cell.tvDelegate = delegateToAssign;
+        cell.tableViewDelegate = delegateToAssign;
 
         cell.delegate = segmentCellInput;
          
@@ -348,7 +370,7 @@ extern const double EARTH_RADIUS;
         cell.delegate = optionCellInput;
         
         cell.indexPath = indexPath;
-        cell.tvDelegate = delegateToAssign;
+        cell.tableViewDelegate = delegateToAssign;
         cell.optionsArray = optionCellInput.optionsArray;
         cell.selectedOptionsArray = (NSArray*)[optionCellInput getDisplayValue];
         

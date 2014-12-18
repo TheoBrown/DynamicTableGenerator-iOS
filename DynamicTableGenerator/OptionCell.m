@@ -85,7 +85,7 @@
     
     [self.resultsViewController parseDefaultSelection:self.selectedOptionsArray];
 
-        [[self.tvDelegate navigationController] pushViewController:self.resultsViewController animated:YES];
+        [[self.tableViewDelegate navigationController] pushViewController:self.resultsViewController animated:YES];
 //           [self presentViewController:self.resultsViewController animated:YES completion: nil];
 }
 

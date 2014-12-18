@@ -16,9 +16,9 @@
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.cellStepper = [UISlider newAutoLayoutView];
+        self.cellStepper = [UIStepper newAutoLayoutView];
         self.stepperLabel = [UILabel newAutoLayoutView];
-        [self.cellStepper addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+        [self.cellStepper addTarget:self action:@selector(stepperValueChanged:) forControlEvents:UIControlEventValueChanged];
         [self.cellStepper addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventTouchDown];
         [self.cellStepper addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -61,11 +61,10 @@
     return DTVCCellIdentifier_SliderCell;
 }
 
--(IBAction)stepperValueChanged:(UISlider *)sender{
-    float value = sender.value;
-    self.stepperLabel.text = [NSString stringWithFormat:@"%.2f",value];
-    NSNumber * sliderValue = [NSNumber numberWithFloat:value];
-    
-    [self.delegate cellStepperDidChange:self.indexPath :sliderValue];
+-(IBAction)stepperValueChanged:(UIStepper *)sender{
+    double value = sender.value;
+    self.stepperLabel.text = [NSString stringWithFormat:@"%f",value];
+    NSNumber * stepperValue = [NSNumber numberWithDouble:value];
+    [self.delegate cellStepperDidChange:self.indexPath :stepperValue];
 }
 @end

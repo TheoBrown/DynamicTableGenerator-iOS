@@ -30,6 +30,7 @@ extern NSString * const DTVCCellIdentifier_TextCell;
 extern NSString * const DTVCCellIdentifier_NumberCell;
 extern NSString * const DTVCCellIdentifier_SwitchCell;
 extern NSString * const DTVCCellIdentifier_SegmentCell;
+extern NSString * const DTVCCellIdentifier_StepperCell;
 
 
 //extern NSString * const DTVCInputType_SwitchCell_Bool;
@@ -63,7 +64,8 @@ typedef NS_ENUM(NSInteger, DTVCCellType)
      DTVCCellType_TextCell,
      DTVCCellType_NumberCell,
      DTVCCellType_SwitchCell,
-     DTVCCellType_SegmentCell
+     DTVCCellType_SegmentCell,
+     DTVCCellType_StepperCell
 };
 
 typedef NS_ENUM(NSInteger, DTVCInputType_SwitchCell)
@@ -103,4 +105,8 @@ typedef NS_ENUM(NSInteger, DTVCInputType_SegmentCell)
 typedef NS_ENUM(NSInteger, DTVCInputType_ButtonCell)
 {
     DTVCInputType_ButtonCell_Array = 1,
+};
+typedef NS_ENUM(NSInteger, DTVCInputType_StepperCell)
+{
+    DTVCInputType_StepperCell_Interger = 1,
 };
