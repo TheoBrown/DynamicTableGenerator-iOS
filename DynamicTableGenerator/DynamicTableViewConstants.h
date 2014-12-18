@@ -14,14 +14,10 @@
 
 #endif
 
-//extern NSString * const DTVCCellType_DateCell;
-//extern NSString * const DTVCCellType_SliderCell;
-//extern NSString * const DTVCCellType_ButtonCell;
-//extern NSString * const DTVCCellType_ActionCell;
-//extern NSString * const DTVCCellType_TextCell;
-//extern NSString * const DTVCCellType_NumberCell;
-//extern NSString * const DTVCCellType_SwitchCell;
-//extern NSString * const DTVCCellType_SegmentCell;
+
+
+
+
 extern NSString * const DTVCCellIdentifier_DateCell;
 extern NSString * const DTVCCellIdentifier_SliderCell;
 extern NSString * const DTVCCellIdentifier_ButtonCell;
@@ -31,29 +27,6 @@ extern NSString * const DTVCCellIdentifier_NumberCell;
 extern NSString * const DTVCCellIdentifier_SwitchCell;
 extern NSString * const DTVCCellIdentifier_SegmentCell;
 extern NSString * const DTVCCellIdentifier_StepperCell;
-
-
-//extern NSString * const DTVCInputType_SwitchCell_Bool;
-//
-//extern NSString * const DTVCInputType_SliderCell_Float;
-//extern NSString * const DTVCInputType_SliderCell_Integer;
-//
-//extern NSString * const DTVCInputType_NumberCell_Integer;
-//extern NSString * const DTVCInputType_NumberCell_Decimal;
-//
-//extern NSString * const DTVCInputType_TextCell_Alphaet;
-//extern NSString * const DTVCInputType_TextCell_Ascii;
-//extern NSString * const DTVCInputType_TextCell_URL;
-//extern NSString * const DTVCInputType_TextCell_Email;
-//extern NSString * const DTVCInputType_TextCell_Phone;
-//
-//extern NSString * const DTVCInputType_DateCell_Date;
-//extern NSString * const DTVCInputType_DateCell_DateTime;
-//extern NSString * const DTVCInputType_DateCell_Time;
-//
-//extern NSString * const DTVCInputType_SegmentCell_Object;
-//
-//extern NSString * const DTVCInputType_ButtonCell_Array;
 
 typedef NS_ENUM(NSInteger, DTVCCellType)
 {
@@ -110,3 +83,4 @@ typedef NS_ENUM(NSInteger, DTVCInputType_StepperCell)
 {
     DTVCInputType_StepperCell_Interger = 1,
 };
+

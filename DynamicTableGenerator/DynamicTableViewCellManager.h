@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "DynamicTableViewConstants.h"
+#import "DynamicTableView.h"
 #import "TableViewNavigationBar.h"
 
 /**

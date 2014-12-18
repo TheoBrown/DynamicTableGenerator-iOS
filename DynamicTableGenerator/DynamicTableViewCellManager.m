@@ -7,26 +7,9 @@
 //
 
 #import "DynamicTableViewCellManager.h"
-#import "BaseOptionCellInput.h"
-#import "DateOptionCellInput.h"
-#import "SliderOptionCellInput.h"
-#import "SegmentOptionCellInput.h"
-#import "ActionSheetOptionCellInput.h"
-#import "ButtonOptionCellInput.h"
-#import "TextOptionCellInput.h"
-#import "SwitchOptionCellInput.h"
-#import "NumberOptionCellInput.h"
-#import "StepperOptionCellInput.h"
 
-#import "SwitchCell.h"
-#import "DateCell.h"
-#import "TextCell.h"
-#import "NumberCell.h"
-#import "SliderCell.h"
-#import "SegmentCell.h"
-#import "OptionCell.h"
-#import "StepperCell.h"
 #import "TableViewNavigationBar.h"
+#import "DynamicTableView.h"
 
 @implementation DynamicTableViewCellManager
 

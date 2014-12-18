@@ -10,6 +10,7 @@
 
 #import "PropertyUtil.h"
 #import "TPBLogger.h"
+
 @implementation DynamicTableViewObjectParser
 @synthesize NewFormClass;
 @synthesize cellsArray;

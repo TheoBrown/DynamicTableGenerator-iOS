@@ -10,15 +10,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "ActionSheetOptionCellInput.h"
-
-#import "SwitchOptionCellInput.h"
-#import "SliderOptionCellInput.h"
-#import "DateOptionCellInput.h"
-#import "TextOptionCellInput.h"
-#import "SegmentOptionCellInput.h"
-#import "NumberOptionCellInput.h"
-#import "ButtonOptionCellInput.h"
-
+#import "DynamicTableViewConstants.h"
+#import "DynamicTableView.h"
 /**
 DTV_ObjectParser takes a NSObject or NSManagedObject and builds an array of BaseOptionCellInput instances to fill in the data in the object
  
