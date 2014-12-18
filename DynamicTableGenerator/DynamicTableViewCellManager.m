@@ -25,15 +25,20 @@ extern const double EARTH_RADIUS;
     if (self) {
         self = [super init];
         self.tableView = newTableView;
-        CGFloat controlHeight = 40.0;
-        CGRect keyPadFrame = CGRectMake(self.tableView.bounds.origin.x, self.tableView.bounds.size.height, self.tableView.bounds.size.width, controlHeight);
-//        self.keyPad = [[TableViewNavigationBar alloc] initWithDelegate:delegate andFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 40)];
-        self.keyPad = [[TableViewNavigationBar alloc] initWithDelegate:delegate andFrame:keyPadFrame];
-        self.keyPadView = self.keyPad.view;
-        [self.keyPadView removeFromSuperview];
+
         [self parseInputArray:cellInputArray];
     }
     return self;
+}
+
+-(void) setupAcessoryViewForFrame:(CGRect)viewFrame withDelegate:(id) delegate {
+    CGFloat controlHeight = 40.0;
+    //        CGRect keyPadFrame = CGRectMake(self.tableView.bounds.origin.x, self.tableView.bounds.size.height, self.tableView.bounds.size.width, controlHeight);
+    CGRect keyFrame = CGRectMake(0,0,viewFrame.size.width,controlHeight);
+    //        self.keyPad = [[TableViewNavigationBar alloc] initWithDelegate:delegate andFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 40)];
+    self.keyPad = [[TableViewNavigationBar alloc] initWithDelegate:delegate andFrame:keyFrame];
+    self.keyPadView = self.keyPad.view;
+    [self.keyPadView removeFromSuperview];
 }
 
 #pragma mark -table view setup

@@ -9,7 +9,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PureLayout.h"
 #import "TableCellEditableProtocol.h"
 
 #import "DynamicTableViewCellManager.h"

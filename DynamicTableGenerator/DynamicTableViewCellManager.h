@@ -34,7 +34,7 @@
 
 @property (nonatomic, strong) NSMutableDictionary *resultDict; //not used now
 - (id) initWithDelegate:(id) delegate andtableView:(UITableView*) newTableView andCellInputs:(NSArray*) cellInputArray;
-
+-(void) setupAcessoryViewForFrame:(CGRect)viewFrame withDelegate:(id) delegate;
 - (UITableViewCell*)  getCellatIndexPath:(NSIndexPath *)indexPath andDelegate:(id) delegateToAssign;
 - (NSInteger) rowsInSection:(NSInteger) section;
 

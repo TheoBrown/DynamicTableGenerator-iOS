@@ -34,7 +34,7 @@
     [super viewDidLoad];
     
     CGFloat controlHeight = 40.0;
-    CGRect tableFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.x, self.view.bounds.size.width, self.view.bounds.size.height-controlHeight);
+    CGRect tableFrame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.x, self.view.frame.size.width, self.view.frame.size.height-controlHeight);
     self.tableView = [[UITableView alloc] initWithFrame:tableFrame];
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor whiteColor];
@@ -48,12 +48,13 @@
 	self.navigationItem.rightBarButtonItem = addButton;
     
     [self.tableView reloadData];
-    CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.size.height-controlHeight, self.view.bounds.size.width, controlHeight);
+    CGRect keyPadFrame = CGRectMake(self.view.frame.origin.x, self.view.frame.size.height-controlHeight, self.view.frame.size.width, controlHeight);
     UIView* newView = [[UIView alloc] initWithFrame:keyPadFrame];
     [newView setBackgroundColor:[UIColor redColor]];
 
     self.keyPad = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:keyPadFrame];
     self.keyPadView = self.keyPad.view;
+    [self.cellManager setupAcessoryViewForFrame:tableFrame withDelegate:self];
     [self.view addSubview:self.keyPadView];
     [self.view bringSubviewToFront:self.keyPadView];
 }
