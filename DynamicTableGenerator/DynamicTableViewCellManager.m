@@ -37,50 +37,18 @@ extern const double EARTH_RADIUS;
 
 
 #pragma mark - init methods
-- (id) initWithDelegate:(id) delegate andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView andCellInputs:(NSArray*) cellInputArray {
+- (id) initWithDelegate:(id) delegate andtableView:(UITableView*) newTableView andCellInputs:(NSArray*) cellInputArray {
     self = [super init];
     if (self) {
         self = [super init];
-        //        self.tagCode = [NSString stringWithFormat:@"06760"];
-        //        self.tagOffset = newtagOffset;
         self.tableView = newTableView;
-        NSLog(@"cell acessory keypad");
         self.keyPad = [[TableViewNavigationBar alloc] initWithDelegate:delegate andFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 40)];
         self.keyPadView = self.keyPad.view;
         [self.keyPadView removeFromSuperview];
-//        self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:CGRectMake(0,0,30,30)];
-
-        
-        //        self.keyboardToolbar = [self createInputAccessoryView];
-        //        NSLog(@"cell manager init with array %@" ,[cellInputArray description]);
         [self parseInputArray:cellInputArray];
     }
     return self;
 }
-- (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView withAcessoryKeys:(UIView*) acessoryKeyBoard andCellInputs:(NSArray*) cellInputArray {
-    self = [super init];
-    if (self) {
-        self = [super init];
-//        self.tagCode = [NSString stringWithFormat:@"06760"];
-//        self.tagOffset = newtagOffset;
-        self.tableView = newTableView;
-
-        
-//        self.keyboardToolbar = [self createInputAccessoryView];
-//        NSLog(@"cell manager init with array %@" ,[cellInputArray description]);
-        [self parseInputArray:cellInputArray];
-    }
-    return self;
-}
-
-//- (id) initWithTagCode:(NSString*) tagString andOffset:(NSInteger) newtagOffset andtableView:(UITableView*) newTableView  andCellInputs:(NSArray*) cellInputArray {
-//    self = [super init];
-//    if (self) {
-//        self = [super init];
-//        [self parseInputArray:cellInputArray];
-//    }
-//    return self;
-//}
 
 #pragma mark -table view setup
 - (void) parseInputArray:(NSArray*) cellInputArray{

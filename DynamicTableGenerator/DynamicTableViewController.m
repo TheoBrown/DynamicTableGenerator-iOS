@@ -7,31 +7,24 @@
 //
 
 #import "DynamicTableViewController.h"
-#import "SharedData.h"
-#import "FetchedResultsHelper.h"
+
 #import "TPBLayout.h"
 #import "TableViewNavigationBar.h"
+#import "BaseCell.h"
 
+#import "SharedData.h"
+#import "FetchedResultsHelper.h"
 @implementation DynamicTableViewController
 
 
 @synthesize optionsDelegate, cellManager;
-@synthesize tagCode;
 @synthesize resultDict;
 
 
 #pragma mark - custom init methods
 - (void) setupWithInputArray:(NSArray*) cellInputArray {
-
-
-        self.tagCode = [NSString stringWithFormat:@"06760"];
-        self.tagOffset = 5;
-//    self.keyboardToolbar = [self createInputAccessoryView];
+    self.cellManager = [[DynamicTableViewCellManager alloc] initWithDelegate:self andtableView:self.tableView andCellInputs:cellInputArray];
     
-//    CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.size.height-30, self.view.bounds.size.width, 30);
-//    self.keyPadView = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:(CGRect) keyPadFrame];
-    self.cellManager = [[DynamicTableViewCellManager alloc] initWithDelegate:self andOffset:self.tagOffset   andtableView:self.tableView andCellInputs:cellInputArray];
-
     NSLog(@"Dynamic Table View Controller setup with array %@" , [cellInputArray description]);
 }
 
@@ -127,72 +120,7 @@
 //}
 
 
-#pragma mark - required view controller  implementation
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
 
-- (void)viewWillAppear:(BOOL)animated
-{    NSLog(@"table view will appear");
-
-    [super viewWillAppear:animated];
-}
-
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-        NSLog(@"table view did appear");
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShow)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillChange)
-                                                 name:UIKeyboardWillChangeFrameNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillHide)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(contentSizeCategoryChanged:)
-                                                 name:UIContentSizeCategoryDidChangeNotification
-                                               object:nil];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIContentSizeCategoryDidChangeNotification
-                                                  object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillShowNotification
-                                                  object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillHideNotification
-                                                  object:nil];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
 
 #pragma mark - Table view data source
 
@@ -279,15 +207,13 @@
     //    [self.view bringSubviewToFront:self.keyPadView];
     
 }
-#pragma mark textfield toolbar
+#pragma mark - TableViewNavigationBar Implementation
 -(void)gotoPrevTextfield: (id) sender
 {
-//    NSLog(@"go to prev");
-
+    [self.view endEditing:YES]; // dismiss current editing views
+    
     NSInteger lastRowInSection = [self.cellManager rowsInSection:self.currentSelection.section]-1;
     NSInteger lastSection = [self.cellManager.sectionHeaderArray count]-1;
-    [self.view endEditing:YES]; // dismiss current editing views
-
     NSInteger newRow;
     NSInteger newSection;
     
@@ -306,7 +232,6 @@
                 newRow = [self.cellManager rowsInSection:newSection]-1;
             }
         }
-        
         self.currentSelection = [NSIndexPath indexPathForRow:newRow  inSection:newSection];
     }
     else{
@@ -320,12 +245,8 @@
 -(void)gotoNextTextfield: (id) sender
 {
     [self.view endEditing:YES]; // dismiss current editing views
-
-    NSLog(@"go to next");
-    //Remember to check boundaries before just setting an indexpath or your app will crash!
     NSInteger lastRowInSection = [self.cellManager rowsInSection:self.currentSelection.section]-1;
     NSInteger lastSection = [self.cellManager.sectionHeaderArray count]-1;
-
     NSInteger newRow;
     NSInteger newSection;
 
@@ -338,14 +259,12 @@
             if (self.currentSelection.section < lastSection) {
                 newSection = self.currentSelection.section+1;
                 newRow = 0;
-
             }
             else if (self.currentSelection.section == lastSection) {
                 newSection = 0;
                 newRow = 0;
             }
         }
-
         self.currentSelection = [NSIndexPath indexPathForRow:newRow  inSection:newSection];
     }
     else{
@@ -354,9 +273,8 @@
     
     [self.tableView selectRowAtIndexPath:self.currentSelection animated:YES scrollPosition:UITableViewScrollPositionTop];
     [self displayContentForCellAtIndex:self.currentSelection];
-
-
 }
+
 -(void)doneTyping: (id) sender {
 //    NSLog(@"done typing");
     [self.view endEditing:YES];
@@ -419,4 +337,70 @@
   return pathString;
 }
 
+#pragma mark - required view controller  implementation
+- (void)didReceiveMemoryWarning
+{
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Release any cached data, images, etc that aren't in use.
+}
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{    NSLog(@"table view will appear");
+    
+    [super viewWillAppear:animated];
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSLog(@"table view did appear");
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillChange)
+                                                 name:UIKeyboardWillChangeFrameNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(contentSizeCategoryChanged:)
+                                                 name:UIContentSizeCategoryDidChangeNotification
+                                               object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIContentSizeCategoryDidChangeNotification
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
 @end

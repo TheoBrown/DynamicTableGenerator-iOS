@@ -34,6 +34,7 @@
 		F650D15E1A19C2F5008014FA /* TableViewNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F650D15D1A19C2F5008014FA /* TableViewNavigationBar.m */; };
 		F654ECFC1A427E7A002074DD /* StepperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F654ECFB1A427E7A002074DD /* StepperCell.m */; };
 		F654ECFF1A42801E002074DD /* StepperOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F654ECFE1A42801E002074DD /* StepperOptionCellInput.m */; };
+		F654ED031A428509002074DD /* TPBLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F654ED021A428509002074DD /* TPBLogger.m */; };
 		F67496341A1696800060ECA3 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496331A1696800060ECA3 /* BaseCell.m */; };
 		F67496371A16989D0060ECA3 /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496361A16989D0060ECA3 /* SwitchCell.m */; };
 		F674963A1A169D570060ECA3 /* DateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496391A169D570060ECA3 /* DateCell.m */; };
@@ -128,6 +129,8 @@
 		F654ECFB1A427E7A002074DD /* StepperCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepperCell.m; sourceTree = "<group>"; };
 		F654ECFD1A42801E002074DD /* StepperOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepperOptionCellInput.h; sourceTree = "<group>"; };
 		F654ECFE1A42801E002074DD /* StepperOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepperOptionCellInput.m; sourceTree = "<group>"; };
+		F654ED011A428509002074DD /* TPBLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPBLogger.h; sourceTree = "<group>"; };
+		F654ED021A428509002074DD /* TPBLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPBLogger.m; sourceTree = "<group>"; };
 		F67496321A1696800060ECA3 /* BaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
 		F67496331A1696800060ECA3 /* BaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCell.m; sourceTree = "<group>"; };
 		F67496351A16989D0060ECA3 /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = "<group>"; };
@@ -219,6 +222,7 @@
 		6C7B9CBE19E7256400C86637 /* DynamicTableGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				F654ED001A4284F3002074DD /* Utilities */,
 				6C7B9D2519E7303300C86637 /* MainControllers */,
 				6C7B9D1819E72DBC00C86637 /* Helper Protocols */,
 				6C7B9D3019E7365000C86637 /* CellVCS */,
@@ -312,8 +316,6 @@
 				6C7B9D1E19E72DC700C86637 /* MutableTableViewObjects.m */,
 				6C7B9D1F19E72DC700C86637 /* SharedData.h */,
 				6C7B9D2019E72DC700C86637 /* SharedData.m */,
-				F6C5E52E1A1D4611002389BD /* TPBLayout.h */,
-				F6C5E52F1A1D4611002389BD /* TPBLayout.m */,
 				F6D7A5631A216192003AE7A1 /* sampleFormProperties.plist */,
 			);
 			name = "Helper Protocols";
@@ -392,6 +394,17 @@
 				F6CB6D2E1A204C7900C0CF56 /* IntergerButtonCell.m */,
 			);
 			name = AutoLayoutCellClasses;
+			sourceTree = "<group>";
+		};
+		F654ED001A4284F3002074DD /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F654ED011A428509002074DD /* TPBLogger.h */,
+				F654ED021A428509002074DD /* TPBLogger.m */,
+				F6C5E52E1A1D4611002389BD /* TPBLayout.h */,
+				F6C5E52F1A1D4611002389BD /* TPBLayout.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -572,6 +585,7 @@
 				6C7B9D2419E72DC700C86637 /* SharedData.m in Sources */,
 				F6CB6D2F1A204C7900C0CF56 /* IntergerButtonCell.m in Sources */,
 				6C7B9D1019E72D9E00C86637 /* BaseOptionCellInput.m in Sources */,
+				F654ED031A428509002074DD /* TPBLogger.m in Sources */,
 				6C7B9D3519E7369A00C86637 /* DynamicTableViewCellOptionsPickerViewController.m in Sources */,
 				F6C099321A16D39F004BBEAE /* SwitchOptionCellInput.m in Sources */,
 				6C7B9D1219E72D9E00C86637 /* SliderOptionCellInput.m in Sources */,
