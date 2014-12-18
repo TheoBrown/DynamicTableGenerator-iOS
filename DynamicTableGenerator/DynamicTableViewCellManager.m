@@ -42,7 +42,10 @@ extern const double EARTH_RADIUS;
     if (self) {
         self = [super init];
         self.tableView = newTableView;
-        self.keyPad = [[TableViewNavigationBar alloc] initWithDelegate:delegate andFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 40)];
+        CGFloat controlHeight = 40.0;
+        CGRect keyPadFrame = CGRectMake(self.tableView.bounds.origin.x, self.tableView.bounds.size.height, self.tableView.bounds.size.width, controlHeight);
+//        self.keyPad = [[TableViewNavigationBar alloc] initWithDelegate:delegate andFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 40)];
+        self.keyPad = [[TableViewNavigationBar alloc] initWithDelegate:delegate andFrame:keyPadFrame];
         self.keyPadView = self.keyPad.view;
         [self.keyPadView removeFromSuperview];
         [self parseInputArray:cellInputArray];

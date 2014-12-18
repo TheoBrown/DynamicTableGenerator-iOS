@@ -7,69 +7,82 @@
 //
 
 #import "TableViewNavigationBar.h"
+#import "FXBlurView.h"
 
 @implementation TableViewNavigationBar
+@synthesize delegate = _delegate;
 
 -(id) initWithDelegate:(id) tableViewDelegate andFrame:(CGRect) viewFrame {
-//    CGRect myFrame = CGRectMake(10 ,viewFrame.origin.y-100,viewFrame.size.width,44.0);
-//    self = [super initWithFrame:viewFrame];
+    //    CGRect myFrame = CGRectMake(10 ,viewFrame.origin.y-100,viewFrame.size.width,44.0);
+    //    self = [super initWithFrame:viewFrame];
     self = [super init];
     if (self) {
-//        self.translatesAutoresizingMaskIntoConstraints = NO;
-//        self.userInteractionEnabled = NO;
-        self.view = [[UIView alloc] initWithFrame:viewFrame];
-        self.delegate = tableViewDelegate;
-        NSLog(@"%@ button bar init with delegate %@",[self description],[self.delegate description]);
-        self.view.backgroundColor = [UIColor colorWithRed:255/255.0 green:71/255.0 blue:113/255.0 alpha:1.0];
-        self.view.opaque = YES;
-        self.nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//        self.nextButton.translatesAutoresizingMaskIntoConstraints = NO;
         
-        self.nextButton.backgroundColor = [UIColor greenColor];
+        //        self.view = [[UIView alloc] initWithFrame:viewFrame];
+        self.view  = [[FXBlurView alloc] initWithFrame:viewFrame];
+        
+        self.delegate = tableViewDelegate;
+        //        self.view.backgroundColor = [UIColor colorWithRed:255/255.0 green:71/255.0 blue:113/255.0 alpha:1.0];
+        //        self.view.opaque = YES;
+        //        self.view.backgroundColor = [UIColor grayColor];
+        self.nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        //        self.nextButton.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        self.nextButton.backgroundColor =[UIColor colorWithRed:30/255.0 green:15/255.0 blue:155/255.0 alpha:0.5];
+        self.nextButton.layer.cornerRadius=5.0;
+        self.nextButton.clipsToBounds=YES;
         [self.nextButton setTitle:@"Next" forState:UIControlStateNormal];
         [self.nextButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchDown];
-        [self.nextButton setTitleColor:[UIColor colorWithRed:36/255.0 green:71/255.0 blue:113/255.0 alpha:1.0] forState:UIControlStateNormal];
+        [self.nextButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         
         self.previousButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//        self.previousButton.translatesAutoresizingMaskIntoConstraints = NO;
+        self.previousButton.layer.cornerRadius=5.0;
+        self.previousButton.clipsToBounds=YES;
+        //        self.previousButton.translatesAutoresizingMaskIntoConstraints = NO;
         [self.previousButton setTitle:@"Prev" forState:UIControlStateNormal];
         [self.previousButton addTarget:self action:@selector(prevButtonPressed:) forControlEvents:UIControlEventTouchDown];
-        self.previousButton.backgroundColor = [UIColor greenColor];
-        [self.previousButton setTitleColor:[UIColor colorWithRed:36/255.0 green:71/255.0 blue:113/255.0 alpha:1.0] forState:UIControlStateNormal];
-
+        self.previousButton.backgroundColor = [UIColor colorWithRed:30/255.0 green:15/255.0 blue:155/255.0 alpha:0.5];
+        [self.previousButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        
         self.doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//        self.doneButton.translatesAutoresizingMaskIntoConstraints = NO;
+        //        self.doneButton.translatesAutoresizingMaskIntoConstraints = NO;
+        self.doneButton.layer.cornerRadius=5.0;
+        self.doneButton.clipsToBounds=YES;
         [self.doneButton setTitle:@"Done" forState:UIControlStateNormal];
         [self.doneButton addTarget:self action:@selector(doneButtonPressed:) forControlEvents:UIControlEventTouchDown];
-        self.doneButton.backgroundColor = [UIColor greenColor];
-        [self.doneButton setTitleColor:[UIColor colorWithRed:36/255.0 green:71/255.0 blue:113/255.0 alpha:1.0] forState:UIControlStateNormal];
-
-//        self.userInteractionEnabled = NO;
-//        TPBLayout* layoutHelp = [[TPBLayout alloc] init];
-//        NSArray * views = @[self.previousButton,self.nextButton,self.doneButton];
-//        [layoutHelp horizontalLayout:views];
+        self.doneButton.backgroundColor = [UIColor colorWithRed:30/255.0 green:15/255.0 blue:155/255.0 alpha:0.5];
+        [self.doneButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];//[UIColor colorWithRed:36/255.0 green:71/255.0 blue:113/255.0 alpha:1.0] forState:UIControlStateNormal];
+        
+        //        self.userInteractionEnabled = NO;
+        //        TPBLayout* layoutHelp = [[TPBLayout alloc] init];
+        //        NSArray * views = @[self.previousButton,self.nextButton,self.doneButton];
+        //        [layoutHelp horizontalLayout:views];
         [self.view addSubview:self.nextButton];
         [self.view addSubview:self.previousButton];
         [self.view addSubview:self.doneButton];
-        CGFloat bWidth = 40;
+        CGFloat bWidth = 80;
         CGFloat bHeight = 30;
         CGFloat pad = 30;
         CGFloat cum = 0;
         CGFloat yOffset = 5;
+        NSLog(@"viewframe = %@",[NSValue valueWithCGRect:self.view.frame]);
         self.previousButton.frame =  CGRectMake(pad, yOffset, bWidth, bHeight);
         cum =pad+bWidth;
         self.nextButton.frame =  CGRectMake(pad+cum, yOffset, bWidth, bHeight);
         cum =cum +pad+bWidth;
-
-        self.doneButton.frame =  CGRectMake(pad+cum, yOffset, bWidth, bHeight);
-
-
-//        [self.view setNeedsDisplay];
-//        [self.view setHidden:NO];
-//        [self needsUpdateConstraints];
+        CGFloat donePos = cum+pad+pad;
+        CGFloat forcePos =self.view.frame.size.width -10-bWidth;
+        NSLog(@"%f , %f",donePos,forcePos);
+        self.doneButton.frame =  CGRectMake(donePos, yOffset, bWidth, bHeight);
+        
+        
+        //        [self.view setNeedsDisplay];
+        //        [self.view setHidden:NO];
+        //        [self needsUpdateConstraints];
     }
     return self;
 }
+
 //- (void)updateConstraints
 //{
 //    if (!self.didSetupConstraints) {
@@ -105,17 +118,17 @@
 //}
 -(void)nextButtonPressed:(id) sender {
     NSLog(@"control next");
-    [self.delegate gotoNextTextfield:sender];
+    [_delegate gotoNextTextfield:sender];
 }
 -(void)prevButtonPressed:(id) sender {
     NSLog(@"control prev`");
 
-    [self.delegate gotoPrevTextfield:sender];
+    [_delegate gotoPrevTextfield:sender];
 }
 -(void)doneButtonPressed:(id) sender {
     NSLog(@"control done");
 
-    [self.delegate doneTyping:sender];
+    [_delegate doneTyping:sender];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

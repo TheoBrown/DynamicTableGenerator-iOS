@@ -31,8 +31,9 @@ NSString * const DTVCCellIdentifier_StepperCell = @"DTVC_StepperCell";
 @interface BaseCell ()
 
 @end
-
 @implementation BaseCell
+@synthesize delegate = _delegate;
+@synthesize tableViewDelegate = _tableViewDelegate;
 #pragma mark - special init with optionInput
 - (id)initWithStyle:(UITableViewCellStyle)style forInput:(id)optionCellInput atIndex:(NSIndexPath*)indexPath withReuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -115,6 +116,7 @@ NSString * const DTVCCellIdentifier_StepperCell = @"DTVC_StepperCell";
 -(void) defineContentSelector:(SEL) contentSelector{
     self.contentSelector = contentSelector;
 }
+
 -(void) showContentFromSelector {
     NSLog(@"Show content force called %@",self.title.text);
     if (self.contentSelector) {
@@ -181,6 +183,9 @@ NSString * const DTVCCellIdentifier_StepperCell = @"DTVC_StepperCell";
 - (void) contentWasSelected:(id) sender {
     NSLog(@"%@ content display with format %@",self.title.text,self.cellContentFormatType);
     [self.tableViewDelegate contentOfCellWasSelected:self.indexPath];
+}
+-(void) cellFormatWasUpdated {
+    NSLog(@"ERROR, should be overridden");
 }
 
 @end

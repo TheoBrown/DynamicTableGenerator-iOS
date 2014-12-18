@@ -5,6 +5,7 @@ target "DynamicTableGenerator" do
 
 pod 'ActionSheetPicker-3.0', '~> 1.1.19'
 pod 'PureLayout'
+pod 'FXBlurView'
 end
 
 target "DynamicTableGeneratorTests" do

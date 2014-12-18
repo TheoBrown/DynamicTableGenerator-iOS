@@ -134,4 +134,5 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
   s.dependency 'ActionSheetPicker-3.0', '~> 1.1.19'
   s.dependency 'PureLayout'
+s.dependency 'FXBlurView'
 end

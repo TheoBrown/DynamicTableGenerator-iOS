@@ -48,7 +48,6 @@
 	self.navigationItem.rightBarButtonItem = addButton;
     
     [self.tableView reloadData];
-
     CGRect keyPadFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.size.height-controlHeight, self.view.bounds.size.width, controlHeight);
     UIView* newView = [[UIView alloc] initWithFrame:keyPadFrame];
     [newView setBackgroundColor:[UIColor redColor]];
