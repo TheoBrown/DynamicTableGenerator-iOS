@@ -8,7 +8,8 @@
 
 #import "DynamicTableViewCellManager.h"
 
-#import "TableViewNavigationBar.h"
+#import "DynamicTableViewCells.h"
+#import "DynamicTableViewConstants.h"
 #import "DynamicTableView.h"
 
 @implementation DynamicTableViewCellManager

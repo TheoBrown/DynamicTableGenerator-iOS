@@ -8,6 +8,8 @@
 
 #import "DynamicTableViewObjectParser.h"
 
+#import "DynamicTableViewConstants.h"
+#import "DynamicTableViewCells.h"
 #import "PropertyUtil.h"
 #import "TPBLogger.h"
 

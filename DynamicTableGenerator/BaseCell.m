@@ -8,16 +8,6 @@
 
 #import "BaseCell.h"
 
-
-//NSString * const DTVCCellIdentifier_DateCell = @"DTVC_DateCell";
-//NSString * const DTVCCellIdentifier_SliderCell = @"DTVC_SliderCell";
-//NSString * const DTVCCellIdentifier_ButtonCell = @"DTVC_ButtonCell";
-//NSString * const DTVCCellIdentifier_ActionCell = @"DTVC_ActionSheetCell";
-//NSString * const DTVCCellIdentifier_TextCell = @"DTVC_TextCell";
-//NSString * const DTVCCellIdentifier_NumberCell = @"DTVC_SwitchCell";
-//NSString * const DTVCCellIdentifier_SwitchCell = @"DTVC_NumberCell";
-//NSString * const DTVCCellIdentifier_SegmentCell = @"DTVC_SegmentCell";
-
 NSString * const DTVCCellIdentifier_DateCell = @"DTVC_DateCell";
 NSString * const DTVCCellIdentifier_SliderCell = @"DTVC_SliderCell";
 NSString * const DTVCCellIdentifier_ButtonCell = @"DTVC_ButtonCell";
@@ -31,9 +21,12 @@ NSString * const DTVCCellIdentifier_StepperCell = @"DTVC_StepperCell";
 @interface BaseCell ()
 
 @end
+
 @implementation BaseCell
+
 @synthesize delegate = _delegate;
 @synthesize tableViewDelegate = _tableViewDelegate;
+
 #pragma mark - special init with optionInput
 - (id)initWithStyle:(UITableViewCellStyle)style forInput:(id)optionCellInput atIndex:(NSIndexPath*)indexPath withReuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

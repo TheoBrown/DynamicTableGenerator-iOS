@@ -63,7 +63,7 @@
 
 -(IBAction)stepperValueChanged:(UIStepper *)sender{
     double value = sender.value;
-    self.stepperLabel.text = [NSString stringWithFormat:@"%f",value];
+    self.stepperLabel.text = [NSString stringWithFormat:@"%d",(int)value];
     NSNumber * stepperValue = [NSNumber numberWithDouble:value];
     [self.delegate cellStepperDidChange:self.indexPath :stepperValue];
 }
