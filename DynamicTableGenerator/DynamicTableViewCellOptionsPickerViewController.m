@@ -35,7 +35,7 @@
     if (self) {
         self.optionsArray = optionsArray;
         self.selectedOptionsArray = [NSMutableArray array];
-
+        self.pickMany = YES;
     }
     return self;
 }

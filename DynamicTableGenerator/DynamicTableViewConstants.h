@@ -27,6 +27,7 @@ extern NSString * const DTVCCellIdentifier_NumberCell;
 extern NSString * const DTVCCellIdentifier_SwitchCell;
 extern NSString * const DTVCCellIdentifier_SegmentCell;
 extern NSString * const DTVCCellIdentifier_StepperCell;
+extern NSString * const DTVCCellIdentifier_SegueCell;
 
 typedef NS_ENUM(NSInteger, DTVCCellType)
 {

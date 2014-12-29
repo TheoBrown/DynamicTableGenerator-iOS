@@ -20,6 +20,7 @@
 #import "SegmentCell.h"
 #import "OptionCell.h"
 #import "StepperCell.h"
+#import "SegueCell.h"
 
 #import "BaseOptionCellInput.h"
 #import "DateOptionCellInput.h"
@@ -31,3 +32,4 @@
 #import "SwitchOptionCellInput.h"
 #import "NumberOptionCellInput.h"
 #import "StepperOptionCellInput.h"
+#import "SegueOptionCellInput.h"

@@ -8,7 +8,6 @@
 
 #import "DynamicTableViewController.h"
 
-#import "TPBLayout.h"
 #import "TableViewNavigationBar.h"
 #import "BaseCell.h"
 
@@ -20,6 +19,15 @@
 @synthesize resultDict;
 
 #pragma mark - custom init methods
+
+-(instancetype) init {
+    self = [super init];
+    if (self) {
+        self.useTableNavigationBar = YES;
+        
+    }
+    return self;
+}
 - (void) setupWithInputArray:(NSArray*) cellInputArray {
     self.cellManager = [[DynamicTableViewCellManager alloc] initWithDelegate:self andtableView:self.tableView andCellInputs:cellInputArray];
     
@@ -48,12 +56,13 @@
 	self.navigationItem.rightBarButtonItem = addButton;
     
     [self.tableView reloadData];
-    CGRect keyPadFrame = CGRectMake(self.view.frame.origin.x, self.view.frame.size.height-controlHeight, self.view.frame.size.width, controlHeight);
-    UIView* newView = [[UIView alloc] initWithFrame:keyPadFrame];
-    [newView setBackgroundColor:[UIColor redColor]];
-
-    self.keyPad = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:keyPadFrame];
-    self.keyPadView = self.keyPad.view;
+    if (self.useTableNavigationBar){
+        CGRect keyPadFrame = CGRectMake(self.view.frame.origin.x, self.view.frame.size.height-controlHeight, self.view.frame.size.width, controlHeight);
+        UIView* newView = [[UIView alloc] initWithFrame:keyPadFrame];
+        [newView setBackgroundColor:[UIColor redColor]];
+        self.keyPad = [[TableViewNavigationBar alloc] initWithDelegate:self andFrame:keyPadFrame];
+        self.keyPadView = self.keyPad.view;
+    }
     [self.cellManager setupAcessoryViewForFrame:tableFrame withDelegate:self];
     [self.view addSubview:self.keyPadView];
     [self.view bringSubviewToFront:self.keyPadView];

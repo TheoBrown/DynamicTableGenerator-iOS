@@ -17,11 +17,12 @@
     __weak id resultDelegate;
 }
 @property (nonatomic,weak) id<resultArrayDelegate> resultDelegate;
-
+@property (nonatomic) BOOL pickMany;
 @property (nonatomic, retain) NSArray *optionsArray;
 
 @property (nonatomic, retain) NSMutableArray *selectedOptionsArray;
 @property (nonatomic, retain) NSString *selectedTestType;
+
 -(void) setTestType:(NSString*)testType;
 -(void) parseDefaultSelection:(NSArray*) selectedOptions;
 @end

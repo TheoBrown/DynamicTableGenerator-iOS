@@ -11,7 +11,6 @@
 #import "DynamicTableViewConstants.h"
 #import "DynamicTableViewCells.h"
 #import "PropertyUtil.h"
-#import "TPBLogger.h"
 
 @implementation DynamicTableViewObjectParser
 @synthesize NewFormClass;

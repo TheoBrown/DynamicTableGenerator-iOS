@@ -50,6 +50,7 @@
 
 @property (nonatomic, strong) NSMutableDictionary *resultDict;
 
+@property (nonatomic) BOOL useTableNavigationBar;
 - (void) setupWithInputArray:(NSArray*) cellInputArray;
 
 @end

@@ -1,18 +1,17 @@
 //
-//  OptionCell.m
+//  SegueCell.m
 //  DynamicTableGenerator
 //
-//  Created by tpb on 11/18/14.
+//  Created by tpb on 12/20/14.
 //  Copyright (c) 2014 Theodore Brown. All rights reserved.
 //
 
-#import "OptionCell.h"
-#import "FetchedResultsHelper.h"
+#import "SegueCell.h"
 
-@implementation OptionCell
+@implementation SegueCell
 
 -(NSString *) reuseIdentifier {
-    return DTVCCellIdentifier_ButtonCell;
+    return DTVCCellIdentifier_SegueCell;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -22,7 +21,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-
+        
         self.cellButton = [UIButton newAutoLayoutView];
         //        self.cellButton.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5]; // light blue
         [self.cellButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -41,9 +40,7 @@
 }
 
 
-- (void) cellFormatWasUpdated {
-    NSLog(@"%@ format updated", self.title.text);
-}
+
 #pragma mark - View control
 
 
@@ -72,47 +69,11 @@
 
 
 -(IBAction)buttonPressed:(UIControl *)sender{
-        self.resultsViewController = [[DynamicTableViewCellOptionsPickerViewController alloc] init];
-        NSLog(@"Try to present %@", [self.resultsViewController description]);
-
-        self.resultsViewController.selectedTestType = self.selectedTestType;
-        [self.resultsViewController setOptionsArray:self.optionsArray];
-        self.resultsViewController.resultDelegate = self;
-#warning will not work if no navigation controller exits
     
-    [self.resultsViewController parseDefaultSelection:self.selectedOptionsArray];
 
-        [[self.tableViewDelegate navigationController] pushViewController:self.resultsViewController animated:YES];
-//           [self presentViewController:self.resultsViewController animated:YES completion: nil];
-}
-
--(void) setResultTypeFromURL:(NSURL *) objectURL{
-    NSObject * pObject = [[FetchedResultsHelper getInstance] getObjectFromID:objectURL];
-    self.selectedTestType = [pObject valueForKey:@"testType"];
-}
--(void) resultsUpdated:(NSArray *)resultArray{
     
-    [self.cellButton setTitle:[self combineStringsFromArray:resultArray] forState:UIControlStateNormal];
-    [self.delegate cellButtonresultsUpdated:self.indexPath withResults:resultArray];
-    self.selectedOptionsArray = resultArray;
+    [[self.tableViewDelegate navigationController] pushViewController:self.destinationVC animated:YES];
+    //           [self presentViewController:self.resultsViewController animated:YES completion: nil];
 }
 
--(NSString*) combineStringsFromArray:(NSArray*) stringArray {
-    NSString *finalString = [[NSString alloc] init];
-    NSString* tempString = @"";
-    NSInteger resultCount = [stringArray count];
-    for (int i = 0; i < resultCount; i++) {
-        NSLog(@"Temp:%@ item:%@",tempString,stringArray[i]);
-        tempString = [tempString stringByAppendingString:(NSString*)stringArray[i]];
-        if (resultCount-i ==1) { //this is the last item
-            finalString = tempString;
-        }
-        else {
-            tempString = [tempString stringByAppendingString:@", "];
-        }
-//        finalString = [NSString stringWithFormat:@"%@ %@,",finalString,item];
-
-    }
-    return finalString;
-}
 @end

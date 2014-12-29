@@ -17,6 +17,8 @@ NSString * const DTVCCellIdentifier_NumberCell = @"DTVC_SwitchCell";
 NSString * const DTVCCellIdentifier_SwitchCell = @"DTVC_NumberCell";
 NSString * const DTVCCellIdentifier_SegmentCell = @"DTVC_SegmentCell";
 NSString * const DTVCCellIdentifier_StepperCell = @"DTVC_StepperCell";
+NSString * const DTVCCellIdentifier_SegueCell = @"DTVC_SegueCell";
+
 
 @interface BaseCell ()
 

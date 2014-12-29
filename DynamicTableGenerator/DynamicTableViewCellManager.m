@@ -349,6 +349,41 @@ extern const double EARTH_RADIUS;
 
         return cell;
     }
+    else if ([CellIdentifier  isEqual: DTVCCellIdentifier_SegueCell]){
+        SegueOptionCellInput* segueCellInput = (SegueOptionCellInput*) baseCellInput;
+        SegueCell  *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (cell == nil) {
+            [self.tableView registerClass:[SegueCell class] forCellReuseIdentifier:CellIdentifier];
+            cell = [[SegueCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        
+        // Configure the cell...
+        cell.title.text = segueCellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
+        cell.delegate = segueCellInput;
+        cell.indexPath = indexPath;
+        cell.tableViewDelegate = delegateToAssign;
+        cell.destinationVC=segueCellInput.destinationVC;
+        //        [cell setResultTypeFromURL:[self.updatedPredicates objectForKey:optionsArray[indexPath.section][1][indexPath.row][@"return"]]];
+        
+        //        if (self.optionsArray[indexPath.section][1][indexPath.row][@"settings"][@"prePredicates"] != nil){
+        //            NSArray *prePredicates =self.optionsArray[indexPath.section][1][indexPath.row][@"settings"][@"prePredicates"];
+        //            if ([self.optionsArray[indexPath.section][1][indexPath.row][@"settings"][@"predicateReference"] containsObject:@"selectedTank"])
+        //            {
+        //
+        //            }
+        //            for(NSString *prePredicate in prePredicates){
+        //                NSURL *predicateURLID =  [[[SharedData getInstance] settings] URLForKey:prePredicate];
+        //                NSDictionary *prePredSettings = [self getSettingsFromOptions:prePredicate];
+        //                [cell setResultTypeFromURL:predicateURLID];
+        //                
+        //            }
+        //        }
+        
+        
+        return cell;
+    }
+    NSLog(@"option cell was not set");
     return nil;
 }
 
