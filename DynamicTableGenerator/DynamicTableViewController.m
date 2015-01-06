@@ -28,9 +28,17 @@
     }
     return self;
 }
+-(instancetype) initWithCells:(NSArray*) cellInputArray  {
+    self = [super init];
+    if (self) {
+        self.useTableNavigationBar = YES;
+        self.cellManager = [[DynamicTableViewCellManager alloc] initWithDelegate:self andtableView:self.tableView andCellInputs:cellInputArray];
+    }
+    return self;
+}
+
 - (void) setupWithInputArray:(NSArray*) cellInputArray {
     self.cellManager = [[DynamicTableViewCellManager alloc] initWithDelegate:self andtableView:self.tableView andCellInputs:cellInputArray];
-    
 //    NSLog(@"Dynamic Table View Controller setup with array %@" , [cellInputArray description]);
 }
 
