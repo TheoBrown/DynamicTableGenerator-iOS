@@ -40,5 +40,7 @@
     NSInteger row = [cellIndexPath row];
     [self updateValue:newValue];
     [self saveObjectContext];
+    
+    
 }
 @end
