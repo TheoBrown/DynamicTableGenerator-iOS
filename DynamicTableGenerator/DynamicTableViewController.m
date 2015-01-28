@@ -75,7 +75,15 @@
     [self.view addSubview:self.keyPadView];
     [self.view bringSubviewToFront:self.keyPadView];
 }
-
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (self.tableView.contentSize.height < self.tableView.frame.size.height) {
+        self.tableView.scrollEnabled = NO;
+    }
+    else {
+        self.tableView.scrollEnabled = YES;
+    }
+}
 -(UIView*) createKeysLayout {
     return nil;
 }
@@ -349,11 +357,6 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{    NSLog(@"table view will appear");
-    
-    [super viewWillAppear:animated];
-}
 
 
 - (void)viewDidAppear:(BOOL)animated
