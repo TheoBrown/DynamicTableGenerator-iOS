@@ -24,7 +24,6 @@
 @property (nonatomic, retain) NSString *actionSheetTitle; //displayed label for action sheet
 @property (strong, nonatomic) NSArray* optionsArray; //an array of strings that will be displayed in the action sheet
 @property (strong, nonatomic) NSString *selectedResultTitle; //the chosen string from action sheet action
-
 @property (strong, nonatomic) NSDictionary* resultsMap;
 
 @end

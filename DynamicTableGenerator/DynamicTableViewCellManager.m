@@ -258,6 +258,26 @@ extern const double EARTH_RADIUS;
          
         return cell;
     }
+    else if ([CellIdentifier  isEqual: DTVCCellIdentifier_SimpleActionCell]){
+        SimpleActionSheetOptionCellInput* cellInput = (SimpleActionSheetOptionCellInput*) baseCellInput;
+        SimpleActionSheetCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            [self.tableView registerClass:[SimpleActionSheetCell class] forCellReuseIdentifier:CellIdentifier];
+            cell = [[SimpleActionSheetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        [cell defineCellFormatType:cellInput.cellInputFormatType];
+        [cell.actionButton setTitle:cellInput.value forState:UIControlStateNormal];
+        // Configure the cell...
+        cell.title.text = cellInput.title;
+        cell.indexPath = indexPath;
+        cell.optionsArray=cellInput.optionsArray;
+        cell.resultsMap=cellInput.resultsMap;
+        cell.actionSheetTitle=cellInput.actionSheetTitle;
+        cell.selectedResultTitle = cellInput.value;
+        cell.delegate = cellInput;
+        cell.tableViewDelegate = delegateToAssign;
+        return cell;
+    }
 //    else if ([CellIdentifier  isEqual: @"ActionSheetCellID"]){
 //        ActionSheetOptionCellInput* actionCellInput = (ActionSheetOptionCellInput*) baseCellInput;
 //

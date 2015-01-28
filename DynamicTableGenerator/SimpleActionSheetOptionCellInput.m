@@ -17,9 +17,10 @@
 -(id) initSimpleActionSheetInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withOptions:(NSArray*) optionsArray withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader{
     self = [super init];
     NSLog(@"action shee created with object %@" , [managedObject description]);
-    
     if (self) {
         self = [self initType:DTVCCellIdentifier_SimpleActionCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
+        self.optionsArray=optionsArray;
+        [self defineCellInputFormatType:[NSNumber numberWithInt:DTVCInputType_SimpleActionSheetCell_String]];
     }
     return self;
 }
@@ -30,6 +31,9 @@
     
     if (self) {
         self = [self initType:DTVCCellIdentifier_SimpleActionCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
+        self.optionsArray=optionsArray;
+        self.resultsMap=resultMap;
+        [self defineCellInputFormatType:[NSNumber numberWithInt:DTVCInputType_SimpleActionSheetCell_DictMap]];
     }
     return self;
 }

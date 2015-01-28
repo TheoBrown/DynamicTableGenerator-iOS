@@ -11,6 +11,7 @@
 
 
 #endif
+
 #import "BaseCell.h"
 #import "SwitchCell.h"
 #import "DateCell.h"
@@ -21,6 +22,7 @@
 #import "OptionCell.h"
 #import "StepperCell.h"
 #import "SegueCell.h"
+#import "SimpleActionSheetCell.h"
 
 #import "BaseOptionCellInput.h"
 #import "DateOptionCellInput.h"
@@ -33,3 +35,5 @@
 #import "NumberOptionCellInput.h"
 #import "StepperOptionCellInput.h"
 #import "SegueOptionCellInput.h"
+#import "SimpleActionSheetOptionCellInput.h"
+

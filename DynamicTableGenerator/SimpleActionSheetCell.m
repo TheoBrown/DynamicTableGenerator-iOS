@@ -98,9 +98,16 @@
 
 #pragma mark - UI actions
 - (IBAction)makeSelection:(UIControl *)sender {
-    NSInteger defaultSelection =[self.optionsArray indexOfObject:self.selectedResultTitle] ?: 0;
-    NSString* title = self.actionSheetTitle ?: @"Please Make Selection";
-    
+    NSInteger defaultSelection;
+    if ([self.optionsArray containsObject:self.selectedResultTitle]){
+        defaultSelection= [self.optionsArray indexOfObject:self.selectedResultTitle];
+    }
+    else {
+        defaultSelection=0;
+    }
+//    NSInteger defaultSelection = ([self.optionsArray indexOfObject:self.selectedResultTitle] > 0) ? [self.optionsArray indexOfObject:self.selectedResultTitle] : 0;
+    NSString* title = self.actionSheetTitle ? self.actionSheetTitle : @"Please Make Selection";
+    NSLog(@"options %@ , title %@, default %ld",[self.optionsArray description],title,(long)defaultSelection);
     [ActionSheetStringPicker showPickerWithTitle:title
                                             rows:self.optionsArray
                                 initialSelection:defaultSelection
@@ -115,36 +122,37 @@
 }
 
 -(void) optionWasSelected:(NSInteger) selectedIndex {
-
+    
+    self.selectedResultTitle=[self.optionsArray objectAtIndex:selectedIndex];
+    [self.actionButton setTitle:self.selectedResultTitle forState:UIControlStateNormal];
+    
     if ([self.cellFormatType intValue] == DTVCInputType_SimpleActionSheetCell_Index) {
+        [self.delegate cellSimpleActionSheetDidChange:self.indexPath withIndex:selectedIndex];
     }
     else if ([self.cellFormatType intValue] == DTVCInputType_SimpleActionSheetCell_String) {
+        [self.delegate cellSimpleActionSheetDidChange:self.indexPath withString:self.selectedResultTitle];
     }
     else if ([self.cellFormatType intValue] == DTVCInputType_SimpleActionSheetCell_DictMap) {
+        [self.delegate cellSimpleActionSheetDidChange:self.indexPath withObject:[self.resultsMap objectForKey:self.selectedResultTitle]];
     }
     else {
         NSLog(@"ERROR: %d not predefined value ",[self.cellContentFormatType intValue]);
     }
     
-    self.selectedResultTitle=[self.optionsArray objectAtIndex:selectedIndex];
-    [self.actionButton setTitle:self.selectedResultTitle forState:UIControlStateNormal];
-    [self.delegate cellDateDidChange:self.indexPath :pickedDate];
 
-    
-    
-    switch (selectedIndex) {
-        case 0:
-            [CompositionInstructions sharedInstance].compositionOrientation=UIInterfaceOrientationPortrait;
-            break;
-        case 1:
-            [CompositionInstructions sharedInstance].compositionOrientation=UIInterfaceOrientationLandscapeLeft;
-            break;
-        case 2:
-            [CompositionInstructions sharedInstance].compositionOrientation=UIInterfaceOrientationLandscapeRight;
-            break;
-        default:
-            break;
-    }
+//    switch (selectedIndex) {
+//        case 0:
+//            [CompositionInstructions sharedInstance].compositionOrientation=UIInterfaceOrientationPortrait;
+//            break;
+//        case 1:
+//            [CompositionInstructions sharedInstance].compositionOrientation=UIInterfaceOrientationLandscapeLeft;
+//            break;
+//        case 2:
+//            [CompositionInstructions sharedInstance].compositionOrientation=UIInterfaceOrientationLandscapeRight;
+//            break;
+//        default:
+//            break;
+//    }
 }
 
 

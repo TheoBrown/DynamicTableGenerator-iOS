@@ -14,6 +14,8 @@
 -(id) initSimpleActionSheetInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withOptions:(NSArray*) optionsArray resultMap:(NSDictionary*) resultMap withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
 
 
-
+@property (nonatomic, retain) NSString *actionSheetTitle; //displayed label for action sheet
+@property (strong, nonatomic) NSArray* optionsArray; //an array of strings that will be displayed in the action sheet
+@property (strong, nonatomic) NSDictionary* resultsMap;
 
 @end
