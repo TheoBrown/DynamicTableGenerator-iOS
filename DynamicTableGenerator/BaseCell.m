@@ -158,7 +158,7 @@ NSString * const DTVCCellIdentifier_SegueCell = @"DTVC_SegueCell";
 
     self.cellFormatType = cellFormatEnumType;
 //    NSLog(@"%@ set cell format to %d",self.title,formatTypeDef);
-    NSLog(@"%@ format type defined by %@ with dict %@",self.title.text,self.cellFormatType,self.cellContentFormatDict);
+//    NSLog(@"%@ format type defined by %@ with dict %@",self.title.text,self.cellFormatType,self.cellContentFormatDict);
 
     if (self.cellContentFormatDict) {
         self.cellContentTitle = [[self.cellContentFormatDict objectForKey:self.cellFormatType] valueForKey:@"title"]; //default string used in content: e.g. text box prompt string
