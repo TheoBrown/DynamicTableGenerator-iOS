@@ -32,4 +32,9 @@
 -(void) cellAbstractActionSheetPickerDidChange:(NSIndexPath *) cellIndexPath withPredicateArray:(NSArray *)predicateArray withURL:(NSURL *)value;
 -(void) cellButtonresultsUpdated:(NSIndexPath *) cellIndexPath withResults:(NSArray *)resultArray;
 
+//actionSheetCells
+-(void) cellSimpleActionSheetDidChange:(NSIndexPath *) cellIndexPath withIndex:(NSInteger)optionIndex;
+-(void) cellSimpleActionSheetDidChange:(NSIndexPath *) cellIndexPath withString:(NSString*)optionString;
+-(void) cellSimpleActionSheetDidChange:(NSIndexPath *) cellIndexPath withObject:(NSObject*)optionObject;
+
 @end

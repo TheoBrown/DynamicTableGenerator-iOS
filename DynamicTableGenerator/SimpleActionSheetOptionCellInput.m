@@ -1,0 +1,53 @@
+//
+//  SimpleActionSheetOptionCellInput.m
+//  DynamicTableGenerator
+//
+//  Created by tpb on 1/27/15.
+//  Copyright (c) 2015 Theodore Brown. All rights reserved.
+//
+
+#import "SimpleActionSheetOptionCellInput.h"
+
+@implementation SimpleActionSheetOptionCellInput
+
+-(NSString*) cellType {
+    return DTVCCellIdentifier_SimpleActionCell;
+}
+
+-(id) initSimpleActionSheetInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withOptions:(NSArray*) optionsArray withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader{
+    self = [super init];
+    NSLog(@"action shee created with object %@" , [managedObject description]);
+    
+    if (self) {
+        self = [self initType:DTVCCellIdentifier_SimpleActionCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
+    }
+    return self;
+}
+
+-(id) initSimpleActionSheetInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withOptions:(NSArray*) optionsArray resultMap:(NSDictionary*) resultMap withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader{
+    self = [super init];
+    NSLog(@"action shee created with object %@" , [managedObject description]);
+    
+    if (self) {
+        self = [self initType:DTVCCellIdentifier_SimpleActionCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
+    }
+    return self;
+}
+
+#pragma mark - editable table cell delegate methods
+
+-(void) cellSimpleActionSheetDidChange:(NSIndexPath *) cellIndexPath withIndex:(NSInteger)optionIndex{
+    NSObject *newValue = [NSNumber numberWithInteger:optionIndex];
+    [self updateValue:newValue];
+    [self saveObjectContext];
+}
+-(void) cellSimpleActionSheetDidChange:(NSIndexPath *) cellIndexPath withString:(NSString*)optionString{
+    [self updateValue:optionString];
+    [self saveObjectContext];
+}
+-(void) cellSimpleActionSheetDidChange:(NSIndexPath *) cellIndexPath withObject:(NSObject*)optionObject{
+    [self updateValue:optionObject];
+//    [self updateContextWithValue:optionObject];
+    [self saveObjectContext];
+}
+@end

@@ -31,6 +31,8 @@
 		6C7B9D3C19E7386D00C86637 /* DynamicTableViewCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D3B19E7386D00C86637 /* DynamicTableViewCellManager.m */; };
 		6CBA470819E756DF00EF8861 /* CellWithAbstractActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CDB19E72D1200C86637 /* CellWithAbstractActionSheet.xib */; };
 		6CBA470D19E756DF00EF8861 /* CellWithButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C7B9CEC19E72D1300C86637 /* CellWithButton.xib */; };
+		F64EE6D01A787DE400C5683E /* SimpleActionSheetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F64EE6CF1A787DE400C5683E /* SimpleActionSheetCell.m */; };
+		F64EE6D31A787F9100C5683E /* SimpleActionSheetOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F64EE6D21A787F9100C5683E /* SimpleActionSheetOptionCellInput.m */; };
 		F650D15E1A19C2F5008014FA /* TableViewNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F650D15D1A19C2F5008014FA /* TableViewNavigationBar.m */; };
 		F654ECFC1A427E7A002074DD /* StepperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F654ECFB1A427E7A002074DD /* StepperCell.m */; };
 		F654ECFF1A42801E002074DD /* StepperOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F654ECFE1A42801E002074DD /* StepperOptionCellInput.m */; };
@@ -120,6 +122,10 @@
 		8CE5960D3BCCF624D49FCAAA /* Pods-DynamicTableGenerator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicTableGenerator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicTableGenerator/Pods-DynamicTableGenerator.debug.xcconfig"; sourceTree = "<group>"; };
 		DAEAA8757C8B446F8D10E45F /* libPods-DynamicTableGenerator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DynamicTableGenerator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC5972F758B4B74B733E38BF /* Pods-DynamicTableGenerator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicTableGenerator.release.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicTableGenerator/Pods-DynamicTableGenerator.release.xcconfig"; sourceTree = "<group>"; };
+		F64EE6CE1A787DE400C5683E /* SimpleActionSheetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleActionSheetCell.h; sourceTree = "<group>"; };
+		F64EE6CF1A787DE400C5683E /* SimpleActionSheetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleActionSheetCell.m; sourceTree = "<group>"; };
+		F64EE6D11A787F9100C5683E /* SimpleActionSheetOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleActionSheetOptionCellInput.h; sourceTree = "<group>"; };
+		F64EE6D21A787F9100C5683E /* SimpleActionSheetOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleActionSheetOptionCellInput.m; sourceTree = "<group>"; };
 		F650D1591A19A365008014FA /* TableViewNavigationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewNavigationDelegate.h; sourceTree = "<group>"; };
 		F650D15C1A19C2F5008014FA /* TableViewNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewNavigationBar.h; sourceTree = "<group>"; };
 		F650D15D1A19C2F5008014FA /* TableViewNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewNavigationBar.m; sourceTree = "<group>"; };
@@ -297,6 +303,8 @@
 				6C7B9D0D19E72D9E00C86637 /* ButtonOptionCellInput.m */,
 				6C7B9D0E19E72D9E00C86637 /* ActionSheetOptionCellInput.h */,
 				6C7B9D0F19E72D9E00C86637 /* ActionSheetOptionCellInput.m */,
+				F64EE6D11A787F9100C5683E /* SimpleActionSheetOptionCellInput.h */,
+				F64EE6D21A787F9100C5683E /* SimpleActionSheetOptionCellInput.m */,
 			);
 			name = "Option Cell Input Types";
 			sourceTree = "<group>";
@@ -390,6 +398,8 @@
 				F67496451A169DEE0060ECA3 /* SegmentCell.m */,
 				F654ECFA1A427E7A002074DD /* StepperCell.h */,
 				F654ECFB1A427E7A002074DD /* StepperCell.m */,
+				F64EE6CE1A787DE400C5683E /* SimpleActionSheetCell.h */,
+				F64EE6CF1A787DE400C5683E /* SimpleActionSheetCell.m */,
 			);
 			name = AutoLayoutCellClasses;
 			sourceTree = "<group>";
@@ -559,6 +569,7 @@
 				F674963A1A169D570060ECA3 /* DateCell.m in Sources */,
 				6C7B9D2219E72DC700C86637 /* FetchedResultsHelper.m in Sources */,
 				6C7B9CF819E72D1300C86637 /* CellWithButton.m in Sources */,
+				F64EE6D01A787DE400C5683E /* SimpleActionSheetCell.m in Sources */,
 				F67496401A169DB10060ECA3 /* NumberCell.m in Sources */,
 				6C7B9CF019E72D1300C86637 /* XIBBasedTableCell.m in Sources */,
 				6C7B9D1319E72D9E00C86637 /* DateOptionCellInput.m in Sources */,
@@ -579,6 +590,7 @@
 				6C7B9D3519E7369A00C86637 /* DynamicTableViewCellOptionsPickerViewController.m in Sources */,
 				F6C099321A16D39F004BBEAE /* SwitchOptionCellInput.m in Sources */,
 				6C7B9D1219E72D9E00C86637 /* SliderOptionCellInput.m in Sources */,
+				F64EE6D31A787F9100C5683E /* SimpleActionSheetOptionCellInput.m in Sources */,
 				6C7B9D1619E72D9E00C86637 /* ButtonOptionCellInput.m in Sources */,
 				6C7B9D1119E72D9E00C86637 /* SegmentOptionCellInput.m in Sources */,
 				F67496461A169DEE0060ECA3 /* SegmentCell.m in Sources */,

@@ -51,6 +51,8 @@
 @property (nonatomic, strong) NSMutableDictionary *resultDict;
 
 @property (nonatomic) BOOL useTableNavigationBar;
+
+-(instancetype) initWithCells:(NSArray*) cellInputArray;
 - (void) setupWithInputArray:(NSArray*) cellInputArray;
 
 @end

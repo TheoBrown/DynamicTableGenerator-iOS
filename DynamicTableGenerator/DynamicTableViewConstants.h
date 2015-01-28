@@ -22,6 +22,8 @@ extern NSString * const DTVCCellIdentifier_DateCell;
 extern NSString * const DTVCCellIdentifier_SliderCell;
 extern NSString * const DTVCCellIdentifier_ButtonCell;
 extern NSString * const DTVCCellIdentifier_ActionCell;
+extern NSString * const DTVCCellIdentifier_SimpleActionCell;
+
 extern NSString * const DTVCCellIdentifier_TextCell;
 extern NSString * const DTVCCellIdentifier_NumberCell;
 extern NSString * const DTVCCellIdentifier_SwitchCell;
@@ -84,4 +86,9 @@ typedef NS_ENUM(NSInteger, DTVCInputType_StepperCell)
 {
     DTVCInputType_StepperCell_Interger = 1,
 };
-
+typedef NS_ENUM(NSInteger, DTVCInputType_SimpleActionSheetCell)
+{
+    DTVCInputType_SimpleActionSheetCell_String = 1,
+    DTVCInputType_SimpleActionSheetCell_Index,
+    DTVCInputType_SimpleActionSheetCell_DictMap,
+};
