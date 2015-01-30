@@ -11,6 +11,7 @@
 @interface SimpleActionSheetOptionCellInput : BaseOptionCellInput
 
 -(id) initSimpleActionSheetInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withOptions:(NSArray*) optionsArray withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
+-(id) initSimpleActionSheetInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withDefault:(NSString*) defaultValue withOptions:(NSArray*) optionsArray withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
 -(id) initSimpleActionSheetInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withOptions:(NSArray*) optionsArray resultMap:(NSDictionary*) resultMap withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
 
 

@@ -266,7 +266,20 @@ extern const double EARTH_RADIUS;
             cell = [[SimpleActionSheetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         [cell defineCellFormatType:cellInput.cellInputFormatType];
-        [cell.actionButton setTitle:cellInput.value forState:UIControlStateNormal];
+        NSLog(@"action cell loaded with value %@ %@ %@",cellInput.value,[cellInput.value class],[NSString class]);
+        NSString* defaultValue;
+        NSString* classString = NSStringFromClass([cellInput.value class]);
+        NSLog(@"Class stirng %@ %@",classString,[classString class]);
+        if ([[classString lowercaseString] containsString:@"string"]) {
+            defaultValue=cellInput.value;
+        }
+        else if ([cellInput.value class]==[NSNumber class]) {
+            defaultValue=[cellInput.optionsArray objectAtIndex:[(NSNumber*)cellInput.value integerValue]];
+        }
+        else{
+            defaultValue = [cellInput.optionsArray objectAtIndex:0];
+        }
+        [cell.actionButton setTitle:defaultValue forState:UIControlStateNormal];
         // Configure the cell...
         cell.title.text = cellInput.title;
         cell.indexPath = indexPath;

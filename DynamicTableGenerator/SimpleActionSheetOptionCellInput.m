@@ -21,10 +21,23 @@
         self = [self initType:DTVCCellIdentifier_SimpleActionCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
         self.optionsArray=optionsArray;
         [self defineCellInputFormatType:[NSNumber numberWithInt:DTVCInputType_SimpleActionSheetCell_String]];
+        [self createDefaultValueForObject:managedObject orValue:self.optionsArray[0]];
+
     }
     return self;
 }
-
+-(id) initSimpleActionSheetInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withDefault:(NSString*) defaultValue withOptions:(NSArray*) optionsArray withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader{
+    self = [super init];
+    NSLog(@"action shee created with object %@" , [managedObject description]);
+    if (self) {
+        self = [self initType:DTVCCellIdentifier_SimpleActionCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
+        self.optionsArray=optionsArray;
+        [self defineCellInputFormatType:[NSNumber numberWithInt:DTVCInputType_SimpleActionSheetCell_String]];
+        [self createDefaultValueForObject:managedObject orValue:defaultValue];
+        
+    }
+    return self;
+}
 -(id) initSimpleActionSheetInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withOptions:(NSArray*) optionsArray resultMap:(NSDictionary*) resultMap withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader{
     self = [super init];
     NSLog(@"action shee created with object %@" , [managedObject description]);
@@ -46,12 +59,15 @@
     [self saveObjectContext];
 }
 -(void) cellSimpleActionSheetDidChange:(NSIndexPath *) cellIndexPath withString:(NSString*)optionString{
+    NSLog(@"action sheet call to update value %@ %@",self.title,optionString);
     [self updateValue:optionString];
+    [self updateContextWithValue:optionString];
+
     [self saveObjectContext];
 }
 -(void) cellSimpleActionSheetDidChange:(NSIndexPath *) cellIndexPath withObject:(NSObject*)optionObject{
     [self updateValue:optionObject];
-//    [self updateContextWithValue:optionObject];
+    [self updateContextWithValue:optionObject];
     [self saveObjectContext];
 }
 @end

@@ -76,12 +76,12 @@
     if (self.defaultValue != NULL) {
         self.value = self.defaultValue;
     }
-//    NSLog(@"%@ set object with default %@ and value  %@",self.title,[self.defaultValue description], [self.value description]);
+    NSLog(@"%@ set object with default %@ and value  %@",self.title,[self.defaultValue description], [self.value description]);
 }
 
 - (void) setManagedObject:(id) managedObject withDefaultValue:(NSObject*) defaultvalue {
     self.observedObject = managedObject;
-//    NSLog(@"observed object is %@", [self.observedObject description]);
+    NSLog(@"observed object is %@", [self.observedObject description]);
     self.defaultValue = defaultvalue;
     self.value = self.defaultValue;
 }
@@ -93,6 +93,7 @@
 }
 - (void) updateValue:(id) newValue {
     self.value = newValue;
+    NSLog(@"Value set to %@",newValue);
 }
 
 #pragma mark - update values
@@ -102,7 +103,7 @@
 - (void) saveObjectContext {
     //used to write to a core data entity
     if ([self.observedObject respondsToSelector:@selector(setValue:forKey:)]) {
-        NSLog(@"core data entity value set from %@",[self.observedObject valueForKey:self.returnKey]);
+        NSLog(@"%@ core data entity value set from %@",self.title,[self.observedObject valueForKey:self.returnKey]);
         [self.observedObject setValue:self.value forKey:self.returnKey];
         NSLog(@"to value %@ for value %@",[self.observedObject valueForKey:self.returnKey],self.value);
     }
