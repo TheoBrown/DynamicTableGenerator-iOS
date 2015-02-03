@@ -23,6 +23,7 @@ extern NSString * const DTVCCellIdentifier_SliderCell;
 extern NSString * const DTVCCellIdentifier_ButtonCell;
 extern NSString * const DTVCCellIdentifier_ActionCell;
 extern NSString * const DTVCCellIdentifier_SimpleActionCell;
+extern NSString * const DTVCCellIdentifier_WebLinkCell;
 
 extern NSString * const DTVCCellIdentifier_TextCell;
 extern NSString * const DTVCCellIdentifier_NumberCell;

@@ -23,6 +23,7 @@
 #import "StepperCell.h"
 #import "SegueCell.h"
 #import "SimpleActionSheetCell.h"
+#import "WebLinkCell.h"
 
 #import "BaseOptionCellInput.h"
 #import "DateOptionCellInput.h"
@@ -36,4 +37,4 @@
 #import "StepperOptionCellInput.h"
 #import "SegueOptionCellInput.h"
 #import "SimpleActionSheetOptionCellInput.h"
-
+#import "WebLinkOptionCellInput.h"
