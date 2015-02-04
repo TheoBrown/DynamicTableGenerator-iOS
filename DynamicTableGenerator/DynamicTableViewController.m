@@ -75,6 +75,7 @@
         [self.view bringSubviewToFront:self.keyPadView];
     }
     [self.cellManager setupAcessoryViewForFrame:tableFrame withDelegate:self];
+    [self.view setNeedsUpdateConstraints];
 
 }
 -(void) viewWillAppear:(BOOL)animated{
@@ -132,7 +133,7 @@
 
 - (void) didRotate:(NSNotification *)notification
 {
-    NSLog(@"Device Rotated !");
+//    NSLog(@"Device Rotated with frame %@ table %@",NSStringFromCGRect(self.view.frame),NSStringFromCGRect(self.tableView.frame));
 
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
     [self.view setNeedsLayout];
@@ -188,9 +189,9 @@
         [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTop];
         [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
          [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
-        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:25+30];
+        [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
 
-        NSLog(@"keypad super %@" ,[self.keyPadView.superview description]);
+//        NSLog(@"keypad super %@" ,[self.keyPadView.superview description]);
 //        [self.keyPadView autoSetDimension:ALDimensionHeight toSize:30.0];
 ////        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
 //        [self.keyPadView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
