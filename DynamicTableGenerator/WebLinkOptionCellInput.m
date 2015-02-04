@@ -28,7 +28,7 @@
         self.author=authorName;
         self.asset=assetName;
         self.assetDescription=assetDescription;
-        self = [self initType:[self cellType] forReturnKey:nil withTitle:@"NO" inSection:newSectionHeader];
+        self = [self initType:[self cellType] forReturnKey:nil withTitle:@"" inSection:newSectionHeader];
     }
     return self;
 }

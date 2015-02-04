@@ -51,8 +51,10 @@
 @property (nonatomic, strong) NSMutableDictionary *resultDict;
 
 @property (nonatomic) BOOL useTableNavigationBar;
+@property (nonatomic) UITableViewStyle tvStyle;
 
 -(instancetype) initWithCells:(NSArray*) cellInputArray;
+-(instancetype) initWithCells:(NSArray*) cellInputArray forStyle:(UITableViewStyle) tvStyle;
 - (void) setupWithInputArray:(NSArray*) cellInputArray;
 
 @end

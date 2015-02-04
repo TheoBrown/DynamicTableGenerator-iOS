@@ -34,6 +34,8 @@
         self.cellButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         self.cellButton.contentEdgeInsets = UIEdgeInsetsMake(0,0,0,10);
         [self.contentView addSubview:self.cellButton];
+        self.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+
     }
     
     return self;

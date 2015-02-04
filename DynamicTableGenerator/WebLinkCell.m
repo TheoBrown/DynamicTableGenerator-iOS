@@ -23,11 +23,16 @@
         
         //settings up cell text;
         self.authorLabel=[UILabel newAutoLayoutView];
-        [self.authorLabel setBackgroundColor:[UIColor greenColor]];
+        [self.authorLabel setTextAlignment:NSTextAlignmentLeft];
+
+//        [self.authorLabel setBackgroundColor:[UIColor greenColor]];
         self.assetLabel=[UILabel newAutoLayoutView];
-        [self.assetLabel setBackgroundColor:[UIColor orangeColor]];
+        [self.assetLabel setTextAlignment:NSTextAlignmentCenter];
+//        [self.assetLabel setBackgroundColor:[UIColor orangeColor]];
         self.descriptionLabel = [UILabel newAutoLayoutView];
-        [self.descriptionLabel setBackgroundColor:[UIColor blueColor]];
+        [self.descriptionLabel setTextAlignment:NSTextAlignmentRight];
+
+//        [self.descriptionLabel setBackgroundColor:[UIColor blueColor]];
         [self.contentView addSubview:self.authorLabel];
         [self.contentView addSubview:self.assetLabel];
         [self.contentView addSubview:self.descriptionLabel];
@@ -44,6 +49,7 @@
         self.cellButton.contentEdgeInsets = UIEdgeInsetsMake(0,0,0,10);
         [self.cellButton setBackgroundColor:[UIColor clearColor]];
         self.cellButton.alpha=0.0;
+        self.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         [self.contentView addSubview:self.cellButton];
     }
     

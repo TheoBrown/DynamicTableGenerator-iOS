@@ -31,12 +31,22 @@
 -(instancetype) initWithCells:(NSArray*) cellInputArray  {
     self = [super init];
     if (self) {
+        self.tvStyle=UITableViewStylePlain;
         self.useTableNavigationBar = YES;
         self.cellManager = [[DynamicTableViewCellManager alloc] initWithDelegate:self andtableView:self.tableView andCellInputs:cellInputArray];
     }
     return self;
 }
+-(instancetype) initWithCells:(NSArray*) cellInputArray forStyle:(UITableViewStyle) tvStyle {
+    self = [super init];
+    if (self) {
+        self.tvStyle=tvStyle;
 
+        self.useTableNavigationBar = YES;
+        self.cellManager = [[DynamicTableViewCellManager alloc] initWithDelegate:self andtableView:self.tableView andCellInputs:cellInputArray];
+    }
+    return self;
+}
 - (void) setupWithInputArray:(NSArray*) cellInputArray {
     self.cellManager = [[DynamicTableViewCellManager alloc] initWithDelegate:self andtableView:self.tableView andCellInputs:cellInputArray];
 //    NSLog(@"Dynamic Table View Controller setup with array %@" , [cellInputArray description]);
@@ -47,12 +57,15 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     
     CGFloat controlHeight = 40.0;
     CGRect tableFrame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.x, self.view.frame.size.width, self.view.frame.size.height-controlHeight);
-    self.tableView = [[UITableView alloc] initWithFrame:tableFrame];
+//    self.tableView = [[UITableView alloc] initWithFrame:tableFrame];
+    self.tableView=[[UITableView alloc] initWithFrame:tableFrame style:self.tvStyle];
     self.tableView.translatesAutoresizingMaskIntoConstraints=NO;
+
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;
@@ -60,7 +73,6 @@
     self.tableView.estimatedRowHeight = 44.0; // set this to whatever your "average" cell height is; it doesn't need to be very accurate
     self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 250.0, 0.0);
     [self.view addSubview:self.tableView];
-    
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveSettings:)];
 	self.navigationItem.rightBarButtonItem = addButton;
     
@@ -79,13 +91,16 @@
 
 }
 -(void) viewWillAppear:(BOOL)animated{
+
+    
     [super viewWillAppear:animated];
-    if (self.tableView.contentSize.height < self.tableView.frame.size.height) {
-        self.tableView.scrollEnabled = NO;
-    }
-    else {
-        self.tableView.scrollEnabled = YES;
-    }
+    self.tableView.scrollEnabled=YES;
+//    if (self.tableView.contentSize.height < self.tableView.frame.size.height) {
+//        self.tableView.scrollEnabled = NO;
+//    }
+//    else {
+//        self.tableView.scrollEnabled = YES;
+//    }
 }
 - (void)viewDidAppear:(BOOL)animated
 {
