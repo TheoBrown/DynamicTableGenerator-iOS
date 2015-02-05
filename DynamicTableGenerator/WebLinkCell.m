@@ -24,14 +24,14 @@
         //settings up cell text;
         self.authorLabel=[UILabel newAutoLayoutView];
         [self.authorLabel setTextAlignment:NSTextAlignmentLeft];
-
+        [self.authorLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:16]];
 //        [self.authorLabel setBackgroundColor:[UIColor greenColor]];
         self.assetLabel=[UILabel newAutoLayoutView];
         [self.assetLabel setTextAlignment:NSTextAlignmentCenter];
 //        [self.assetLabel setBackgroundColor:[UIColor orangeColor]];
         self.descriptionLabel = [UILabel newAutoLayoutView];
         [self.descriptionLabel setTextAlignment:NSTextAlignmentRight];
-
+        [self.descriptionLabel setTextColor:[UIColor grayColor]];
 //        [self.descriptionLabel setBackgroundColor:[UIColor blueColor]];
         [self.contentView addSubview:self.authorLabel];
         [self.contentView addSubview:self.assetLabel];
@@ -87,9 +87,10 @@
         [self.authorLabel autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
         
         [self.assetLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.authorLabel withOffset:kLabelVerticalInsets];
-        [self.assetLabel autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
+        [self.assetLabel autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:2*kLabelHorizontalInsets];
         [self.assetLabel autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
         [self.assetLabel autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:self.authorLabel];
+        
         [self.descriptionLabel autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
         [self.descriptionLabel autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalSpace];
         [self.descriptionLabel autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:self.authorLabel withOffset:kLabelHorizontalSpace];
