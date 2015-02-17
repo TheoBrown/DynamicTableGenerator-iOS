@@ -120,7 +120,6 @@
 		6C7B9D3A19E7386D00C86637 /* DynamicTableViewCellManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTableViewCellManager.h; sourceTree = "<group>"; };
 		6C7B9D3B19E7386D00C86637 /* DynamicTableViewCellManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicTableViewCellManager.m; sourceTree = "<group>"; };
 		6CBA470019E7566100EF8861 /* DynamicTableXibs.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicTableXibs.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		6CBA470319E7566100EF8861 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CE5960D3BCCF624D49FCAAA /* Pods-DynamicTableGenerator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicTableGenerator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicTableGenerator/Pods-DynamicTableGenerator.debug.xcconfig"; sourceTree = "<group>"; };
 		DAEAA8757C8B446F8D10E45F /* libPods-DynamicTableGenerator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DynamicTableGenerator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC5972F758B4B74B733E38BF /* Pods-DynamicTableGenerator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicTableGenerator.release.xcconfig"; path = "Pods/Target Support Files/Pods-DynamicTableGenerator/Pods-DynamicTableGenerator.release.xcconfig"; sourceTree = "<group>"; };
@@ -210,7 +209,6 @@
 			children = (
 				6C7B9CBE19E7256400C86637 /* DynamicTableGenerator */,
 				6C7B9CC819E7256400C86637 /* DynamicTableGeneratorTests */,
-				6CBA470119E7566100EF8861 /* DynamicTableXibs */,
 				6C7B9CBD19E7256400C86637 /* Products */,
 				09905CECAE2A4884925F3AE1 /* Frameworks */,
 				F2336974B683F9DD961504C7 /* Pods */,
@@ -356,22 +354,6 @@
 				6C7B9D3219E7369A00C86637 /* DynamicTableViewCellOptionsPickerViewController.m */,
 			);
 			name = CellVCS;
-			sourceTree = "<group>";
-		};
-		6CBA470119E7566100EF8861 /* DynamicTableXibs */ = {
-			isa = PBXGroup;
-			children = (
-				6CBA470219E7566100EF8861 /* Supporting Files */,
-			);
-			path = DynamicTableXibs;
-			sourceTree = "<group>";
-		};
-		6CBA470219E7566100EF8861 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				6CBA470319E7566100EF8861 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		F2336974B683F9DD961504C7 /* Pods */ = {
