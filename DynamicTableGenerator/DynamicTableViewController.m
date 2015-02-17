@@ -11,9 +11,6 @@
 #import "TableViewNavigationBar.h"
 #import "BaseCell.h"
 
-#import "SharedData.h"
-#import "FetchedResultsHelper.h"
-
 @implementation DynamicTableViewController
 @synthesize optionsDelegate, cellManager;
 @synthesize resultDict;
