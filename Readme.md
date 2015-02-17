@@ -1,4 +1,4 @@
-micTableGenerator
+DynamicTableGenerator is 
 An Objective-C static library that makes creating table view forms, settings panels, and any form of user input quick and simple.
 
 
