@@ -206,7 +206,6 @@
 		6C7B9CBE19E7256400C86637 /* DynamicTableGenerator */ = {
 			isa = PBXGroup;
 			children = (
-				F654ED001A4284F3002074DD /* Utilities */,
 				6C7B9D2519E7303300C86637 /* MainControllers */,
 				6C7B9D1819E72DBC00C86637 /* Helper Protocols */,
 				6C7B9D3019E7365000C86637 /* CellVCS */,
@@ -350,13 +349,6 @@
 				F6BF95761A81510C00D1955E /* WebLinkCell.m */,
 			);
 			name = AutoLayoutCellClasses;
-			sourceTree = "<group>";
-		};
-		F654ED001A4284F3002074DD /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
