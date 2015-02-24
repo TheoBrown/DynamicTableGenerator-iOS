@@ -237,7 +237,7 @@ extern const double EARTH_RADIUS;
             cell = [[SegmentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         
-        cell.title=segmentCellInput.title;
+        cell.title.text=segmentCellInput.title;
        // cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
         cell.segmentResults = segmentCellInput.segmentValues;
         NSArray *segmentTitles = segmentCellInput.segmentTitles;
