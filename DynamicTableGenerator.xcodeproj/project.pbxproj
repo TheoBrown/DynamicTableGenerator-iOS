@@ -648,6 +648,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -688,6 +689,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -709,6 +711,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8CE5960D3BCCF624D49FCAAA /* Pods-DynamicTableGenerator.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"$(inherited)",
@@ -722,6 +725,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC5972F758B4B74B733E38BF /* Pods-DynamicTableGenerator.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"$(inherited)",
