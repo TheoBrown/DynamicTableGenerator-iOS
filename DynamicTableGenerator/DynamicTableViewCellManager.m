@@ -48,6 +48,7 @@ extern const double EARTH_RADIUS;
     NSMutableDictionary* sectionTitleDict = [[NSMutableDictionary alloc] init];
 
     for (BaseOptionCellInput* baseCellInput in cellInputArray) {
+        NSLog(@"adding %@ to %@ or %@",baseCellInput.sectionHeader,sectionTitles,sectionTitleDict);
         if ([sectionTitles containsObject:baseCellInput.sectionHeader]) {
             // title already in section
             [sectionTitleDict[baseCellInput.sectionHeader] addObject:baseCellInput];

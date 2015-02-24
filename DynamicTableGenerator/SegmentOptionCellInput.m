@@ -18,7 +18,9 @@
 
 
 -(id) initSegmentInputForObject:(id) managedObject forReturnKey:(NSString*) newReturnKey withTitle:(NSString*) cellTitle withSegmentTitles:(NSArray*) segmentTitleArray andSegmentValues:(NSArray*) segmentValueArray andDefaultSelection:(NSInteger) selectedCell inSection:(NSString*) newSectionHeader {
-    if (!self) {
+    self = [super init];
+
+    if (self) {
         self = [self initType:DTVCCellIdentifier_SegmentCell forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
         self.segmentValues = segmentValueArray;
         self.segmentTitles = segmentTitleArray;
