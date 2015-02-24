@@ -15,8 +15,8 @@
 }
 
 -(id) initActionSheetInputTitled:(NSString*) cellTitle withEntity:(id) managedObjectEntity andSettings:(NSDictionary*) settingsDictionary inSection:(NSString*) newSectionHeader {
-    
-    if (!self) {
+    self = [super init];
+    if (self) {
         
         NSDictionary* settingsDictionary = @{@"nopredicateString":@"(last_name != nil)",
                                              @"entity":@"UserInfo",

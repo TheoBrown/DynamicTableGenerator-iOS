@@ -7,7 +7,6 @@
 //
 
 #import "OptionCell.h"
-#import "FetchedResultsHelper.h"
 
 @implementation OptionCell
 
@@ -86,14 +85,13 @@
 //           [self presentViewController:self.resultsViewController animated:YES completion: nil];
 }
 
--(void) setResultTypeFromURL:(NSURL *) objectURL{
-    NSObject * pObject = [[FetchedResultsHelper getInstance] getObjectFromID:objectURL];
-    self.selectedTestType = [pObject valueForKey:@"testType"];
-}
+
 -(void) resultsUpdated:(NSArray *)resultArray{
     
     [self.cellButton setTitle:[self combineStringsFromArray:resultArray] forState:UIControlStateNormal];
-    [self.delegate cellButtonresultsUpdated:self.indexPath withResults:resultArray];
+    if ([self.delegate respondsToSelector:@selector(cellButtonresultsUpdated:withResults:)]){
+        [self.delegate cellButtonresultsUpdated:self.indexPath withResults:resultArray];
+    }
     self.selectedOptionsArray = resultArray;
 }
 

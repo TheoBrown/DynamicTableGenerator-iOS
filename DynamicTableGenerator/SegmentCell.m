@@ -9,6 +9,9 @@
 #import "SegmentCell.h"
 
 @implementation SegmentCell
+-(NSString *) reuseIdentifier {
+    return DTVCCellIdentifier_SegmentCell;
+}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -18,8 +21,6 @@
     if (self) {
         self.cellSegment = [UISegmentedControl newAutoLayoutView];
         [self.cellSegment addTarget:self action:@selector(segmentedControlChanged:) forControlEvents:UIControlEventValueChanged];
-//        [self.cellSegment addTarget:self action:@selector(segmentedControlChanged:) forControlEvents:UIControlEventTouchUpInside];
-        
         [self.cellSegment addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventTouchDown];
 
         [self.contentView addSubview:self.cellSegment];
@@ -42,6 +43,9 @@
             [self.cellSegment autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
         }];
         [self.cellSegment autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
+        [self.cellSegment autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
+        [self.cellSegment autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:self.title withOffset:kLabelHorizontalSpace];
+
         [self.cellSegment autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
         
         self.didSetupAcessoryConstraints = YES;
@@ -50,12 +54,15 @@
     [super updateConstraints];
 }
 
--(NSString *) reuseIdentifier {
-    return DTVCCellIdentifier_SegmentCell;
-}
+
 
 -(IBAction)segmentedControlChanged:(UISegmentedControl*)sender {
     id result = [self.segmentResults objectAtIndex:sender.selectedSegmentIndex];
+    if ([self.delegate respondsToSelector:@selector(cellSegmentDidChange:withObject:)]){
+        [self.delegate cellSegmentDidChange:self.indexPath withObject:result];
+    }
+}
+-(void) datedidChange{
 //    NSCalendar *calendar = [NSCalendar currentCalendar];
 //    NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit ) fromDate:[NSDate date]];
 //    NSDate * startDate = [calendar dateFromComponents:components];

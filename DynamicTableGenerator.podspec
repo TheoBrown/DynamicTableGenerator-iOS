@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "DynamicTableGenerator"
   s.version      = "0.0.1"
-  s.summary      = "A short description of DynamicTableGenerator."
+  s.summary      = "DynamicTableGenerator allows fast and simple creation of table views and data entry forms for gathering user input in iOS."
 
   s.description  = <<-DESC
                    A longer description of DynamicTableGenerator in Markdown format.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
                    * Finally, don't worry about the indent, CocoaPods strips it!
                    DESC
 
-  #s.homepage     = "http://EXAMPLE/DynamicTableGenerator"
+  s.homepage     = "http://tpb.directdiagnostics.org"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT (example)"
+  s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -64,7 +64,7 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  s.platform     = :ios
+  s.platform     = :ios, "7.0"
   # s.platform     = :ios, "5.0"
 
   #  When using multiple platforms
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  #s.source       = { :git => "http://EXAMPLE/DynamicTableGenerator.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/TheoBrown/DynamicTableGenerator-iOS.git", :tag => "0.0.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

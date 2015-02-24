@@ -48,6 +48,7 @@ extern const double EARTH_RADIUS;
     NSMutableDictionary* sectionTitleDict = [[NSMutableDictionary alloc] init];
 
     for (BaseOptionCellInput* baseCellInput in cellInputArray) {
+        NSLog(@"adding %@ to %@ or %@",baseCellInput.sectionHeader,sectionTitles,sectionTitleDict);
         if ([sectionTitles containsObject:baseCellInput.sectionHeader]) {
             // title already in section
             [sectionTitleDict[baseCellInput.sectionHeader] addObject:baseCellInput];
@@ -236,6 +237,7 @@ extern const double EARTH_RADIUS;
             cell = [[SegmentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         
+        cell.title.text=segmentCellInput.title;
        // cell.subTitle.text = [NSString stringWithFormat:@"Row: %ld, Sec: %ld",(long)[indexPath row], (long)[indexPath section]];
         cell.segmentResults = segmentCellInput.segmentValues;
         NSArray *segmentTitles = segmentCellInput.segmentTitles;
@@ -255,7 +257,7 @@ extern const double EARTH_RADIUS;
         cell.tableViewDelegate = delegateToAssign;
 
         cell.delegate = segmentCellInput;
-         
+        [cell sizeToFit];
         return cell;
     }
     else if ([CellIdentifier  isEqual: DTVCCellIdentifier_SimpleActionCell]){

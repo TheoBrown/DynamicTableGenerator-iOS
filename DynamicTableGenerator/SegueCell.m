@@ -71,10 +71,12 @@
 
 
 -(IBAction)buttonPressed:(UIControl *)sender{
-    
+    if ([self.tableViewDelegate navigationController]!=nil){
+        if ([[self.tableViewDelegate navigationController] respondsToSelector:@selector(pushViewController:animated:)]){
+            [[self.tableViewDelegate navigationController] pushViewController:self.destinationVC animated:YES];
 
-    
-    [[self.tableViewDelegate navigationController] pushViewController:self.destinationVC animated:YES];
+        }
+    }
     //           [self presentViewController:self.resultsViewController animated:YES completion: nil];
 }
 
