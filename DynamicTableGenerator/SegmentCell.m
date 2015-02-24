@@ -43,6 +43,9 @@
             [self.cellSegment autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
         }];
         [self.cellSegment autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
+        [self.cellSegment autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
+        [self.cellSegment autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:self.title withOffset:kLabelHorizontalSpace];
+
         [self.cellSegment autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
         
         self.didSetupAcessoryConstraints = YES;
