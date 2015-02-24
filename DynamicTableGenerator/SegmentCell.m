@@ -12,6 +12,7 @@
 -(NSString *) reuseIdentifier {
     return DTVCCellIdentifier_SegmentCell;
 }
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     reuseIdentifier = [self reuseIdentifier];
@@ -20,8 +21,6 @@
     if (self) {
         self.cellSegment = [UISegmentedControl newAutoLayoutView];
         [self.cellSegment addTarget:self action:@selector(segmentedControlChanged:) forControlEvents:UIControlEventValueChanged];
-//        [self.cellSegment addTarget:self action:@selector(segmentedControlChanged:) forControlEvents:UIControlEventTouchUpInside];
-        
         [self.cellSegment addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventTouchDown];
 
         [self.contentView addSubview:self.cellSegment];
@@ -56,7 +55,11 @@
 
 -(IBAction)segmentedControlChanged:(UISegmentedControl*)sender {
     id result = [self.segmentResults objectAtIndex:sender.selectedSegmentIndex];
-    [self.delegate cellSegmentDidChange:self.indexPath withObject:result];
+    if ([self.delegate respondsToSelector:@selector(cellSegmentDidChange:withObject:)]){
+        [self.delegate cellSegmentDidChange:self.indexPath withObject:result];
+    }
+}
+-(void) datedidChange{
 //    NSCalendar *calendar = [NSCalendar currentCalendar];
 //    NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit ) fromDate:[NSDate date]];
 //    NSDate * startDate = [calendar dateFromComponents:components];
