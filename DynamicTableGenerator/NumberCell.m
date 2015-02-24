@@ -119,8 +119,9 @@
     NSNumber *newValue = [NSNumber numberWithFloat:value];
     self.numericTextField.text = [self stringFromNumber:newValue];
     NSLog(@"text value did change with %f, should display %@",value,[self stringFromNumber:newValue]);
-
-    [self.delegate cellNumericValueDidChange:self.indexPath :[NSNumber numberWithFloat:value]];
+    if ([self.delegate respondsToSelector:@selector(cellNumericValueDidChange::)]){
+        [self.delegate cellNumericValueDidChange:self.indexPath :[NSNumber numberWithFloat:value]];
+    }
 }
 
 #pragma mark -text delegate

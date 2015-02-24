@@ -104,8 +104,10 @@
     //    }
     value = self.cellTextField.text;
     self.cellTextField.text = value;
-    
-    [self.delegate cellTextValueDidChange:self.indexPath :value];
+    if ([self.delegate respondsToSelector:@selector(cellTextValueDidChange::)]){
+        [self.delegate cellTextValueDidChange:self.indexPath :value];
+
+    }
 }
 
 #pragma mark -delegat methods for text entry

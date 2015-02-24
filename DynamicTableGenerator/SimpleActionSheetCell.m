@@ -127,13 +127,20 @@
     [self.actionButton setTitle:self.selectedResultTitle forState:UIControlStateNormal];
     
     if ([self.cellFormatType intValue] == DTVCInputType_SimpleActionSheetCell_Index) {
-        [self.delegate cellSimpleActionSheetDidChange:self.indexPath withIndex:selectedIndex];
+        if ([self.delegate respondsToSelector:@selector(cellSimpleActionSheetDidChange:withIndex:)]){
+            [self.delegate cellSimpleActionSheetDidChange:self.indexPath withIndex:selectedIndex];
+
+        }
     }
     else if ([self.cellFormatType intValue] == DTVCInputType_SimpleActionSheetCell_String) {
+        if ([self.delegate respondsToSelector:@selector(cellSimpleActionSheetDidChange:withString:)]){
         [self.delegate cellSimpleActionSheetDidChange:self.indexPath withString:self.selectedResultTitle];
+        }
     }
     else if ([self.cellFormatType intValue] == DTVCInputType_SimpleActionSheetCell_DictMap) {
+        if ([self.delegate respondsToSelector:@selector(cellSimpleActionSheetDidChange:withObject:)]){
         [self.delegate cellSimpleActionSheetDidChange:self.indexPath withObject:[self.resultsMap objectForKey:self.selectedResultTitle]];
+        }
     }
     else {
         NSLog(@"ERROR: %d not predefined value ",[self.cellContentFormatType intValue]);

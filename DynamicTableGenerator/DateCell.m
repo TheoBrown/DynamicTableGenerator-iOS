@@ -153,8 +153,9 @@
     //    NSLog(@"Date was selected as : %@", datestring);
     [self.dateButon setTitle:datestring forState:UIControlStateNormal];
     self.selectedDate = pickedDate;
+    if ([self.delegate respondsToSelector:@selector(cellDateDidChange::)]){
     [self.delegate cellDateDidChange:self.indexPath :pickedDate];
-    
+    }
     
 }
 -(NSString*)stringFromDate:(NSDate*)date{

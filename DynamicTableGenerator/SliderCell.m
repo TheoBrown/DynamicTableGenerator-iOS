@@ -65,7 +65,9 @@
     float value = sender.value;
     self.sliderLable.text = [NSString stringWithFormat:@"%.2f",value];
     NSNumber * sliderValue = [NSNumber numberWithFloat:value];
+    if ([self.delegate respondsToSelector:@selector(cellSliderDidChange::)]){
+        [self.delegate cellSliderDidChange:self.indexPath :sliderValue];
 
-    [self.delegate cellSliderDidChange:self.indexPath :sliderValue];
+    }
 }
 @end

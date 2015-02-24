@@ -89,7 +89,9 @@
 -(void) resultsUpdated:(NSArray *)resultArray{
     
     [self.cellButton setTitle:[self combineStringsFromArray:resultArray] forState:UIControlStateNormal];
-    [self.delegate cellButtonresultsUpdated:self.indexPath withResults:resultArray];
+    if ([self.delegate respondsToSelector:@selector(cellButtonresultsUpdated:withResults:)]){
+        [self.delegate cellButtonresultsUpdated:self.indexPath withResults:resultArray];
+    }
     self.selectedOptionsArray = resultArray;
 }
 
