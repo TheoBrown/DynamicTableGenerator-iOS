@@ -9,7 +9,9 @@
 #import "SegmentCell.h"
 
 @implementation SegmentCell
-
+-(NSString *) reuseIdentifier {
+    return DTVCCellIdentifier_SegmentCell;
+}
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     reuseIdentifier = [self reuseIdentifier];
@@ -50,12 +52,11 @@
     [super updateConstraints];
 }
 
--(NSString *) reuseIdentifier {
-    return DTVCCellIdentifier_SegmentCell;
-}
+
 
 -(IBAction)segmentedControlChanged:(UISegmentedControl*)sender {
     id result = [self.segmentResults objectAtIndex:sender.selectedSegmentIndex];
+    [self.delegate cellSegmentDidChange:self.indexPath withObject:result];
 //    NSCalendar *calendar = [NSCalendar currentCalendar];
 //    NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit ) fromDate:[NSDate date]];
 //    NSDate * startDate = [calendar dateFromComponents:components];
