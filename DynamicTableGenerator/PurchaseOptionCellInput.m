@@ -22,7 +22,16 @@
     }
     return self;
 }
-
+-(NSString*) displayPrice {
+    NSNumberFormatter * _priceFormatter;
+    
+    // Add to end of viewDidLoad
+    _priceFormatter = [[NSNumberFormatter alloc] init];
+    [_priceFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+    [_priceFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [_priceFormatter setLocale:self.IAPproduct.priceLocale];
+    return [_priceFormatter stringFromNumber:self.IAPproduct.price];
+}
 
 #pragma mark - editable table cell delegate methods
 -(void) cellPurchaseButtonPressed:(NSIndexPath *)indexPath {

@@ -12,6 +12,7 @@
 #import "DynamicTableViewConstants.h"
 #import "DynamicTableView.h"
 
+
 @implementation DynamicTableViewCellManager
 
 @synthesize tableView;
@@ -439,23 +440,21 @@ extern const double EARTH_RADIUS;
         return cell;
     }
     else if ([CellIdentifier  isEqual: DTVCCellIdentifier_PurchaseCell]){
-        WebLinkOptionCellInput* cellInput = (WebLinkOptionCellInput*) baseCellInput;
-        WebLinkCell  *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        PurchaseOptionCellInput* cellInput = (PurchaseOptionCellInput*) baseCellInput;
+        InAppPurchaseCell  *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         if (cell == nil) {
             [self.tableView registerClass:[SegueCell class] forCellReuseIdentifier:CellIdentifier];
-            cell = [[WebLinkCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            cell = [[InAppPurchaseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         
         // Configure the cell...
-        cell.title.text = cellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
+        cell.title.text = cellInput.IAPproduct.localizedTitle; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
         cell.delegate = cellInput;
         cell.indexPath = indexPath;
         cell.tableViewDelegate = delegateToAssign;
-        cell.linkURL=cellInput.linkURL;
-        cell.descriptionLabel.text=cellInput.assetDescription;
-        cell.authorLabel.text=cellInput.author;
-        cell.assetLabel.text=cellInput.asset;
+        cell.subTitle.text=[cellInput displayPrice];
+        [cell.buyButton setTitle:@"Buy" forState:UIControlStateNormal];
         return cell;
     }
     NSLog(@"option cell was not set");

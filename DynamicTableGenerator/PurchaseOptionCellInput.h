@@ -12,8 +12,9 @@
 @interface PurchaseOptionCellInput : BaseOptionCellInput
 -(id) initPurchaseCellwithProduct:(SKProduct*)product andDelegate:(id) delegate withTitle:(NSString*) cellTitle inSection:(NSString*) newSectionHeader;
 
-s@property (strong, nonatomic) SKProduct* IAPproduct;
+@property (strong, nonatomic) SKProduct* IAPproduct;
 
 @property (strong, nonatomic) id SKDelegate;
 
+-(NSString*) displayPrice;
 @end
