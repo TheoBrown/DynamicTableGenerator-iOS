@@ -23,7 +23,7 @@
         self.buyButton = [UIButton newAutoLayoutView];
         //        self.dateButon.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5]; // light blue
         [self.buyButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [self.buyButton addTarget:self action:@selector(selectADate:) forControlEvents:UIControlEventTouchUpInside];
+        [self.buyButton addTarget:self action:@selector(buyButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self.buyButton addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventTouchDown];
         [self.buyButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         
