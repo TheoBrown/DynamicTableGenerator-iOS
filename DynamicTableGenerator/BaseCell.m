@@ -183,7 +183,7 @@ NSString * const DTVCCellIdentifier_SegueCell = @"DTVC_SegueCell";
    
 }
 - (void) contentWasSelected:(id) sender {
-    NSLog(@"%@ content display with format %@",self.title.text,self.cellContentFormatType);
+//    NSLog(@"%@ content display with format %@",self.title.text,self.cellContentFormatType);
     [self.tableViewDelegate contentOfCellWasSelected:self.indexPath];
 }
 -(void) cellFormatWasUpdated {

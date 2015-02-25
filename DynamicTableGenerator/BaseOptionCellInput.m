@@ -103,18 +103,21 @@
 - (void) saveObjectContext {
     //used to write to a core data entity
     if ([self.observedObject respondsToSelector:@selector(setValue:forKey:)]) {
-        NSLog(@"%@ core data entity value set from %@",self.title,[self.observedObject valueForKey:self.returnKey]);
+
         [self.observedObject setValue:self.value forKey:self.returnKey];
-        NSLog(@"to value %@ for value %@",[self.observedObject valueForKey:self.returnKey],self.value);
+                NSLog(@"SaveObj:: %@ obj %@  set key %@ to %@",self.title,self.observedObject,self.returnKey,[self.observedObject valueForKey:self.returnKey]);
+//        NSLog(@"to value %@ for value %@",[self.observedObject valueForKey:self.returnKey],self.value);
     }
 }
 
 - (void) updateContextWithValue:(NSObject*) newValue {
     //updates the value of an object, eg if managed object is NSObject (i.e. non dict-coding compliant)
-    NSLog(@"%@ asked to update value to %@",self.title,newValue);
+    
+    
     if ([self.observedObject class] == [newValue class]) {
-        NSLog(@"value is updated with context");
-        
+        NSLog(@"%@ Asked to set %@ obj to %@ from %@",self.title,self.observedObject,newValue,self.value);
+//        NSLog(@"%@ asked to update value to %@",self.title,newValue);
+
         self.observedObject = newValue;
         self.value = newValue;
     }
