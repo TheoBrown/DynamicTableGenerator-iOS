@@ -20,11 +20,13 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        self.buyButton = [UIButton newAutoLayoutView];
-        //        self.dateButon.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5]; // light blue
+        self.buyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+      self.buyButton.translatesAutoresizingMaskIntoConstraints=NO;
+                          self.buyButton.frame=CGRectMake(0, 0, 40, 40);
+                          //        self.dateButon.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5]; // light blue
         [self.buyButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self.buyButton addTarget:self action:@selector(buyButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [self.buyButton addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventTouchDown];
+//        [self.buyButton addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventTouchDown];
         [self.buyButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 //        [self.buyButton setBackgroundColor:[UIColor blueColor]];
         [self defineContentSelector:@selector(buyButtonPressed:)];
