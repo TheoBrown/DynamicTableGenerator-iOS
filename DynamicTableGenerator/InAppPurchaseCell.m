@@ -32,13 +32,13 @@
         // Set default backgrond color
         [self.buyButton setBackgroundColor:[UIColor blackColor]];
         // Draw a custom gradient
-        CAGradientLayer *btnGradient = [CAGradientLayer layer];
-        btnGradient.frame = self.buyButton.bounds;
-        btnGradient.colors = [NSArray arrayWithObjects:
-                              (id)[[UIColor colorWithRed:102.0f / 255.0f green:102.0f / 255.0f blue:102.0f / 255.0f alpha:1.0f] CGColor],
-                              (id)[[UIColor colorWithRed:51.0f / 255.0f green:51.0f / 255.0f blue:51.0f / 255.0f alpha:1.0f] CGColor],
-                              nil];
-        [self.buyButton.layer insertSublayer:btnGradient atIndex:0];
+//        CAGradientLayer *btnGradient = [CAGradientLayer layer];
+//        btnGradient.frame = self.buyButton.bounds;
+//        btnGradient.colors = [NSArray arrayWithObjects:
+//                              (id)[[UIColor colorWithRed:102.0f / 255.0f green:102.0f / 255.0f blue:102.0f / 255.0f alpha:1.0f] CGColor],
+//                              (id)[[UIColor colorWithRed:51.0f / 255.0f green:51.0f / 255.0f blue:51.0f / 255.0f alpha:1.0f] CGColor],
+//                              nil];
+//        [self.buyButton.layer insertSublayer:btnGradient atIndex:0];
         
         // Round button corners
         CALayer *btnLayer = [self.buyButton layer];
@@ -52,7 +52,7 @@
         
         
         
-//        self.dateButon.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5]; // light blue
+        self.buyButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1.0 alpha:0.5]; // light blue
         [self.buyButton addTarget:self action:@selector(buyButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 //        [self.buyButton addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventTouchDown];
 
@@ -85,7 +85,7 @@
         }];
         [self.buyButton autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
         [self.buyButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
-
+        [self.buyButton autoSetDimension:ALDimensionWidth toSize:85.0];
         [self.buyButton autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
         [self.buyButton autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.title withOffset:3*kLabelHorizontalSpace];
         
