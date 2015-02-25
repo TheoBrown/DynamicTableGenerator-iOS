@@ -449,12 +449,30 @@ extern const double EARTH_RADIUS;
         }
         
         // Configure the cell...
+        SEL selector = @selector(productPurchased:);
+        BOOL returnValue = NO;
+        if ([cellInput.SKDelegate respondsToSelector:selector]){
+            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:
+                                        [[cellInput.SKDelegate class] instanceMethodSignatureForSelector:selector]];
+            [invocation setSelector:selector];
+            [invocation setTarget:cellInput.SKDelegate];
+            [invocation invoke];
+            [invocation getReturnValue:&returnValue];
+            NSLog(@"Returned %d", returnValue);
+        }
+        if (returnValue) {
+            [cell.buyButton setTitle:@"Bought" forState:UIControlStateNormal];
+            [cell.buyButton setBackgroundColor:[UIColor greenColor]];
+        }
+        else {
+            [cell.buyButton setTitle:@"Buy" forState:UIControlStateNormal];
+
+        }
         cell.title.text = cellInput.IAPproduct.localizedTitle; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
         cell.delegate = cellInput;
         cell.indexPath = indexPath;
         cell.tableViewDelegate = delegateToAssign;
         cell.subTitle.text=[cellInput displayPrice];
-        [cell.buyButton setTitle:@"Buy" forState:UIControlStateNormal];
         return cell;
     }
     NSLog(@"option cell was not set");

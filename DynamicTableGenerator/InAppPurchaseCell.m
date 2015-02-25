@@ -26,7 +26,7 @@
         [self.buyButton addTarget:self action:@selector(buyButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self.buyButton addTarget:self action:@selector(contentWasSelected:) forControlEvents:UIControlEventTouchDown];
         [self.buyButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        
+        [self.buyButton setBackgroundColor:[UIColor blueColor]];
         [self defineContentSelector:@selector(buyButtonPressed:)];
         
         //set button text to display to the right, slightly offset from edge
