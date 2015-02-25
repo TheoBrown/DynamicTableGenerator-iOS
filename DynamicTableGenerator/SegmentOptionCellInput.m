@@ -34,11 +34,13 @@
 #pragma mark - editable table cell delegate methods
 
 -(void) cellSegmentDidChange:(NSIndexPath *)cellIndexPath withObject:(NSObject *)segmentResult {
+    self.selectedSegment = [self.segmentValues indexOfObject:segmentResult];
     [self updateValue:segmentResult];
     [self updateContextWithValue:segmentResult];
     [self saveObjectContext];
 }
 -(void) cellSegmentDidChange:(NSIndexPath *)cellIndexPath withIndex:(NSNumber *)segmentIndex{
+    self.selectedSegment=[segmentIndex integerValue];
     [self updateValue:segmentIndex];
     [self updateContextWithValue:segmentIndex];
     [self saveObjectContext];

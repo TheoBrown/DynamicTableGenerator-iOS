@@ -37,6 +37,8 @@
 		F67496401A169DB10060ECA3 /* NumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F674963F1A169DB10060ECA3 /* NumberCell.m */; };
 		F67496431A169DBA0060ECA3 /* SliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496421A169DBA0060ECA3 /* SliderCell.m */; };
 		F67496461A169DEE0060ECA3 /* SegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67496451A169DEE0060ECA3 /* SegmentCell.m */; };
+		F6AFFCFA1A9D434100F51A6A /* InAppPurchaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AFFCF91A9D434100F51A6A /* InAppPurchaseCell.m */; };
+		F6AFFCFD1A9D45B100F51A6A /* PurchaseOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AFFCFC1A9D45B100F51A6A /* PurchaseOptionCellInput.m */; };
 		F6B75F011A1BDE4C00099557 /* OptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B75F001A1BDE4C00099557 /* OptionCell.m */; };
 		F6BF95771A81510C00D1955E /* WebLinkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BF95761A81510C00D1955E /* WebLinkCell.m */; };
 		F6BF957A1A815CD600D1955E /* WebLinkOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BF95791A815CD600D1955E /* WebLinkOptionCellInput.m */; };
@@ -132,6 +134,10 @@
 		F67496441A169DEE0060ECA3 /* SegmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentCell.h; sourceTree = "<group>"; };
 		F67496451A169DEE0060ECA3 /* SegmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentCell.m; sourceTree = "<group>"; };
 		F681A8F91A4395FE00992935 /* DynamicTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicTableView.h; sourceTree = "<group>"; };
+		F6AFFCF81A9D434100F51A6A /* InAppPurchaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPurchaseCell.h; sourceTree = "<group>"; };
+		F6AFFCF91A9D434100F51A6A /* InAppPurchaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurchaseCell.m; sourceTree = "<group>"; };
+		F6AFFCFB1A9D45B100F51A6A /* PurchaseOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseOptionCellInput.h; sourceTree = "<group>"; };
+		F6AFFCFC1A9D45B100F51A6A /* PurchaseOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseOptionCellInput.m; sourceTree = "<group>"; };
 		F6B75EFF1A1BDE4C00099557 /* OptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionCell.h; sourceTree = "<group>"; };
 		F6B75F001A1BDE4C00099557 /* OptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionCell.m; sourceTree = "<group>"; };
 		F6BF66691A1AE6A600362F7C /* DynamicTableViewConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTableViewConstants.h; sourceTree = "<group>"; };
@@ -248,6 +254,8 @@
 			children = (
 				6C7B9D0019E72D9E00C86637 /* BaseOptionCellInput.h */,
 				6C7B9D0119E72D9E00C86637 /* BaseOptionCellInput.m */,
+				F6AFFCFB1A9D45B100F51A6A /* PurchaseOptionCellInput.h */,
+				F6AFFCFC1A9D45B100F51A6A /* PurchaseOptionCellInput.m */,
 				F6C099301A16D39F004BBEAE /* SwitchOptionCellInput.h */,
 				F6C099311A16D39F004BBEAE /* SwitchOptionCellInput.m */,
 				6C7B9D0219E72D9E00C86637 /* SegmentOptionCellInput.h */,
@@ -347,6 +355,8 @@
 				F64EE6CF1A787DE400C5683E /* SimpleActionSheetCell.m */,
 				F6BF95751A81510C00D1955E /* WebLinkCell.h */,
 				F6BF95761A81510C00D1955E /* WebLinkCell.m */,
+				F6AFFCF81A9D434100F51A6A /* InAppPurchaseCell.h */,
+				F6AFFCF91A9D434100F51A6A /* InAppPurchaseCell.m */,
 			);
 			name = AutoLayoutCellClasses;
 			sourceTree = "<group>";
@@ -503,6 +513,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6B75F011A1BDE4C00099557 /* OptionCell.m in Sources */,
+				F6AFFCFA1A9D434100F51A6A /* InAppPurchaseCell.m in Sources */,
 				F67496341A1696800060ECA3 /* BaseCell.m in Sources */,
 				F674963A1A169D570060ECA3 /* DateCell.m in Sources */,
 				F64EE6D01A787DE400C5683E /* SimpleActionSheetCell.m in Sources */,
@@ -526,6 +537,7 @@
 				F6C099321A16D39F004BBEAE /* SwitchOptionCellInput.m in Sources */,
 				6C7B9D1219E72D9E00C86637 /* SliderOptionCellInput.m in Sources */,
 				F64EE6D31A787F9100C5683E /* SimpleActionSheetOptionCellInput.m in Sources */,
+				F6AFFCFD1A9D45B100F51A6A /* PurchaseOptionCellInput.m in Sources */,
 				6C7B9D1619E72D9E00C86637 /* ButtonOptionCellInput.m in Sources */,
 				6C7B9D1119E72D9E00C86637 /* SegmentOptionCellInput.m in Sources */,
 				F67496461A169DEE0060ECA3 /* SegmentCell.m in Sources */,
