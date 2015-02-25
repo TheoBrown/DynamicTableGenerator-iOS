@@ -12,6 +12,7 @@
 #import "DynamicTableViewConstants.h"
 #import "DynamicTableView.h"
 
+
 @implementation DynamicTableViewCellManager
 
 @synthesize tableView;
@@ -255,7 +256,7 @@ extern const double EARTH_RADIUS;
         
         cell.indexPath = indexPath;
         cell.tableViewDelegate = delegateToAssign;
-
+        [cell.cellSegment setSelectedSegmentIndex:segmentCellInput.selectedSegment];
         cell.delegate = segmentCellInput;
         [cell sizeToFit];
         return cell;
@@ -436,6 +437,24 @@ extern const double EARTH_RADIUS;
         cell.descriptionLabel.text=cellInput.assetDescription;
         cell.authorLabel.text=cellInput.author;
         cell.assetLabel.text=cellInput.asset;
+        return cell;
+    }
+    else if ([CellIdentifier  isEqual: DTVCCellIdentifier_PurchaseCell]){
+        PurchaseOptionCellInput* cellInput = (PurchaseOptionCellInput*) baseCellInput;
+        InAppPurchaseCell  *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (cell == nil) {
+            [self.tableView registerClass:[SegueCell class] forCellReuseIdentifier:CellIdentifier];
+            cell = [[InAppPurchaseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        
+        // Configure the cell...
+        cell.title.text = cellInput.IAPproduct.localizedTitle; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
+        cell.delegate = cellInput;
+        cell.indexPath = indexPath;
+        cell.tableViewDelegate = delegateToAssign;
+        cell.subTitle.text=[cellInput displayPrice];
+        [cell.buyButton setTitle:@"Buy" forState:UIControlStateNormal];
         return cell;
     }
     NSLog(@"option cell was not set");

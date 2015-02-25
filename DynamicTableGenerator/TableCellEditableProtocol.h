@@ -37,4 +37,6 @@
 -(void) cellSimpleActionSheetDidChange:(NSIndexPath *) cellIndexPath withString:(NSString*)optionString;
 -(void) cellSimpleActionSheetDidChange:(NSIndexPath *) cellIndexPath withObject:(NSObject*)optionObject;
 
+-(void) cellPurchaseButtonPressed:(NSIndexPath *) indexPath;
+
 @end
