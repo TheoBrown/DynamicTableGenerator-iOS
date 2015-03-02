@@ -388,6 +388,15 @@
 
 }
 
+-(void) viewWillDisappear:(BOOL)animated{
+    [self.cellManager saveAllChanges];
+
+    if([self.optionsDelegate respondsToSelector:@selector(optionsWereUpdated:)])
+    {
+        NSLog(@"Settings will respond");
+        [self.optionsDelegate optionsWereUpdated:self.resultDict];
+    }
+}
 #pragma mark save options
 -(IBAction)saveSettings:(id)sender{
     NSLog(@"Save Settings Hit with delegate %@", [self.optionsDelegate description]);
