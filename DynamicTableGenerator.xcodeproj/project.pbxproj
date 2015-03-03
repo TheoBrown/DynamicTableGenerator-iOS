@@ -10,6 +10,7 @@
 		5923702A754745FEB1F27B3E /* libPods-DynamicTableGenerator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEAA8757C8B446F8D10E45F /* libPods-DynamicTableGenerator.a */; };
 		6C17BDD61AA6544500DB2338 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C17BDD51AA6544500DB2338 /* ButtonCell.m */; };
 		6C17BDD91AA654F900DB2338 /* ButtonOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C17BDD81AA654F900DB2338 /* ButtonOptionCellInput.m */; };
+		6C17BDDC1AA659E100DB2338 /* OptionPickerCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C17BDDB1AA659E100DB2338 /* OptionPickerCellInput.m */; };
 		6C7B9D1019E72D9E00C86637 /* BaseOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0119E72D9E00C86637 /* BaseOptionCellInput.m */; };
 		6C7B9D1119E72D9E00C86637 /* SegmentOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0319E72D9E00C86637 /* SegmentOptionCellInput.m */; };
 		6C7B9D1219E72D9E00C86637 /* SliderOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0519E72D9E00C86637 /* SliderOptionCellInput.m */; };
@@ -72,6 +73,8 @@
 		6C17BDD51AA6544500DB2338 /* ButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
 		6C17BDD71AA654F900DB2338 /* ButtonOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonOptionCellInput.h; sourceTree = "<group>"; };
 		6C17BDD81AA654F900DB2338 /* ButtonOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonOptionCellInput.m; sourceTree = "<group>"; };
+		6C17BDDA1AA659E100DB2338 /* OptionPickerCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionPickerCellInput.h; sourceTree = "<group>"; };
+		6C17BDDB1AA659E100DB2338 /* OptionPickerCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionPickerCellInput.m; sourceTree = "<group>"; };
 		6C7B9CBC19E7256400C86637 /* libDynamicTableGenerator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDynamicTableGenerator.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7B9CC719E7256400C86637 /* DynamicTableGeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicTableGeneratorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7B9CCA19E7256400C86637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -283,6 +286,8 @@
 				F6AFFCFC1A9D45B100F51A6A /* PurchaseOptionCellInput.m */,
 				6C17BDD71AA654F900DB2338 /* ButtonOptionCellInput.h */,
 				6C17BDD81AA654F900DB2338 /* ButtonOptionCellInput.m */,
+				6C17BDDA1AA659E100DB2338 /* OptionPickerCellInput.h */,
+				6C17BDDB1AA659E100DB2338 /* OptionPickerCellInput.m */,
 			);
 			name = "Option Cell Input Types";
 			sourceTree = "<group>";
@@ -537,6 +542,7 @@
 				6C7B9D2B19E732AD00C86637 /* DynamicTableViewController.m in Sources */,
 				F650D15E1A19C2F5008014FA /* TableViewNavigationBar.m in Sources */,
 				F67496431A169DBA0060ECA3 /* SliderCell.m in Sources */,
+				6C17BDDC1AA659E100DB2338 /* OptionPickerCellInput.m in Sources */,
 				F6BF957A1A815CD600D1955E /* WebLinkOptionCellInput.m in Sources */,
 				6C7B9D1019E72D9E00C86637 /* BaseOptionCellInput.m in Sources */,
 				6C7B9D3519E7369A00C86637 /* DynamicTableViewCellOptionsPickerViewController.m in Sources */,

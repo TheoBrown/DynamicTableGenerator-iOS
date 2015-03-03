@@ -168,9 +168,9 @@
             [newNumberCell defineCellInputFormatType:cellFormatType];
             [tempCellsArray addObject:newNumberCell];
         }
-        else if (cellType ==DTVCCellType_ButtonCell) {
+        else if (cellType ==DTVCCellType_OptionPickerCell) {
             NSArray* defoptionsArray = @[@"Blue",@"Green",@"Red",@"Orange"];
-            ButtonOptionCellInput* newOptionCell = [[ButtonOptionCellInput alloc] initOptionInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName withOptions:defoptionsArray inSection:@"Options Section"];
+            OptionPickerCellInput* newOptionCell = [[OptionPickerCellInput alloc] initOptionInputForObject:self.mutableFormObject forReturnKey:key withTitle:displayName withOptions:defoptionsArray inSection:@"Options Section"];
             [newOptionCell defineCellInputFormatType:cellFormatType];
             [tempCellsArray addObject:newOptionCell];
         }

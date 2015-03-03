@@ -10,7 +10,7 @@
 
 @implementation ButtonOptionCellInput
 -(NSString*) cellType {
-    return DTVCCellIdentifier_OptionPickerCell;
+    return DTVCCellIdentifier_ButtonCell;
 }
 -(id) initButtonCellWithBlock:(void(^)(void))methodBlock buttonTitle:(NSString*) buttonTitle withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader{
     self = [super init];

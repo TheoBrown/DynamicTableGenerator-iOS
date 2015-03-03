@@ -43,7 +43,8 @@ typedef NS_ENUM(NSInteger, DTVCCellType)
      DTVCCellType_NumberCell,
      DTVCCellType_SwitchCell,
      DTVCCellType_SegmentCell,
-     DTVCCellType_StepperCell
+     DTVCCellType_StepperCell,
+     DTVCCellType_OptionPickerCell
 };
 
 typedef NS_ENUM(NSInteger, DTVCInputType_SwitchCell)
@@ -80,9 +81,9 @@ typedef NS_ENUM(NSInteger, DTVCInputType_SegmentCell)
 {
     DTVCInputType_SegmentCell_Object = 1,
 };
-typedef NS_ENUM(NSInteger, DTVCInputType_ButtonCell)
+typedef NS_ENUM(NSInteger, DTVCInputType_OptionPickerCell)
 {
-    DTVCInputType_ButtonCell_Array = 1,
+    DTVCInputType_OptionPicker_Array = 1,
 };
 typedef NS_ENUM(NSInteger, DTVCInputType_StepperCell)
 {

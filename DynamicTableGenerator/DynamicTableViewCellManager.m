@@ -346,7 +346,7 @@ extern const double EARTH_RADIUS;
 //        return cell;
 //    }
     else if ([CellIdentifier  isEqual: DTVCCellIdentifier_OptionPickerCell]){
-        ButtonOptionCellInput* optionCellInput = (ButtonOptionCellInput*) baseCellInput;
+        OptionPickerCellInput* optionCellInput = (OptionPickerCellInput*) baseCellInput;
         OptionCell  *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         if (cell == nil) {
