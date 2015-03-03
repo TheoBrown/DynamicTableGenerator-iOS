@@ -345,7 +345,7 @@ extern const double EARTH_RADIUS;
 //        [cell updateConstraintsIfNeeded];
 //        return cell;
 //    }
-    else if ([CellIdentifier  isEqual: DTVCCellIdentifier_ButtonCell]){
+    else if ([CellIdentifier  isEqual: DTVCCellIdentifier_OptionPickerCell]){
         ButtonOptionCellInput* optionCellInput = (ButtonOptionCellInput*) baseCellInput;
         OptionCell  *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
@@ -423,7 +423,7 @@ extern const double EARTH_RADIUS;
         WebLinkCell  *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         if (cell == nil) {
-            [self.tableView registerClass:[SegueCell class] forCellReuseIdentifier:CellIdentifier];
+            [self.tableView registerClass:[WebLinkCell class] forCellReuseIdentifier:CellIdentifier];
             cell = [[WebLinkCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         
@@ -443,7 +443,7 @@ extern const double EARTH_RADIUS;
         InAppPurchaseCell  *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         if (cell == nil) {
-            [self.tableView registerClass:[SegueCell class] forCellReuseIdentifier:CellIdentifier];
+            [self.tableView registerClass:[InAppPurchaseCell class] forCellReuseIdentifier:CellIdentifier];
             cell = [[InAppPurchaseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         
@@ -472,6 +472,21 @@ extern const double EARTH_RADIUS;
         cell.indexPath = indexPath;
         cell.tableViewDelegate = delegateToAssign;
         cell.subTitle.text=[cellInput displayPrice];
+        return cell;
+    }
+    else if ([CellIdentifier  isEqual: DTVCCellIdentifier_ButtonCell]){
+        ButtonOptionCellInput* cellInput = (ButtonOptionCellInput*) baseCellInput;
+        ButtonCell  *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (cell == nil) {
+            [self.tableView registerClass:[ButtonCell class] forCellReuseIdentifier:CellIdentifier];
+            cell = [[ButtonCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        [cell.actionButton setTitle:cellInput.buttonTitle forState:UIControlStateNormal];
+        cell.title.text = cellInput.title; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
+        cell.delegate = cellInput;
+        cell.indexPath = indexPath;
+        cell.tableViewDelegate = delegateToAssign;
         return cell;
     }
     NSLog(@"option cell was not set");

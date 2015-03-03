@@ -25,6 +25,7 @@
 #import "SimpleActionSheetCell.h"
 #import "WebLinkCell.h"
 #import "InAppPurchaseCell.h"
+#import "ButtonCell.h"
 
 #import "BaseOptionCellInput.h"
 #import "DateOptionCellInput.h"
@@ -40,3 +41,4 @@
 #import "SimpleActionSheetOptionCellInput.h"
 #import "WebLinkOptionCellInput.h"
 #import "PurchaseOptionCellInput.h"
+#import "ButtonOptionCellInput.h"
