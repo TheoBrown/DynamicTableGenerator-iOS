@@ -1,21 +1,20 @@
 //
 //  ButtonOptionCellInput.h
-//  TableViewDataCells
+//  DynamicTableGenerator
 //
-//  Created by Theodore Brown on 8/9/14.
-//  Copyright (c) 2014 Theodore Brown. All rights reserved.
+//  Created by Theodore Brown on 3/3/15.
+//  Copyright (c) 2015 Theodore Brown. All rights reserved.
 //
 
 #import "BaseOptionCellInput.h"
-#import "DynamicTableViewCellOptionsPickerViewController.h"
-//#import "CellWithButton.h"
 
+/*
+ A simple cell that sends an action/block on button press
+ **/
 @interface ButtonOptionCellInput : BaseOptionCellInput
-
--(id) initOptionInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withOptions:(NSArray*) optionsArray inSection:(NSString*) newSectionHeader;
-
--(id) initOptionInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withOptions:(NSArray*) optionsArray withDefault:(NSNumber*) defaultSelection  inSection:(NSString*) newSectionHeader;
-
-@property (strong, nonatomic) NSArray* optionsArray;
+@property (copy) void (^callBackBlock)(void);
+@property (nonatomic,strong) NSString* buttonTitle;
+-(id) initButtonCellWithBlock:(void(^)(void))methodBlock buttonTitle:(NSString*) buttonTitle withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
+-(id) initButtonCellWithBlock:(void(^)(void))methodBlock withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
 
 @end

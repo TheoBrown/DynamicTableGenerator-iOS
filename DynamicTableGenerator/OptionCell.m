@@ -11,7 +11,7 @@
 @implementation OptionCell
 
 -(NSString *) reuseIdentifier {
-    return DTVCCellIdentifier_ButtonCell;
+    return DTVCCellIdentifier_OptionPickerCell;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

@@ -20,12 +20,12 @@
 
 extern NSString * const DTVCCellIdentifier_DateCell;
 extern NSString * const DTVCCellIdentifier_SliderCell;
-extern NSString * const DTVCCellIdentifier_ButtonCell;
+extern NSString * const DTVCCellIdentifier_OptionPickerCell;
 extern NSString * const DTVCCellIdentifier_ActionCell;
 extern NSString * const DTVCCellIdentifier_SimpleActionCell;
 extern NSString * const DTVCCellIdentifier_WebLinkCell;
 extern NSString * const DTVCCellIdentifier_PurchaseCell;
-
+extern NSString * const DTVCCellIdentifier_ButtonCell;
 extern NSString * const DTVCCellIdentifier_TextCell;
 extern NSString * const DTVCCellIdentifier_NumberCell;
 extern NSString * const DTVCCellIdentifier_SwitchCell;
@@ -43,7 +43,8 @@ typedef NS_ENUM(NSInteger, DTVCCellType)
      DTVCCellType_NumberCell,
      DTVCCellType_SwitchCell,
      DTVCCellType_SegmentCell,
-     DTVCCellType_StepperCell
+     DTVCCellType_StepperCell,
+     DTVCCellType_OptionPickerCell
 };
 
 typedef NS_ENUM(NSInteger, DTVCInputType_SwitchCell)
@@ -80,9 +81,9 @@ typedef NS_ENUM(NSInteger, DTVCInputType_SegmentCell)
 {
     DTVCInputType_SegmentCell_Object = 1,
 };
-typedef NS_ENUM(NSInteger, DTVCInputType_ButtonCell)
+typedef NS_ENUM(NSInteger, DTVCInputType_OptionPickerCell)
 {
-    DTVCInputType_ButtonCell_Array = 1,
+    DTVCInputType_OptionPicker_Array = 1,
 };
 typedef NS_ENUM(NSInteger, DTVCInputType_StepperCell)
 {

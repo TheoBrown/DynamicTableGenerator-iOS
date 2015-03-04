@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		5923702A754745FEB1F27B3E /* libPods-DynamicTableGenerator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEAA8757C8B446F8D10E45F /* libPods-DynamicTableGenerator.a */; };
+		6C17BDD61AA6544500DB2338 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C17BDD51AA6544500DB2338 /* ButtonCell.m */; };
+		6C17BDD91AA654F900DB2338 /* ButtonOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C17BDD81AA654F900DB2338 /* ButtonOptionCellInput.m */; };
+		6C17BDDC1AA659E100DB2338 /* OptionPickerCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C17BDDB1AA659E100DB2338 /* OptionPickerCellInput.m */; };
 		6C7B9D1019E72D9E00C86637 /* BaseOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0119E72D9E00C86637 /* BaseOptionCellInput.m */; };
 		6C7B9D1119E72D9E00C86637 /* SegmentOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0319E72D9E00C86637 /* SegmentOptionCellInput.m */; };
 		6C7B9D1219E72D9E00C86637 /* SliderOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0519E72D9E00C86637 /* SliderOptionCellInput.m */; };
 		6C7B9D1319E72D9E00C86637 /* DateOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0719E72D9E00C86637 /* DateOptionCellInput.m */; };
 		6C7B9D1419E72D9E00C86637 /* TextOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0919E72D9E00C86637 /* TextOptionCellInput.m */; };
 		6C7B9D1519E72D9E00C86637 /* NumberOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0B19E72D9E00C86637 /* NumberOptionCellInput.m */; };
-		6C7B9D1619E72D9E00C86637 /* ButtonOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0D19E72D9E00C86637 /* ButtonOptionCellInput.m */; };
 		6C7B9D1719E72D9E00C86637 /* ActionSheetOptionCellInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D0F19E72D9E00C86637 /* ActionSheetOptionCellInput.m */; };
 		6C7B9D2119E72DC700C86637 /* PropertyUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D1A19E72DC700C86637 /* PropertyUtil.m */; };
 		6C7B9D2819E7304400C86637 /* DynamicTableViewObjectParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B9D2719E7304400C86637 /* DynamicTableViewObjectParser.m */; };
@@ -67,6 +69,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6C17BDD41AA6544500DB2338 /* ButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonCell.h; sourceTree = "<group>"; };
+		6C17BDD51AA6544500DB2338 /* ButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
+		6C17BDD71AA654F900DB2338 /* ButtonOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonOptionCellInput.h; sourceTree = "<group>"; };
+		6C17BDD81AA654F900DB2338 /* ButtonOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonOptionCellInput.m; sourceTree = "<group>"; };
+		6C17BDDA1AA659E100DB2338 /* OptionPickerCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionPickerCellInput.h; sourceTree = "<group>"; };
+		6C17BDDB1AA659E100DB2338 /* OptionPickerCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionPickerCellInput.m; sourceTree = "<group>"; };
 		6C7B9CBC19E7256400C86637 /* libDynamicTableGenerator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDynamicTableGenerator.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7B9CC719E7256400C86637 /* DynamicTableGeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicTableGeneratorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7B9CCA19E7256400C86637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,8 +91,6 @@
 		6C7B9D0919E72D9E00C86637 /* TextOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextOptionCellInput.m; sourceTree = "<group>"; };
 		6C7B9D0A19E72D9E00C86637 /* NumberOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberOptionCellInput.h; sourceTree = "<group>"; };
 		6C7B9D0B19E72D9E00C86637 /* NumberOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberOptionCellInput.m; sourceTree = "<group>"; };
-		6C7B9D0C19E72D9E00C86637 /* ButtonOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonOptionCellInput.h; sourceTree = "<group>"; };
-		6C7B9D0D19E72D9E00C86637 /* ButtonOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonOptionCellInput.m; sourceTree = "<group>"; };
 		6C7B9D0E19E72D9E00C86637 /* ActionSheetOptionCellInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetOptionCellInput.h; sourceTree = "<group>"; };
 		6C7B9D0F19E72D9E00C86637 /* ActionSheetOptionCellInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetOptionCellInput.m; sourceTree = "<group>"; };
 		6C7B9D1919E72DC700C86637 /* PropertyUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyUtil.h; sourceTree = "<group>"; };
@@ -254,8 +260,6 @@
 			children = (
 				6C7B9D0019E72D9E00C86637 /* BaseOptionCellInput.h */,
 				6C7B9D0119E72D9E00C86637 /* BaseOptionCellInput.m */,
-				F6AFFCFB1A9D45B100F51A6A /* PurchaseOptionCellInput.h */,
-				F6AFFCFC1A9D45B100F51A6A /* PurchaseOptionCellInput.m */,
 				F6C099301A16D39F004BBEAE /* SwitchOptionCellInput.h */,
 				F6C099311A16D39F004BBEAE /* SwitchOptionCellInput.m */,
 				6C7B9D0219E72D9E00C86637 /* SegmentOptionCellInput.h */,
@@ -272,14 +276,18 @@
 				6C7B9D0B19E72D9E00C86637 /* NumberOptionCellInput.m */,
 				F66F806F1A46893A0050A46E /* SegueOptionCellInput.h */,
 				F66F80701A46893A0050A46E /* SegueOptionCellInput.m */,
-				6C7B9D0C19E72D9E00C86637 /* ButtonOptionCellInput.h */,
-				6C7B9D0D19E72D9E00C86637 /* ButtonOptionCellInput.m */,
 				6C7B9D0E19E72D9E00C86637 /* ActionSheetOptionCellInput.h */,
 				6C7B9D0F19E72D9E00C86637 /* ActionSheetOptionCellInput.m */,
 				F64EE6D11A787F9100C5683E /* SimpleActionSheetOptionCellInput.h */,
 				F64EE6D21A787F9100C5683E /* SimpleActionSheetOptionCellInput.m */,
 				F6BF95781A815CD600D1955E /* WebLinkOptionCellInput.h */,
 				F6BF95791A815CD600D1955E /* WebLinkOptionCellInput.m */,
+				F6AFFCFB1A9D45B100F51A6A /* PurchaseOptionCellInput.h */,
+				F6AFFCFC1A9D45B100F51A6A /* PurchaseOptionCellInput.m */,
+				6C17BDD71AA654F900DB2338 /* ButtonOptionCellInput.h */,
+				6C17BDD81AA654F900DB2338 /* ButtonOptionCellInput.m */,
+				6C17BDDA1AA659E100DB2338 /* OptionPickerCellInput.h */,
+				6C17BDDB1AA659E100DB2338 /* OptionPickerCellInput.m */,
 			);
 			name = "Option Cell Input Types";
 			sourceTree = "<group>";
@@ -357,6 +365,8 @@
 				F6BF95761A81510C00D1955E /* WebLinkCell.m */,
 				F6AFFCF81A9D434100F51A6A /* InAppPurchaseCell.h */,
 				F6AFFCF91A9D434100F51A6A /* InAppPurchaseCell.m */,
+				6C17BDD41AA6544500DB2338 /* ButtonCell.h */,
+				6C17BDD51AA6544500DB2338 /* ButtonCell.m */,
 			);
 			name = AutoLayoutCellClasses;
 			sourceTree = "<group>";
@@ -515,6 +525,7 @@
 				F6B75F011A1BDE4C00099557 /* OptionCell.m in Sources */,
 				F6AFFCFA1A9D434100F51A6A /* InAppPurchaseCell.m in Sources */,
 				F67496341A1696800060ECA3 /* BaseCell.m in Sources */,
+				6C17BDD91AA654F900DB2338 /* ButtonOptionCellInput.m in Sources */,
 				F674963A1A169D570060ECA3 /* DateCell.m in Sources */,
 				F64EE6D01A787DE400C5683E /* SimpleActionSheetCell.m in Sources */,
 				F67496401A169DB10060ECA3 /* NumberCell.m in Sources */,
@@ -531,6 +542,7 @@
 				6C7B9D2B19E732AD00C86637 /* DynamicTableViewController.m in Sources */,
 				F650D15E1A19C2F5008014FA /* TableViewNavigationBar.m in Sources */,
 				F67496431A169DBA0060ECA3 /* SliderCell.m in Sources */,
+				6C17BDDC1AA659E100DB2338 /* OptionPickerCellInput.m in Sources */,
 				F6BF957A1A815CD600D1955E /* WebLinkOptionCellInput.m in Sources */,
 				6C7B9D1019E72D9E00C86637 /* BaseOptionCellInput.m in Sources */,
 				6C7B9D3519E7369A00C86637 /* DynamicTableViewCellOptionsPickerViewController.m in Sources */,
@@ -538,13 +550,13 @@
 				6C7B9D1219E72D9E00C86637 /* SliderOptionCellInput.m in Sources */,
 				F64EE6D31A787F9100C5683E /* SimpleActionSheetOptionCellInput.m in Sources */,
 				F6AFFCFD1A9D45B100F51A6A /* PurchaseOptionCellInput.m in Sources */,
-				6C7B9D1619E72D9E00C86637 /* ButtonOptionCellInput.m in Sources */,
 				6C7B9D1119E72D9E00C86637 /* SegmentOptionCellInput.m in Sources */,
 				F67496461A169DEE0060ECA3 /* SegmentCell.m in Sources */,
 				F674963D1A169DA20060ECA3 /* TextCell.m in Sources */,
 				F66F80711A46893A0050A46E /* SegueOptionCellInput.m in Sources */,
 				6C7B9D1519E72D9E00C86637 /* NumberOptionCellInput.m in Sources */,
 				F66F806E1A4687C50050A46E /* SegueCell.m in Sources */,
+				6C17BDD61AA6544500DB2338 /* ButtonCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
