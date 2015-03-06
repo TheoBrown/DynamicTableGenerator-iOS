@@ -17,7 +17,7 @@
 
 
 
--(id) initSegmentInputForObject:(id) managedObject forReturnKey:(NSString*) newReturnKey withTitle:(NSString*) cellTitle withSegmentTitles:(NSArray*) segmentTitleArray andSegmentValues:(NSArray*) segmentValueArray andDefaultSelection:(NSInteger) selectedCell inSection:(NSString*) newSectionHeader {
+-(id) initSegmentInputForObject:(id) managedObject forReturnKey:(NSString*) newReturnKey withTitle:(NSString*) cellTitle withSegmentTitles:(NSArray*) segmentTitleArray andSegmentValues:(NSArray*) segmentValueArray andDefaultSelection:(NSUInteger) selectedCell inSection:(NSString*) newSectionHeader {
     self = [super init];
 
     if (self) {
@@ -26,6 +26,8 @@
         self.segmentTitles = segmentTitleArray;
         self.observedObject = managedObject;
         self.selectedSegment = selectedCell;
+        NSLog(@"Cell segment setWith results %@ default %ld and objdef %@",self.segmentValues,(long)self.selectedSegment,[self.observedObject valueForKey:newReturnKey]);
+
         [self createDefaultValueForObject:self.observedObject orValue:[self.segmentValues objectAtIndex:self.selectedSegment]];
 
     }

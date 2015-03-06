@@ -14,8 +14,8 @@
 
 @property (strong, nonatomic) NSArray* segmentTitles;
 @property (strong, nonatomic) NSArray* segmentValues;
-@property (nonatomic) NSInteger selectedSegment;
+@property (nonatomic) NSUInteger selectedSegment;
 
--(id) initSegmentInputForObject:(id) managedObject forReturnKey:(NSString*) newReturnKey withTitle:(NSString*) cellTitle withSegmentTitles:(NSArray*) segmentTitleArray andSegmentValues:(NSArray*) segmentValueArray andDefaultSelection:(NSInteger) selectedCell inSection:(NSString*) newSectionHeader;
+-(id) initSegmentInputForObject:(id) managedObject forReturnKey:(NSString*) newReturnKey withTitle:(NSString*) cellTitle withSegmentTitles:(NSArray*) segmentTitleArray andSegmentValues:(NSArray*) segmentValueArray andDefaultSelection:(NSUInteger) selectedCell inSection:(NSString*) newSectionHeader;
 
 @end
