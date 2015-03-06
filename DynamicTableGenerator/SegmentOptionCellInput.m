@@ -26,6 +26,7 @@
         self.segmentTitles = segmentTitleArray;
         self.observedObject = managedObject;
         self.selectedSegment = selectedCell;
+        [self createDefaultValueForObject:self.observedObject orValue:[self.segmentValues objectAtIndex:self.selectedSegment]];
 
     }
     return self;
@@ -34,6 +35,8 @@
 #pragma mark - editable table cell delegate methods
 
 -(void) cellSegmentDidChange:(NSIndexPath *)cellIndexPath withObject:(NSObject *)segmentResult {
+    NSLog(@"Cell segment did change %@",segmentResult);
+
     self.selectedSegment = [self.segmentValues indexOfObject:segmentResult];
     [self updateValue:segmentResult];
     [self updateContextWithValue:segmentResult];
