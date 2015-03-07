@@ -9,7 +9,9 @@
 #import "BaseOptionCellInput.h"
 
 
-
+/**
+ *  UISegmentedControl cell - for selecting one option out of an array
+ */
 @interface SegmentOptionCellInput : BaseOptionCellInput
 
 @property (strong, nonatomic) NSArray* segmentTitles;

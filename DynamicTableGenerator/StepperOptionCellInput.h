@@ -8,6 +8,9 @@
 
 #import "BaseOptionCellInput.h"
 
+/**
+ *  UIStepper Cell
+ */
 @interface StepperOptionCellInput : BaseOptionCellInput
 
 @property (strong, nonatomic) NSNumber *minStepperValue;

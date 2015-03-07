@@ -11,6 +11,9 @@
 
 //#import "CellWithDate.h"
 
+/**
+ Pics a NSDate using an ActionSheetPicker
+ */
 @interface DateOptionCellInput : BaseOptionCellInput 
 
 -(id) initDateInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withDefault:(NSDate*) defaultDate withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;

@@ -8,6 +8,9 @@
 
 #import "BaseOptionCellInput.h"
 
+/**
+ Simple Cell that shows a UISwitch to set a bool
+ */
 @interface SwitchOptionCellInput : BaseOptionCellInput
 
 

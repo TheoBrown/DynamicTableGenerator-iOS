@@ -7,7 +7,10 @@
 //
 
 #import "BaseOptionCellInput.h"
-//#import "TableCellWithNumber.h"
+
+/**
+ Number entry cell using Numberpad input formats
+ */
 @interface NumberOptionCellInput : BaseOptionCellInput
 
 -(id) initNumberInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withDefault:(NSNumber*) defaultNumber  inSection:(NSString*) newSectionHeader;

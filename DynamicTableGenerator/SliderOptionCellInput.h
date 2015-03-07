@@ -11,7 +11,9 @@
 
 //#import "CellWithSlider.h"
 
-
+/**
+ *  UISlider cell - for setting floats/ints within a range
+ */
 @interface SliderOptionCellInput : BaseOptionCellInput
 @property (strong, nonatomic) NSNumber *minSliderValue;
 @property (strong, nonatomic) NSNumber *maxSliderValue;

@@ -11,6 +11,9 @@
 
 //#import "CellWithText.h"
 
+/**
+ Text Input Cell supporting various text entry keyboard formats
+ */
 @interface TextOptionCellInput : BaseOptionCellInput <UITextFieldDelegate>
 
 -(id) initTextInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withDefault:(NSString*) defaultText  inSection:(NSString*) newSectionHeader;

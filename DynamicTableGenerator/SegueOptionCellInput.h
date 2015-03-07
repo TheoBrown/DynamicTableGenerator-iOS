@@ -8,6 +8,9 @@
 
 #import "BaseOptionCellInput.h"
 
+/**
+ <#Description#>
+ */
 @interface SegueOptionCellInput : BaseOptionCellInput
 -(id) initSegueOptionCellInputForVC:(id) viewController withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
 
