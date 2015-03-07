@@ -25,6 +25,7 @@
     }
     return self;
 }
+
 -(instancetype) initWithCells:(NSArray*) cellInputArray  {
     self = [super init];
     if (self) {
@@ -54,21 +55,17 @@
 
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
-    
     CGFloat controlHeight = 40.0;
     CGRect tableFrame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.x, self.view.frame.size.width, self.view.frame.size.height-controlHeight);
-//    self.tableView = [[UITableView alloc] initWithFrame:tableFrame];
     self.tableView=[[UITableView alloc] initWithFrame:tableFrame style:self.tvStyle];
     self.tableView.translatesAutoresizingMaskIntoConstraints=NO;
-
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 44.0; // set this to whatever your "average" cell height is; it doesn't need to be very accurate
-    self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 250.0, 0.0);
+    self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 250.0, 0.0);//large offset to not cover keyboard
     [self.view addSubview:self.tableView];
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveSettings:)];
 	self.navigationItem.rightBarButtonItem = addButton;
@@ -87,9 +84,8 @@
     [self.view setNeedsUpdateConstraints];
 
 }
--(void) viewWillAppear:(BOOL)animated{
+-(void) viewWillAppear:(BOOL)animated {
 
-    
     [super viewWillAppear:animated];
     self.tableView.scrollEnabled=YES;
 //    if (self.tableView.contentSize.height < self.tableView.frame.size.height) {
@@ -99,8 +95,7 @@
 //        self.tableView.scrollEnabled = YES;
 //    }
 }
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
     NSLog(@"table view did appear");
@@ -124,8 +119,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
+- (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -143,48 +137,29 @@
 }
 
 
-- (void) didRotate:(NSNotification *)notification
-{
-//    NSLog(@"Device Rotated with frame %@ table %@",NSStringFromCGRect(self.view.frame),NSStringFromCGRect(self.tableView.frame));
-
+- (void) didRotate:(NSNotification *)notification {
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
     [self.view setNeedsLayout];
     [self.view setNeedsDisplay];
     [self.tableView setNeedsLayout];
     [self.tableView setNeedsDisplay];
-    if (orientation == UIDeviceOrientationLandscapeLeft)
-    {
-        NSLog(@"Landscape Left!");
-    }
+}
+- (void)contentSizeCategoryChanged:(NSNotification *)notification
+{
+    NSLog(@"Tableview size catagory changed");
+    [self.tableView reloadData];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
-
-
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    //    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
 
--(UIView*) createKeysLayout {
-    return nil;
-}
 
 - (void) updateViewConstraints {
     if (!self.didSetupConstraints) {
@@ -226,6 +201,12 @@
     [super updateViewConstraints];
 }
 
+- (void)didReceiveMemoryWarning {
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Release any cached data, images, etc that aren't in use.
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -256,8 +237,13 @@
 }
 
 #pragma mark - Table view delegate
+/**
+ *  Selector performed by TableCell classes when the cell is clicked/selected. Automatically removes eidting windows and scrolls to the selected cell
+ *
+ *  @param cellIndexPath path of selected cell
+ */
 - (void) contentOfCellWasSelected: (NSIndexPath *) cellIndexPath{
-    NSLog(@"contentOfCellWasSelected  %@" ,[self stringForIndex:cellIndexPath]);
+//    NSLog(@"contentOfCellWasSelected  %@" ,[self stringForIndex:cellIndexPath]);
     if (self.currentSelection != cellIndexPath) {
         [self.view endEditing:YES];
         self.currentSelection = cellIndexPath;
@@ -265,21 +251,19 @@
     }
 }
 
-- (void)contentSizeCategoryChanged:(NSNotification *)notification
-{
-    NSLog(@"Tableview size catagory changed");
-    [self.tableView reloadData];
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //    NSLog(@"tableView Row Selected %@" ,[self stringForIndex:indexPath]);
     [self.view endEditing:YES]; // dismiss current editing views
-    NSLog(@"tableView Row Selected %@" ,[self stringForIndex:indexPath]);
     self.currentSelection = indexPath;
     [self displayContentForCellAtIndex:self.currentSelection];
     
 }
-
+/**
+ *  Automatically triggers the cells action via
+ *
+ *  @param indexPath indexPath description
+ */
 -(void) displayContentForCellAtIndex:(NSIndexPath*)indexPath {
     NSLog(@"displayContentForCellAtIndex %@" ,[self stringForIndex:indexPath]);
     BaseCell* selectedCell = (BaseCell*)[self.tableView cellForRowAtIndexPath:indexPath];

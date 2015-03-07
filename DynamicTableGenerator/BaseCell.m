@@ -112,20 +112,6 @@ NSString * const DTVCCellIdentifier_SegueCell = @"DTVC_SegueCell";
     return self;
 }
 
-
-#pragma mark -
--(void) defineContentSelector:(SEL) contentSelector{
-    self.contentSelector = contentSelector;
-}
-
--(void) showContentFromSelector {
-    NSLog(@"Show content force called %@",self.title.text);
-    if (self.contentSelector) {
-        [self performSelector:self.contentSelector withObject:self];
-    }
-    [self contentWasSelected:self];
-}
-
 - (void)updateConstraints
 {
     if (!self.didSetupConstraints) {
@@ -140,7 +126,7 @@ NSString * const DTVCCellIdentifier_SegueCell = @"DTVC_SegueCell";
         [self.title autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
         [self.title autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
         //        [self.title autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
-
+        
         
         [self.subTitle autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.title withOffset:kLabelVerticalInsets];
         
@@ -148,7 +134,7 @@ NSString * const DTVCCellIdentifier_SegueCell = @"DTVC_SegueCell";
             [self.subTitle autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
         }];
         [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
-//        [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
+        //        [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
         [self.subTitle autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
         
         self.didSetupConstraints = YES;
@@ -157,7 +143,31 @@ NSString * const DTVCCellIdentifier_SegueCell = @"DTVC_SegueCell";
     [super updateConstraints];
 }
 
+#pragma mark - Communication Protocol
+/**
+ *  Assignes a selector to be performed when the cell is navigated to via `TableViewNavigationBar` or clicked
+ *
+ *  @param contentSelector a selector to be performed
+ */
+-(void) defineContentSelector:(SEL) contentSelector{
+    self.contentSelector = contentSelector;
+}
+/**
+ *  performs the `contentSelector`
+ */
+-(void) showContentFromSelector {
+    NSLog(@"Show content force called %@",self.title.text);
+    if (self.contentSelector) {
+        [self performSelector:self.contentSelector withObject:self];
+    }
+    [self contentWasSelected:self];
+}
 
+/**
+ *  Defines the format of the cell for cells that use multiple input types: e.g. `TextCell` can be ASCII,alhpanumeric,url, etc.
+ *
+ *  @param cellFormatEnumType the constant defined in `DynamicTableViewConstants` of the desired cell type
+ */
 -(void) defineCellFormatType:(NSNumber*)cellFormatEnumType{
 
     self.cellFormatType = cellFormatEnumType;
@@ -171,23 +181,28 @@ NSString * const DTVCCellIdentifier_SegueCell = @"DTVC_SegueCell";
     }
 
     [self cellFormatWasUpdated];
-    
 }
 
+/**
+ *  Defines the dictionary used to parse the `cellFormatType`
+ *
+ *  @param cellFormatDict a dictonary with keys @"title",@"format", and @"contentType"
+ */
 -(void) setCellFormatDict:(NSDictionary *)cellFormatDict{
     self.cellContentFormatDict = cellFormatDict;
 }
 
+#pragma mark - TableView delegate methods
 
-#pragma mark - tv delegate methods
-- (void) presentContentInput:(id) sender {
-   
-}
 - (void) contentWasSelected:(id) sender {
 //    NSLog(@"%@ content display with format %@",self.title.text,self.cellContentFormatType);
     [self.tableViewDelegate contentOfCellWasSelected:self.indexPath];
 }
+/**
+ *  Signal that will show when the cells format is changed/updated. Override in child classes when necessary
+ */
 -(void) cellFormatWasUpdated {
+
     NSLog(@"ERROR, should be overridden");
 }
 

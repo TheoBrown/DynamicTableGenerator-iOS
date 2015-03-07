@@ -13,6 +13,10 @@
 #import "DynamicTableViewConstants.h"
 
 
+/**
+ *  An Object/Controller that is used to initialize each corresponding `BaseCell` 
+ * This and its subclasses are stored in an array and passed to `DynamicTableCellManager` to create the TableViewCells
+ */
 @interface BaseOptionCellInput : NSObject <TableCellEditable>
 
 //table table view cell attributes

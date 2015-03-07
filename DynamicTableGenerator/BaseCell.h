@@ -14,6 +14,10 @@
 #import "TableCellEditableProtocol.h"
 #import "TableViewNavigationDelegate.h"
 
+/**
+ *  BaseCell is the root implemntation of `UITableViewCell` all DynamicCells are based off of.
+ *  This cell has a title and subtitle but performs no actions
+ */
 @interface BaseCell : UITableViewCell {
     id <TableCellEditable> _delegate;
     id <TableViewNavigationDelegate> tableViewDelegate;

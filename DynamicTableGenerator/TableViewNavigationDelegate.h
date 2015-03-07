@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  Protocol for `TableViewNavigationBar` to navigate within the TableView in `DynamicTableViewController`
+ */
 @protocol TableViewNavigationDelegate <NSObject>
 
 @optional

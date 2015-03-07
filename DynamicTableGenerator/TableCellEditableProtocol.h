@@ -7,6 +7,10 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  All Delegate Methods from the DynamicTableViewCells based off `BaseCell`
+ * Impemented by `BaseOptionCellInput`
+ */
 @protocol TableCellEditable <NSObject>
 
 @optional
