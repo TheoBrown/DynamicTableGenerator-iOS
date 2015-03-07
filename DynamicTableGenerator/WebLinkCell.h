@@ -8,6 +8,9 @@
 
 #import "BaseCell.h"
 
+/**
+ *  Simple Cell to open URL when cell is pressed
+ */
 @interface WebLinkCell : BaseCell
 @property (nonatomic, strong) IBOutlet UILabel *authorLabel;
 @property (nonatomic, strong) IBOutlet UILabel *assetLabel;

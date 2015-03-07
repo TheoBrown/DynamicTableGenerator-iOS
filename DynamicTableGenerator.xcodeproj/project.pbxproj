@@ -218,9 +218,8 @@
 		6C7B9CBE19E7256400C86637 /* DynamicTableGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				F61E3DDB1AAB723D00204130 /* Setup */,
 				6C7B9D2519E7303300C86637 /* MainControllers */,
-				6C7B9D1819E72DBC00C86637 /* Helper Protocols */,
-				6C7B9D3019E7365000C86637 /* CellVCS */,
 				6C7B9CFA19E72D2500C86637 /* TableViewCells */,
 			);
 			path = DynamicTableGenerator;
@@ -250,46 +249,8 @@
 				F650D15C1A19C2F5008014FA /* TableViewNavigationBar.h */,
 				F650D15D1A19C2F5008014FA /* TableViewNavigationBar.m */,
 				F6482AB71A16947000865039 /* AutoLayoutCellClasses */,
-				6C7B9CFF19E72D7500C86637 /* Option Cell Input Types */,
 			);
 			name = TableViewCells;
-			sourceTree = "<group>";
-		};
-		6C7B9CFF19E72D7500C86637 /* Option Cell Input Types */ = {
-			isa = PBXGroup;
-			children = (
-				6C7B9D0019E72D9E00C86637 /* BaseOptionCellInput.h */,
-				6C7B9D0119E72D9E00C86637 /* BaseOptionCellInput.m */,
-				F6C099301A16D39F004BBEAE /* SwitchOptionCellInput.h */,
-				F6C099311A16D39F004BBEAE /* SwitchOptionCellInput.m */,
-				6C7B9D0219E72D9E00C86637 /* SegmentOptionCellInput.h */,
-				6C7B9D0319E72D9E00C86637 /* SegmentOptionCellInput.m */,
-				F654ECFD1A42801E002074DD /* StepperOptionCellInput.h */,
-				F654ECFE1A42801E002074DD /* StepperOptionCellInput.m */,
-				6C7B9D0419E72D9E00C86637 /* SliderOptionCellInput.h */,
-				6C7B9D0519E72D9E00C86637 /* SliderOptionCellInput.m */,
-				6C7B9D0619E72D9E00C86637 /* DateOptionCellInput.h */,
-				6C7B9D0719E72D9E00C86637 /* DateOptionCellInput.m */,
-				6C7B9D0819E72D9E00C86637 /* TextOptionCellInput.h */,
-				6C7B9D0919E72D9E00C86637 /* TextOptionCellInput.m */,
-				6C7B9D0A19E72D9E00C86637 /* NumberOptionCellInput.h */,
-				6C7B9D0B19E72D9E00C86637 /* NumberOptionCellInput.m */,
-				F66F806F1A46893A0050A46E /* SegueOptionCellInput.h */,
-				F66F80701A46893A0050A46E /* SegueOptionCellInput.m */,
-				6C7B9D0E19E72D9E00C86637 /* ActionSheetOptionCellInput.h */,
-				6C7B9D0F19E72D9E00C86637 /* ActionSheetOptionCellInput.m */,
-				F64EE6D11A787F9100C5683E /* SimpleActionSheetOptionCellInput.h */,
-				F64EE6D21A787F9100C5683E /* SimpleActionSheetOptionCellInput.m */,
-				F6BF95781A815CD600D1955E /* WebLinkOptionCellInput.h */,
-				F6BF95791A815CD600D1955E /* WebLinkOptionCellInput.m */,
-				F6AFFCFB1A9D45B100F51A6A /* PurchaseOptionCellInput.h */,
-				F6AFFCFC1A9D45B100F51A6A /* PurchaseOptionCellInput.m */,
-				6C17BDD71AA654F900DB2338 /* ButtonOptionCellInput.h */,
-				6C17BDD81AA654F900DB2338 /* ButtonOptionCellInput.m */,
-				6C17BDDA1AA659E100DB2338 /* OptionPickerCellInput.h */,
-				6C17BDDB1AA659E100DB2338 /* OptionPickerCellInput.m */,
-			);
-			name = "Option Cell Input Types";
 			sourceTree = "<group>";
 		};
 		6C7B9D1819E72DBC00C86637 /* Helper Protocols */ = {
@@ -311,20 +272,8 @@
 				6C7B9D3B19E7386D00C86637 /* DynamicTableViewCellManager.m */,
 				6C7B9D2619E7304400C86637 /* DynamicTableViewObjectParser.h */,
 				6C7B9D2719E7304400C86637 /* DynamicTableViewObjectParser.m */,
-				F6BF66691A1AE6A600362F7C /* DynamicTableViewConstants.h */,
-				F681A8F91A4395FE00992935 /* DynamicTableView.h */,
-				F66F806B1A467E1E0050A46E /* DynamicTableViewCells.h */,
 			);
 			name = MainControllers;
-			sourceTree = "<group>";
-		};
-		6C7B9D3019E7365000C86637 /* CellVCS */ = {
-			isa = PBXGroup;
-			children = (
-				6C7B9D3119E7369A00C86637 /* DynamicTableViewCellOptionsPickerViewController.h */,
-				6C7B9D3219E7369A00C86637 /* DynamicTableViewCellOptionsPickerViewController.m */,
-			);
-			name = CellVCS;
 			sourceTree = "<group>";
 		};
 		F2336974B683F9DD961504C7 /* Pods */ = {
@@ -336,37 +285,208 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		F6482AB71A16947000865039 /* AutoLayoutCellClasses */ = {
+		F61E3DCB1AAB705E00204130 /* Switch */ = {
+			isa = PBXGroup;
+			children = (
+				F67496351A16989D0060ECA3 /* SwitchCell.h */,
+				F67496361A16989D0060ECA3 /* SwitchCell.m */,
+				F6C099301A16D39F004BBEAE /* SwitchOptionCellInput.h */,
+				F6C099311A16D39F004BBEAE /* SwitchOptionCellInput.m */,
+			);
+			name = Switch;
+			sourceTree = "<group>";
+		};
+		F61E3DCC1AAB706900204130 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				F67496381A169D570060ECA3 /* DateCell.h */,
+				F67496391A169D570060ECA3 /* DateCell.m */,
+				6C7B9D0619E72D9E00C86637 /* DateOptionCellInput.h */,
+				6C7B9D0719E72D9E00C86637 /* DateOptionCellInput.m */,
+			);
+			name = Date;
+			sourceTree = "<group>";
+		};
+		F61E3DCD1AAB707900204130 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				F674963B1A169DA20060ECA3 /* TextCell.h */,
+				F674963C1A169DA20060ECA3 /* TextCell.m */,
+				6C7B9D0819E72D9E00C86637 /* TextOptionCellInput.h */,
+				6C7B9D0919E72D9E00C86637 /* TextOptionCellInput.m */,
+			);
+			name = Text;
+			sourceTree = "<group>";
+		};
+		F61E3DCE1AAB708200204130 /* NumberPad */ = {
+			isa = PBXGroup;
+			children = (
+				F674963E1A169DB10060ECA3 /* NumberCell.h */,
+				F674963F1A169DB10060ECA3 /* NumberCell.m */,
+				6C7B9D0A19E72D9E00C86637 /* NumberOptionCellInput.h */,
+				6C7B9D0B19E72D9E00C86637 /* NumberOptionCellInput.m */,
+			);
+			name = NumberPad;
+			sourceTree = "<group>";
+		};
+		F61E3DCF1AAB708D00204130 /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				F67496411A169DBA0060ECA3 /* SliderCell.h */,
+				F67496421A169DBA0060ECA3 /* SliderCell.m */,
+				6C7B9D0419E72D9E00C86637 /* SliderOptionCellInput.h */,
+				6C7B9D0519E72D9E00C86637 /* SliderOptionCellInput.m */,
+			);
+			name = Slider;
+			sourceTree = "<group>";
+		};
+		F61E3DD01AAB709900204130 /* SegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				F67496441A169DEE0060ECA3 /* SegmentCell.h */,
+				F67496451A169DEE0060ECA3 /* SegmentCell.m */,
+				6C7B9D0219E72D9E00C86637 /* SegmentOptionCellInput.h */,
+				6C7B9D0319E72D9E00C86637 /* SegmentOptionCellInput.m */,
+			);
+			name = SegmentedControl;
+			sourceTree = "<group>";
+		};
+		F61E3DD11AAB70A500204130 /* Stepper */ = {
+			isa = PBXGroup;
+			children = (
+				F654ECFA1A427E7A002074DD /* StepperCell.h */,
+				F654ECFB1A427E7A002074DD /* StepperCell.m */,
+				F654ECFD1A42801E002074DD /* StepperOptionCellInput.h */,
+				F654ECFE1A42801E002074DD /* StepperOptionCellInput.m */,
+			);
+			name = Stepper;
+			sourceTree = "<group>";
+		};
+		F61E3DD21AAB70BB00204130 /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				F67496321A1696800060ECA3 /* BaseCell.h */,
 				F67496331A1696800060ECA3 /* BaseCell.m */,
-				F67496351A16989D0060ECA3 /* SwitchCell.h */,
-				F67496361A16989D0060ECA3 /* SwitchCell.m */,
-				F67496381A169D570060ECA3 /* DateCell.h */,
-				F67496391A169D570060ECA3 /* DateCell.m */,
-				F6B75EFF1A1BDE4C00099557 /* OptionCell.h */,
-				F6B75F001A1BDE4C00099557 /* OptionCell.m */,
-				F66F806C1A4687C50050A46E /* SegueCell.h */,
-				F66F806D1A4687C50050A46E /* SegueCell.m */,
-				F674963B1A169DA20060ECA3 /* TextCell.h */,
-				F674963C1A169DA20060ECA3 /* TextCell.m */,
-				F674963E1A169DB10060ECA3 /* NumberCell.h */,
-				F674963F1A169DB10060ECA3 /* NumberCell.m */,
-				F67496411A169DBA0060ECA3 /* SliderCell.h */,
-				F67496421A169DBA0060ECA3 /* SliderCell.m */,
-				F67496441A169DEE0060ECA3 /* SegmentCell.h */,
-				F67496451A169DEE0060ECA3 /* SegmentCell.m */,
-				F654ECFA1A427E7A002074DD /* StepperCell.h */,
-				F654ECFB1A427E7A002074DD /* StepperCell.m */,
-				F64EE6CE1A787DE400C5683E /* SimpleActionSheetCell.h */,
-				F64EE6CF1A787DE400C5683E /* SimpleActionSheetCell.m */,
-				F6BF95751A81510C00D1955E /* WebLinkCell.h */,
-				F6BF95761A81510C00D1955E /* WebLinkCell.m */,
-				F6AFFCF81A9D434100F51A6A /* InAppPurchaseCell.h */,
-				F6AFFCF91A9D434100F51A6A /* InAppPurchaseCell.m */,
+				6C7B9D0019E72D9E00C86637 /* BaseOptionCellInput.h */,
+				6C7B9D0119E72D9E00C86637 /* BaseOptionCellInput.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		F61E3DD31AAB70F300204130 /* Button */ = {
+			isa = PBXGroup;
+			children = (
 				6C17BDD41AA6544500DB2338 /* ButtonCell.h */,
 				6C17BDD51AA6544500DB2338 /* ButtonCell.m */,
+				6C17BDD71AA654F900DB2338 /* ButtonOptionCellInput.h */,
+				6C17BDD81AA654F900DB2338 /* ButtonOptionCellInput.m */,
+			);
+			name = Button;
+			sourceTree = "<group>";
+		};
+		F61E3DD41AAB70FE00204130 /* In App Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				F6AFFCF81A9D434100F51A6A /* InAppPurchaseCell.h */,
+				F6AFFCF91A9D434100F51A6A /* InAppPurchaseCell.m */,
+				F6AFFCFB1A9D45B100F51A6A /* PurchaseOptionCellInput.h */,
+				F6AFFCFC1A9D45B100F51A6A /* PurchaseOptionCellInput.m */,
+			);
+			name = "In App Purchase";
+			sourceTree = "<group>";
+		};
+		F61E3DD51AAB711B00204130 /* ActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				F64EE6CE1A787DE400C5683E /* SimpleActionSheetCell.h */,
+				F64EE6CF1A787DE400C5683E /* SimpleActionSheetCell.m */,
+				6C7B9D0E19E72D9E00C86637 /* ActionSheetOptionCellInput.h */,
+				6C7B9D0F19E72D9E00C86637 /* ActionSheetOptionCellInput.m */,
+				F64EE6D11A787F9100C5683E /* SimpleActionSheetOptionCellInput.h */,
+				F64EE6D21A787F9100C5683E /* SimpleActionSheetOptionCellInput.m */,
+			);
+			name = ActionSheet;
+			sourceTree = "<group>";
+		};
+		F61E3DD61AAB714400204130 /* WebLink */ = {
+			isa = PBXGroup;
+			children = (
+				F6BF95751A81510C00D1955E /* WebLinkCell.h */,
+				F6BF95761A81510C00D1955E /* WebLinkCell.m */,
+				F6BF95781A815CD600D1955E /* WebLinkOptionCellInput.h */,
+				F6BF95791A815CD600D1955E /* WebLinkOptionCellInput.m */,
+			);
+			name = WebLink;
+			sourceTree = "<group>";
+		};
+		F61E3DD71AAB718700204130 /* Segue */ = {
+			isa = PBXGroup;
+			children = (
+				F66F806C1A4687C50050A46E /* SegueCell.h */,
+				F66F806D1A4687C50050A46E /* SegueCell.m */,
+				F66F806F1A46893A0050A46E /* SegueOptionCellInput.h */,
+				F66F80701A46893A0050A46E /* SegueOptionCellInput.m */,
+			);
+			name = Segue;
+			sourceTree = "<group>";
+		};
+		F61E3DD81AAB71B800204130 /* MultipleOptions Picker */ = {
+			isa = PBXGroup;
+			children = (
+				F6B75EFF1A1BDE4C00099557 /* OptionCell.h */,
+				F6B75F001A1BDE4C00099557 /* OptionCell.m */,
+				6C17BDDA1AA659E100DB2338 /* OptionPickerCellInput.h */,
+				6C17BDDB1AA659E100DB2338 /* OptionPickerCellInput.m */,
+				6C7B9D3119E7369A00C86637 /* DynamicTableViewCellOptionsPickerViewController.h */,
+				6C7B9D3219E7369A00C86637 /* DynamicTableViewCellOptionsPickerViewController.m */,
+			);
+			name = "MultipleOptions Picker";
+			sourceTree = "<group>";
+		};
+		F61E3DD91AAB71CD00204130 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F61E3DD21AAB70BB00204130 /* Base */,
+				F61E3DCB1AAB705E00204130 /* Switch */,
+				F61E3DCC1AAB706900204130 /* Date */,
+				F61E3DD81AAB71B800204130 /* MultipleOptions Picker */,
+				F61E3DCD1AAB707900204130 /* Text */,
+				F61E3DD31AAB70F300204130 /* Button */,
+				F61E3DCE1AAB708200204130 /* NumberPad */,
+				F61E3DCF1AAB708D00204130 /* Slider */,
+				F61E3DD01AAB709900204130 /* SegmentedControl */,
+				F61E3DD11AAB70A500204130 /* Stepper */,
+				F61E3DD51AAB711B00204130 /* ActionSheet */,
+			);
+			name = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		F61E3DDA1AAB71F300204130 /* Helper/Signal cells */ = {
+			isa = PBXGroup;
+			children = (
+				F61E3DD71AAB718700204130 /* Segue */,
+				F61E3DD61AAB714400204130 /* WebLink */,
+				F61E3DD41AAB70FE00204130 /* In App Purchase */,
+			);
+			name = "Helper/Signal cells";
+			sourceTree = "<group>";
+		};
+		F61E3DDB1AAB723D00204130 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				F681A8F91A4395FE00992935 /* DynamicTableView.h */,
+				F66F806B1A467E1E0050A46E /* DynamicTableViewCells.h */,
+				F6BF66691A1AE6A600362F7C /* DynamicTableViewConstants.h */,
+				6C7B9D1819E72DBC00C86637 /* Helper Protocols */,
+			);
+			name = Setup;
+			sourceTree = "<group>";
+		};
+		F6482AB71A16947000865039 /* AutoLayoutCellClasses */ = {
+			isa = PBXGroup;
+			children = (
+				F61E3DD91AAB71CD00204130 /* Model Controllers */,
+				F61E3DDA1AAB71F300204130 /* Helper/Signal cells */,
 			);
 			name = AutoLayoutCellClasses;
 			sourceTree = "<group>";

@@ -8,6 +8,9 @@
 
 #import "BaseCell.h"
 
+/**
+ *  Simple Cell with a button that can perform a selector/block
+ */
 @interface ButtonCell : BaseCell
 @property (nonatomic, strong) IBOutlet UIButton *actionButton;
 

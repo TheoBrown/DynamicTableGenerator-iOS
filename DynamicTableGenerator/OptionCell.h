@@ -9,7 +9,9 @@
 #import "BaseCell.h"
 #import "DynamicTableViewCellOptionsPickerViewController.h"
 
-
+/**
+ *  `OptionCell` allows picking multiple items out of an array using `DynamicTableViewCellOptionsPickerViewController`
+ */
 @interface OptionCell : BaseCell <resultArrayDelegate>
 
 @property (nonatomic, strong) DynamicTableViewCellOptionsPickerViewController * resultsViewController;

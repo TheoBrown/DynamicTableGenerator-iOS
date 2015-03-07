@@ -9,7 +9,7 @@
 #import "BaseOptionCellInput.h"
 
 /**
- <#Description#>
+ Simple Cell to perform a Segue to a destination view controller when selected
  */
 @interface SegueOptionCellInput : BaseOptionCellInput
 -(id) initSegueOptionCellInputForVC:(id) viewController withTitle:(NSString*) cellTitle  inSection:(NSString*) newSectionHeader;
