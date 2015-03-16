@@ -272,7 +272,7 @@ extern const double EARTH_RADIUS;
         NSString* defaultValue;
         NSString* classString = NSStringFromClass([cellInput.value class]);
         NSLog(@"Class stirng %@ %@",classString,[classString class]);
-        if ([[classString lowercaseString] containsString:@"string"]) {
+        if ([[classString lowercaseString] rangeOfString:@"string"].location != NSNotFound) {
             defaultValue=cellInput.value;
         }
         else if ([cellInput.value class]==[NSNumber class]) {

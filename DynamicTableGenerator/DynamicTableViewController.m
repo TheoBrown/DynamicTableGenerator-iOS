@@ -236,6 +236,61 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Determine which reuse identifier should be used for the cell at this index path.
+
+    // Use a dictionary of offscreen cells to get a cell for the reuse identifier, creating a cell and storing
+    // it in the dictionary if one hasn't already been added for the reuse identifier.
+    // WARNING: Don't call the table view's dequeueReusableCellWithIdentifier: method here because this will result
+    // in a memory leak as the cell is created but never returned from the tableView:cellForRowAtIndexPath: method!
+    UITableViewCell* cell =[self.cellManager getCellatIndexPath:indexPath andDelegate:self];
+    
+    
+    // Configure the cell with content for the given indexPath, for example:
+    // cell.textLabel.text = someTextForThisCell;
+    // ...
+    
+    // Make sure the constraints have been set up for this cell, since it may have just been created from scratch.
+    // Use the following lines, assuming you are setting up constraints from within the cell's updateConstraints method:
+    [cell setNeedsUpdateConstraints];
+    [cell updateConstraintsIfNeeded];
+    
+    // Set the width of the cell to match the width of the table view. This is important so that we'll get the
+    // correct cell height for different table view widths if the cell's height depends on its width (due to
+    // multi-line UILabels word wrapping, etc). We don't need to do this above in -[tableView:cellForRowAtIndexPath]
+    // because it happens automatically when the cell is used in the table view.
+    // Also note, the final width of the cell may not be the width of the table view in some cases, for example when a
+    // section index is displayed along the right side of the table view. You must account for the reduced cell width.
+    cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), CGRectGetHeight(cell.bounds));
+    
+    // Do the layout pass on the cell, which will calculate the frames for all the views based on the constraints.
+    // (Note that you must set the preferredMaxLayoutWidth on multi-line UILabels inside the -[layoutSubviews] method
+    // of the UITableViewCell subclass, or do it manually at this point before the below 2 lines!)
+    [cell setNeedsLayout];
+    [cell layoutIfNeeded];
+    
+    // Get the actual height required for the cell's contentView
+    CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    
+    // Add an extra point to the height to account for the cell separator, which is added between the bottom
+    // of the cell's contentView and the bottom of the table view cell.
+    height += 1.0f;
+    
+    return height;
+}
+
+// NOTE: Set the table view's estimatedRowHeight property instead of implementing the below method, UNLESS
+// you have extreme variability in your row heights and you notice the scroll indicator "jumping" as you scroll.
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Do the minimal calculations required to be able to return an estimated row height that's
+    // within an order of magnitude of the actual height.
+    // For example:
+
+        return 65.0f;
+    
+}
 #pragma mark - Table view delegate
 /**
  *  Selector performed by TableCell classes when the cell is clicked/selected. Automatically removes eidting windows and scrolls to the selected cell
