@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>attributeName</key>
+		<string>first_name</string>
+		<key>cellPosition</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>attributeName</key>
+		<string>last_name</string>
+		<key>cellPosition</key>
+		<integer>1</integer>
+	</dict>
+	<dict>
+		<key>attributeName</key>
+		<string>first_name</string>
+		<key>cellPosition</key>
+		<integer>2</integer>
+	</dict>
+	<dict>
+		<key>attributeName</key>
+		<string>first_name</string>
+		<key>cellPosition</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>attributeName</key>
+		<string>gpa__f</string>
+		<key>cellType</key>
+		<string>slider</string>
+		<key>cellPosition</key>
+		<integer>0</integer>
+		<key>cellSection</key>
+		<string>Number Section</string>
+		<key>displayTitle</key>
+		<string>show this instead of auto string</string>
+		<key>defaultValue</key>
+		<integer>2</integer>
+		<key>maxValue</key>
+		<integer>4</integer>
+		<key>minValue</key>
+		<integer>0</integer>
+	</dict>
+</array>
+</plist>

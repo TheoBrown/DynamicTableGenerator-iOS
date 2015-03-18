@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C7E438AD7C6FC05483933E3A /* libPods-Example-DynamicTableGenerator+CoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1098394F3E113811345F6962 /* libPods-Example-DynamicTableGenerator+CoreData.a */; };
+		F66B89EF1AB8F9EB00FAC782 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F66B89EE1AB8F9EB00FAC782 /* main.m */; };
+		F66B89F21AB8F9EB00FAC782 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F66B89F11AB8F9EB00FAC782 /* AppDelegate.m */; };
+		F66B89F51AB8F9EB00FAC782 /* Example_DynamicTableGenerator_CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F66B89F31AB8F9EB00FAC782 /* Example_DynamicTableGenerator_CoreData.xcdatamodeld */; };
+		F66B89F81AB8F9EB00FAC782 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F66B89F71AB8F9EB00FAC782 /* MasterViewController.m */; };
+		F66B89FB1AB8F9EB00FAC782 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F66B89FA1AB8F9EB00FAC782 /* DetailViewController.m */; };
+		F66B89FE1AB8F9EB00FAC782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66B89FC1AB8F9EB00FAC782 /* Main.storyboard */; };
+		F66B8A001AB8F9EB00FAC782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F66B89FF1AB8F9EB00FAC782 /* Images.xcassets */; };
+		F66B8A031AB8F9EB00FAC782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66B8A011AB8F9EB00FAC782 /* LaunchScreen.xib */; };
+		F66B8A0F1AB8F9EB00FAC782 /* Example_DynamicTableGenerator_CoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F66B8A0E1AB8F9EB00FAC782 /* Example_DynamicTableGenerator_CoreDataTests.m */; };
+		F6DBDEF41AB902900012FACD /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = F6DBDEF31AB902900012FACD /* Entry.m */; };
+		F6DBDEF61AB907890012FACD /* defaultFormPropertys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6DBDEF51AB907890012FACD /* defaultFormPropertys.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F66B8A091AB8F9EB00FAC782 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F66B89E11AB8F9EB00FAC782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F66B89E81AB8F9EB00FAC782;
+			remoteInfo = "Example-DynamicTableGenerator+CoreData";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1098394F3E113811345F6962 /* libPods-Example-DynamicTableGenerator+CoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Example-DynamicTableGenerator+CoreData.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		30DAC6F51C85AC4810A7BD42 /* Pods-Example-DynamicTableGenerator+CoreData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example-DynamicTableGenerator+CoreData.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example-DynamicTableGenerator+CoreData/Pods-Example-DynamicTableGenerator+CoreData.debug.xcconfig"; sourceTree = "<group>"; };
+		963133F4907050AC8676C863 /* Pods-Example-DynamicTableGenerator+CoreData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example-DynamicTableGenerator+CoreData.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example-DynamicTableGenerator+CoreData/Pods-Example-DynamicTableGenerator+CoreData.release.xcconfig"; sourceTree = "<group>"; };
+		F66B89E91AB8F9EB00FAC782 /* Example-DynamicTableGenerator+CoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-DynamicTableGenerator+CoreData.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F66B89ED1AB8F9EB00FAC782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F66B89EE1AB8F9EB00FAC782 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F66B89F01AB8F9EB00FAC782 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F66B89F11AB8F9EB00FAC782 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F66B89F41AB8F9EB00FAC782 /* Example_DynamicTableGenerator_CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Example_DynamicTableGenerator_CoreData.xcdatamodel; sourceTree = "<group>"; };
+		F66B89F61AB8F9EB00FAC782 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		F66B89F71AB8F9EB00FAC782 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		F66B89F91AB8F9EB00FAC782 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		F66B89FA1AB8F9EB00FAC782 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		F66B89FD1AB8F9EB00FAC782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F66B89FF1AB8F9EB00FAC782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F66B8A021AB8F9EB00FAC782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F66B8A081AB8F9EB00FAC782 /* Example-DynamicTableGenerator+CoreDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Example-DynamicTableGenerator+CoreDataTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F66B8A0D1AB8F9EB00FAC782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F66B8A0E1AB8F9EB00FAC782 /* Example_DynamicTableGenerator_CoreDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Example_DynamicTableGenerator_CoreDataTests.m; sourceTree = "<group>"; };
+		F6AF3D161AB8FBCE0063E4ED /* Example_DynamicTableGenerator_CoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Example_DynamicTableGenerator_CoreData 2.xcdatamodel"; sourceTree = "<group>"; };
+		F6DBDEF11AB902840012FACD /* Example_DynamicTableGenerator_CoreData 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Example_DynamicTableGenerator_CoreData 3.xcdatamodel"; sourceTree = "<group>"; };
+		F6DBDEF21AB902900012FACD /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		F6DBDEF31AB902900012FACD /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
+		F6DBDEF51AB907890012FACD /* defaultFormPropertys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultFormPropertys.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F66B89E61AB8F9EB00FAC782 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7E438AD7C6FC05483933E3A /* libPods-Example-DynamicTableGenerator+CoreData.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F66B8A051AB8F9EB00FAC782 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6823E97686D1A71B429C0A1F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				30DAC6F51C85AC4810A7BD42 /* Pods-Example-DynamicTableGenerator+CoreData.debug.xcconfig */,
+				963133F4907050AC8676C863 /* Pods-Example-DynamicTableGenerator+CoreData.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E678BC33E6289546F6B3CBAE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1098394F3E113811345F6962 /* libPods-Example-DynamicTableGenerator+CoreData.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F66B89E01AB8F9EB00FAC782 = {
+			isa = PBXGroup;
+			children = (
+				F66B89EB1AB8F9EB00FAC782 /* Example-DynamicTableGenerator+CoreData */,
+				F66B8A0B1AB8F9EB00FAC782 /* Example-DynamicTableGenerator+CoreDataTests */,
+				F66B89EA1AB8F9EB00FAC782 /* Products */,
+				6823E97686D1A71B429C0A1F /* Pods */,
+				E678BC33E6289546F6B3CBAE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F66B89EA1AB8F9EB00FAC782 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F66B89E91AB8F9EB00FAC782 /* Example-DynamicTableGenerator+CoreData.app */,
+				F66B8A081AB8F9EB00FAC782 /* Example-DynamicTableGenerator+CoreDataTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F66B89EB1AB8F9EB00FAC782 /* Example-DynamicTableGenerator+CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F66B89F01AB8F9EB00FAC782 /* AppDelegate.h */,
+				F66B89F11AB8F9EB00FAC782 /* AppDelegate.m */,
+				F66B89F61AB8F9EB00FAC782 /* MasterViewController.h */,
+				F66B89F71AB8F9EB00FAC782 /* MasterViewController.m */,
+				F66B89F91AB8F9EB00FAC782 /* DetailViewController.h */,
+				F66B89FA1AB8F9EB00FAC782 /* DetailViewController.m */,
+				F66B89FC1AB8F9EB00FAC782 /* Main.storyboard */,
+				F66B89FF1AB8F9EB00FAC782 /* Images.xcassets */,
+				F66B8A011AB8F9EB00FAC782 /* LaunchScreen.xib */,
+				F66B89F31AB8F9EB00FAC782 /* Example_DynamicTableGenerator_CoreData.xcdatamodeld */,
+				F6DBDEF21AB902900012FACD /* Entry.h */,
+				F6DBDEF51AB907890012FACD /* defaultFormPropertys.plist */,
+				F6DBDEF31AB902900012FACD /* Entry.m */,
+				F66B89EC1AB8F9EB00FAC782 /* Supporting Files */,
+			);
+			path = "Example-DynamicTableGenerator+CoreData";
+			sourceTree = "<group>";
+		};
+		F66B89EC1AB8F9EB00FAC782 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F66B89ED1AB8F9EB00FAC782 /* Info.plist */,
+				F66B89EE1AB8F9EB00FAC782 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F66B8A0B1AB8F9EB00FAC782 /* Example-DynamicTableGenerator+CoreDataTests */ = {
+			isa = PBXGroup;
+			children = (
+				F66B8A0E1AB8F9EB00FAC782 /* Example_DynamicTableGenerator_CoreDataTests.m */,
+				F66B8A0C1AB8F9EB00FAC782 /* Supporting Files */,
+			);
+			path = "Example-DynamicTableGenerator+CoreDataTests";
+			sourceTree = "<group>";
+		};
+		F66B8A0C1AB8F9EB00FAC782 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F66B8A0D1AB8F9EB00FAC782 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F66B89E81AB8F9EB00FAC782 /* Example-DynamicTableGenerator+CoreData */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F66B8A121AB8F9EB00FAC782 /* Build configuration list for PBXNativeTarget "Example-DynamicTableGenerator+CoreData" */;
+			buildPhases = (
+				0C6FAB523387AC70BFF810F7 /* Check Pods Manifest.lock */,
+				F66B89E51AB8F9EB00FAC782 /* Sources */,
+				F66B89E61AB8F9EB00FAC782 /* Frameworks */,
+				F66B89E71AB8F9EB00FAC782 /* Resources */,
+				A5BFBDB277754E9D7C6FD065 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Example-DynamicTableGenerator+CoreData";
+			productName = "Example-DynamicTableGenerator+CoreData";
+			productReference = F66B89E91AB8F9EB00FAC782 /* Example-DynamicTableGenerator+CoreData.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F66B8A071AB8F9EB00FAC782 /* Example-DynamicTableGenerator+CoreDataTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F66B8A151AB8F9EB00FAC782 /* Build configuration list for PBXNativeTarget "Example-DynamicTableGenerator+CoreDataTests" */;
+			buildPhases = (
+				F66B8A041AB8F9EB00FAC782 /* Sources */,
+				F66B8A051AB8F9EB00FAC782 /* Frameworks */,
+				F66B8A061AB8F9EB00FAC782 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F66B8A0A1AB8F9EB00FAC782 /* PBXTargetDependency */,
+			);
+			name = "Example-DynamicTableGenerator+CoreDataTests";
+			productName = "Example-DynamicTableGenerator+CoreDataTests";
+			productReference = F66B8A081AB8F9EB00FAC782 /* Example-DynamicTableGenerator+CoreDataTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F66B89E11AB8F9EB00FAC782 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = DirectDiagnostics;
+				TargetAttributes = {
+					F66B89E81AB8F9EB00FAC782 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					F66B8A071AB8F9EB00FAC782 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = F66B89E81AB8F9EB00FAC782;
+					};
+				};
+			};
+			buildConfigurationList = F66B89E41AB8F9EB00FAC782 /* Build configuration list for PBXProject "Example-DynamicTableGenerator+CoreData" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F66B89E01AB8F9EB00FAC782;
+			productRefGroup = F66B89EA1AB8F9EB00FAC782 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F66B89E81AB8F9EB00FAC782 /* Example-DynamicTableGenerator+CoreData */,
+				F66B8A071AB8F9EB00FAC782 /* Example-DynamicTableGenerator+CoreDataTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F66B89E71AB8F9EB00FAC782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F66B89FE1AB8F9EB00FAC782 /* Main.storyboard in Resources */,
+				F6DBDEF61AB907890012FACD /* defaultFormPropertys.plist in Resources */,
+				F66B8A031AB8F9EB00FAC782 /* LaunchScreen.xib in Resources */,
+				F66B8A001AB8F9EB00FAC782 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F66B8A061AB8F9EB00FAC782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C6FAB523387AC70BFF810F7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A5BFBDB277754E9D7C6FD065 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example-DynamicTableGenerator+CoreData/Pods-Example-DynamicTableGenerator+CoreData-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F66B89E51AB8F9EB00FAC782 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6DBDEF41AB902900012FACD /* Entry.m in Sources */,
+				F66B89FB1AB8F9EB00FAC782 /* DetailViewController.m in Sources */,
+				F66B89F81AB8F9EB00FAC782 /* MasterViewController.m in Sources */,
+				F66B89F21AB8F9EB00FAC782 /* AppDelegate.m in Sources */,
+				F66B89F51AB8F9EB00FAC782 /* Example_DynamicTableGenerator_CoreData.xcdatamodeld in Sources */,
+				F66B89EF1AB8F9EB00FAC782 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F66B8A041AB8F9EB00FAC782 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F66B8A0F1AB8F9EB00FAC782 /* Example_DynamicTableGenerator_CoreDataTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F66B8A0A1AB8F9EB00FAC782 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F66B89E81AB8F9EB00FAC782 /* Example-DynamicTableGenerator+CoreData */;
+			targetProxy = F66B8A091AB8F9EB00FAC782 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F66B89FC1AB8F9EB00FAC782 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F66B89FD1AB8F9EB00FAC782 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F66B8A011AB8F9EB00FAC782 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F66B8A021AB8F9EB00FAC782 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F66B8A101AB8F9EB00FAC782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F66B8A111AB8F9EB00FAC782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F66B8A131AB8F9EB00FAC782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30DAC6F51C85AC4810A7BD42 /* Pods-Example-DynamicTableGenerator+CoreData.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Example-DynamicTableGenerator+CoreData/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F66B8A141AB8F9EB00FAC782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 963133F4907050AC8676C863 /* Pods-Example-DynamicTableGenerator+CoreData.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Example-DynamicTableGenerator+CoreData/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F66B8A161AB8F9EB00FAC782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Example-DynamicTableGenerator+CoreDataTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example-DynamicTableGenerator+CoreData.app/Example-DynamicTableGenerator+CoreData";
+			};
+			name = Debug;
+		};
+		F66B8A171AB8F9EB00FAC782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Example-DynamicTableGenerator+CoreDataTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example-DynamicTableGenerator+CoreData.app/Example-DynamicTableGenerator+CoreData";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F66B89E41AB8F9EB00FAC782 /* Build configuration list for PBXProject "Example-DynamicTableGenerator+CoreData" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F66B8A101AB8F9EB00FAC782 /* Debug */,
+				F66B8A111AB8F9EB00FAC782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F66B8A121AB8F9EB00FAC782 /* Build configuration list for PBXNativeTarget "Example-DynamicTableGenerator+CoreData" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F66B8A131AB8F9EB00FAC782 /* Debug */,
+				F66B8A141AB8F9EB00FAC782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F66B8A151AB8F9EB00FAC782 /* Build configuration list for PBXNativeTarget "Example-DynamicTableGenerator+CoreDataTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F66B8A161AB8F9EB00FAC782 /* Debug */,
+				F66B8A171AB8F9EB00FAC782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F66B89F31AB8F9EB00FAC782 /* Example_DynamicTableGenerator_CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F6DBDEF11AB902840012FACD /* Example_DynamicTableGenerator_CoreData 3.xcdatamodel */,
+				F6AF3D161AB8FBCE0063E4ED /* Example_DynamicTableGenerator_CoreData 2.xcdatamodel */,
+				F66B89F41AB8F9EB00FAC782 /* Example_DynamicTableGenerator_CoreData.xcdatamodel */,
+			);
+			currentVersion = F66B89F41AB8F9EB00FAC782 /* Example_DynamicTableGenerator_CoreData.xcdatamodel */;
+			path = Example_DynamicTableGenerator_CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F66B89E11AB8F9EB00FAC782 /* Project object */;
+}
