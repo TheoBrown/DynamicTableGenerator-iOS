@@ -468,6 +468,7 @@ extern const double EARTH_RADIUS;
 
         }
         cell.title.text = cellInput.IAPproduct.localizedTitle; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
+        NSLog(@"IAP cell %@ %@",cellInput.IAPproduct.localizedTitle,[cellInput displayPrice]);
         cell.delegate = cellInput;
         cell.indexPath = indexPath;
         cell.tableViewDelegate = delegateToAssign;
