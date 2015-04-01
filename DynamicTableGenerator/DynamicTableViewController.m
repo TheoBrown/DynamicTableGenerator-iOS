@@ -318,6 +318,18 @@
 }
 #endif
 
+// NOTE: Set the table view's estimatedRowHeight property instead of implementing the below method, UNLESS
+// you have extreme variability in your row heights and you notice the scroll indicator "jumping" as you scroll.
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Do the minimal calculations required to be able to return an estimated row height that's
+    // within an order of magnitude of the actual height.
+    // For example:
+
+        return 65.0f;
+    
+}
+
 #pragma mark - Table view delegate
 /**
  *  Selector performed by TableCell classes when the cell is clicked/selected. Automatically removes eidting windows and scrolls to the selected cell

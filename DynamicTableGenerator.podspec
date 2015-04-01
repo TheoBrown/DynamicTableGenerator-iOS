@@ -16,16 +16,16 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DynamicTableGenerator"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "DynamicTableGenerator allows fast and simple creation of table views and data entry forms for gathering user input in iOS."
 
   s.description  = <<-DESC
                    A longer description of DynamicTableGenerator in Markdown format.
 
-                   * Think: Why did you write this? What is the focus? What does it do?
-                   * CocoaPods will be using this to generate tags, and improve search results.
-                   * Try to keep it short, snappy and to the point.
-                   * Finally, don't worry about the indent, CocoaPods strips it!
+                   * DynamicTableGenerator is designed to make creating UITableViews fast and simple
+                   * With this pod you can automatically create a tableview from any NSObject (or Including NSManagedObjects and even UIViewControllers!)
+                    * Simply pass in an object, and a tableview cell is automatically created with the apprpriate input type (switch,slider,text,etc) for each attribute of the object!
+
                    DESC
 
   s.homepage     = "http://tpb.directdiagnostics.org"

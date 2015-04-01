@@ -272,8 +272,8 @@ extern const double EARTH_RADIUS;
         NSString* defaultValue;
         NSString* classString = NSStringFromClass([cellInput.value class]);
         NSLog(@"Class stirng %@ %@",classString,[classString class]);
-#ifdef IOS
-        if ([[classString lowercaseString] containsString:@"string"]) {
+
+        if ([[classString lowercaseString] rangeOfString:@"string"].location != NSNotFound) {
             defaultValue=cellInput.value;
         }
         else if ([cellInput.value class]==[NSNumber class]) {
@@ -469,6 +469,7 @@ extern const double EARTH_RADIUS;
 
         }
         cell.title.text = cellInput.IAPproduct.localizedTitle; //optionsArray[indexPath.section][1][indexPath.row][@"return"];
+        NSLog(@"IAP cell %@ %@",cellInput.IAPproduct.localizedTitle,[cellInput displayPrice]);
         cell.delegate = cellInput;
         cell.indexPath = indexPath;
         cell.tableViewDelegate = delegateToAssign;
