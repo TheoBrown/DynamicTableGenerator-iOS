@@ -40,7 +40,6 @@ Pod::Spec.new do |s|
   #
 
   s.license      = "MIT"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -54,9 +53,7 @@ Pod::Spec.new do |s|
   #
   
   s.author             = { "tpb" => "theobrown0@gmail.com" }
-  # Or just: s.author    = "tpb"
-  # s.authors            = { "tpb" => "theobrown0@gmail.com" }
-  # s.social_media_url   = "http://twitter.com/tpb"
+
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -65,11 +62,7 @@ Pod::Spec.new do |s|
   #
 
   s.platform     = :ios, "7.0"
-  # s.platform     = :ios, "5.0"
 
-  #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
-  # s.osx.deployment_target = "10.7"
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -78,7 +71,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/TheoBrown/DynamicTableGenerator-iOS.git", :tag => "0.0.2" }
+  s.source       = { :git => "https://github.com/TheoBrown/DynamicTableGenerator-iOS.git", :tag => "0.0.3" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -95,31 +88,14 @@ Pod::Spec.new do |s|
    s.public_header_files = "DynamicTableGenerator/**/*.h"
 
 
-  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  A list of resources included with the Pod. These are copied into the
-  #  target bundle with a build phase script. Anything else will be cleaned.
-  #  You can preserve files from being cleaned, please don't preserve
-  #  non-essential files like tests, examples and documentation.
-  #
-
-  # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
-
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
-
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  Link your library with frameworks, or libraries. Libraries do not include
   #  the lib prefix of their name.
   #
-   s.framework = "UIKit"
-  # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
 
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
+s.framework = "UIKit"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -130,9 +106,7 @@ Pod::Spec.new do |s|
 
    s.requires_arc = true
 
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
   s.dependency 'ActionSheetPicker-3.0', '~> 1.1.19'
   s.dependency 'PureLayout'
-  s.dependency 'FXBlurView'
+    s.dependency 'FXBlurView'
 end

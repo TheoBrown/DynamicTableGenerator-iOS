@@ -26,8 +26,9 @@
         [self.contentView addSubview:self.sliderLable];
 
     }
-    
+    [self setNeedsUpdateConstraints];
     return self;
+    
 }
 
 - (void)updateConstraints
@@ -45,12 +46,14 @@
         }];
         [self.sliderLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
         [self.sliderLable autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
-        
-        [self.cellSlider autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.title withOffset:kLabelHorizontalSpace];
+        [self.sliderLable autoSetDimension:ALDimensionWidth toSize:20.0 relation:NSLayoutRelationGreaterThanOrEqual];
 
-        [self.cellSlider autoPinEdge:ALEdgeRight toEdge:ALEdgeLeft ofView:self.sliderLable withOffset:kLabelHorizontalSpace];
+        [self.cellSlider autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:self.title withOffset:3*kLabelHorizontalSpace];
+        [self.cellSlider autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:20.0 relation:NSLayoutRelationGreaterThanOrEqual];
+
+        [self.cellSlider autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:self.sliderLable withOffset:20.0];
         [self.cellSlider autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
-
+        
         self.didSetupAcessoryConstraints = YES;
     }
     
