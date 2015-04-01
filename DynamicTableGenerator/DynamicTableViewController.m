@@ -11,6 +11,7 @@
 #import "TableViewNavigationBar.h"
 #import "BaseCell.h"
 
+
 @implementation DynamicTableViewController
 @synthesize optionsDelegate, cellManager;
 @synthesize resultDict;
@@ -50,12 +51,37 @@
 //    NSLog(@"Dynamic Table View Controller setup with array %@" , [cellInputArray description]);
 }
 
-
+//- (BOOL)respondsToSelector:(SEL)selector {
+//    /**
+//     *  This ensures tableView:heightForRowAtIndexPath will only be called if we are on iOS 7
+//     */
+//    static BOOL useSelector;
+//    static dispatch_once_t predicate = 0;
+//    dispatch_once(&predicate, ^{
+//        useSelector = [[UIDevice currentDevice].systemVersion floatValue] < 8.0 ? YES : NO;
+//        
+//    });
+//    NSLog(@"use selector %d",useSelector);
+//    if (selector == @selector(tableView:heightForRowAtIndexPath:)) {
+//        return useSelector;
+//    }
+//    
+//    return [super respondsToSelector:selector];
+//}
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //check version
+    if (SYSTEM_VERSION_LESS_THAN(@"8.0")){//version is 7, 6 is not supported at all
+#define OS_VERSION_7 = 1
+        self.tableView.estimatedRowHeight = UITableViewAutomaticDimension;
+    }
+    else {
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.estimatedRowHeight = 44.0; // set this to whatever your "average" cell height is; it doesn't need to be very accurate
+    };
     CGFloat controlHeight = 40.0;
     CGRect tableFrame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.x, self.view.frame.size.width, self.view.frame.size.height-controlHeight);
     self.tableView=[[UITableView alloc] initWithFrame:tableFrame style:self.tvStyle];
@@ -63,8 +89,6 @@
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 44.0; // set this to whatever your "average" cell height is; it doesn't need to be very accurate
     self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 250.0, 0.0);//large offset to not cover keyboard
     [self.view addSubview:self.tableView];
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveSettings:)];
@@ -83,6 +107,7 @@
     [self.cellManager setupAcessoryViewForFrame:tableFrame withDelegate:self];
     [self.view setNeedsUpdateConstraints];
 
+    
 }
 -(void) viewWillAppear:(BOOL)animated {
 
@@ -229,12 +254,69 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    NSLog(@"table view cellForRowAtIndexPath %@",[self stringForIndex:indexPath]);
+    NSLog(@"table view loading cell at %ld",indexPath.row);
 
     UITableViewCell * cell = [self.cellManager getCellatIndexPath:indexPath andDelegate:self];
+    NSLog(@"table view loaded cell at %@",cell);
+
     [cell setNeedsUpdateConstraints];
     [cell updateConstraintsIfNeeded];
     return cell;
 }
+
+#ifdef OS_VERSION_7
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // This project has only one cell identifier, but if you are have more than one, this is the time
+    // to figure out which reuse identifier should be used for the cell at this index path.
+    UITableViewCell* cell = [self.cellManager getCellatIndexPath:indexPath andDelegate:self];
+    
+    // Use the dictionary of offscreen cells to get a cell for the reuse identifier, creating a cell and storing
+    // it in the dictionary if one hasn't already been added for the reuse identifier.
+    // WARNING: Don't call the table view's dequeueReusableCellWithIdentifier: method here because this will result
+    // in a memory leak as the cell is created but never returned from the tableView:cellForRowAtIndexPath: method!
+//    RJTableViewCell *cell = [self.offscreenCells objectForKey:reuseIdentifier];
+//    if (!cell) {
+//        cell = [[RJTableViewCell alloc] init];
+//        [self.offscreenCells setObject:cell forKey:reuseIdentifier];
+//    }
+    
+//    // Configure the cell for this indexPath
+//    [cell updateFonts];
+//    NSDictionary *dataSourceItem = [self.model.dataSource objectAtIndex:indexPath.row];
+//    cell.titleLabel.text =  [dataSourceItem valueForKey:@"title"];
+//    cell.bodyLabel.text = [dataSourceItem valueForKey:@"body"];
+    
+    // Make sure the constraints have been added to this cell, since it may have just been created from scratch
+    [cell setNeedsUpdateConstraints];
+    [cell updateConstraintsIfNeeded];
+    
+    // The cell's width must be set to the same size it will end up at once it is in the table view.
+    // This is important so that we'll get the correct height for different table view widths, since our cell's
+    // height depends on its width due to the multi-line UILabel word wrapping. Don't need to do this above in
+    // -[tableView:cellForRowAtIndexPath:] because it happens automatically when the cell is used in the table view.
+    cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), CGRectGetHeight(cell.bounds));
+    // NOTE: if you are displaying a section index (e.g. alphabet along the right side of the table view), or
+    // if you are using a grouped table view style where cells have insets to the edges of the table view,
+    // you'll need to adjust the cell.bounds.size.width to be smaller than the full width of the table view we just
+    // set it to above. See http://stackoverflow.com/questions/3647242 for discussion on the section index width.
+    
+    // Do the layout pass on the cell, which will calculate the frames for all the views based on the constraints
+    // (Note that the preferredMaxLayoutWidth is set on multi-line UILabels inside the -[layoutSubviews] method
+    // in the UITableViewCell subclass
+    [cell setNeedsLayout];
+    [cell layoutIfNeeded];
+    
+    // Get the actual height required for the cell
+    CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    
+    // Add an extra point to the height to account for the cell separator, which is added between the bottom
+    // of the cell's contentView and the bottom of the table view cell.
+    height += 1;
+    NSLog(@"cell at %ld hieght = %f",indexPath.row,height);
+    return height;
+}
+#endif
 
 #pragma mark - Table view delegate
 /**
