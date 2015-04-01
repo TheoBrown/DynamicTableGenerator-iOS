@@ -109,4 +109,5 @@ s.framework = "UIKit"
   s.dependency 'ActionSheetPicker-3.0', '~> 1.1.19'
   s.dependency 'PureLayout'
     s.dependency 'FXBlurView'
+
 end
