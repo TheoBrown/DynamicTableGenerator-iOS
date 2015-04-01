@@ -2,6 +2,7 @@ DynamicTableGenerator is
 An Objective-C static library that makes creating table view forms, settings panels, and any form of user input quick and simple.
 
 
+####[iOS Acknowledgements- Example](https://github.com/TheoBrown/easyIOS-acknowledgements)
 
 ###Object/Form Setup
 
