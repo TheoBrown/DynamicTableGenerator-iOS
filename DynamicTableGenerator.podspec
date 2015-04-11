@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DynamicTableGenerator"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "DynamicTableGenerator allows fast and simple creation of table views and data entry forms for gathering user input"
 
   s.homepage     = "http://tpb.directdiagnostics.org"
