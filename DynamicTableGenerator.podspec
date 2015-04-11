@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DynamicTableGenerator"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "DynamicTableGenerator allows fast and simple creation of table views and data entry forms for gathering user input"
 
   s.homepage     = "http://tpb.directdiagnostics.org"
@@ -62,7 +62,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/TheoBrown/DynamicTableGenerator-iOS.git", :tag => "0.0.4" }
+  s.source       = { :git => "https://github.com/TheoBrown/DynamicTableGenerator-iOS.git", :tag => "0.0.5" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
