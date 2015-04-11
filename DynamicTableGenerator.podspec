@@ -17,16 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "DynamicTableGenerator"
   s.version      = "0.0.3"
-  s.summary      = "DynamicTableGenerator allows fast and simple creation of table views and data entry forms for gathering user input in iOS."
-
-  s.description  = <<-DESC
-                   A longer description of DynamicTableGenerator in Markdown format.
-
-                   * DynamicTableGenerator is designed to make creating UITableViews fast and simple
-                   * With this pod you can automatically create a tableview from any NSObject (or Including NSManagedObjects and even UIViewControllers!)
-                    * Simply pass in an object, and a tableview cell is automatically created with the apprpriate input type (switch,slider,text,etc) for each attribute of the object!
-
-                   DESC
+  s.summary      = "DynamicTableGenerator allows fast and simple creation of table views and data entry forms for gathering user input"
 
   s.homepage     = "http://tpb.directdiagnostics.org"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
@@ -106,7 +97,7 @@ s.framework = "UIKit"
 
    s.requires_arc = true
 
-  s.dependency 'ActionSheetPicker-3.0', '~> 1.1.19'
+s.dependency 'ActionSheetPicker-3.0'
   s.dependency 'PureLayout'
     s.dependency 'FXBlurView'
 

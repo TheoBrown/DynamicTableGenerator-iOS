@@ -157,8 +157,14 @@ NSString * const DTVCCellIdentifier_SegueCell = @"DTVC_SegueCell";
  */
 -(void) showContentFromSelector {
     NSLog(@"Show content force called %@",self.title.text);
-    if (self.contentSelector) {
-        [self performSelector:self.contentSelector withObject:self];
+        if (self.contentSelector) {
+
+    SEL selector = self.contentSelector;
+    IMP imp = [self methodForSelector:selector];
+    void (*func)(id, SEL) = (void *)imp;
+    func(self, selector);
+//    if (self.contentSelector) {
+//        [self performSelector:selector withObject:self];
     }
     [self contentWasSelected:self];
 }

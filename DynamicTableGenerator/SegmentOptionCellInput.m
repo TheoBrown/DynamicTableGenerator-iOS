@@ -52,10 +52,9 @@
 }
 - (void) cellDateSegmentDidChange: (NSIndexPath *) cellIndexPath startDate:(NSDate*) startDate endDate:(NSDate*)endDate{
     NSLog(@"Dates did change from %@ to %@",[startDate description], [endDate description]);
-    NSInteger sec = [cellIndexPath section];
-    NSInteger row = [cellIndexPath row];
-    NSIndexPath *startindexPath = [NSIndexPath indexPathForRow:(row-2) inSection:sec];
-    NSIndexPath *endindexPath = [NSIndexPath indexPathForRow:(row-1) inSection:sec];
+
+//    NSIndexPath *startindexPath = [NSIndexPath indexPathForRow:(row-2) inSection:sec];
+//    NSIndexPath *endindexPath = [NSIndexPath indexPathForRow:(row-1) inSection:sec];
     NSLog(@"Seting date display from Switch");
 //    CellWithDate *startDateCell = (CellWithDate *)[self.tableView cellForRowAtIndexPath:startindexPath];
 //    CellWithDate *endDateCell = (CellWithDate *)[self.tableView cellForRowAtIndexPath:endindexPath];

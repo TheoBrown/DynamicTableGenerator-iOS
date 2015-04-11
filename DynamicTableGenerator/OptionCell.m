@@ -77,7 +77,6 @@
         self.resultsViewController.selectedTestType = self.selectedTestType;
         [self.resultsViewController setOptionsArray:self.optionsArray];
         self.resultsViewController.resultDelegate = self;
-#warning will not work if no navigation controller exits
     
     [self.resultsViewController parseDefaultSelection:self.selectedOptionsArray];
 

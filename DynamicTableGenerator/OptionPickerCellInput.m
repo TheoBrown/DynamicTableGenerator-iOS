@@ -9,9 +9,12 @@
 #import "OptionPickerCellInput.h"
 
 @implementation OptionPickerCellInput
+
 -(NSString*) cellType {
     return DTVCCellIdentifier_OptionPickerCell;
 }
+
+
 
 -(id) initOptionInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withOptions:(NSArray*) optionsArray inSection:(NSString*) newSectionHeader {
     self = [super init];
@@ -26,6 +29,19 @@
     return self;
 }
 
+-(id) initOptionInputForObject:(id) managedObject forReturnKey:(NSString*)newReturnKey withTitle:(NSString*) cellTitle withOptions:(NSArray*) optionsArray withDefault:(NSNumber*) defaultSelection  inSection:(NSString*) newSectionHeader;
+{
+    self = [super init];
+    
+    if (self) {
+        
+        self = [self initType:[self cellType] forReturnKey:newReturnKey withTitle:cellTitle inSection:newSectionHeader];
+        
+        [self createDefaultValueForObject:managedObject orValue:optionsArray];
+        self.optionsArray = optionsArray;
+    }
+    return self;
+}
 
 #pragma mark - editable table cell delegate methods
 

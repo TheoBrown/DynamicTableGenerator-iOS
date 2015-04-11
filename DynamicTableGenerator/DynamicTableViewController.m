@@ -163,7 +163,7 @@
 
 
 - (void) didRotate:(NSNotification *)notification {
-    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+//    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
     [self.view setNeedsLayout];
     [self.view setNeedsDisplay];
     [self.tableView setNeedsLayout];
@@ -254,7 +254,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    NSLog(@"table view cellForRowAtIndexPath %@",[self stringForIndex:indexPath]);
-    NSLog(@"table view loading cell at %ld",indexPath.row);
+    NSLog(@"table view loading cell at %ld",(long)(long)indexPath.row);
 
     UITableViewCell * cell = [self.cellManager getCellatIndexPath:indexPath andDelegate:self];
     NSLog(@"table view loaded cell at %@",cell);
@@ -313,7 +313,7 @@
     // Add an extra point to the height to account for the cell separator, which is added between the bottom
     // of the cell's contentView and the bottom of the table view cell.
     height += 1;
-    NSLog(@"cell at %ld hieght = %f",indexPath.row,height);
+    NSLog(@"cell at %ld hieght = %f",(long)indexPath.row,height);
     return height;
 }
 #endif
@@ -392,10 +392,10 @@
 {
     [self.view endEditing:YES]; // dismiss current editing views
     
-    NSInteger lastRowInSection = [self.cellManager rowsInSection:self.currentSelection.section]-1;
+//    NSInteger lastRowInSection = [self.cellManager rowsInSection:self.currentSelection.section]-1;
     NSInteger lastSection = [self.cellManager.sectionHeaderArray count]-1;
-    NSInteger newRow;
-    NSInteger newSection;
+    NSInteger newRow=0;
+    NSInteger newSection=0;
     
     if(self.currentSelection){
         if (self.currentSelection.row > 0) {
@@ -427,8 +427,8 @@
     [self.view endEditing:YES]; // dismiss current editing views
     NSInteger lastRowInSection = [self.cellManager rowsInSection:self.currentSelection.section]-1;
     NSInteger lastSection = [self.cellManager.sectionHeaderArray count]-1;
-    NSInteger newRow;
-    NSInteger newSection;
+    NSInteger newRow=0;
+    NSInteger newSection=0;
 
     if(self.currentSelection){
         if (self.currentSelection.row <lastRowInSection) {

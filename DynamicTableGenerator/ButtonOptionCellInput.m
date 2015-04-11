@@ -32,7 +32,7 @@
 }
 
 -(void)cellButtonPressed:(NSIndexPath *)indexPath{
-    NSLog(@"Executing Block from cell %@ index %ld ", self.title,indexPath.row);
+    NSLog(@"Executing Block from cell %@ index %ld ", self.title,(long)(long)indexPath.row);
 
     self.callBackBlock();
 }

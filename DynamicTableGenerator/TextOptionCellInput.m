@@ -36,8 +36,6 @@
 
 #pragma mark - editable table cell delegate methods
 - (void) cellTextValueDidChange:(NSIndexPath *) cellIndexPath :(NSString *) newValue{
-    NSInteger sec = [cellIndexPath section];
-    NSInteger row = [cellIndexPath row];
     [self updateValue:newValue];
     [self saveObjectContext];
     

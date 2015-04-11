@@ -18,3 +18,7 @@
 
 -(NSString*) displayPrice;
 @end
+@protocol IAPCellDelegate <NSObject>
+-(void) buyProduct:(NSString*) productID;
+-(BOOL)productPurchased:(NSString*) productID;
+@end

@@ -96,7 +96,7 @@
 }
 
 - (void)buyButtonPressed:(id) sender {
-    UIButton *buyButton = (UIButton *)sender;
+//    UIButton *buyButton = (UIButton *)sender;
     
     if ([self.delegate respondsToSelector:@selector(cellPurchaseButtonPressed:)]){
         [self.delegate cellPurchaseButtonPressed:self.indexPath];

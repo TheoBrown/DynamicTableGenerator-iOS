@@ -28,7 +28,7 @@
     return self;
 }
 -(IBAction)segmentedControlChanged:(UISegmentedControl*)sender {
-    sender.selectedSegmentIndex;
+//    sender.selectedSegmentIndex;
     
 //    self.delegate cellSegmentIntClickerDidChange:self.indexPath withValue:<#(NSNumber *)#>
 }

@@ -60,9 +60,9 @@
         [self.view addSubview:self.nextButton];
         [self.view addSubview:self.previousButton];
         [self.view addSubview:self.doneButton];
-        CGFloat bWidth = 80;
+//        CGFloat bWidth = 80;
         CGFloat bHeight = 30;
-        CGFloat pad = 30;
+//        CGFloat pad = 30;
         CGFloat cum = 0;
         CGFloat yOffset = 5;
         CGFloat kBorderPad = 10;
@@ -74,7 +74,7 @@
         cum =kBorderPad+maxButtonWidth;
         self.nextButton.frame =  CGRectMake(kBorderPad+cum, yOffset, maxButtonWidth, bHeight);
         cum =cum +kBorderPad+maxButtonWidth;
-        CGFloat donePos = cum+pad;
+//        CGFloat donePos = cum+pad;
 //        CGFloat forcePos =self.view.frame.size.width -10-bWidth;
 //        NSLog(@"%f , %f",donePos,forcePos);
         self.doneButton.frame =  CGRectMake(cum+kBorderPad, yOffset, maxButtonWidth, bHeight);

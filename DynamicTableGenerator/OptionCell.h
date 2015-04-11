@@ -25,7 +25,7 @@
 @property (strong, nonatomic) NSArray* selectedOptionsArray;
 
 - (IBAction)buttonPressed:(UIControl *)sender;
--(void) setResultTypeFromURL:(NSURL *) objectURL;
+//-(void) setResultTypeFromURL:(NSURL *) objectURL;
 
 -(NSString*) combineStringsFromArray:(NSArray*) stringArray;
 
